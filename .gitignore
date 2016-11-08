@@ -26,3 +26,4 @@ _testmain.go
 # save directory
 save
 save/*
+*.json
