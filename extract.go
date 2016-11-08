@@ -74,29 +74,29 @@ func Filename(url string) string {
 	return reg.FindString(url)
 }
 
-func Download(html_url string, url_reg *regexp.Regexp, savename string) {
+func Download(html_url string, url_reg *regexp.Regexp, save_dir, savename string) {
 	urls := Extract(html_url, url_reg)
 	for i, pre_url := range urls {
 		url := GetURL(html_url, pre_url)
 		if savename == "" {
 			format := "%s"
 			savename = Filename(pre_url)
-			SaveFile(url, SAVE_DIR, fmt.Sprintf(format, savename))
+			SaveFile(url, save_dir, fmt.Sprintf(format, savename))
 		} else {
 			format := "%d_%s"
-			SaveFile(url, SAVE_DIR, fmt.Sprintf(format, i, savename))
+			SaveFile(url, save_dir, fmt.Sprintf(format, i, savename))
 		}
 
 	}
 }
 
-func GetY() {
+func GetY(save_dir string) {
 	savename := "y.zip"
-	Download(Y_PAGE_URL, Y_URL_REGEXP, savename)
+	Download(Y_PAGE_URL, Y_URL_REGEXP, save_dir, savename)
 }
 
-func GetHOT() {
-	Download(HOT_PAGE_URL, HOT_URL_REGEXP, "")
-	Download(HOT_ADDPAGE_URL, HOT_ADDURL_REGEXP, "")
-	Download(HOT_PAGE_URL, HOT_DELURL_REGEXP, "")
+func GetHOT(save_dir string) {
+	Download(HOT_PAGE_URL, HOT_URL_REGEXP, save_dir, "")
+	Download(HOT_ADDPAGE_URL, HOT_ADDURL_REGEXP, save_dir, "")
+	Download(HOT_DELPAGE_URL, HOT_DELURL_REGEXP, save_dir, "")
 }
