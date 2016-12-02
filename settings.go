@@ -25,6 +25,8 @@ var (
 
 	SAVE_DIR_Y   string
 	SAVE_DIR_HOT string
+
+	PROXY string
 )
 
 type Settings struct {
@@ -42,6 +44,8 @@ type Settings struct {
 
 	SAVE_DIR_Y   string
 	SAVE_DIR_HOT string
+
+	PROXY string
 }
 
 func (s Settings) Save(jsonfile string) error {
@@ -97,5 +101,7 @@ func NewSettings() Settings {
 
 		SAVE_DIR_Y:   "save/y",
 		SAVE_DIR_HOT: "save/hot",
+
+		PROXY: "",
 	}
 }
