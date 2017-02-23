@@ -31,7 +31,15 @@ func Extract(url string, reg *regexp.Regexp) (ext []string) {
 	return
 }
 
-func SaveFile(url, dir, filename string) {
+func SaveFile(url, dir, filename string, overwrite bool) {
+	if !overwrite {
+		f := filepath.Join(dir, filename)
+		if _, err := os.Stat(f); err == nil {
+			fmt.Printf("%s/%s already exists.\n", dir, filename)
+			return
+		}
+	}
+	fmt.Printf("Download from %s --> %s/%s \r", url, dir, filename)
 	res, err := http.Get(url)
 	if err != nil {
 		fmt.Println(err)
@@ -51,6 +59,7 @@ func SaveFile(url, dir, filename string) {
 	}
 	defer f.Close()
 	io.Copy(f, res.Body)
+	fmt.Printf("Download from %s --> %s/%s OK!\n", url, dir, filename)
 }
 
 func GetURL(url1, url2 string) string {
@@ -74,29 +83,36 @@ func Filename(url string) string {
 	return reg.FindString(url)
 }
 
-func Download(html_url string, url_reg *regexp.Regexp, save_dir, savename string) {
+func Download(html_url string, url_reg *regexp.Regexp, save_dir, savename string, all bool, overwrite bool) {
 	urls := Extract(html_url, url_reg)
 	for i, pre_url := range urls {
 		url := GetURL(html_url, pre_url)
-		if savename == "" {
+		if !all && i > 0 {
+			break
+		}
+		if savename != "" && all {
+			format := "%d_%s"
+			SaveFile(url, save_dir, fmt.Sprintf(format, i, savename), overwrite)
+		} else if savename == "" {
 			format := "%s"
 			savename = Filename(pre_url)
-			SaveFile(url, save_dir, fmt.Sprintf(format, savename))
+			SaveFile(url, save_dir, fmt.Sprintf(format, savename), overwrite)
 		} else {
-			format := "%d_%s"
-			SaveFile(url, save_dir, fmt.Sprintf(format, i, savename))
+			SaveFile(url, save_dir, savename, overwrite)
 		}
-
 	}
 }
 
-func GetY(save_dir string) {
+func GetY(save_dir string, overwrite bool) {
 	savename := "y.zip"
-	Download(Y_PAGE_URL, Y_URL_REGEXP, save_dir, savename)
+	all := false
+	Download(Y_PAGE_URL, Y_URL_REGEXP, save_dir, savename, all, overwrite)
 }
 
-func GetHOT(save_dir string) {
-	Download(HOT_PAGE_URL, HOT_URL_REGEXP, save_dir, "")
-	Download(HOT_ADDPAGE_URL, HOT_ADDURL_REGEXP, save_dir, "")
-	Download(HOT_DELPAGE_URL, HOT_DELURL_REGEXP, save_dir, "")
+func GetHOT(save_dir string, overwrite bool) {
+	all := false
+	default_name := ""
+	Download(HOT_PAGE_URL, HOT_URL_REGEXP, save_dir, default_name, all, overwrite)
+	Download(HOT_ADDPAGE_URL, HOT_ADDURL_REGEXP, save_dir, default_name, all, overwrite)
+	Download(HOT_DELPAGE_URL, HOT_DELURL_REGEXP, save_dir, default_name, all, overwrite)
 }

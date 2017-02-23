@@ -23,6 +23,7 @@ var (
 	HOT_DELPAGE_URL   string
 	HOT_DELURL_REGEXP *regexp.Regexp
 
+	SAVE_DIR     string
 	SAVE_DIR_Y   string
 	SAVE_DIR_HOT string
 
@@ -42,6 +43,7 @@ type Settings struct {
 	HOT_DELPAGE_URL   string
 	HOT_DELURL_REGEXP string
 
+	SAVE_DIR     string
 	SAVE_DIR_Y   string
 	SAVE_DIR_HOT string
 
@@ -99,8 +101,9 @@ func NewSettings() Settings {
 		HOT_DELPAGE_URL:   HOT_PAGE_URL,
 		HOT_DELURL_REGEXP: HOT_PAGE_URL + `moto_data/h[0-9]{8}del.txt`,
 
-		SAVE_DIR_Y:   "save/y",
-		SAVE_DIR_HOT: "save/hot",
+		SAVE_DIR:     "save/",
+		SAVE_DIR_Y:   "y",
+		SAVE_DIR_HOT: "hot",
 
 		PROXY: "",
 	}

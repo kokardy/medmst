@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"path/filepath"
 	"regexp"
 )
 
@@ -31,6 +32,7 @@ func Init() {
 	HOT_DELPAGE_URL = SETTINGS.HOT_DELPAGE_URL
 	HOT_DELURL_REGEXP = regexp.MustCompile(SETTINGS.HOT_DELURL_REGEXP)
 
+	SAVE_DIR = SETTINGS.SAVE_DIR
 	SAVE_DIR_Y = SETTINGS.SAVE_DIR_Y
 	SAVE_DIR_HOT = SETTINGS.SAVE_DIR_HOT
 
@@ -61,6 +63,7 @@ func Init() {
 
 func main() {
 	Init()
-	GetY(SAVE_DIR_Y)
-	GetHOT(SAVE_DIR_HOT)
+	overwrite := false
+	GetY(filepath.Join(SAVE_DIR, SAVE_DIR_Y), overwrite)
+	GetHOT(filepath.Join(SAVE_DIR, SAVE_DIR_HOT), overwrite)
 }
