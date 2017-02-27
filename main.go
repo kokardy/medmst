@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -8,7 +9,12 @@ import (
 	"regexp"
 )
 
+var FORCE bool
+
 func Init() {
+	flag.StringVar(&SAVE_DIR, "d", "save", "-d save_dir: set save direactory")
+	flag.BoolVar(&FORCE, "f", false, "-f: overwrite existing files")
+	flag.Parse()
 
 	var SETTINGS Settings
 	if s, err := LoadSettings(SETTING_FILE); err != nil {
@@ -18,6 +24,9 @@ func Init() {
 		}
 	} else {
 		SETTINGS = s
+	}
+	if SAVE_DIR != "" {
+		SETTINGS.SAVE_DIR = SAVE_DIR
 	}
 
 	Y_PAGE_URL = SETTINGS.Y_PAGE_URL
@@ -63,7 +72,7 @@ func Init() {
 
 func main() {
 	Init()
-	overwrite := false
+	overwrite := FORCE
 	GetY(filepath.Join(SAVE_DIR, SAVE_DIR_Y), overwrite)
 	GetHOT(filepath.Join(SAVE_DIR, SAVE_DIR_HOT), overwrite)
 }
