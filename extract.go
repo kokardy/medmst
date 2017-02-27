@@ -33,8 +33,8 @@ func Extract(url string, reg *regexp.Regexp) (ext []string) {
 
 func SaveFile(url, dir, filename string, overwrite bool) {
 	if !overwrite {
-		f := filepath.Join(dir, filename)
-		if _, err := os.Stat(f); err == nil {
+		_f := filepath.Join(dir, filename)
+		if _, err := os.Stat(_f); err == nil {
 			fmt.Printf("%s/%s already exists.\n", dir, filename)
 			return
 		}
@@ -52,7 +52,8 @@ func SaveFile(url, dir, filename string, overwrite bool) {
 		fmt.Println(err)
 		return
 	}
-	f, err := os.OpenFile(filepath, os.O_CREATE|os.O_WRONLY, 0777)
+	//f, err := os.OpenFile(filepath, os.O_CREATE|os.O_WRONLY, 0777)
+	f, err := os.Create(filepath)
 	if err != nil {
 		fmt.Println(err)
 		return
