@@ -1,5 +1,7 @@
-FROM ubuntu:16.04
+FROM docker:1.13
 
-RUN apt-get update && \
-    apt-get install -y golang git python python-pandas
+COPY asset /asset
 
+WORKDIR asset
+
+CMD [compose.sh]
