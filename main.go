@@ -13,6 +13,7 @@ var FORCE bool
 
 func Init() {
 	flag.StringVar(&SAVE_DIR, "d", "save", "-d save_dir: set save direactory")
+	flag.StringVar(&PROXY, "p", "", "-p http://proxy_server:port: set proxy server")
 	flag.BoolVar(&FORCE, "f", false, "-f: overwrite existing files")
 	flag.Parse()
 
@@ -27,6 +28,9 @@ func Init() {
 	}
 	if SAVE_DIR != "" {
 		SETTINGS.SAVE_DIR = SAVE_DIR
+	}
+	if PROXY != "" {
+		SETTINGS.PROXY = PROXY
 	}
 
 	Y_PAGE_URL = SETTINGS.Y_PAGE_URL
