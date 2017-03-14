@@ -11,5 +11,5 @@ func TestExtract(t *testing.T) {
 }
 
 func TestGetY(t *testing.T) {
-	GetY(SAVE_DIR_Y)
+	GetY(SAVE_DIR_Y, true)
 }
