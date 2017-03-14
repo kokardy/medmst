@@ -4,6 +4,7 @@ import (
 	"github.com/elazarl/goproxy"
 	"net/http"
 	"net/url"
+	"os"
 	"testing"
 )
 
@@ -13,13 +14,23 @@ func TestProxy(t *testing.T) {
 
 	proxy := goproxy.NewProxyHttpServer()
 	proxy.Verbose = true
-	proxyURL, err := url.Parse("http://localhost:8080/")
-	if err != nil {
-		t.Fatal(err)
+	var proxyURL *url.URL
+	var err error
+
+	if p := os.Getenv("http_proxy"); p == "" {
+		proxyURL, err = url.Parse("http://localhost:3128/")
+		if err != nil {
+			t.Fatal(err)
+		}
+		go func() {
+			t.Fatal(http.ListenAndServe(":3128", proxy))
+		}()
+	} else {
+		proxyURL, err = url.Parse(p)
+		if err != nil {
+			t.Fatal(err)
+		}
 	}
-	go func() {
-		t.Fatal(http.ListenAndServe(":8080", proxy))
-	}()
 	ProxySetting := http.ProxyURL(proxyURL)
 	http.DefaultTransport = &http.Transport{
 		Proxy: ProxySetting,
