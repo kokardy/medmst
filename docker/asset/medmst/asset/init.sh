@@ -1,6 +1,6 @@
 cd /bootstrap
 DATE=`date +%Y%m%d`
-medmst -d $DATE -p $HTTP_PROXY -f
+/go/bin/medmst -d $DATE -p $http_proxy -f
 mv $DATE save
 cd save/hot
 jlha xif save/hot/*.lzh
