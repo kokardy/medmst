@@ -21,8 +21,8 @@ func Extract(url string, reg *regexp.Regexp) (ext []string) {
 	br := bufio.NewReader(res.Body)
 	for {
 		line, err := br.ReadString('\n')
-		//fmt.Println(line)
 		if err != nil {
+			fmt.Println(err)
 			break
 		}
 		list := reg.FindAllString(line, 1)
