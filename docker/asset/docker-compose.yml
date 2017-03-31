@@ -1,6 +1,6 @@
 version: "2"
 
-service:
+services:
   web:
     image: nginx:1.10
     depends_on:
