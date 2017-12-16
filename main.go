@@ -9,12 +9,28 @@ import (
 	"regexp"
 )
 
-var FORCE bool
+var (
+	FORCE bool
+	HOT   bool
+	Y     bool
+)
 
 func Init() {
-	flag.StringVar(&SAVE_DIR, "d", "save", "-d save_dir: set save direactory")
-	flag.StringVar(&PROXY, "p", "", "-p http://proxy_server:port: set proxy server")
-	flag.BoolVar(&FORCE, "f", false, "-f: overwrite existing files")
+	flag.StringVar(&SAVE_DIR, "d", "save",
+		"-d save_dir: set save direactory")
+	flag.StringVar(&PROXY, "p", "",
+		"-p http://proxy_server:port: set proxy server")
+	flag.BoolVar(&FORCE, "f", false,
+		"-f: overwrite existing files")
+
+	flag.BoolVar(&HOT,
+		"h",
+		true,
+		"-h download only HOT")
+	flag.BoolVar(&Y,
+		"y",
+		true,
+		"-y download only Y")
 	flag.Parse()
 
 	var SETTINGS Settings
@@ -77,6 +93,10 @@ func Init() {
 func main() {
 	Init()
 	overwrite := FORCE
-	GetY(filepath.Join(SAVE_DIR, SAVE_DIR_Y), overwrite)
-	GetHOT(filepath.Join(SAVE_DIR, SAVE_DIR_HOT), overwrite)
+	if Y {
+		GetY(filepath.Join(SAVE_DIR, SAVE_DIR_Y), overwrite)
+	}
+	if HOT {
+		GetHOT(filepath.Join(SAVE_DIR, SAVE_DIR_HOT), overwrite)
+	}
 }
