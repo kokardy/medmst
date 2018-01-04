@@ -13,6 +13,7 @@ services:
       - PG_PORT: "5432"
       - PG_USER: postgres
       - PG_PASSWORD: allyourbaseisbelongtous
+      - PG_DATABASE: medmst
     links:
       - postgres
 
@@ -25,3 +26,5 @@ services:
       - POSTGRES_PASSWORD: allyourbaseisbelongtous
       - POSTGRES_USR: postgres
 
+    volumes:
+      - ./pg/initdb:\docker-entrypoint-initdb.d
