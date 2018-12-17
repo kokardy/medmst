@@ -1,0 +1,22 @@
+Proxy = ""
+SaveDir = "save"
+
+[Y]
+  URL = "http://www2.medis.or.jp/hcode/"
+  TargetRegexp = "/shinryohoshu/downloadMenu/yFile;jsessionid=[0-9A-Z]+"
+  Dirname = "y"
+
+[HOT]
+  URL = "http://www2.medis.or.jp/hcode/"
+  TargetRegexp = "http://www2.medis.or.jp/hcode/moto_data/h[0-9]{8}.lzh"
+  Dirname = "hot"
+
+[HOTAdd]
+  URL = "http://www2.medis.or.jp/hcode/tuika/index.html"
+  TargetRegexp = "http://www2.medis.or.jp/hcode/tuika/data/[0-9]{4}/[0-9]{8}.txt"
+  Dirname = "hot"
+
+[HOTDel]
+  URL = "http://www2.medis.or.jp/hcode/"
+  TargetRegexp = "http://www2.medis.or.jp/hcode/moto_data/h[0-9]{8}.lzh"
+  Dirname = "hot"
