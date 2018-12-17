@@ -11,10 +11,16 @@ import (
 	"strings"
 )
 
+//Extract extract URLs in URL with RegExp.
 func Extract(url string, reg *regexp.Regexp) (ext []string) {
 	ext = make([]string, 0, 0)
+	fmt.Printf("url %s\n", url)
+	fmt.Printf("reg %s\n", reg)
+
 	res, err := http.Get(url)
 	if err != nil {
+		fmt.Println("error occured in opening http response.")
+		fmt.Println(err)
 		return
 	}
 	defer res.Body.Close()
@@ -31,6 +37,7 @@ func Extract(url string, reg *regexp.Regexp) (ext []string) {
 	return
 }
 
+//SaveFile store a file from URL.
 func SaveFile(url, dir, filename string, overwrite bool) {
 	if !overwrite {
 		_f := filepath.Join(dir, filename)
@@ -63,7 +70,8 @@ func SaveFile(url, dir, filename string, overwrite bool) {
 	fmt.Printf("Download from %s --> %s/%s OK!\n", url, dir, filename)
 }
 
-func GetURL(url1, url2 string) string {
+//getURL create new URL from two URLs.
+func getURL(url1, url2 string) string {
 	if strings.HasPrefix(url2, "http") {
 		return url2
 	} else if strings.HasPrefix(url2, "/") {
@@ -79,41 +87,74 @@ func GetURL(url1, url2 string) string {
 
 }
 
-func Filename(url string) string {
+//filename get filename from URL's postfix.
+func filename(url string) string {
 	reg := regexp.MustCompile(`[^/]*$`)
 	return reg.FindString(url)
 }
 
-func Download(html_url string, url_reg *regexp.Regexp, save_dir, savename string, all bool, overwrite bool) {
-	urls := Extract(html_url, url_reg)
-	for i, pre_url := range urls {
-		url := GetURL(html_url, pre_url)
+//Download download files using Extract function.
+func Download(htmlURL string, urlReg *regexp.Regexp, saveDir, savename string, all bool, overwrite bool) {
+	urls := Extract(htmlURL, urlReg)
+	fmt.Println(urls)
+	for i, preURL := range urls {
+		url := getURL(htmlURL, preURL)
 		if !all && i > 0 {
 			break
 		}
 		if savename != "" && all {
 			format := "%d_%s"
-			SaveFile(url, save_dir, fmt.Sprintf(format, i, savename), overwrite)
+			SaveFile(url, saveDir, fmt.Sprintf(format, i, savename), overwrite)
 		} else if savename == "" {
 			format := "%s"
-			savename = Filename(pre_url)
-			SaveFile(url, save_dir, fmt.Sprintf(format, savename), overwrite)
+			savename = filename(preURL)
+			SaveFile(url, saveDir, fmt.Sprintf(format, savename), overwrite)
 		} else {
-			SaveFile(url, save_dir, savename, overwrite)
+			SaveFile(url, saveDir, savename, overwrite)
 		}
 	}
 }
 
-func GetY(save_dir string, overwrite bool) {
+//GetY download Y file.
+func GetY(saveDir string, overwrite bool) {
 	savename := "y.zip"
 	all := false
-	Download(Y_PAGE_URL, Y_URL_REGEXP, save_dir, savename, all, overwrite)
+	Download(
+		CONFIG.Y.URL,
+		CONFIG.Y.CompiledTarget(),
+		saveDir,
+		savename,
+		all,
+		overwrite,
+	)
 }
 
-func GetHOT(save_dir string, overwrite bool) {
+//GetHOT download HOT, HOTAdd and HOTDel files.
+func GetHOT(saveDir string, overwrite bool) {
 	all := false
-	default_name := ""
-	Download(HOT_PAGE_URL, HOT_URL_REGEXP, save_dir, default_name, all, overwrite)
-	Download(HOT_ADDPAGE_URL, HOT_ADDURL_REGEXP, save_dir, default_name, all, overwrite)
-	Download(HOT_DELPAGE_URL, HOT_DELURL_REGEXP, save_dir, default_name, all, overwrite)
+	defaultName := ""
+	Download(
+		CONFIG.HOT.URL,
+		CONFIG.HOT.CompiledTarget(),
+		saveDir,
+		defaultName,
+		all,
+		overwrite,
+	)
+	Download(
+		CONFIG.HOTAdd.URL,
+		CONFIG.HOTAdd.CompiledTarget(),
+		saveDir,
+		defaultName,
+		all,
+		overwrite,
+	)
+	Download(
+		CONFIG.HOTDel.URL,
+		CONFIG.HOTDel.CompiledTarget(),
+		saveDir,
+		defaultName,
+		all,
+		overwrite,
+	)
 }

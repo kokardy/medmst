@@ -1,16 +1,11 @@
 package main
 
-import (
-	"github.com/elazarl/goproxy"
-	"net/http"
-	"net/url"
-	"os"
-	"testing"
-)
+//"github.com/elazarl/goproxy"
 
-func TestProxy(t *testing.T) {
-
-	s := NewSettings()
+/*
+func testProxy(t *testing.T) {
+	Init()
+	s := CONFIG
 
 	proxy := goproxy.NewProxyHttpServer()
 	proxy.Verbose = true
@@ -36,7 +31,7 @@ func TestProxy(t *testing.T) {
 		Proxy: ProxySetting,
 	}
 
-	url := s.Y_PAGE_URL
+	url := s.Y.URL
 	t.Log("Y url:", url)
 	res, err := http.Get(url)
 	if err != nil {
@@ -45,3 +40,4 @@ func TestProxy(t *testing.T) {
 	}
 	t.Log("status:", res.Status)
 }
+*/
