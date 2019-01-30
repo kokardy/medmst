@@ -5,15 +5,16 @@ services:
   medmst:
     image: kokardy/medmst-sv
     restart: always
-    depends_on:postgres
+    depends_on:
+      - postgres
     ports:
       - "8080:8080"
     environment:
-      - PG_HOST: postgres
-      - PG_PORT: "5432"
-      - PG_USER: postgres
-      - PG_PASSWORD: allyourbaseisbelongtous
-      - PG_DATABASE: medmst
+      - "PG_HOST=postgres"
+      - "PG_PORT=5432"
+      - "PG_USER=postgres"
+      - "PG_PASSWORD=allyourbaseisbelongtous"
+      - "PG_DATABASE=medmst"
     links:
       - postgres
 
@@ -23,8 +24,8 @@ services:
     #ports:
     #    - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD: allyourbaseisbelongtous
-      - POSTGRES_USR: postgres
+      - "POSTGRES_PASSWORD=allyourbaseisbelongtous"
+      - "POSTGRES_USR=postgres"
 
     volumes:
-      - ./pg/initdb:\docker-entrypoint-initdb.d
+      - ./pg/initdb:/docker-entrypoint-initdb.d
