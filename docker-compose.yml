@@ -17,6 +17,7 @@ services:
       - "PG_DATABASE=medmst"
     links:
       - postgres
+    env_file: .env
 
   postgres:
     image: postgres:9.5-alpine
