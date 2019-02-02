@@ -4,7 +4,7 @@ services:
 
   medmst:
     image: kokardy/medmst-sv
-    restart: always
+    #restart: always
     depends_on:
       - postgres
     ports:
