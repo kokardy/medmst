@@ -124,7 +124,7 @@ func NewY() *Y {
 //Init initialize Y
 func (y *Y) Init() {
 	if y.URL == "" {
-		y.URL = `http=//www2.medis.or.jp/hcode/`
+		y.URL = "http://www.iryohoken.go.jp/shinryohoshu/downloadMenu/"
 		y.TargetRegexp = `/shinryohoshu/downloadMenu/yFile;jsessionid=[0-9A-Z]+`
 		y.Dirname = `y`
 	}
