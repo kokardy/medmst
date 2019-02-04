@@ -1,0 +1,5 @@
+#Acquire::http::Proxy "http://192.168.2.1:3142/";
+#Acquire::https::Proxy "false";
+Acquire::http::Proxy "http://10.26.61.131:3142/";
+#Acquire::http::Proxy::apt.dockerproject.org "http://10.26.61.131:3128";
+Acquire::http::Proxy::apt.dockerproject.org "http://192.168.2.1:3128";
