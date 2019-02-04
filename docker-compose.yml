@@ -3,8 +3,9 @@ version: "2"
 services:
 
   medmst:
-    image: kokardy/medmst-sv
-    #restart: always
+    image: kokardy/medmst-sv:latest
+    #build: ./medmst-sv
+    restart: always
     depends_on:
       - postgres
     ports:
