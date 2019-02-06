@@ -19,6 +19,9 @@ services:
     links:
       - postgres
     env_file: .env
+    command: ./medmst-sv/asset/routine.sh
+    volumes:
+      - ./medmst-sv/asset:/asset
 
   postgres:
     image: postgres:9.5-alpine
