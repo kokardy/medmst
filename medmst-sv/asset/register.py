@@ -58,28 +58,27 @@ def _sql_from_file(filepath):
     return sql
 
 def create(con):
-    filepath = os.path.join(ASSET_DIR, "medis_def.txt")
-    sql = _sql_from_file(filepath)
-    cur = con.cursor()
-    try:
-        cur.execute(sql)
-    except Exception, e:
-        print e
+    filepathlist = [
+        os.path.join(ASSET_DIR, "medis_def.sql"),
+        os.path.join(ASSET_DIR, "y_def.sql"),
+        os.path.join(ASSET_DIR, "available_def.sql"),
+    ]
 
-    filepath = os.path.join(ASSET_DIR, "y_def.txt")
-    sql = _sql_from_file(filepath)
-    cur = con.cursor()
-    try:
-        cur.execute(sql)
-    except Exception, e:
-        print e
+    for f in filepathlist:
+        sql = _sql_from_file(f)
+        cur = con.cursor()
+        try:
+            cur.execute(sql)
+        except Exception as e:
+            print(e)
+
 
 def insert(con, infiles):
     infiles = get_files()
     
     insert_list = []
     for (table, skip) in [("medis", True), ("y", False)]:
-        sql_template = os.path.join(SAVE_DIR, "{0}_insert.txt").format(table)
+        sql_template = os.path.join(ASSET_DIR, "{0}_insert.sql").format(table)
         insert_data =  infiles[table]
         insert_list.append([sql_template, insert_data, skip])
     for (sql_template, insert_data, skip) in insert_list:
@@ -88,16 +87,23 @@ def insert(con, infiles):
 def _insert(con, sql_file, insert_files, line1skip):
     try:
         sql = _sql_from_file(sql_file)
-    except IOError, e:
+    except IOError as e:
         print(e)
         return
     for insert_file in insert_files:
-        with codecs.open(insert_file, "r", "utf-8") as f:
+        with open(insert_file, "r", encoding="cp932") as f:
             r = csv.reader(f)
+            r = [line for line in r]
             if line1skip:
-                r.next()
+                r = r[1:]
             cur = con.cursor()
-            cur.executemany(sql, r)
+            try: 
+                cur.executemany(sql, r)
+                con.commit()
+            except Exception as e:
+                print("Error occured in executing SQL")
+                print(cur.query)
+                raise e
 
 def delete(con):
     sqls = [
@@ -107,6 +113,7 @@ def delete(con):
     cur = con.cursor()
     for sql in sqls:
         cur.execute(sql)
+    con.commit()
 
 def C():
     con = connection()
