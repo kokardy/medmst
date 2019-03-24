@@ -1,0 +1,1286 @@
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<html>
+<head>
+<title>サラゾスルファピリジン腸溶錠250mg「テバ」／サラゾスルファピリジン腸溶錠500mg「テバ」</title>
+<meta name="keywords" content="PMDA,pmda,医薬品,副作用,被害救済,薬,医療,機器,医薬">
+<meta name="description" content="独立行政法人　医薬品医療機器総合機構：医薬品副作用被害救済や稀少病認定薬の研究振興調査などの業務案内。">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-TextLayoutMetrics" content="gdi">
+<meta name="robots" content="none">
+<!-- <link rel="stylesheet" type="text/css" href="/PmdaSearch/css/pmdaSearchCommon.css" /> -->
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/common/css/importdetail.css" />
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/common/css/print.css" />
+
+<script type="text/javascript" src="/PmdaSearch/files/common/js/jquery_1.7.1.min.js"></script>
+<script type="text/javascript" src="/PmdaSearch/files/common/js/jquery_cookie.js"></script>
+<script type="text/javascript" src="/PmdaSearch/files/common/js/main.js"></script>
+<script type="text/javascript" src="/PmdaSearch/js/pmdaCommon.js"></script>
+<script type="text/javascript" src="/PmdaSearch/js/data/otc/list_n.lib"></script>
+
+<!-- ++++ local-css ++++ -->
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/css/pmdaDiffResult.css" />
+<!-- ++++ /local-css ++++ -->
+
+</head>
+<body onload="FontSizeInit();">
+<div id="layoutHeader">
+
+
+  
+  
+
+
+
+<!-- <img src="/PmdaSearch/imgs/top01.jpg" alt="独立行政法人 医薬品医療機器総合機構 Pharmaceuticals and Medical Devices Agency" /> -->
+</div>
+<div id="layoutBody">
+
+
+<!-- ++++ local-js ++++ -->
+<script>
+
+function FontSizeInit() {
+
+	// 20140509 Font Size Default Set
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	if( !fs ){
+		window.localStorage.setItem("iyakufsizeValue", 100);
+		fs = window.localStorage.getItem("iyakufsizeValue");
+	}
+//	if( fs == 100 )	fs = 93;	// 確認用
+	document.body.style.fontSize = Math.floor(fs) + '%';
+
+	var valjump = "#"+document.getElementsByName("ini_disp")[0].value;
+
+	location.href = valjump;
+
+}
+
+function bigger() {
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	fs *= 1.2;
+
+//	if( fs <= (100 * 1.2) * 1.2 ){
+	if( fs <= (93 * 1.2) * 1.2 ){
+		window.localStorage.setItem("iyakufsizeValue", fs);
+		document.body.style.fontSize = Math.floor(fs) + '%';
+	}
+}
+
+function smaller() {
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	fs /= 1.2;
+
+//	if( fs >= (100 / 1.2) / 1.2 ){
+	if( fs >= (93 / 1.2) / 1.2 ){
+		window.localStorage.setItem("iyakufsizeValue", fs);
+		document.body.style.fontSize = Math.floor(fs) + '%';
+	}
+}
+
+
+//比較文書を表示する
+function diffDisp( fname, opt ){
+
+	var origVer = document.getElementsByName("originalVer")[0].value;
+	var targVer = document.getElementsByName("diffTargetVer")[0].value;
+
+	if( targVer == null || targVer == "" )	targVer = "-";
+
+    $.ajax({
+        url: '/PmdaSearch/iyakuDetail/ResultDataSetDIFF/'+fname + "/" + opt + "/" + origVer + "/" + targVer,
+        type: 'GET',
+        dataType: 'json',
+        cache: false, //ブラウザにキャッシュさせません。
+        error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert("読み込みに失敗しました : " + textStatus + " - " +errorThrown);
+        },
+        success: function(json){
+        	//alert("読み込みが完了しました : " + json.ResultErr);
+        	if( json.ResultErr == "" ){
+            	$("title").html(json.pageTitle).html()
+            	$("#PageLabel").html(json.pageLabel).html()
+            	$("#ResultSet").html(json.ResultSet).html()
+        	} else {
+        		alert(json.ResultErr);
+        	}
+
+            FontSizeInit();
+
+        }
+      });
+
+}
+
+
+</script>
+<!-- ++++ /local-js ++++ -->
+
+
+<div id="ContentWrap">
+<noscript><p id="NoScriptWarning">当ウェブサイトを快適にご覧いただくには、ブラウザのJavaScript設定を有効（オン）にしていただく必要がございます。</p></noscript>
+
+
+<div id="HeaderPopArea" class="HTML5_header">
+<div id="HeaderPopAreaInner">
+
+<div id="LogoArea">
+<span>Pmda 独立行政法人 医薬品医療機器総合機構</span>
+</div><!--/LogoArea-->
+
+<div id="LinkArea01" class="clearfix">
+<ul>
+<li class="mr_00"><a href="javascript:window.close()"><img class="imglink" src="/PmdaSearch/files/common/img/ComHeaderAreaBtnClose.png" alt="画面を閉じる" width="118" height="24"></a></li>
+</ul>
+</div><!--/LinkArea01-->
+
+<div id="LinkArea02">
+<img class="float_l mr_10" src="/PmdaSearch/files/common/img/ComHeaderAreaTxtSizettl.png" alt="文字サイズの変更" width="29" height="22">
+<span id="FontSizeSelect"><a href="javascript:void(0);" id="TextBtnNormal" class="mr_05 "><span>標準</span></a>
+<a href="javascript:void(0);" id="TextBtnL" class="mr_05"><span>大</span></a>
+<a href="javascript:void(0);" id="TextBtnLl"><span>特大</span></a></span>
+</div><!--/LinkArea02-->
+</div><!--/HeaderAreaInner-->
+</div><!--/HeaderArea-->
+
+<form name="iyakuDetailActionForm" method="post" action="/PmdaSearch/iyakuDetail/">
+<div id="ContentArea" class="HTML5_section">
+<div id="MainContents" class="clearfix">
+<div id="ContentMainArea" class="ComOneCulumn">
+
+<div class="PopupArea">
+<div class="PopupInner">
+
+<h1 id="SearchHd"><strong id="PageLabel">医療用医薬品 詳細表示</strong></h1>
+
+<div>
+<span id="ResultSet"><div style="float:left;width:35%;height:720px;overflow-y:auto;">
+<input type='hidden' name='ini_disp' value='CONTRAINDICATIONS'/>
+
+<h2>
+サラゾスルファピリジン腸溶錠250mg「テバ」／
+サラゾスルファピリジン腸溶錠500mg「テバ」</h2>
+<table>
+<tr>
+<td valign="top">
+<br>
+<b><font color="#000080">処方せん医薬品</font></b></td>
+</tr>
+</table>
+<p></p>
+<hr>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#3">作成又は改訂年月</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#11">日本標準商品分類番号</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#14">日本標準商品分類番号等</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#16">薬効分類名</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#19">承認等</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#22">販売名
+サラゾスルファピリジン腸溶錠250mg「テバ」</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#26">承認・許可番号</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#29">薬価収載</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#31">販売開始</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#33">使用期限等</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#40">規制区分</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#44">組成</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#51">性状</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#68">販売名
+サラゾスルファピリジン腸溶錠500mg「テバ」</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#72">承認・許可番号</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#75">薬価収載</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#77">販売開始</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#79">使用期限等</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#86">規制区分</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#90">組成</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#97">性状</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#112">一般的名称</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#115">禁忌</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#121">効能・効果</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#126">用法・用量</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#129">使用上の注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#130">慎重投与</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#150">重要な基本的注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#160">相互作用</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#161">併用注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#183">副作用</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#184">副作用等発現状況の概要</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#188">重大な副作用（頻度不明）</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#227">その他の副作用</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#266">高齢者への投与</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#269">妊婦、産婦、授乳婦等への投与</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#275">小児等への投与</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#281">過量投与</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#289">適用上の注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#297">その他の注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#303">薬物動態</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#320">薬物動態の表</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#333">薬効薬理</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#336">有効成分に関する理化学的知見</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#358">取扱い上の注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#368">包装</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#374">主要文献</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#383">文献請求先・製品情報お問い合わせ先</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#388">製造販売業者等の氏名又は名称及び住所</a></td>
+</tr>
+</table>
+
+</div>
+<div style="float:left;width:65%;height:720px;overflow-y:auto;">
+
+<h4>
+<font color="#000080">
+サラゾスルファピリジン腸溶錠250mg「テバ」／
+サラゾスルファピリジン腸溶錠500mg「テバ」</font>
+</h4>
+<hr>
+<a name="3"></a>
+<dl compact>
+<h3>作成又は改訂年月</h3>
+<p></p><dd>
+**印：
+2016年10月改訂
+（第8版、社名変更等に伴う改訂）<p></p><dd>
+*印：
+2014年11月改訂</dl>
+<p></p>
+<a name="11"></a>
+<dl compact>
+<h3>日本標準商品分類番号</h3>
+<p></p><dd>
+876219</dl>
+<p></p>
+<a name="14"></a>
+<dl compact>
+<h3>日本標準商品分類番号等</h3>
+<p></p>
+<a name="15"></a>
+<dt>再評価結果</dt>
+<dd>
+2006年3月（サラゾスルファピリジン腸溶錠250mg「テバ」）（品質再評価）</dd>
+<p></p>
+</dl>
+<p></p>
+<a name="16"></a>
+<dl compact>
+<h3>薬効分類名</h3>
+<p></p><dd>抗リウマチ剤</dl>
+<p></p>
+<a name="19"></a>
+<h3>承認等</h3>
+<p></p>
+<a name="21"></a><a name="22"></a>
+<dl compact>
+<dt>販売名</dt>
+<dd>
+サラゾスルファピリジン腸溶錠250mg「テバ」</dd>
+</dl>
+<a name="23"></a>
+<p></p>
+<h4>販売名コード</h4>
+<p></p>
+<dl compact>
+<dd>
+6219001H2079</dd>
+</dl>
+<a name="26"></a>
+<p></p>
+<h4>承認・許可番号</h4>
+<p></p>
+<dl compact>
+<dt>承認番号</dt>
+<dd>
+22500AMX01345000</dd>
+<a name="28"></a>
+<dt>欧文商標名</dt>
+<dd>
+Salazosulfapyridine Enteric coated Tab. 250mg“TEVA”</dd>
+<p></p>
+</dl>
+<a name="29"></a>
+<p></p>
+<h4>薬価収載</h4>
+<p></p>
+<dl compact>
+<a name="30"></a>
+<dd>
+2013年12月</dd>
+<p></p>
+</dl>
+<a name="31"></a>
+<p></p>
+<h4>販売開始</h4>
+<p></p>
+<dl compact>
+<a name="32"></a>
+<dd>
+2001年7月</dd>
+<p></p>
+</dl>
+<a name="33"></a>
+<p></p>
+<h4>使用期限等</h4>
+<p></p>
+<dl compact>
+<dt>貯　法</dt>
+<p></p>
+<dd>室温保存</dd>
+<p></p>
+<dt>使用期限</dt>
+<p></p>
+<dd>外装に表示の使用期限内に使用すること。</dd>
+<p></p>
+</dl>
+<a name="40"></a>
+<p></p>
+<h4>規制区分</h4>
+<p></p>
+<dl compact>
+<dt>*処方箋医薬品</dt>
+<p></p>
+<dd>*（注意−医師等の処方箋により使用すること）</dd>
+<p></p>
+</dl>
+<a name="44"></a>
+<p></p>
+<h4>組成</h4>
+<p></p>
+<dl compact>
+<dt>1錠中：</dt>
+<p></p>
+<dd>サラゾスルファピリジン…250mg</dd>
+<p></p>
+<dt>〈添加物〉</dt>
+<p></p>
+<dd>含水二酸化ケイ素、クエン酸トリエチル、クロスカルメロースナトリウム、結晶セルロース、酸化チタン、ステアリン酸マグネシウム、タルク、ヒプロメロース、ヒプロメロース酢酸エステルコハク酸エステル、ポビドン、マクロゴール6000、ラウリル硫酸ナトリウム、黄色三二酸化鉄</dd>
+<p></p>
+</dl>
+<a name="51"></a>
+<p></p>
+<h4>性状</h4>
+<p></p>
+<dl compact>
+<dd>黄色〜黄褐色の腸溶性フィルムコーティング錠</dd>
+<p></p>
+<dt>識別コード（PTP）</dt>
+<p></p>
+<dd>ｔ 404　<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig01" align="absmiddle"></dd>
+<p></p>
+<dt>外形（サイズ）<br>表</dt>
+<p></p>
+<dd>
+<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig02" align="absmiddle"><br>（直径 9.8mm）</dd>
+<p></p>
+<dt>外形（サイズ）<br>裏</dt>
+<p></p>
+<dd>
+<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig03" align="absmiddle"><br>（重量 390mg）</dd>
+<p></p>
+<dt>外形（サイズ）<br>側面</dt>
+<p></p>
+<dd>
+<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig04" align="absmiddle"><br>（厚さ 5.7mm）</dd>
+<p></p>
+</dl>
+<a name="67"></a><a name="68"></a>
+<dl compact>
+<dt>販売名</dt>
+<dd>
+サラゾスルファピリジン腸溶錠500mg「テバ」</dd>
+</dl>
+<a name="69"></a>
+<p></p>
+<h4>販売名コード</h4>
+<p></p>
+<dl compact>
+<dd>
+6219001H1080</dd>
+</dl>
+<a name="72"></a>
+<p></p>
+<h4>承認・許可番号</h4>
+<p></p>
+<dl compact>
+<dt>承認番号</dt>
+<dd>
+22500AMX00644000</dd>
+<a name="74"></a>
+<dt>欧文商標名</dt>
+<dd>
+Salazosulfapyridine Enteric coated Tab. 500mg“TEVA”</dd>
+<p></p>
+</dl>
+<a name="75"></a>
+<p></p>
+<h4>薬価収載</h4>
+<p></p>
+<dl compact>
+<a name="76"></a>
+<dd>
+2013年12月</dd>
+<p></p>
+</dl>
+<a name="77"></a>
+<p></p>
+<h4>販売開始</h4>
+<p></p>
+<dl compact>
+<a name="78"></a>
+<dd>
+2011年11月</dd>
+<p></p>
+</dl>
+<a name="79"></a>
+<p></p>
+<h4>使用期限等</h4>
+<p></p>
+<dl compact>
+<dt>貯　法</dt>
+<p></p>
+<dd>室温保存</dd>
+<p></p>
+<dt>使用期限</dt>
+<p></p>
+<dd>外装に表示の使用期限内に使用すること。</dd>
+<p></p>
+</dl>
+<a name="86"></a>
+<p></p>
+<h4>規制区分</h4>
+<p></p>
+<dl compact>
+<dt>*処方箋医薬品</dt>
+<p></p>
+<dd>*（注意−医師等の処方箋により使用すること）</dd>
+<p></p>
+</dl>
+<a name="90"></a>
+<p></p>
+<h4>組成</h4>
+<p></p>
+<dl compact>
+<dt>1錠中：</dt>
+<p></p>
+<dd>サラゾスルファピリジン…500mg</dd>
+<p></p>
+<dt>〈添加物〉</dt>
+<p></p>
+<dd>カルナウバロウ、軽質無水ケイ酸、ステアリン酸マグネシウム、セラセフェート、デンプングリコール酸ナトリウム、トウモロコシデンプン、プロピレングリコール、ポビドン、モノオレイン酸ソルビタン</dd>
+<p></p>
+</dl>
+<a name="97"></a>
+<p></p>
+<h4>性状</h4>
+<p></p>
+<dl compact>
+<dd>淡黄褐色〜黄褐色の腸溶性フィルムコーティング錠</dd>
+<p></p>
+<dt>識別コード（PTP）</dt>
+<p></p>
+<dd>ｔ 405　<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig05" align="absmiddle"></dd>
+<p></p>
+<dt>外形（サイズ）<br>表</dt>
+<p></p>
+<dd>
+<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig06" align="absmiddle"><br>（長径 18.3mm）<br>（短径 9.8mm）</dd>
+<p></p>
+<dt>外形（サイズ）<br>裏</dt>
+<p></p>
+<dd>
+<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig07" align="absmiddle"><br>（重量 687mg）</dd>
+<p></p>
+<dt>外形（サイズ）<br>側面</dt>
+<p></p>
+<dd>
+<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig08" align="absmiddle"><br>（厚さ 4.8mm）</dd>
+<p></p>
+</dl>
+<p></p>
+<a name="112"></a>
+<dl compact>
+<h3>一般的名称</h3>
+<p></p>
+<dd>サラゾスルファピリジン腸溶錠</dd>
+<p></p>
+</dl>
+<p></p>
+<a name="CONTRAINDICATIONS"></a><a name="115"></a>
+<table border="2" style="border-style:solid; border-color:red;" id="toc">
+<tr>
+<td>
+<h3 style="padding-left:0px;">禁忌</h3>
+<p></p>
+		（次の患者には投与しないこと）
+		<p></p>
+<dl compact>
+<p></p><dt>1.
+	<dd>サルファ剤又はサリチル酸製剤に対し過敏症の既往歴のある患者</dd>
+<p></p><dt>2.
+	<dd>新生児、低出生体重児 （「<font color="BLACK"><b>小児等への投与</b></font>」の項参照）</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+</td>
+</tr>
+</table>
+<p></p>
+<a name="121"></a>
+<h3>効能・効果</h3>
+<p></p>
+<a name="122"></a>
+<p></p>
+<dl compact>
+<p></p><dt><dd>関節リウマチ</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="126"></a>
+<p></p>
+<h4>用法・用量</h4>
+<p></p>
+<dl compact>
+<dd>本剤は、消炎鎮痛剤などで十分な効果が得られない場合に使用すること。通常、サラゾスルファピリジンとして成人1日投与量1gを朝食及び夕食後の2回に分割経口投与する。</dd>
+<p></p>
+</dl>
+<p></p>
+<a name="PRECAUTIONSFORUSE"></a><a name="129"></a>
+<h3>使用上の注意</h3>
+<p></p>
+<a name="130"></a>
+<h4>慎重投与</h4>（次の患者には慎重に投与すること）<p></p>
+<dl compact>
+<p></p><dt>1.
+	<dd>血液障害のある患者</dd>
+<p></p><dt>2.
+	<dd>肝障害のある患者</dd>
+<p></p><dt>3.
+	<dd>腎障害のある患者</dd>
+<p></p><dt>4.
+	<dd>気管支喘息のある患者［急性発作が起こるおそれがある］</dd>
+<p></p><dt>5.
+	<dd>急性間歇性ポルフィリン症の患者［急性発作が起こるおそれがある］</dd>
+<p></p><dt>6.
+	<dd>グルコース-6-リン酸脱水素酵素（G-6-PD）欠乏患者［溶血が起こるおそれがある］</dd>
+<p></p><dt>7.
+	<dd>妊婦又は妊娠している可能性のある婦人、授乳婦 （「<font color="BLACK"><b>妊婦、産婦、授乳婦等への投与</b></font>」の項参照）</dd>
+<p></p><dt>8.
+	<dd>他の薬物に対し過敏症の既往歴のある患者</dd>
+<p></p><dt>9.
+	<dd>高齢者 （「<font color="BLACK"><b>高齢者への投与</b></font>」の項参照）</dd>
+<p></p>
+<p></p>
+</dl>
+<p></p>
+<a name="150"></a>
+<p></p>
+<h4>重要な基本的注意</h4>
+<p></p>
+<dl compact>
+<p></p><dt>1.
+	<dd>本剤は、関節リウマチの治療に十分な経験を持つ医師のもとで使用すること。</dd>
+<p></p><dt>2.
+	<dd>本剤は、通常1〜2ヵ月後に効果が得られるので、臨床効果が発現するまでは、従来より投与している消炎鎮痛剤は継続して併用することが望ましい。</dd>
+<p></p><dt>3.
+	<dd>他社の臨床試験において、1日投与量2gでは1gに比し副作用発現率が有意に高いことが報告されており、本剤の投与に際しては用法・用量を厳守すること。</dd>
+<p></p><dt>4.
+	<dd>本剤投与開始前には、必ず血液学的検査（白血球分画を含む血液像）、肝機能検査及び腎機能検査を実施すること。投与中は臨床症状を十分観察するとともに、定期的に（投与開始後最初の3ヵ月間は2週間に1回、次の3ヵ月間は4週間に1回、その後は3ヵ月ごとに1回）、血液学的検査及び肝機能検査を行うこと。また、腎機能検査についても定期的に行うこと。</dd>
+<p></p>
+<p></p>
+</dl>
+<a name="160"></a>
+<h4>相互作用</h4>
+<p></p>
+<a name="161"></a>
+<h4>併用注意</h4>
+<p></p>
+		（併用に注意すること）
+ 	<p></p>
+<dl compact><dt>1.
+	<a name="164"></a>薬剤名等
+スルホニルアミド系経口糖尿病用剤<br>スルホニルウレア系経口糖尿病用剤<p></p>
+<p></p>
+<a name="165"></a>
+<dt>臨床症状・措置方法</dt>
+<dd>
+低血糖を発症するおそれがあるので、これらの薬剤の用量を調節するなど注意すること。</dd>
+<p></p>
+<a name="166"></a>
+<dt>機序・危険因子</dt>
+<dd>
+代謝抑制又は蛋白結合の置換により、作用が増強される。</dd>
+<p></p><dt>2.
+	<a name="168"></a>薬剤名等
+クマリン系抗凝血剤<p></p>
+<p></p>
+<a name="169"></a>
+<dt>臨床症状・措置方法</dt>
+<dd>
+併用薬の血中濃度が上昇し、プロトロンビン時間が延長するおそれがあるので、これらの薬剤の用量を調節するなど注意すること。</dd>
+<p></p>
+<a name="170"></a>
+<dt>機序・危険因子</dt>
+<dd>
+併用薬の代謝が抑制される。</dd>
+<p></p><dt>3.
+	<a name="172"></a>薬剤名等
+葉酸<p></p>
+<p></p>
+<a name="173"></a>
+<dt>臨床症状・措置方法</dt>
+<dd>
+葉酸の吸収が低下し、大赤血球症、汎血球減少を来す葉酸欠乏症を起こすおそれがあるので、葉酸欠乏症が疑われる場合は、葉酸を補給すること。</dd>
+<p></p>
+<a name="174"></a>
+<dt>機序・危険因子</dt>
+<dd>
+機序不明</dd>
+<p></p><dt>4.
+	<a name="176"></a>薬剤名等
+ジゴキシン<p></p>
+<p></p>
+<a name="177"></a>
+<dt>臨床症状・措置方法</dt>
+<dd>
+ジゴキシンの吸収が低下するおそれがある。</dd>
+<p></p>
+<a name="178"></a>
+<dt>機序・危険因子</dt>
+<dd>
+機序不明</dd>
+<p></p><dt>5.
+	<a name="180"></a>薬剤名等
+アザチオプリン<br>メルカプトプリン水和物<p></p>
+<p></p>
+<a name="181"></a>
+<dt>臨床症状・措置方法</dt>
+<dd>
+白血球減少等の骨髄抑制があらわれるおそれがある。</dd>
+<p></p>
+<a name="182"></a>
+<dt>機序・危険因子</dt>
+<dd>
+本剤はこれらの薬剤の代謝酵素であるチオプリンメチルトランスフェラーゼを阻害するとの報告がある。</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="183"></a>
+<h4>副作用</h4>
+<p></p>
+<a name="184"></a>
+<p></p>
+<h4>副作用等発現状況の概要</h4>
+<p></p>
+<dl compact><dt><dd>本剤は使用成績調査等の副作用発現頻度が明確となる調査を実施していない。</dd>
+<p></p>
+</dl>
+<a name="188"></a>
+<h4>重大な副作用（頻度不明）</h4>
+<p></p><dt><dl compact>
+<p></p><dt>1.
+	<font color="BLACK"><b>再生不良性貧血、汎血球減少症、無顆粒球症、血小板減少、貧血［溶血性貧血、巨赤芽球性貧血（葉酸欠乏）等］、播種性血管内凝固症候群（DIC）</b></font>
+<dd>再生不良性貧血、汎血球減少症、無顆粒球症、血小板減少、貧血［溶血性貧血、巨赤芽球性貧血（葉酸欠乏）等］、播種性血管内凝固症候群（DIC）があらわれることがあるので、観察を十分に行い、異常が認められた場合には投与を中止し、適切な処置を行うこと。</dd>
+<p></p><dt>2.
+	<font color="BLACK"><b>中毒性表皮壊死融解症（Toxic Epidermal Necrolysis:TEN）、皮膚粘膜眼症候群（Stevens-Johnson症候群）、紅皮症型薬疹</b></font>
+<dd>中毒性表皮壊死融解症、皮膚粘膜眼症候群、紅皮症型薬疹があらわれることがあるので、観察を十分に行い、このような症状があらわれた場合には投与を中止し、適切な処置を行うこと。</dd>
+<p></p><dt>3.
+	<font color="BLACK"><b>過敏症症候群、伝染性単核球症様症状</b></font>
+<dd>過敏症症候群、伝染性単核球症様症状があらわれることがあるので、観察を十分に行い、次のような症状があらわれた場合には投与を中止し、適切な処置を行うこと。初期症状として発疹、発熱、感冒様症状がみられ、さらにリンパ節腫脹、肝機能障害、肝腫、白血球増加、好酸球増多、異型リンパ球出現等を伴う重篤な過敏症状が遅発性にあらわれることがある。<br>なお、これらの症状は、薬剤を中止しても再燃あるいは遷延化することがあるので注意すること。</dd>
+<p></p><dt>4.
+	<font color="BLACK"><b>間質性肺炎、薬剤性肺炎、PIE症候群、線維性肺胞炎</b></font>
+<dd>間質性肺炎、薬剤性肺炎、PIE症候群、線維性肺胞炎があらわれることがあるので、発熱、咳嗽、喀痰、呼吸困難等の呼吸器症状があらわれた場合には投与を中止し、速やかに胸部X線検査、血液検査等を実施し、適切な処置を行うこと。</dd>
+<p></p><dt>5.
+	<font color="BLACK"><b>急性腎不全、ネフローゼ症候群、間質性腎炎</b></font>
+<dd>急性腎不全、ネフローゼ症候群、間質性腎炎があらわれることがあるので、定期的に検査を行うなど観察を十分に行い、異常が認められた場合には投与を中止し、適切な処置を行うこと。</dd>
+<p></p><dt>6.
+	<font color="BLACK"><b>消化性潰瘍（出血、穿孔を伴うことがある）、S状結腸穿孔</b></font>
+<dd>消化性潰瘍（出血、穿孔を伴うことがある）、S状結腸穿孔があらわれることがあるので、異常が認められた場合には投与を中止し、適切な処置を行うこと。</dd>
+<p></p><dt>7.
+	<font color="BLACK"><b>脳症</b></font>
+<dd>脳症があらわれることがあるので、観察を十分に行い、意識障害、痙攣等があらわれた場合には投与を中止し、適切な処置を行うこと。</dd>
+<p></p><dt>8.
+	<font color="BLACK"><b>無菌性髄膜（脳）炎</b></font>
+<dd>無菌性髄膜（脳）炎［頸部（項部）硬直、発熱、頭痛、悪心、嘔吐あるいは意識混濁等］があらわれることがあるので、観察を十分に行い、このような症状があらわれた場合には投与を中止し、適切な処置を行うこと。</dd>
+<p></p><dt>9.
+	<font color="BLACK"><b>心膜炎、胸膜炎</b></font>
+<dd>心膜炎、胸膜炎があらわれることがあるので、呼吸困難、胸部痛、胸水等があらわれた場合には投与を中止し、速やかに心電図検査、胸部X線検査等を実施し、適切な処置を行うこと。</dd>
+<p></p><dt>10.
+	<font color="BLACK"><b>SLE様症状</b></font>
+<dd>SLE様症状があらわれることがあるので、観察を十分に行い、このような症状があらわれた場合には投与を中止し、適切な処置を行うこと。</dd>
+<p></p><dt>11.
+	<font color="BLACK"><b>劇症肝炎、肝炎、肝機能障害、黄疸</b></font>
+<dd>AST（GOT）、ALT（GPT）の著しい上昇等を伴う肝炎、肝機能障害、黄疸があらわれることがある。また、肝不全、劇症肝炎に至るおそれがあるので、定期的に肝機能検査を行うなど観察を十分に行い、異常が認められた場合には投与を中止し、適切な処置を行うこと。</dd>
+<p></p><dt>12.
+	<font color="BLACK"><b>ショック、アナフィラキシー</b></font>
+<dd>ショック、アナフィラキシーがあらわれることがあるので、観察を十分に行い、発疹、血圧低下、呼吸困難等の異常が認められた場合には投与を中止し、適切な処置を行うこと。</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="227"></a>
+<h4>その他の副作用</h4>
+<p></p>
+<dl compact><dt>1.
+	血液<sup>注1）</sup>
+<dd>頻度不明&nbsp;</dd>
+<dd>白血球減少、免疫グロブリン減少、顆粒球減少、異型リンパ球出現、好酸球増多</dd>
+<p></p><dt>2.
+	肝臓<sup>注1）</sup>
+<dd>頻度不明&nbsp;</dd>
+<dd>AST（GOT）、ALT（GPT）の上昇</dd>
+<p></p><dt>3.
+	腎臓<sup>注1）</sup>
+<dd>頻度不明&nbsp;</dd>
+<dd>浮腫、蛋白尿、BUN上昇、血尿、腫脹、糖尿、尿路結石</dd>
+<p></p><dt>4.
+	皮膚<dd>頻度不明&nbsp;</dd>
+<dd>脱毛</dd>
+<p></p><dt>5.
+	消化器<dd>頻度不明&nbsp;</dd>
+<dd>悪心・嘔吐、腹痛、口内炎、胃不快感、食欲不振、便秘、腹部膨満感、下痢、口唇炎、胸やけ、舌炎、口渇、膵炎、口腔咽頭痛</dd>
+<p></p><dt>6.
+	過敏症<sup>注1）</sup>
+<dd>頻度不明&nbsp;</dd>
+<dd>発疹、そう痒感、顔面潮紅、紅斑、蕁麻疹、光線過敏症、血清病</dd>
+<p></p><dt>7.
+	精神神経系<dd>頻度不明&nbsp;</dd>
+<dd>頭痛、末梢神経炎、めまい、うとうと状態、耳鳴、抑うつ</dd>
+<p></p><dt>8.
+	その他<dd>頻度不明&nbsp;</dd>
+<dd>発熱、倦怠、味覚異常、心悸亢進、筋肉痛、胸痛、関節痛、嗅覚異常、精子数及び精子運動性の可逆的な減少<sup>注2）</sup>
+</dd>
+<p></p>
+</dl>
+<a name="261"></a>
+<p></p>
+<dl compact>
+<dd>注1） このような症状があらわれた場合には投与を中止すること。</dd>
+<p></p>
+<dd>注2） 2〜3ヵ月の休薬により回復するとの報告がある。</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="266"></a>
+<p></p>
+<h4>高齢者への投与</h4>
+<p></p>
+<dl compact>
+<dd>高齢者では、少量（0.5g、1日1回、夕食後）から投与を開始するなど患者の状態を観察しながら、慎重に投与すること。［他社の臨床試験において高齢者に消化器系、肝臓系及び腎臓系の副作用の発現率が高い傾向が認められている］</dd>
+<p></p>
+</dl>
+<a name="269"></a>
+<p></p>
+<h4>妊婦、産婦、授乳婦等への投与</h4>
+<p></p>
+<dl compact>
+<p></p><dt>1.
+	<dd>
+<font color="BLACK"><b>妊婦：</b></font>妊婦又は妊娠している可能性のある婦人には投与しないことが望ましい。［本剤の動物実験では催奇形作用は認められていないが、他のサルファ剤（スルファメトピラジン等）では催奇形作用が認められている。また本剤の代謝物の胎盤通過により、新生児に高ビリルビン血症を起こすことがある。］</dd>
+<p></p><dt>2.
+	<dd>
+<font color="BLACK"><b>授乳婦：</b></font>授乳中の婦人には投与しないことが望ましいが、やむを得ず投与する場合は授乳を中止させること。［母乳中に移行し、乳児に血便又は血性下痢があらわれたとの報告がある］</dd>
+<p></p>
+<p></p>
+</dl>
+<a name="275"></a>
+<p></p>
+<h4>小児等への投与</h4>
+<p></p>
+<dl compact>
+<p></p><dt>1.
+	<dd>新生児、低出生体重児には投与しないこと。［高ビリルビン血症を起こすことがある］</dd>
+<p></p><dt>2.
+	<dd>小児に対する安全性は確立していない（使用経験がない）。</dd>
+<p></p>
+<p></p>
+</dl>
+<a name="281"></a>
+<p></p>
+<h4>過量投与</h4>
+<p></p>
+<dl compact>
+<p></p><dt><dd>サラゾスルファピリジンの過量投与時の一般的な症状、処置は次のとおりである。</dd>
+<p></p><dt>1.
+	<dd>
+<font color="BLACK"><b>症状：</b></font>悪心・嘔吐、胃腸障害、腹痛、精神神経系症状（傾眠、痙攣等）</dd>
+<p></p><dt>2.
+	<dd>
+<font color="BLACK"><b>処置：</b></font>症状に応じて、催吐、胃洗浄、寫下、尿のアルカリ化、強制利尿（腎機能が正常な場合）、血液透析等を行う。</dd>
+<p></p>
+<p></p>
+</dl>
+<a name="289"></a>
+<p></p>
+<h4>適用上の注意</h4>
+<p></p>
+<dl compact>
+<p></p><dt>薬剤交付時：<dt>1.
+	<dd>本剤は腸溶性製剤であり、かんだり、砕いたりせずに服用するように指導すること。</dd>
+<p></p><dt>2.
+	<dd>PTP包装の薬剤はPTPシートから取り出して服用するよう指導すること。（PTPシートの誤飲により、硬い鋭角部が食道粘膜へ刺入し、更には穿孔をおこして縦隔洞炎等の重篤な合併症を併発することが報告されている）</dd>
+<p></p>
+<p></p>
+</dl>
+<a name="297"></a>
+<p></p>
+<h4>その他の注意</h4>
+<p></p>
+<dl compact>
+<p></p><dt>1.
+	<dd>動物実験（ラット）で甲状腺腫及び甲状腺機能異常を起こすことが報告されている。</dd>
+<p></p><dt>2.
+	<dd>本剤の成分により皮膚、爪及び尿・汗等の体液が黄色〜黄赤色に着色することがある。また、ソフトコンタクトレンズが着色することがある。</dd>
+<p></p>
+<p></p>
+</dl>
+<p></p>
+<a name="303"></a>
+<h3>薬物動態</h3>
+<p></p>
+<dl compact>
+<p></p><dt>1.
+	生物学的同等性試験<sup>1）</sup>
+<dl compact>
+<p></p><dt>●サラゾスルファピリジン腸溶錠250mg「テバ」<dd>サラゾスルファピリジン腸溶錠250mg「テバ」2錠と標準製剤1錠（サラゾスルファピリジンとしていずれも500mg）を、クロスオーバー法により健康成人男子に絶食単回経口投与して血清中未変化体濃度を測定し、得られた薬物動態パラメータ（AUC、Cmax）について90％信頼区間法にて統計解析を行った結果、log（0.80）〜log（1.25）の範囲内であり、両剤の生物学的同等性が確認された。</dd>
+<p></p><dt><dd>
+<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig09" align="absmiddle"></dd>
+<p></p><dt>●サラゾスルファピリジン腸溶錠500mg「テバ」<dd>サラゾスルファピリジン腸溶錠500mg「テバ」と標準製剤を、クロスオーバー法によりそれぞれ1錠（サラゾスルファピリジンとして500mg）健康成人男子に絶食単回経口投与して血清中未変化体濃度を測定し、得られた薬物動態パラメータ（AUC、Cmax）について90％信頼区間法にて統計解析を行った結果、log（0.80）〜log（1.25）の範囲内であり、両剤の生物学的同等性が確認された。</dd>
+<p></p><dt><dd>
+<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig10" align="absmiddle"></dd>
+<p></p>
+</dl>
+<p></p><dt>2.
+	溶出性<sup>2）</sup>
+<dd>サラゾスルファピリジン腸溶錠250mg「テバ」及びサラゾスルファピリジン腸溶錠500mg「テバ」の溶出性は、日本薬局方外医薬品規格第3部に定められた規格に適合していることが確認されている。</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="320"></a>
+<dl compact>
+<dt>
+<h3>薬物動態の表</h3>
+<p></p><table border="2"><caption>
+<p align="left">サラゾスルファピリジン腸溶錠250mg「テバ」　絶食単回経口投与<br>薬物動態パラメータ （平均±標準偏差、n=30）<br>
+</p>
+</caption>
+<tr>
+<td>　&nbsp;</td><td>投与量<br>（mg）&nbsp;</td><td>AUC<sub>0-24</sub>
+<br>（μg・hr/mL）&nbsp;</td><td>Cmax<br>（μg/mL）&nbsp;</td><td>Tmax<br>（hr）&nbsp;</td><td>T<sub>1/2</sub>
+<br>（hr）&nbsp;</td>
+</tr>
+<tr>
+<td>サラゾスルファピリジン腸溶錠250mg「テバ」&nbsp;</td><td>500&nbsp;</td><td>51.6±38.0&nbsp;</td><td>6.2±4.2&nbsp;</td><td>7.0±1.5&nbsp;</td><td>6.2±3.2&nbsp;</td>
+</tr>
+<tr>
+<td>標準製剤（腸溶錠、500mg）&nbsp;</td><td>500&nbsp;</td><td>55.4±41.4&nbsp;</td><td>6.7±4.8&nbsp;</td><td>6.5±1.1&nbsp;</td><td>5.8±1.8&nbsp;</td>
+</tr></table><br>血清中濃度並びにAUC、Cmax等のパラメータは、被験者の選択、体液の採取回数・時間等の試験条件によって異なる可能性がある。<br>
+<br>
+<br><table border="2"><caption>
+<p align="left">サラゾスルファピリジン腸溶錠500mg「テバ」　絶食単回経口投与<br>薬物動態パラメータ （平均±標準偏差、n=14）<br>
+</p>
+</caption>
+<tr>
+<td>　&nbsp;</td><td>投与量<br>（mg）&nbsp;</td><td>AUC<sub>0-24</sub>
+<br>（μg・hr/mL）&nbsp;</td><td>Cmax<br>（μg/mL）&nbsp;</td><td>Tmax<br>（hr）&nbsp;</td><td>T<sub>1/2</sub>
+<br>（hr）&nbsp;</td>
+</tr>
+<tr>
+<td>サラゾスルファピリジン腸溶錠500mg「テバ」&nbsp;</td><td>500&nbsp;</td><td>56.0±32.1&nbsp;</td><td>6.7±3.6&nbsp;</td><td>5.7±1.7&nbsp;</td><td>8.1±1.3&nbsp;</td>
+</tr>
+<tr>
+<td>標準製剤（腸溶錠、500mg）&nbsp;</td><td>500&nbsp;</td><td>53.4±29.2&nbsp;</td><td>6.5±3.4&nbsp;</td><td>5.7±1.7&nbsp;</td><td>7.8±0.9&nbsp;</td>
+</tr></table><br>血清中濃度並びにAUC、Cmax等のパラメータは、被験者の選択、体液の採取回数・時間等の試験条件によって異なる可能性がある。<br>
+<br>
+<br>
+</dt>
+</dl>
+<p></p>
+<a name="333"></a>
+<h3>薬効薬理</h3>
+<p></p>
+<dd>サラゾスルファピリジンは、腸内細菌の作用で5-アミノサリチル酸とスルファピリジンに分解する。5-アミノサリチル酸が活性代謝物と考えられており、腸管の粘膜下結合組織に蓄積し、抗炎症作用を発現する。また、Ｔ細胞及びマクロファージにも作用して炎症を抑制することで抗リウマチ作用を示す。活性酸素の消去、LTB<sub>4</sub>生合成の抑制、肥満細胞からのヒスタミン遊離抑制、血小板活性化因子の生合成抑制、インターロイキン1-βの産生抑制の関与が認められている。<sup>3）</sup>
+</dd>
+<p></p>
+<p></p>
+<a name="336"></a>
+<h3>有効成分に関する理化学的知見</h3>
+<p></p>
+<dt>一般名</dt>
+<p></p>
+<dd>サラゾスルファピリジン（Salazosulfapyridine）</dd>
+<p></p>
+<dt>化学名</dt>
+<p></p>
+<dd>2-Hydroxy-5-[4-(pyridin-2-ylsulfamoyl)phenylazo] benzoic acid</dd>
+<p></p>
+<dt>分子式</dt>
+<p></p>
+<dd>C<sub>18</sub>H<sub>14</sub>N<sub>4</sub>O<sub>5</sub>S</dd>
+<p></p>
+<dt>分子量</dt>
+<p></p>
+<dd>398.39</dd>
+<p></p>
+<dt>融　点</dt>
+<p></p>
+<dd>240〜249℃（分解）</dd>
+<p></p>
+<dt>性　状</dt>
+<p></p>
+<dd>サラゾスルファピリジンは黄色〜黄褐色の微細な粉末で、におい及び味はない。ピリジンにやや溶けにくく、エタノール（95）に溶けにくく、水、クロロホルム又はジエチルエーテルにほとんど溶けない。水酸化ナトリウム試液に溶ける。</dd>
+<p></p>
+<dt>構造式</dt>
+<p></p>
+<dd>
+<img src="/PmdaSearch/iyakuDetail/SimpleImageGIF/400813_6219001H1080_1_04/400813_6219001H1080_1_04_fig11" align="absmiddle"></dd>
+<p></p>
+<p></p>
+<a name="358"></a>
+<h3>取扱い上の注意</h3>
+<p></p>
+<dl compact>
+<p></p><dt>安定性試験結果の概要<sup>4）</sup>
+<dl compact>
+<p></p><dt>●サラゾスルファピリジン腸溶錠250mg「テバ」<dd>加速試験（40℃、相対湿度75％、6ヵ月）の結果、サラゾスルファピリジン腸溶錠250mg「テバ」は通常の市場流通下において3年間安定であることが推測された。</dd>
+<p></p><dt>●サラゾスルファピリジン腸溶錠500mg「テバ」<dd>長期保存試験（25℃、相対湿度60％、3年）の結果、サラゾスルファピリジン腸溶錠500mg「テバ」は通常の市場流通下において3年間安定であることが確認された。</dd>
+<p></p>
+</dl>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="368"></a>
+<dl compact>
+<h3>包装</h3>
+<p></p>
+<dd>●サラゾスルファピリジン腸溶錠250mg「テバ」<br>PTP包装：100錠（10錠×10）</dd>
+<p></p>
+<dd>●サラゾスルファピリジン腸溶錠500mg「テバ」<br>PTP包装：100錠（10錠×10）</dd>
+<p></p>
+</dl>
+<p></p>
+<a name="373"></a><a name="374"></a>
+<p></p>
+<h4>主要文献</h4>
+<p></p>
+<dl compact>
+<dt>1)
+		</dt>
+<dd>武田テバファーマ（株）社内資料（生物学的同等性試験）</dd>
+<p></p>
+<dt>2)
+		</dt>
+<dd>武田テバファーマ（株）社内資料（溶出試験）</dd>
+<p></p>
+<dt>3)
+		</dt>
+<dd>第十六改正日本薬局方解説書</dd>
+<p></p>
+<dt>4)
+		</dt>
+<dd>武田テバファーマ（株）社内資料（安定性試験）</dd>
+<p></p>
+</dl>
+<a name="383"></a>
+<p></p>
+<h4>文献請求先・製品情報お問い合わせ先</h4>
+<p></p>
+<dl compact>
+<a name="385"></a>
+<dd>
+**主要文献欄に記載の文献・社内資料は下記にご請求下さい。<br>
+<br>武田テバファーマ株式会社　武田テバDIセンター</dd>
+<p></p>
+<a name="386"></a>
+<dd>
+〒453-0801　名古屋市中村区太閤一丁目24番11号</dd>
+<p></p>
+<a name="387"></a>
+<dd>
+TEL 0120-923-093<br>
+<br>受付時間 9:00〜17:30（土日祝日・弊社休業日を除く）</dd>
+<p></p>
+</dl>
+<p></p>
+<a name="388"></a>
+<dl compact>
+<h3>製造販売業者等の氏名又は名称及び住所</h3>
+<p></p>
+<a name="390"></a>
+<dt>
+**販売</dt>
+<a name="391"></a>
+<dd>
+武田薬品工業株式会社</dd>
+<p></p>
+<a name="392"></a>
+<dd>
+大阪市中央区道修町四丁目1番1号</dd>
+<p></p>
+<a name="394"></a>
+<dt>
+**製造販売元</dt>
+<a name="395"></a>
+<dd>
+武田テバファーマ株式会社</dd>
+<p></p>
+<a name="396"></a>
+<dd>
+名古屋市中村区太閤一丁目24番11号</dd>
+<p></p>
+</dl>
+<p></p>
+
+</div>
+</span>
+</div><!-- / .SearchScroll -->
+</div><!-- / .PopupInner -->
+</div><!-- / .PopupArea -->
+
+</div><!-- / #ContentMainArea -->
+
+</div><!-- / #MainContents .clearfix -->
+
+<div class="HTML5_section">
+
+<div id="FooterArea01">
+<div class="FooterAreaInner">
+</div><!--/FooterAreaInner-->
+</div><!--/FooterArea01-->
+
+
+<div id="FooterArea02">
+<div class="FooterAreaInner clearfix">
+<div class="footerlogo"><p>Pmda 独立行政法人 医薬品医療機器総合機構</p></div>
+<div class="footeraddress"><p>〒100-0013　東京都千代田区霞が関3-3-2　新霞が関ビル</p></div>
+<div class="footerbtn"><a href="javascript:window.close()"><img class="imglink" src="/PmdaSearch/files/common/img/ComHeaderAreaBtnClose.png" alt="画面を閉じる" width="118" height="24"></a></div>
+</div><!--/FooterAreaInner-->
+</div><!--/FooterArea02-->
+
+<div id="FooterArea03">
+<p>Copyright &copy; Pharmaceuticals and Medical Devices Agency, All Rights reserved.</p>
+</div><!--/FooterArea03-->
+</div><!-- / .HTML5_section -->
+
+</div><!-- / #ContentArea .HTML5_section -->
+
+</form>
+</div><!--/ContentWrap-->
+
+</div>
+</body>
+</html>

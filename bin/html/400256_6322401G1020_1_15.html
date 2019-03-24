@@ -1,0 +1,891 @@
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<html>
+<head>
+<title>沈降破傷風トキソイドキット「タケダ」</title>
+<meta name="keywords" content="PMDA,pmda,医薬品,副作用,被害救済,薬,医療,機器,医薬">
+<meta name="description" content="独立行政法人　医薬品医療機器総合機構：医薬品副作用被害救済や稀少病認定薬の研究振興調査などの業務案内。">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-TextLayoutMetrics" content="gdi">
+<meta name="robots" content="none">
+<!-- <link rel="stylesheet" type="text/css" href="/PmdaSearch/css/pmdaSearchCommon.css" /> -->
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/common/css/importdetail.css" />
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/common/css/print.css" />
+
+<script type="text/javascript" src="/PmdaSearch/files/common/js/jquery_1.7.1.min.js"></script>
+<script type="text/javascript" src="/PmdaSearch/files/common/js/jquery_cookie.js"></script>
+<script type="text/javascript" src="/PmdaSearch/files/common/js/main.js"></script>
+<script type="text/javascript" src="/PmdaSearch/js/pmdaCommon.js"></script>
+<script type="text/javascript" src="/PmdaSearch/js/data/otc/list_n.lib"></script>
+
+<!-- ++++ local-css ++++ -->
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/css/pmdaDiffResult.css" />
+<!-- ++++ /local-css ++++ -->
+
+</head>
+<body onload="FontSizeInit();">
+<div id="layoutHeader">
+
+
+  
+  
+
+
+
+<!-- <img src="/PmdaSearch/imgs/top01.jpg" alt="独立行政法人 医薬品医療機器総合機構 Pharmaceuticals and Medical Devices Agency" /> -->
+</div>
+<div id="layoutBody">
+
+
+<!-- ++++ local-js ++++ -->
+<script>
+
+function FontSizeInit() {
+
+	// 20140509 Font Size Default Set
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	if( !fs ){
+		window.localStorage.setItem("iyakufsizeValue", 100);
+		fs = window.localStorage.getItem("iyakufsizeValue");
+	}
+//	if( fs == 100 )	fs = 93;	// 確認用
+	document.body.style.fontSize = Math.floor(fs) + '%';
+
+	var valjump = "#"+document.getElementsByName("ini_disp")[0].value;
+
+	location.href = valjump;
+
+}
+
+function bigger() {
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	fs *= 1.2;
+
+//	if( fs <= (100 * 1.2) * 1.2 ){
+	if( fs <= (93 * 1.2) * 1.2 ){
+		window.localStorage.setItem("iyakufsizeValue", fs);
+		document.body.style.fontSize = Math.floor(fs) + '%';
+	}
+}
+
+function smaller() {
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	fs /= 1.2;
+
+//	if( fs >= (100 / 1.2) / 1.2 ){
+	if( fs >= (93 / 1.2) / 1.2 ){
+		window.localStorage.setItem("iyakufsizeValue", fs);
+		document.body.style.fontSize = Math.floor(fs) + '%';
+	}
+}
+
+
+//比較文書を表示する
+function diffDisp( fname, opt ){
+
+	var origVer = document.getElementsByName("originalVer")[0].value;
+	var targVer = document.getElementsByName("diffTargetVer")[0].value;
+
+	if( targVer == null || targVer == "" )	targVer = "-";
+
+    $.ajax({
+        url: '/PmdaSearch/iyakuDetail/ResultDataSetDIFF/'+fname + "/" + opt + "/" + origVer + "/" + targVer,
+        type: 'GET',
+        dataType: 'json',
+        cache: false, //ブラウザにキャッシュさせません。
+        error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert("読み込みに失敗しました : " + textStatus + " - " +errorThrown);
+        },
+        success: function(json){
+        	//alert("読み込みが完了しました : " + json.ResultErr);
+        	if( json.ResultErr == "" ){
+            	$("title").html(json.pageTitle).html()
+            	$("#PageLabel").html(json.pageLabel).html()
+            	$("#ResultSet").html(json.ResultSet).html()
+        	} else {
+        		alert(json.ResultErr);
+        	}
+
+            FontSizeInit();
+
+        }
+      });
+
+}
+
+
+</script>
+<!-- ++++ /local-js ++++ -->
+
+
+<div id="ContentWrap">
+<noscript><p id="NoScriptWarning">当ウェブサイトを快適にご覧いただくには、ブラウザのJavaScript設定を有効（オン）にしていただく必要がございます。</p></noscript>
+
+
+<div id="HeaderPopArea" class="HTML5_header">
+<div id="HeaderPopAreaInner">
+
+<div id="LogoArea">
+<span>Pmda 独立行政法人 医薬品医療機器総合機構</span>
+</div><!--/LogoArea-->
+
+<div id="LinkArea01" class="clearfix">
+<ul>
+<li class="mr_00"><a href="javascript:window.close()"><img class="imglink" src="/PmdaSearch/files/common/img/ComHeaderAreaBtnClose.png" alt="画面を閉じる" width="118" height="24"></a></li>
+</ul>
+</div><!--/LinkArea01-->
+
+<div id="LinkArea02">
+<img class="float_l mr_10" src="/PmdaSearch/files/common/img/ComHeaderAreaTxtSizettl.png" alt="文字サイズの変更" width="29" height="22">
+<span id="FontSizeSelect"><a href="javascript:void(0);" id="TextBtnNormal" class="mr_05 "><span>標準</span></a>
+<a href="javascript:void(0);" id="TextBtnL" class="mr_05"><span>大</span></a>
+<a href="javascript:void(0);" id="TextBtnLl"><span>特大</span></a></span>
+</div><!--/LinkArea02-->
+</div><!--/HeaderAreaInner-->
+</div><!--/HeaderArea-->
+
+<form name="iyakuDetailActionForm" method="post" action="/PmdaSearch/iyakuDetail/">
+<div id="ContentArea" class="HTML5_section">
+<div id="MainContents" class="clearfix">
+<div id="ContentMainArea" class="ComOneCulumn">
+
+<div class="PopupArea">
+<div class="PopupInner">
+
+<h1 id="SearchHd"><strong id="PageLabel">医療用医薬品 詳細表示</strong></h1>
+
+<div>
+<span id="ResultSet"><div style="float:left;width:35%;height:720px;overflow-y:auto;">
+<input type='hidden' name='ini_disp' value='CONTRAINDICATIONS'/>
+
+<h2>沈降破傷風トキソイドキット「タケダ」</h2>
+<table>
+<tr>
+<td valign="top">
+<br>
+<b><font color="#000080">処方せん医薬品</font></b></td>
+</tr>
+</table>
+<p></p>
+<hr>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#4">作成又は改訂年月</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#10">日本標準商品分類番号</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#12">薬効分類名</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#13">承認等</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#15">販売名沈降破傷風トキソイドキット「タケダ」</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#18">承認・許可番号</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#21">薬価基準収載年月</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#23">販売開始年月</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#25">貯法・使用期限等</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#26">基準名</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#27">規制区分</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#29">製法の概要及び組成・性状</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#31">接種不適当者</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#34">効能又は効果</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#37">用法及び用量</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#39">用法及び用量に関連する接種上の注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#42">接種上の注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#43">接種要注意者</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#46">重要な基本的注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#48">副反応</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#49">重大な副反応</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#55">その他の副反応</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#65">高齢者への接種</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#67">妊婦、産婦、授乳婦等への接種</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#69">接種時の注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#74">臨床成績</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#76">薬効薬理</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#78">取扱い上の注意</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#81">包装</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"><img src="../imgs/icons/sita.gif"></td><td align="left" valign="top" width="800"><a target="_self" href="#82">主要文献及び文献請求先</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#83">主要文献</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#84">文献請求先・製品情報お問い合わせ先</a></td>
+</tr>
+</table>
+<table cellpadding="0" border="0" width="898">
+<tr>
+<td width="8"></td><td width="10"></td><td align="left" valign="top" width="800"><a target="_self" href="#88">製造販売業者等の氏名又は名称及び住所</a></td>
+</tr>
+</table>
+
+</div>
+<div style="float:left;width:65%;height:720px;overflow-y:auto;">
+
+<h4>
+<font color="#000080">沈降破傷風トキソイドキット「タケダ」</font>
+</h4>
+<hr>
+<a name="4"></a>
+<dl compact>
+<h3>作成又は改訂年月</h3>
+<p></p><dd>*2018年7月改訂（第12版）<p></p><dd>2015年3月改訂</dl>
+<p></p>
+<a name="10"></a>
+<dl compact>
+<h3>日本標準商品分類番号</h3>
+<p></p><dd>876322</dl>
+<p></p>
+<a name="12"></a>
+<dl compact>
+<h3>薬効分類名</h3>
+<p></p><dd>トキソイド類キット製剤</dl>
+<p></p>
+<a name="13"></a>
+<h3>承認等</h3>
+<p></p>
+<a name="14"></a><a name="15"></a>
+<dl compact>
+<dt>販売名</dt>
+<dd>沈降破傷風トキソイドキット「タケダ」</dd>
+</dl>
+<a name="16"></a>
+<p></p>
+<h4>販売名コード</h4>
+<p></p>
+<dl compact>
+<dd>6322401G1020</dd>
+</dl>
+<a name="18"></a>
+<p></p>
+<h4>承認・許可番号</h4>
+<p></p>
+<dl compact>
+<dt>承認番号</dt>
+<dd>21300AMZ00368</dd>
+<a name="20"></a>
+<dt>商標名</dt>
+<dd>ADSORBED　TETANUS　TOXOID</dd>
+<p></p>
+</dl>
+<a name="21"></a>
+<p></p>
+<h4>薬価基準収載年月</h4>
+<p></p>
+<dl compact>
+<a name="22"></a>
+<dd>2001年12月（健保等一部限定適用）</dd>
+<p></p>
+</dl>
+<a name="23"></a>
+<p></p>
+<h4>販売開始年月</h4>
+<p></p>
+<dl compact>
+<a name="24"></a>
+<dd>2002年3月</dd>
+<p></p>
+</dl>
+<a name="25"></a>
+<p></p>
+<h4>貯法・使用期限等</h4>
+<p></p>
+<dl compact>
+<dt>貯　法</dt>
+<p></p>
+<dd>遮光して、10℃以下に凍結を避けて保存（<font color="BLACK"><b>【取扱い上の注意】</b></font>参照）</dd>
+<p></p>
+<dt>有効期間</dt>
+<p></p>
+<dd>検定合格日から2年（最終有効年月日は外箱等に表示）</dd>
+<p></p>
+</dl>
+<a name="26"></a>
+<p></p>
+<h4>基準名</h4>
+<p></p>
+<dl compact>
+<dt>日本薬局方</dt>
+<p></p>
+<dd>沈降破傷風トキソイド</dd>
+<p></p>
+<dt>生物学的製剤基準</dt>
+<p></p>
+<dd>沈降破傷風トキソイド</dd>
+<p></p>
+</dl>
+<a name="27"></a>
+<p></p>
+<h4>規制区分</h4>
+<p></p>
+<dl compact>
+<dt>生物由来製品</dt>
+<p></p>
+<dt>劇薬</dt>
+<p></p>
+<dt>処方箋医薬品<sup>注）</sup>
+</dt>
+<p></p>
+<dd>注）処方箋医薬品：注意−医師等の処方箋により使用すること</dd>
+<p></p>
+</dl>
+<a name="29"></a>
+<p></p>
+<h4>製法の概要及び組成・性状</h4>
+<p></p>
+<dl compact>
+<dt>製法の概要</dt>
+<p></p>
+<dd>本剤は、破傷風菌（Harvard株）を純培養し、得られた毒素液を精製濃縮し、ホルマリンを加えて無毒化したトキソイド原液を規定濃度に希釈してからアルミニウム塩を加えてトキソイドを吸着させ、調製したものである。本剤は製造工程でヒトの毛髪由来成分（L−シスチン）、トリの羽毛由来成分（L−チロシン）、ウシの肝臓、心臓、肉、乳由来成分（スキムミルク、バクトカジトン、カザミノアシド）を使用している。</dd>
+<p></p>
+<dt>組　成</dt>
+<p></p>
+<dd>本剤は0.5mL（1キット）中に、次の成分及び分量を含有する。</dd>
+<p></p>
+<dt>有効成分</dt>
+<p></p>
+<dd>破傷風トキソイド　約5Lf</dd>
+<p></p>
+<dt>添加物</dt>
+<p></p>
+<dd>アルミニウム塩（免疫増強剤）　0.1mg（アルミニウム換算）<br>フェノキシエタノール（保存剤）　2.5μL<br>ホルマリン（不活化剤）　0.01<sup>W</sup>／<sub>V</sub>％以下（ホルムアルデヒド換算）</dd>
+<p></p>
+</dl>
+<a name="30"></a>
+<p></p>
+<dl compact>
+<dt>性　状</dt>
+<p></p>
+<dd>本剤は不溶性で、振り混ぜるとき均等に白濁する液剤である。</dd>
+<p></p>
+<dt>pH</dt>
+<p></p>
+<dd>5.4〜7.4</dd>
+<p></p>
+<dt>浸透圧比（生理食塩液に対する比）</dt>
+<p></p>
+<dd>約1</dd>
+<p></p>
+</dl>
+<p></p>
+<a name="CONTRAINDICATIONS"></a><a name="31"></a>
+<table border="2" style="border-style:solid; border-color:red;" id="toc">
+<tr>
+<td>
+<h3 style="padding-left:0px;">接種不適当者</h3>
+<p></p>
+		（次の患者には投与しないこと）
+		<p></p>
+<dl compact>
+<p></p><dt><font color="BLACK"><b>（予防接種を受けることが適当でない者）</b></font>
+<dd>
+<font color="BLACK"><b>被接種者が次のいずれかに該当すると認められる場合には、接種を行ってはならない。</b></font>
+</dd>
+<p></p>
+<dl compact>
+<p></p><dt>
+		(1)
+	<dd>
+<font color="BLACK"><b>明らかな発熱を呈している者</b></font>
+</dd>
+<p></p><dt>
+		(2)
+	<dd>
+<font color="BLACK"><b>重篤な急性疾患にかかっていることが明らかな者</b></font>
+</dd>
+<p></p><dt>
+		(3)
+	<dd>
+<font color="BLACK"><b>本剤の成分によってアナフィラキシーを呈したことがあることが明らかな者</b></font>
+</dd>
+<p></p><dt>
+		(4)
+	<dd>
+<font color="BLACK"><b>上記に掲げる者のほか、予防接種を行うことが不適当な状態にある者</b></font>
+</dd>
+<p></p>
+</dl>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+</td>
+</tr>
+</table>
+<p></p>
+<a name="34"></a>
+<h3>効能又は効果</h3>
+<p></p>
+<a name="35"></a>
+<p></p>
+<dl compact>
+<p></p><dt><dd>本剤は、破傷風の予防に使用する。</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="37"></a>
+<p></p>
+<h4>用法及び用量</h4>
+<p></p>
+<dl compact>
+<dl compact>
+<p></p><dt><font color="BLACK"><b>○初回免疫</b></font>
+<dd>通常、1回0.5mLずつを2回、3〜8週間の間隔で皮下又は筋肉内に注射する。</dd>
+<p></p><dt><font color="BLACK"><b>○追加免疫</b></font>
+<dd>第1回の追加免疫には、通常、初回免疫後6箇月以上の間隔をおいて、（標準として初回免疫終了後12箇月から18箇月までの間に）0.5mLを1回皮下又は筋肉内に注射する。ただし、初回免疫のとき、副反応の強かった者には適宜減量する。<br>以後の追加免疫のときの接種量もこれに準ずる。</dd>
+<p></p>
+</dl>
+<p></p>
+</dl>
+<a name="39"></a>
+<p></p>
+<h4>用法及び用量に関連する接種上の注意</h4>
+<p></p>
+<dl compact>
+<dl compact>
+<p></p><dt>1.
+	接種対象者・接種時期<dl compact>
+<p></p><dt>
+		(1)
+	<dd>初回免疫と追加免疫を完了した者には、数年ごとに再追加免疫として、通常、1回0.5mLを皮下又は筋肉内に注射する。なお、再追加免疫の接種間隔は職業、スポーツ等の実施状況を考慮すること。</dd>
+<p></p><dt>
+		(2)
+	<dd>初回免疫、追加免疫、又は再追加免疫を受けた者で、破傷風感染のおそれのある負傷を受けたときは、直ちに本剤を通常、1回0.5mLを皮下又は筋肉内に注射する。</dd>
+<p></p>
+</dl>
+<p></p><dt>2.
+	他のワクチン製剤との接種間隔<dd>生ワクチンの接種を受けた者は、通常、27日以上、また他の不活化ワクチンの接種を受けた者は、通常、6日以上間隔を置いて本剤を接種すること。<br>ただし、医師が必要と認めた場合には、同時に接種することができる（なお、本剤を他のワクチンと混合して接種してはならない）。</dd>
+<p></p>
+</dl>
+<p></p>
+</dl>
+<p></p>
+<a name="PRECAUTIONSFORUSE"></a><a name="42"></a>
+<h3>接種上の注意</h3>
+<p></p>
+<a name="43"></a>
+<h4>接種要注意者</h4>（次の患者には慎重に投与すること）<p></p>
+<dl compact>
+<p></p><dt><font color="BLACK"><b>（接種の判断を行うに際し、注意を要する者）</b></font>
+<dd>被接種者が次のいずれかに該当すると認められる場合は、健康状態及び体質を勘案し、診察及び接種適否の判断を慎重に行い、予防接種の必要性、副反応、有用性について十分な説明を行い、同意を確実に得た上で、注意して接種すること。</dd>
+<p></p>
+<dl compact>
+<p></p><dt>
+		(1)
+	<dd>心臓血管系疾患、腎臓疾患、肝臓疾患、血液疾患、発育障害等の基礎疾患を有する者</dd>
+<p></p><dt>
+		(2)
+	<dd>予防接種で接種後2日以内に発熱のみられた者及び全身性発疹等のアレルギーを疑う症状を呈したことがある者</dd>
+<p></p><dt>
+		(3)
+	<dd>過去にけいれんの既往のある者</dd>
+<p></p><dt>
+		(4)
+	<dd>過去に免疫不全の診断がなされている者及び近親者に先天性免疫不全症の者がいる者</dd>
+<p></p><dt>
+		(5)
+	<dd>本剤の成分に対してアレルギーを呈するおそれのある者</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+</dl>
+<p></p>
+<a name="46"></a>
+<p></p>
+<h4>重要な基本的注意</h4>
+<p></p>
+<dl compact>
+<p></p><dt>1.
+	<dd>本剤は、<font color="BLACK"><b>「予防接種実施規則」</b></font>及び<font color="BLACK"><b>「定期接種実施要領」</b></font>に準拠して使用すること。</dd>
+<p></p><dt>2.
+	<dd>被接種者について、<font color="BLACK"><b>接種前に必ず問診、検温及び診察</b></font>（視診、聴診等）によって健康状態を調べること。</dd>
+<p></p><dt>3.
+	<dd>被接種者又はその保護者に、接種当日は過激な運動は避け、接種部位を清潔に保ち、また、<font color="BLACK"><b>接種後の健康監視</b></font>に留意し、局所の異常反応や体調の変化、さらに高熱、けいれん等の<font color="BLACK"><b>異常な症状</b></font>を呈した場合には、速やかに<font color="BLACK"><b>医師の診察</b></font>を受けるよう事前に知らせること。</dd>
+<p></p>
+<p></p>
+</dl>
+<a name="48"></a>
+<h4>副反応</h4>
+<p></p>
+<a name="49"></a>
+<h4>重大な副反応</h4>
+<p></p><dt><dl compact>
+<p></p><dt><font color="BLACK"><b>ショック、アナフィラキシー（0.1％未満）</b></font>
+<dd>
+<font color="BLACK"><b>ショック、アナフィラキシー（全身発赤、呼吸困難、血管浮腫等）</b></font>があらわれることがあるので、接種後は観察を十分に行い、異常が認められた場合には適切な処置を行うこと。</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="55"></a>
+<h4>その他の副反応</h4>
+<p></p>
+<dl compact><dt><dl compact>
+<p></p><dt>1.
+	全身症状（頻度不明）<dd>発熱、悪寒、頭痛、倦怠感、下痢、めまい、関節痛等を認めることがあるが、いずれも一過性で2〜3日中に消失する。</dd>
+<p></p><dt>2.
+	局所症状（頻度不明）<dd>発赤、腫脹、疼痛、硬結等を認めることがあるが、いずれも一過性で2〜3日中に消失する。ただし、硬結は1〜2週間残存することがある。また、2回以上の被接種者には、ときに著しい局所反応を呈することがあるが、通常、数日中に消失する。</dd>
+<p></p>
+</dl>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="65"></a>
+<p></p>
+<h4>高齢者への接種</h4>
+<p></p>
+<dl compact>
+<p></p><dt><dd>一般に高齢者では、生理機能が低下しているので、接種に当たっては、予診等を慎重に行い、被接種者の健康状態を十分に観察すること。</dd>
+<p></p>
+<p></p>
+</dl>
+<a name="67"></a>
+<p></p>
+<h4>妊婦、産婦、授乳婦等への接種</h4>
+<p></p>
+<dl compact>
+<p></p><dt><dd>妊婦又は妊娠している可能性のある婦人で、破傷風に感染するおそれがあり、本剤の接種による有益性が危険性を上まわると判断される場合にのみ接種すること。なお、新生児破傷風の予防のために接種を行う場合、予診等を慎重に行い妊娠20〜36週頃に、通常、0.5mLずつ2回3〜8週間の間隔で皮下又は筋肉内に注射することが望ましい。</dd>
+<p></p>
+<p></p>
+</dl>
+<a name="69"></a>
+<p></p>
+<h4>接種時の注意</h4>
+<p></p>
+<dl compact>
+<p></p><dt>1.
+	接種時<dl compact>
+<p></p><dt>
+		(1)
+	<dd>接種用器具は、ガンマ線等により滅菌されたディスポーザブル品を用いる。</dd>
+<p></p><dt>
+		(2)
+	<dd>キット品の使用に際しては、雑菌が迷入しないよう注意する。また、キット品を他の容器に移し使用してはならない。</dd>
+<p></p><dt>
+		(3)
+	<dd>注射針の先端が血管内に入っていないことを確かめること。</dd>
+<p></p><dt>
+		(4)
+	<dd>注射針及び注射筒は、被接種者ごとに取り換えなければならない。本製剤は1人1回限りの使用とすること。</dd>
+<p></p>
+</dl>
+<p></p><dt>2.
+	接種部位<dl compact>
+<p></p><dt>
+		(1)
+	<dd>接種部位は、通常、上腕伸側とし、アルコールで消毒する。なお、同一接種部位に反復して接種することは避けること。</dd>
+<p></p><dt>
+		(2)
+	<dd>筋肉内注射に当たっては、組織・神経などへの影響を避けるため下記の点に注意すること。</dd>
+<p></p>
+<dl compact>
+<p></p><dt>1)
+	<dd>神経走行部位を避けること。</dd>
+<p></p><dt>2)
+	<dd>注射針を刺入したとき、激痛を訴えたり血液の逆流をみた場合は直ちに針を抜き、部位を変えて注射すること。</dd>
+<p></p>
+</dl>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+</dl>
+<p></p>
+<a name="74"></a>
+<h3>臨床成績</h3>
+<p></p>
+<dl compact>
+<p></p><dt>1.
+	<font color="BLACK"><b>有効性</b></font>
+<dd>沈降破傷風トキソイドを1回0.5mLずつを2回、4週間の間隔による初回免疫後、4週目の抗毒素価を測定した<sup>1）</sup>。<br>被接種者のうち、乳幼児52例中52例（100％）、小・中学生178例中173例（97％）、成人・高齢者123例中107例（87％）は破傷風の感染防御に有効とされる0.01IU/mL以上のレベルであった（<font color="BLACK"><b>【薬効薬理】</b></font>の項参照）。</dd>
+<p></p><dt>2.
+	<font color="BLACK"><b>安全性</b></font>
+<dd>沈降破傷風トキソイド接種後の小児1,848名（調査例数：小学生　1,537例、中学生　311例）について、翌日まで観察し、副反応を調査した<sup>2）</sup>。<br>発熱は接種当夜に、37.5℃が2例（0.1％）、38.0〜38.4℃が2例（0.1％）、また38.5℃が1例（0.1％未満）に認められ、すべて小学1年生であった。<br>発赤は、5cm以上のものが小学生で76例（4.9％）、中学生で7例（2.3％）に認められた。腫脹は、5cm以上のものが小学生で70例（4.6％）、中学生で6例（1.9％）に認められた。肘関節を越えて発赤、腫脹した症例は、小学生に1例（0.1％未満）のみであった。</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="76"></a>
+<h3>薬効薬理</h3>
+<p></p>
+<dl compact>
+<p></p><dt><dd>破傷風を予防するためには、生体内にあらかじめ感染防御抗原に対する血中抗体が一定（感染防御レベル）以上産生されている必要がある。<br>破傷風に対する感染防御には、0.01IU/mLの抗毒素価が血中に必要と考えられている<sup>3）</sup>。<br>通常、1回の接種では、破傷風の発病を阻止できる抗毒素レベルまで抗体は上がらない。2回目の接種後数日の間にこのレベルを越え約1年位その免疫状態が続く。6箇月以上の間隔をおいて（12箇月から18箇月までの間に）追加免疫（3回目接種）を行うと抗体はさらに高くなり、少なくとも4〜5年間は免疫状態が持続する。<br>初回及び追加免疫の3回接種（基礎免疫の完了）を行っている場合、破傷風発症阻止効果は、90％以上と考えられている<sup>4）</sup>。</dd>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="78"></a>
+<h3>取扱い上の注意</h3>
+<p></p>
+<dl compact>
+<p></p><dt>1.
+	<font color="BLACK"><b>接種前</b></font>
+<dd>
+<font color="BLACK"><b>誤って凍結させたものは、品質が変化しているおそれがあるので、使用してはならない。</b></font>
+</dd>
+<p></p><dt>2.
+	<font color="BLACK"><b>接種時</b></font>
+<dd>
+<font color="BLACK"><b>使用前には、必ず、異常な混濁、着色、異物の混入、その他の異常がないかを確認すること。</b></font>
+</dd>
+<p></p><dt><font color="BLACK"><b>〇キット品の使用方法</b></font>
+<dl compact>
+<p></p><dt>
+		(1)
+	<dd>
+<font color="BLACK"><b>本剤は接種時に冷蔵庫から取り出し、室温になってからシリンジ（注射器）をしずかに2〜3回反転し、泡立てないようにして接種液を均質化する。</b></font>
+</dd>
+<p></p><dt>
+		(2)
+	<dd>
+<font color="BLACK"><b>注射針がきちんと装着されていることを確認し、針キャップを針の刃先に触れないように注意して回さずにまっすぐ引いてはずす。<br>［回してはずすと針基がロックハブからはずれる可能性がある］<br>［針キャップが針に触れると刃先が変形し、穿刺しづらくなる場合がある］<br>注射針を真上から30〜45°傾けて、そのままの状態を保ちながら、プランジャーロッド（押子）を途中で止めることなく速やかに（2秒を目安）押して気泡を抜き、エンドストッパー（後のゴム栓）の前端をシリンジの0.5mLの線に合わせた後使用する。</b></font>
+</dd>
+<p></p><dt>
+		(3)
+	<dd>
+<font color="BLACK"><b>一度針キャップをはずしたものは、速やかに使用する。</b></font>
+<br>〔キット品には25ゲージ（1/1，RB）の注射針が装着されている。〕</dd>
+<p></p>
+</dl>
+<p></p>
+</dl>
+<p></p>
+<p></p>
+<a name="81"></a>
+<dl compact>
+<h3>包装</h3>
+<p></p>
+<dd>1キット　0.5mL　1本</dd>
+<p></p>
+</dl>
+<p></p>
+<a name="82"></a>
+<h3>主要文献及び文献請求先</h3>
+<p></p>
+<a name="83"></a>
+<p></p>
+<h4>主要文献</h4>
+<p></p>
+<dl compact>
+<dt>1)
+		</dt>
+<dd>中村文弥：小児科診療，<font color="BLACK"><b>32</b></font>（3），265−279，1969．</dd>
+<p></p>
+<dt>2)
+		</dt>
+<dd>下村重雄他：予防接種制度に関する文献集（XIV），（財）予防接種リサーチセンター，1985，pp178−183．</dd>
+<p></p>
+<dt>3)
+		</dt>
+<dd>海老沢功：破傷風［第2版］，日本医事新報社（東京），2005，pp11−24．</dd>
+<p></p>
+<dt>4)
+		</dt>
+<dd>Wassilak　S．G．F．　et　al．：Vaccines，2nd　ed．　Saunders　W．B．Co．（USA），1994，pp57−90．</dd>
+<p></p>
+</dl>
+<a name="84"></a>
+<p></p>
+<h4>文献請求先・製品情報お問い合わせ先</h4>
+<p></p>
+<dl compact>
+<a name="85"></a>
+<dd>*武田薬品工業株式会社　くすり相談室</dd>
+<p></p>
+<a name="86"></a>
+<dd>*〒103−8668　東京都中央区日本橋本町二丁目1番1号</dd>
+<p></p>
+<a name="87"></a>
+<dd>フリーダイヤル　0120−566−587<br>受付時間　9：00〜17：30（土日祝日・弊社休業日を除く）</dd>
+<p></p>
+</dl>
+<p></p>
+<a name="88"></a>
+<dl compact>
+<h3>製造販売業者等の氏名又は名称及び住所</h3>
+<p></p>
+<a name="89"></a>
+<dt>製造販売元</dt>
+<a name="90"></a>
+<dd>武田薬品工業株式会社</dd>
+<p></p>
+<a name="91"></a>
+<dd>〒540−8645　大阪市中央区道修町四丁目1番1号</dd>
+<p></p>
+</dl>
+<p></p>
+
+</div>
+</span>
+</div><!-- / .SearchScroll -->
+</div><!-- / .PopupInner -->
+</div><!-- / .PopupArea -->
+
+</div><!-- / #ContentMainArea -->
+
+</div><!-- / #MainContents .clearfix -->
+
+<div class="HTML5_section">
+
+<div id="FooterArea01">
+<div class="FooterAreaInner">
+</div><!--/FooterAreaInner-->
+</div><!--/FooterArea01-->
+
+
+<div id="FooterArea02">
+<div class="FooterAreaInner clearfix">
+<div class="footerlogo"><p>Pmda 独立行政法人 医薬品医療機器総合機構</p></div>
+<div class="footeraddress"><p>〒100-0013　東京都千代田区霞が関3-3-2　新霞が関ビル</p></div>
+<div class="footerbtn"><a href="javascript:window.close()"><img class="imglink" src="/PmdaSearch/files/common/img/ComHeaderAreaBtnClose.png" alt="画面を閉じる" width="118" height="24"></a></div>
+</div><!--/FooterAreaInner-->
+</div><!--/FooterArea02-->
+
+<div id="FooterArea03">
+<p>Copyright &copy; Pharmaceuticals and Medical Devices Agency, All Rights reserved.</p>
+</div><!--/FooterArea03-->
+</div><!-- / .HTML5_section -->
+
+</div><!-- / #ContentArea .HTML5_section -->
+
+</form>
+</div><!--/ContentWrap-->
+
+</div>
+</body>
+</html>

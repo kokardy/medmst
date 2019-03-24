@@ -1,3 +1,3 @@
 #!/bin/bash
-DLsearchresult.sh 
-DLhtml.sh searchresult/00000000_
+./DLsearchresult.sh 
+./DLhtml.sh searchresult/00000000_
