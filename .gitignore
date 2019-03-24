@@ -1,9 +1,9 @@
 bin/cookie.txt
 
-searchresult/*
-pdf/*
-html/*
-sgml/*
-xml/*
+bin/searchresult/*
+bin/pdf/*
+bin/html/*
+bin/sgml/*
+bin/xml/*
 
 ~*
