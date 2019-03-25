@@ -22,7 +22,7 @@ done
 output="${xxx}/${base}.${xxx}"
 mkdir -p ${xxx}
 echo "download: $output"
-wget -c $url -O $output
+wget -q -c $url -O $output
 if [ $xxx = "html" ]; then
 	sh ./extractYJ.sh $output
 fi

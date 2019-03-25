@@ -1,20 +1,21 @@
 #!/bin/bash
+saveDir=$1
 
 #POST param
-effectValue=$1
-updateDocFrDt=${2:-"年月日 [YYYYMMDD]"} #指定時は8桁数字19801028
-updateDocToDt=${3:-"年月日 [YYYYMMDD]"} #指定時は8桁数字19801028
+effectValue=$2 #ALLのときは""で
+updateDocFrDt=${3:-"年月日 [YYYYMMDD]"} #指定時は8桁数字19801028
+updateDocToDt=${4:-"年月日 [YYYYMMDD]"} #指定時は8桁数字19801028
 
 #output param
-d=${2:-"00000000"}_${3:-""}
-filename=${1:-all}
+d=${3:-"00000000"}_${4:-""}
+filename=${2:-all}
 
-mkdir -p searchresult/$d
+mkdir -p $saveDir/$d
 
 http \
 --ignore-stdin \
 --form \
---output searchresult/$d/${filename}.html \
+--output $saveDir/$d/${filename}.html \
 POST \
 https://www.pmda.go.jp/PmdaSearch/iyakuSearch/ \
 User-Agent:"Mozilla/5.0 (Linux; Android 4.2.2; ja-jp; SC-04E Build/JDQ39) AppleWebkit/535.19 (KHTML,like Gecko) Version/1.0 Chrome/18.0.1025.308 Mobile Safari/535.19" \
