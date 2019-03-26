@@ -1,19 +1,15 @@
 #!/bin/bash
-saveDir=$1
 
-#POST param
+saveDir=$1/searchresult/
 updateDocDt=$2 #指定時は8桁数字19801028
+filename=$2
 
 #入力値チェック
-if [ $saveDir = "" ] || [ $updateDocDt = "" ]; then
+if [ $saveDir = "" -o $updateDocDt = "" ] ; then
 	echo "num of command option must be 2."
 	echo "POSTsearchDay.sh [saveDir] [update_date(YYYYMMDD)]"
 	exit
 fi	
-	
-
-#output param
-filename=$2
 
 mkdir -p $saveDir
 

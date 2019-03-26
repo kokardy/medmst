@@ -1,4 +1,10 @@
 #!/bin/bash
+
+if [ "$2" = "" ]; then
+	echo "変更なし "
+	exit
+fi
+
 url=$2
 base=`basename $url`
 while getopts ":-:" OPT
