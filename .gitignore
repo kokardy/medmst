@@ -1,6 +1,7 @@
 bin/cookie.txt
 
 bin/searchresult/*
+bin/data/*
 bin/pdf/*
 bin/html/*
 bin/sgml/*
