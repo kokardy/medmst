@@ -28,5 +28,7 @@ save
 save/*
 *.json
 
+medmst-sv
+
 # default setting
 .env
