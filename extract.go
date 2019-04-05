@@ -37,6 +37,7 @@ func Extract(url string, reg *regexp.Regexp) (ext []string) {
 			fmt.Printf("append: %s\n", list)
 		}
 	}
+	fmt.Printf("extract: %s\n", ext)
 	return
 }
 
