@@ -135,7 +135,7 @@ func GetY(saveDir string, overwrite bool) {
 
 //GetHOT download HOT, HOTAdd and HOTDel files.
 func GetHOT(saveDir string, overwrite bool) {
-	all := false
+	all := true
 	defaultName := ""
 	Download(
 		CONFIG.HOT.URL,
