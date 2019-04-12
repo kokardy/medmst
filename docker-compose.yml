@@ -7,12 +7,14 @@ services:
     restart: always
     ports:
       - "8081:80"
+      - "9081:81"
     env_file: .env
     volumes:
       - ./nginx:/etc/nginx
 #    dns: 8.8.8.8
     extra_hosts:
         - www.pmda.go.jp:103.28.167.217
+        - www.info.pmda.go.jp:220.216.69.145
 
   pmda-kv:
     image: kokardy/pmda-kv
