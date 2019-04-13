@@ -32,7 +32,7 @@ func Extract(url string, reg *regexp.Regexp) (ext []string) {
 			break
 		}
 		list := reg.FindAllString(line, 1)
-		if Len(list) > 0 {
+		if len(list) > 0 {
 			ext = append(ext, list...)
 			fmt.Printf("append: %s\n", list)
 		}
