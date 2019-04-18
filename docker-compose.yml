@@ -26,7 +26,7 @@ services:
       - "SCHEME=http"
       - "RHOST=www.info.pmda.go.jp"
       - "ADDR=:80"
-      - "ORI=www.info.pmda.go.jp"
+      - "ORI=www.pmda.go.jp"
       - "DEST=10.26.61.131:8081"
     extra_hosts:
         - www.pmda.go.jp:103.28.167.217
