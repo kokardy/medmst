@@ -16,6 +16,8 @@ services:
   pmda-kv:
     image: kokardy/pmda-kv
     restart: always
+    environment:
+      - "PMDA=10.26.61.131:8081"
     ports:
       - "8082:80"
 
