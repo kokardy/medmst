@@ -11,6 +11,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func pmdaServer() (result string) {
+	result = os.Getenv("PMDA")
+	if result == "" {
+		result = "www.pmda.go.jp"
+	}
+	return
+}
+
 func pmdaPath(yjcode string) (path string, err error) {
 	f := fmt.Sprintf("/asset/bin/data/yj/%s", yjcode)
 	if _, err = os.Stat(f); err != nil {
@@ -38,7 +46,8 @@ func redirectToPMDA(c *gin.Context) {
 		c.String(http.StatusNotFound, message)
 		return
 	}
-	var url = fmt.Sprintf("//pmda.go.jp/PmdaSearch/iyakuSearch/%s", path)
+	var pmda = pmdaServer()
+	var url = fmt.Sprintf("//%s/PmdaSearch/iyakuSearch/%s", pmda, path)
 
 	c.Redirect(http.StatusMovedPermanently, url)
 }
