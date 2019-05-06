@@ -20,7 +20,7 @@ func pmdaServer() (result string) {
 }
 
 func pmdaPath(yjcode string) (path string, err error) {
-	f := fmt.Sprintf("/asset/bin/data/yj/%s", yjcode)
+	f := fmt.Sprintf("/asset/bin/yj/%s", yjcode)
 	if _, err = os.Stat(f); err != nil {
 		return
 	}
