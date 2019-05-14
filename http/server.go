@@ -49,7 +49,8 @@ func redirectToPMDA(c *gin.Context) {
 	var pmda = pmdaServer()
 	var url = fmt.Sprintf("//%s/PmdaSearch/iyakuDetail/%s", pmda, path)
 
-	c.Redirect(http.StatusMovedPermanently, url)
+	c.Redirect(http.StatusTemporaryRedirect, url)
+
 }
 
 func main() {
