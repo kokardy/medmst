@@ -34,6 +34,8 @@ services:
       - "PG_USER=postgres"
       - "PG_PASSWORD=allyourbaseisbelongtous"
       - "PG_DATABASE=medmst"
+      - "ADMIN_USER=di"
+      - "ADMIN_PASSWORD=diwindow1235"
     links:
       - postgres
     env_file: .env
