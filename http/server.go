@@ -43,6 +43,7 @@ func redirectToPMDA(c *gin.Context) {
 	path, err := pmdaPath(yjcode)
 	if err != nil {
 		message := fmt.Sprintf("NOT FOUND: %s \n error:%s", yjcode, err)
+		fmt.Println(message)
 		c.String(http.StatusNotFound, message)
 		return
 	}
@@ -50,7 +51,28 @@ func redirectToPMDA(c *gin.Context) {
 	var url = fmt.Sprintf("//%s/PmdaSearch/iyakuDetail/%s", pmda, path)
 
 	c.Redirect(http.StatusTemporaryRedirect, url)
+}
 
+func guessPmdaPath(yjcode string) (path_list []string, err error) {
+	pattern := fmt.Sprintf("/asset/bin/html/??????_%s*_?_??.html", yjcode)
+	path_list, err := filepath.Glob(pattern)
+	return
+}
+
+//TODO 実装中
+func guessRedirectToPMDA(c *gin.Context) {
+	yjcode := c.Param("yjcode")
+	path_list, err := guessPmdaPath(yjcode)
+	if err != nil {
+		message := fmt.Sprintf(
+			"pattern search error: yj:%s pattern:%s \nerror:%s\n", yjcode, pattern, err)
+		fmt.Println(message)
+		c.String(http.StatusNotFound, message)
+		return
+	}
+
+	var url = ""
+	c.Redirect(http.StatusTemporaryRedirect, url)
 }
 
 func main() {
@@ -61,6 +83,7 @@ func main() {
 
 	//redirect to PMDA
 	r.GET("/redirect/:yjcode/", redirectToPMDA)
+	r.GET("/redirect_guess/:yjcode/", guessRedirectToPMDA)
 
 	fmt.Println("listen: 80")
 	r.Run(":80")
