@@ -1,1 +1,1 @@
-0 0,8,17 * * * /asset/bin/Routine.sh
+0 0,8,17 * * * /asset/bin/Routine.sh /asset/data
