@@ -31,6 +31,26 @@ services:
     volumes:
       - ./medmst-sv/asset:/asset
 
+  backuper:
+    image: kokardy/medmst-sv:latest
+    restart: always
+    environment:
+      - "TZ=Asia/Tokyo"
+      - "PG_HOST=postgres"
+      - "PG_PORT=5432"
+      - "PG_USER=postgres"
+      - "PG_PASSWORD=allyourbaseisbelongtous"
+      - "PG_DATABASE=medmst"
+      - "ADMIN_USER=di"
+      - "ADMIN_PASSWORD=diwindow1235"
+    links:
+      - postgres
+    env_file: .env
+    volumes_from:
+        - medmst:ro
+        - ./backup:/backup
+    command: ["/asset/cron.sh"]
+
   postgres:
     image: postgres:9.5-alpine
     restart: always
