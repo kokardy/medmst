@@ -27,6 +27,7 @@ _testmain.go
 save
 save/*
 *.json
+backup/*
 
 medmst-sv
 

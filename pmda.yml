@@ -7,8 +7,17 @@ services:
     restart: always
     ports:
       - "8081:8081"
-      - "9081:9081"
     env_file: .env
     volumes:
       - ./nginx:/etc/nginx
 
+  pmda-info:
+    image: kokardy/rproxy
+    restart: always
+    ports:
+      - "9081:80"
+    env_file: .env
+    environment:
+      - "SCHEME=https"
+      - "RHOST=www.info.pmda.go.jp"
+      - "ADDR=:80"
