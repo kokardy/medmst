@@ -48,6 +48,7 @@ services:
     env_file: .env
     volumes_from:
         - medmst:ro
+        - ./backup:/backup
     command: ["/asset/cron.sh"]
 
   postgres:
