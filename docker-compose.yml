@@ -30,6 +30,7 @@ services:
     env_file: .env
     volumes:
       - ./medmst-sv/asset:/asset
+      - ./backup:/backup
 
   backuper:
     image: kokardy/medmst-sv:latest
@@ -47,8 +48,7 @@ services:
       - postgres
     env_file: .env
     volumes_from:
-        - medmst:ro
-        - ./backup:/backup
+        - medmst
     command: ["/asset/cron.sh"]
 
   postgres:
