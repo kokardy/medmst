@@ -55,7 +55,7 @@ func redirectToPMDA(c *gin.Context) {
 
 func guessPmdaPath(yjcode string) (path_list []string, err error) {
 	pattern := fmt.Sprintf("/asset/bin/html/??????_%s*_?_??.html", yjcode)
-	path_list, err := filepath.Glob(pattern)
+	path_list, err = filepath.Glob(pattern)
 	return
 }
 
