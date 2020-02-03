@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -65,7 +66,7 @@ func guessRedirectToPMDA(c *gin.Context) {
 	path_list, err := guessPmdaPath(yjcode)
 	if err != nil {
 		message := fmt.Sprintf(
-			"pattern search error: yj:%s pattern:%s \nerror:%s\n", yjcode, pattern, err)
+			"pattern search error: yj:%s \nerror:%s\n", yjcode, err)
 		fmt.Println(message)
 		c.String(http.StatusNotFound, message)
 		return
