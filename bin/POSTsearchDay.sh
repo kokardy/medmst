@@ -7,7 +7,7 @@ filename=$2
 echo saveDir $saveDir
 echo updateDocDt $updateDocDt
 #入力値チェック
-if [ -z $saveDir -o -z $updateDocDt ] ; then
+if [ "$saveDir" = ""  -o "$updateDocDt" = "" ] ; then
 	echo "num of command option must be 2."
 	echo "POSTsearchDay.sh [saveDir] [update_date(YYYYMMDD)]"
 	exit
