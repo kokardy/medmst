@@ -64,6 +64,7 @@ func guessPmdaPath(yjcode string) (path_list []string, err error) {
 func guessRedirectToPMDA(c *gin.Context) {
 	yjcode := c.Param("yjcode")
 	path_list, err := guessPmdaPath(yjcode)
+	fmt.Printf("path_list: %s\n", path_list)
 	if err != nil {
 		message := fmt.Sprintf(
 			"pattern search error: yj:%s \nerror:%s\n", yjcode, err)
