@@ -3,7 +3,7 @@ d=$1
 
 today=`date  +%Y%m%d`
 
-lastdate=`ls -r $d | grep -e "[0-9]\{8\}" | sed -n 1P`
+lastdate=`ls -r $d/searchresult | grep -e "[0-9]\{8\}" | sed -n 1P`
 lastdate=${lastdate%.*}
 
 echo "lastdate: $lastdate .... today: $today"
