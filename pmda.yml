@@ -2,14 +2,27 @@ version: "2"
 
 services:
 
+  #  pmda:
+  #    image: nginx
+  #    restart: always
+  #    ports:
+  #      - "8081:8081"
+  #    env_file: .env
+  #    volumes:
+  #      - ./nginx:/etc/nginx
+
   pmda:
-    image: nginx
+    image: kokardy/rproxy
     restart: always
     ports:
-      - "8081:8081"
+      - "8081:80"
     env_file: .env
-    volumes:
-      - ./nginx:/etc/nginx
+    environment:
+      - "SCHEME=https"
+      - "RHOST=www.pmda.go.jp"
+      - "ADDR=:80"
+      - "ORI=https://www.info.pmda.go.jp"
+      - "DEST=http://10.26.61.131:9081"
 
   pmda-info:
     image: kokardy/rproxy
