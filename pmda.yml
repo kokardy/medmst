@@ -21,7 +21,7 @@ services:
       - "SCHEME=https"
       - "RHOST=www.pmda.go.jp"
       - "ADDR=:80"
-      - "ORI=https://www.info.pmda.go.jp"
+      - "ORI=https://www\\.info\\.pmda\\.go\\.jp"
       - "DEST=http://10.26.61.131:9081"
 
   pmda-info:
