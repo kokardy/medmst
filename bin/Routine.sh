@@ -8,7 +8,7 @@ lastdate=${lastdate%.*}
 
 echo "lastdate: $lastdate .... today: $today"
 
-if [ $lastdate = "_00000000" ] ;then
+if [ $lastdate = "00000000_" ] ;then
 		lastdate="20200201"
 fi
 
