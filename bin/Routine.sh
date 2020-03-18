@@ -9,7 +9,7 @@ lastdate=${lastdate%.*}
 echo "lastdate: $lastdate .... today: $today"
 
 if [ $lastdate = "00000000_" ] ;then
-		lastdate="20200313"
+		lastdate="20200317"
 fi
 
 day=$lastdate
