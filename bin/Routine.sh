@@ -13,7 +13,7 @@ if [ $lastdate = "00000000_" ] ;then
 fi
 
 day=$lastdate
-while [ $day -lt $today ]
+while [ $day -le $today ]
 do
 	./POSTsearchDay.sh $d $day
 	./DLhtml.sh $d/searchresult/$day.html
