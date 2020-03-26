@@ -191,7 +191,7 @@ func NewHOTDel() *HOTDel {
 func (hd *HOTDel) Init() {
 	if hd.URL == "" {
 		hd.URL = HOTURL
-		hd.TargetRegexp = HOTURL + `moto_data/h[0-9]{8}del.lzh`
+		hd.TargetRegexp = HOTURL + `moto_data/h[0-9]{8}del.zip`
 		hd.Dirname = `hot`
 	}
 }
