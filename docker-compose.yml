@@ -31,6 +31,10 @@ services:
     volumes:
       - ./medmst-sv/asset:/asset
       - ./backup:/backup
+    logging:
+      driver: journald
+      options:
+        tag: "{{.Name}}"
 
   backuper:
     image: kokardy/medmst-sv:latest
