@@ -8,12 +8,12 @@ lastdate=${lastdate%.*}
 
 echo "lastdate: $lastdate .... today: $today"
 
-if [ $lastdate = "_00000000" ] ;then
-		lastdate="20200201"
+if [ $lastdate = "00000000_" ] ;then
+		lastdate="20200317"
 fi
 
 day=$lastdate
-while [ $day -lt $today ]
+while [ $day -le $today ]
 do
 	./POSTsearchDay.sh $d $day
 	./DLhtml.sh $d/searchresult/$day.html
