@@ -16,23 +16,25 @@ var (
 
 //Config binds config.toml
 type Config struct {
-	Proxy   string
-	SaveDir string
-	Y       *Y
-	HOT     *HOT
-	HOTAdd  *HOTAdd
-	HOTDel  *HOTDel
+	Proxy         string
+	SaveDir       string
+	Y             *Y
+	HOT           *HOT
+	HOTAdd        *HOTAdd
+	HOTDel        *HOTDel
+	GenericMaster *GenericMaster
 }
 
 //NewConfig create a Config struct.
 func NewConfig() Config {
 	return Config{
-		Proxy:   "",
-		SaveDir: "save",
-		Y:       NewY(),
-		HOT:     NewHOT(),
-		HOTAdd:  NewHOTAdd(),
-		HOTDel:  NewHOTDel(),
+		Proxy:         "",
+		SaveDir:       "save",
+		Y:             NewY(),
+		HOT:           NewHOT(),
+		HOTAdd:        NewHOTAdd(),
+		HOTDel:        NewHOTDel(),
+		GenericMaster: NewGenericMaster(),
 	}
 }
 
@@ -194,4 +196,25 @@ func (hd *HOTDel) Init() {
 		hd.TargetRegexp = HOTURL + `moto_data/h[0-9]{8}del.zip`
 		hd.Dirname = `hot`
 	}
+}
+
+//GenericMaster config
+type GenericMaster struct {
+	Site
+	Initer
+	LoopTargetRegexp string
+}
+
+//NewGenericMaster returns new GenericmMaster pointer
+func NewGenericMaster() *GenericMaster {
+	gm := &GenericMaster{}
+	gm.Init()
+	return gm
+}
+
+func (gm *GenericMaster) Init() {
+	gm.URL = `https://www.mhlw.go.jp/topics/2019/08/tp20190819-01.html`
+	gm.LoopTargetRegexp = `/topics/[0-9]{4}/[0-9]{2}/tp[0-9]{8}-[0-9]{2}.html`
+	gm.TargetRegexp = `/topics/[0-9]{4}/[0-9]{2}/xls/tp[0-9]{8}-[0-9]{2}_05.xls`
+	gm.Dirname = `generic`
 }
