@@ -218,3 +218,13 @@ func (gm *GenericMaster) Init() {
 	gm.TargetRegexp = `/topics/[0-9]{4}/[0-9]{2}/xls/tp[0-9]{8}-[0-9]{2}_05.xls`
 	gm.Dirname = `generic`
 }
+
+//CompiledLoopTarget returns compiled regexp of GenericMaster.LoopTargetRegexp
+func (gm *GenericMaster) CompiledLoopTarget() *regexp.Regexp {
+	compiledRegexp, err := regexp.Compile(gm.LoopTargetRegexp)
+	if err != nil {
+		fmt.Printf("Failed regexp compile: %s", gm.LoopTargetRegexp)
+		panic("regexp error")
+	}
+	return compiledRegexp
+}
