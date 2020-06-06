@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strings"
 )
 
@@ -161,4 +162,37 @@ func GetHOT(saveDir string, overwrite bool) {
 		all,
 		overwrite,
 	)
+}
+
+func GetGenericMaster(saveDir string, overwrite bool) {
+	var (
+		lastURL     string
+		resultURL   sort.StringSlice
+		defaultName = ""
+		all         = false
+		startURL    = CONFIG.GenericMaster.URL
+		loopRegex   = CONFIG.GenericMaster.CompiledLoopTarget()
+		extRegex    = CONFIG.GenericMaster.CompiledTarget()
+		queueURL    = []string{startURL}
+	)
+	resultURL = make([]string, 0, 10)
+
+	for {
+		if len(queueURL) == 0 {
+			break
+		}
+		url, queueURL := queueURL[0], queueURL[1:]
+		newURLs := Extract(url, loopRegex)
+		queueURL = append(queueURL, newURLs...)
+		resultURL = append(resultURL, newURLs...)
+	}
+	if len(resultURL) == 0 {
+		lastURL = startURL
+	} else {
+		sort.Reverse(resultURL)
+		lastURL = resultURL[0]
+	}
+
+	Download(lastURL, extRegex, saveDir, defaultName, all, overwrite)
+
 }
