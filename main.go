@@ -69,4 +69,5 @@ func main() {
 		GetHOT(filepath.Join(CONFIG.SaveDir, CONFIG.HOT.Dirname), overwrite)
 		GetY(filepath.Join(CONFIG.SaveDir, CONFIG.Y.Dirname), overwrite)
 	}
+	GetGenericMaster(filepath.Join(CONFIG.SaveDir, CONFIG.GenericMaster.Dirname), overwrite)
 }
