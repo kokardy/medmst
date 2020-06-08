@@ -29,6 +29,11 @@ save/*
 *.json
 backup/*
 
+config.toml
+generic/*
+y/*
+hot/*
+
 medmst-sv
 
 # default setting
