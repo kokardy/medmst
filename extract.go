@@ -199,7 +199,7 @@ func GetGenericMaster(saveDir string, overwrite bool) {
 	if len(resultURL) == 0 {
 		lastURL = startURL
 	} else {
-		sort.Reverse(resultURL)
+		sort.Sort(sort.Reverse(resultURL))
 		lastURL = resultURL[0]
 	}
 
