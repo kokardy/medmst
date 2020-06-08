@@ -13,3 +13,7 @@ func TestExtract(t *testing.T) {
 func TestGetY(t *testing.T) {
 	GetY(CONFIG.Y.Dirname, true)
 }
+
+func TestGetGenericMaster(t *testing.T) {
+	GetGenericMaster(CONFIG.GenericMaster.Dirname, true)
+}

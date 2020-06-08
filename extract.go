@@ -174,6 +174,7 @@ func GetGenericMaster(saveDir string, overwrite bool) {
 		loopRegex   = CONFIG.GenericMaster.CompiledLoopTarget()
 		extRegex    = CONFIG.GenericMaster.CompiledTarget()
 		queueURL    = []string{startURL}
+		seenURL     = map[string]struct{}{}
 	)
 	resultURL = make([]string, 0, 10)
 
@@ -182,9 +183,18 @@ func GetGenericMaster(saveDir string, overwrite bool) {
 			break
 		}
 		url, queueURL := queueURL[0], queueURL[1:]
+		fmt.Printf("remain: %d from:%s ", len(queueURL), url)
+		if _, ok := seenURL[url]; ok {
+			if len(queueURL) == 0 {
+				break
+			}
+			continue
+		}
 		newURLs := Extract(url, loopRegex)
+		fmt.Printf("extract:[%s]\n", newURLs)
 		queueURL = append(queueURL, newURLs...)
 		resultURL = append(resultURL, newURLs...)
+		seenURL[url] = struct{}{}
 	}
 	if len(resultURL) == 0 {
 		lastURL = startURL
@@ -193,6 +203,6 @@ func GetGenericMaster(saveDir string, overwrite bool) {
 		lastURL = resultURL[0]
 	}
 
-	Download(lastURL, extRegex, saveDir, defaultName, all, overwrite)
+	Download(getURL(CONFIG.GenericMaster.URL, lastURL), extRegex, saveDir, defaultName, all, overwrite)
 
 }

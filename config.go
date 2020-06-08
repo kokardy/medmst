@@ -215,7 +215,7 @@ func NewGenericMaster() *GenericMaster {
 func (gm *GenericMaster) Init() {
 	gm.URL = `https://www.mhlw.go.jp/topics/2019/08/tp20190819-01.html`
 	gm.LoopTargetRegexp = `/topics/[0-9]{4}/[0-9]{2}/tp[0-9]{8}-[0-9]{2}.html`
-	gm.TargetRegexp = `/topics/[0-9]{4}/[0-9]{2}/xls/tp[0-9]{8}-[0-9]{2}_05.xls`
+	gm.TargetRegexp = `/topics/[0-9]{4}/[0-9]{2}/xls/tp[0-9]{8}-[0-9]{2}_05.xlsx`
 	gm.Dirname = `generic`
 }
 
