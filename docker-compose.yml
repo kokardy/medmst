@@ -25,6 +25,7 @@ services:
       - "PG_DATABASE=medmst"
       - "ADMIN_USER=di"
       - "ADMIN_PASSWORD=diwindow1235"
+      #必要に応じて.envで上書きする 
       - "YJ_REDIRECT_URL=http://localhost:8082/redirect/%s"
     links:
       - postgres
