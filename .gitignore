@@ -6,5 +6,6 @@ bin/pdf/*
 bin/html/*
 bin/sgml/*
 bin/xml/*
+bin/yj/*
 
 ~*
