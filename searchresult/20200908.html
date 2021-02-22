@@ -1,0 +1,1478 @@
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<html>
+<head>
+<title>医療用医薬品 検索結果 | 独立行政法人　医薬品医療機器総合機構</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="PMDA,pmda,医薬品,副作用,被害救済,薬,医療,機器,医薬">
+<meta name="description" content="独立行政法人　医薬品医療機器総合機構：医薬品副作用被害救済や稀少病認定薬の研究振興調査などの業務案内。">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-TextLayoutMetrics" content="gdi">
+<meta name="robots" content="none">
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/common/css/import.css" />
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/common/css/print.css" />
+<script type="text/javascript" src="/PmdaSearch/files/common/js/jquery_1.7.1.min.js"></script>
+<script type="text/javascript" src="/PmdaSearch/files/common/js/jquery_cookie.js"></script>
+<script type="text/javascript" src="/PmdaSearch/files/common/js/main.js"></script>
+<script type="text/javascript" src="/PmdaSearch/js/pmdaCommon.js"></script>
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/css/search.css" />
+</head>
+<body onload="FontSizeInit();">
+<!-- Google Tag Manager -->
+<noscript><iframe title="GoogleTagManager" src="//www.googletagmanager.com/ns.html?id=GTM-MHGKV3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHGKV3');</script>
+<!-- End Google Tag Manager -->
+<div id="layoutBody">
+
+
+
+<!-- 2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start -->
+<style type="text/css">
+hr{
+	border-width: 1px 0px 0px 0px;
+	border-style: 1px;
+	border-color: black;
+	height: 1px;
+	width: 90%;
+}
+.doubles {
+	margin-top: 1em;
+}
+.divCol{
+  display: table-cell ;
+}
+</style>
+<!-- 2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End -->
+<!-- ++++ local-js ++++ -->
+<script>
+var userAgent = window.navigator.userAgent.toLowerCase();
+var uag = "0";
+if (userAgent.indexOf('opera') != -1) {
+	uag = "1";
+} else if (userAgent.indexOf('msie') != -1) {
+	uag = "1";
+} else if (userAgent.indexOf('chrome') != -1) {
+	uag = "2";
+} else if (userAgent.indexOf('safari') != -1) {
+	uag = "2";
+} else if (userAgent.indexOf('firefox') != -1) {
+	uag = "2";
+} else {
+	uag = "1";
+}
+
+function FontSizeInit() {
+	// 20140509 Font Size Default Set
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	if(!fs){
+		window.localStorage.setItem("iyakufsizeValue", 100);
+		fs = window.localStorage.getItem("iyakufsizeValue");
+	}
+
+	document.body.style.fontSize = Math.floor(fs) + '%';
+}
+
+function bigger() {
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	fs *= 1.2;
+
+//	if(fs <= (100 * 1.2) * 1.2){
+	if(fs <= (93 * 1.2) * 1.2){
+		window.localStorage.setItem("iyakufsizeValue", fs);
+		document.body.style.fontSize = Math.floor(fs) + '%';
+	}
+}
+
+function smaller() {
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	fs /= 1.2;
+
+//	if(fs >= (100 / 1.2) / 1.2){
+	if(fs >= (93 / 1.2) / 1.2){
+		window.localStorage.setItem("iyakufsizeValue", fs);
+		document.body.style.fontSize = Math.floor(fs) + '%';
+	}
+}
+
+// 項目の表示/非表示
+var resultTableColArr = [
+
+  ["0","添付文書"],
+
+  ["0","患者向医薬品ガイド／ワクチン接種を受ける人へのガイド"],
+
+  ["0","インタビューフォーム"],
+
+  ["0","医薬品リスク管理計画（RMP）"],
+
+  ["0","改訂指示反映履歴および根拠症例"],
+
+  ["0","審査報告書／再審査報告書／最適使用推進ガイドライン等"],
+
+  ["0","重篤副作用疾患別対応マニュアル"],
+
+  ["0","くすりのしおり"],
+
+  ["0","緊急安全性情報／安全性速報"],
+
+  ["0","医薬品の適正使用等に関するお知らせ"],
+
+  ["0","厚生労働省発表資料（医薬品関連）"],
+
+  ["0","医薬品に関する評価中のリスク等の情報"],
+
+  ["0","医薬品添付文書改訂相談に基づく添付文書改訂"],
+
+  ["0","DSU（医薬品安全対策情報）"],
+
+  ["0","PMDA医療安全情報"],
+
+  ["0","医療用医薬品問合せ先"]
+
+];
+// add 2.00: 検索結果出力機能追加
+// 常に表示する項目(検索結果出力項目選択用)
+var resultTableDefaultDispColArr = {
+
+  "RD" : [
+  
+    ["1", "種類"], 
+  
+    ["1", "文書の名称"], 
+  
+    ["1", "日付"], 
+  
+    ["1", "一般名"], 
+  
+    ["1", "販売名"], 
+  
+    ["1", "製造販売業者等"]
+  
+  ], 
+
+  "BOOK" : [
+  
+    ["1", "一般名"], 
+  
+    ["1", "販売名"], 
+  
+    ["1", "製造販売業者等"]
+  
+  ]
+
+};
+
+//表示している項目にフラグをつける
+$(function () {
+	var dispColumnsList = [
+		
+			"1", 
+		
+			"2", 
+		
+			"3", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			""
+		
+	];
+	$(dispColumnsList).each(function(i, v){
+		resultTableColArr[i][0] = (v) ? '1': '0';
+	});
+
+	// トグル
+	$(document).on('click', '.toggles', function(){
+		 $(this).next().toggle();
+		 $(this).toggle();
+	});
+	$(document).on('click', '.togglec', function(){
+		  $(this).parent().prev().toggle();
+		  $(this).parent().toggle();
+	});
+});
+
+// ページング処理
+function changePg(pages) {
+
+	popOldVersionClose();
+
+	$.ajax({
+		url: '/PmdaSearch/iyakuSearch/PageChangeRequest/' + pages,
+		// mod 2.01: POSTに変更
+//		type: 'GET',
+		type: 'POST',
+		// add 2.01: Form情報を送信
+		data: $('form').serialize(),
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました");
+			// mod 2.00: ページリンクをページ上部だけでなくページ下部にも追加
+// 			$("#PageNavi").html(json.PageNavi).html()
+			$(".PageNavi").each(function(i) {
+				$(this).html(json.PageNavi).html();
+			});
+			$("#ResultList").html(json.ResultList).html();
+
+			// add 2.01: ページ情報を更新
+			document.getElementById("pages").value = pages;
+		}
+	  });
+}
+
+var chnBtnObj_y;
+var tblLnkObj_y;
+var svScrollTop = 0;
+var svTblSclTop = 0;
+
+//WINDOWスクロール発生時の処理
+window.onscroll = function()
+{
+
+	if(uag == "1"){
+		scrollTop = document.documentElement.scrollTop;  // IE、Opera
+	} else {
+		scrollTop = document.body.scrollTop;  // Chrome、Safari、Firefox
+	}
+	var calcTop = scrollTop - svScrollTop;
+
+	svScrollTop = scrollTop;
+
+//	pageScroll(calcTop);	// 表示項目選択ポップアップのスクロール移動制御をコール
+	divScroll(calcTop);	// 過去版ポップアップのスクロール移動制御
+
+
+}
+
+//WINDOW内要素(DIV)スクロール発生時の処理
+function elmScrool(scElm) {
+
+	var scrollTop  = scElm.scrollTop;
+	var calcTop = scrollTop - svTblSclTop;
+
+	svTblSclTop = scrollTop;
+
+//	pageScroll(calcTop);	// 表示項目選択ポップアップのスクロール移動制御をコール
+	divScroll(calcTop);	// 過去版ポップアップのスクロール移動制御
+}
+
+//表示項目選択ポップアップのスクロール移動制御
+function pageScroll(scVal) {
+
+	var popObj  =  document.getElementById("popDiv");
+	var popTarget  = popObj.style;
+
+	if(popObj.innerHTML.length != 0){
+
+		var targTopVal = popTarget.top.replace("px", "");
+		targTopVal = targTopVal - scVal;
+
+		popTarget.top = targTopVal + "px";
+
+	}
+
+}
+
+
+// 過去版ポップアップのスクロール移動制御
+function divScroll(scVal) {
+
+	var popObj =  document.getElementById("popDiv2");
+	var popTarget = popObj.style;
+
+	if(popObj.innerHTML.length != 0){
+
+		var targTopVal = popTarget.top.replace("px", "");
+
+		targTopVal = targTopVal - scVal;
+
+		popTarget.top = targTopVal + "px";
+
+	}
+
+}
+
+var chk_pdf = "0";
+var chk_xml = "0";
+//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+var chk_yoshiki = "";
+//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+
+//過去版ポップアップの表示
+function popOldVersion(event, service, p1, p2, p3, minVer) {
+
+	var lnkStrPDF  = "";
+	var lnkStrHTML = p2 + "_" + p3 + '_';
+	var temp_msg = "";
+	var oldCnt = 0;
+	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+	var tableOLD = "";
+	var OLDVer = "";
+	var tableNew = "";
+	var NewVer = "";
+	var tableHdr = "";
+	var genyoshiki = "SGML";
+	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+//	var msg = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+//	msg += "<table>\n";
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+
+	for(var j = p1; j >= minVer; j--) {
+		var v1 = ("000" + j).slice(-2);
+		var v2 = v1;
+
+		if(j == p1){
+			v2 = v1 + "*";
+			checkOldVer(p2, p3, v1, service, "CUR");
+			lnkStrPDF  = "/" + service + "/iyakuDetail/ResultDataSetPDF/" + p2 + "_" + p3 + "_";
+		}
+		if(j != p1){
+			v2 = v1 + " ";
+			checkOldVer(p2, p3, v1, service, "OLD");
+			lnkStrPDF  = "/" + service + "/iyakuDetail/ResultDataSetOldPDF/" + p2 + "_" + p3 + "_";
+		}
+		//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+//		if(chk_pdf == "1" && chk_xml == "1"){
+////			temp_msg += "<tr><td>Ver." + j + "&nbsp;&nbsp;<a href=\"" + lnkStrPDF + v1 + "\" target='_blank'>PDF</a> / <a href='javascript:void(0)' onclick='detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + " target='_blank'>HTML</a></td></tr>\n";
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\"); return false;'" + ">PDF</a> / <a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\"); return false;' " + ">HTML</a></td></tr>\n";
+//			oldCnt++;
+//		} else if(chk_pdf == "1" && chk_xml == "0"){
+////			temp_msg += "<tr><td>Ver." + j + "&nbsp;&nbsp;<a href=\"" + lnkStrPDF + v1 + "\" target='_blank'>PDF</a> / HTML</td></tr>\n";
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\");'" + ">PDF</a> / HTML</td></tr>\n";
+//			oldCnt++;
+//		} else if(chk_pdf == "0" && chk_xml == "1") {
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + ">HTML</a></td></tr>\n";
+//			oldCnt++;
+//		} else {
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;HTML</td></tr>\n";
+//			oldCnt++;
+//		}
+		if(chk_yoshiki != "noTbook") {
+			genyoshiki = chk_yoshiki;
+		}
+		if(genyoshiki == "SGML"){
+			if( chk_pdf == "1" && chk_xml == "1" ){
+				OLDVer +="<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\"); return false;'" + ">PDF</a> / <a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\"); return false;' " + ">HTML</a></td></tr>\n";
+
+			} else if( chk_pdf == "1" && chk_xml == "0" ){
+				OLDVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\");'" + ">PDF</a> / HTML</td></tr>\n";
+				oldCnt++;
+			} else if( chk_pdf == "0" && chk_xml == "1" ) {
+				OLDVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + ">HTML</a></td></tr>\n";
+			} else {
+				OLDVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;HTML</td></tr>\n";
+			}
+			oldCnt++;
+		}
+		if(genyoshiki == "XML"){
+			if( chk_pdf == "1" && chk_xml == "1" ){
+				NewVer +="<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\"); return false;'" + ">PDF</a> / <a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\"); return false;' " + ">HTML</a></td></tr>\n";
+			} else if( chk_pdf == "1" && chk_xml == "0" ){
+				NewVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\");'" + ">PDF</a> / HTML</td></tr>\n";
+
+			} else if( chk_pdf == "0" && chk_xml == "1" ) {
+				NewVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + ">HTML</a></td></tr>\n";
+			} else {
+				NewVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;HTML</td></tr>\n";
+			}
+			oldCnt++;
+		}
+		//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+		chk_pdf = "0";
+		chk_xml = "0";
+		//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+		chk_yoshiki = "";
+		//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	}
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+	var msg = "<div style=\"background-color: #d0f0f0; padding: 0px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+
+	tableHdr +="<div>\n";
+	tableHdr +="<div class=\"divCol\" style=\"width: 12em;  padding-top: 1em;\">\n";
+	tableHdr +="<table style=\"width: 100%;\">\n";
+	tableHdr +="<thead>\n";
+	tableHdr +="<tr><th style=\"border: 0;\">旧様式</th></tr>\n";
+	tableHdr +="</thead>\n";
+	tableHdr +="</table>\n";
+	tableHdr +="</div>\n";
+	tableHdr +="<div class=\"divCol\" style=\"width: 12em;\">\n";
+	tableHdr +="<table style=\"width: 100%;\">\n";
+	tableHdr +="<thead>\n";
+	tableHdr +="<tr><th style=\"border: 0;\">新様式</th></tr>\n";
+	tableHdr +="</thead>\n";
+	tableHdr +="</table>\n";
+	tableHdr +="</div>\n";
+	tableHdr +="</div>\n";
+
+	tableOLD +="<div style=\"height: 183px;overflow-y:  scroll;border-top: 1px solid black;border-bottom:  1px solid black;\">\n";
+ 	tableOLD +="<div class=\"divCol\" style=\"height: 11.44em;border-right: 1px solid black; width: 12em;\">\n";
+ 	tableOLD +="<table>\n";
+ 	tableOLD +="<tbody>\n";
+
+ 	tableOLD += OLDVer;
+
+ 	tableOLD +="</tbody>\n";
+ 	tableOLD +="</table>\n";
+ 	tableOLD +="</div>\n";
+
+ 	tableNew +="<div class=\"divCol\" style=\"height: 11.44em; width: 12em;\">\n";
+ 	tableNew +="<table>\n";
+ 	tableNew +="<tbody>\n";
+
+ 	tableNew += NewVer;
+
+ 	tableNew +="</tbody>\n";
+ 	tableNew +="</table>\n";
+ 	tableNew +="</div>\n";
+ 	tableNew +="</div>\n";
+
+ 	temp_msg = tableHdr + tableOLD + tableNew ;
+
+ 	temp_msg +="<div style=\"padding: 8px;\">\n";
+ 	temp_msg +="<input type=\"button\" onclick=\"popOldVersionClose();\" value=\"閉じる\">\n";
+ 	temp_msg +="</div>\n";
+	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	if(temp_msg != ""){
+		msg += temp_msg;
+	}
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+//	msg += "<tr><td align=\"center\"><input type=\"button\" onclick=\"popOldVersionClose();\" value=\"閉じる\"></td></tr>\n";
+//	msg += "</table>";
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	msg += "</div >";
+
+	var userAgent = window.navigator.userAgent.toLowerCase();
+	var uag = "0";
+	if (userAgent.indexOf('opera') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('msie') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('chrome') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('safari') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('firefox') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('gecko') != -1) {
+		uag = "1";
+	} else {
+		alert("other");
+	}
+
+	var popTarget = document.getElementById("popDiv2").style;
+	var o1 = getMousePosition(event);
+	tblLnkObj_y = o1.sy;
+
+	if(uag == "1"){
+		o1.sy = event.clientY;
+	}
+
+	if(popDiv2.innerHTML != ""){
+		popOldVersionClose();
+	}
+
+	if(temp_msg != ""){
+		popTarget.left = (o1.sx) + "px";
+//2018-11-08 mod 改修No3 バージョン比較ダイアログの上部表示位置 Start
+//		if((oldCnt - 1) == 0){
+//			popTarget.top = (o1.sy - 30) + "px";
+//		} else {
+			popTarget.top = (o1.sy - 27 - (18 * 10)) + "px";
+//		}
+//2018-11-08 mod 改修No3 バージョン比較ダイアログの上部表示位置 End
+		popDiv2.innerHTML = msg;
+	}
+
+}
+
+//過去版ポップアップのクローズ
+function popOldVersionClose() {
+	popDiv2.innerHTML = "";
+}
+
+//過去版ファイルの存在を確認する
+function checkOldVer(code, bkno, ver, service, cflg){
+	var url = "/" + service + "/iyakuDetail/FileExsist/" + code + "_" + bkno + "_" + ver + "_" + cflg;
+
+	$.ajax({
+		url: url,
+		type: 'GET',
+		async:false,
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました ");
+			chk_pdf = json.pdfExsist;
+			chk_xml = json.xmlExsist;
+			//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+		 	chk_yoshiki = json.yoshikiKbn;
+        	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+		}
+	  });
+
+}
+
+
+//表示項目選択ポップアップの表示
+function displaySelect(event) {
+
+	popOldVersionClose();
+
+	var msg = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+	msg += "<div class=\"popScrollInr\"><table>\n";
+	for(var j = 0; j < resultTableColArr.length; j++) {
+		var v1 = ("000" + j).slice(-3);
+		var checkStr = (resultTableColArr[j][0] == "1") ? " checked=\"checked\"" : "";
+		msg += "<tr><td><input type=\"checkbox\" id=\"dispCtrl" + v1 + "\"" + checkStr + ">" + resultTableColArr[j][1] + "</td></tr>\n";
+	}
+
+	msg += "</table></div>";
+	msg += "<input onclick=\"JavaScript:popClose();\" type=\"button\" value=\"閉じる\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input onclick=\"JavaScript:dispCtrlCheck(1);\" type=\"button\" value=\"全チェック\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input onclick=\"JavaScript:dispCtrlCheck(0);\" type=\"button\" value=\"全クリア\">";
+	msg += "</div >";
+
+	var o1 = getMousePosition(event);
+	chnBtnObj_y = o1.y;
+
+	var popObj =  document.getElementById("popDiv");
+	var popTarget = popObj.style;
+
+	popTarget.left = "5px";
+	popTarget.top = "5px";
+
+	popObj.innerHTML = msg;
+
+}
+
+//表示項目選択ポップアップの全選択・全解除の制御
+function dispCtrlCheck(p1) {
+
+	// mod 2.00: 検索結果出力対応により、チェックボックスの指定方法を変更
+//	for(var j = 0; j<resultTableColArr.length; j++) {
+//		var v1 = "dispCtrl" + ("000" + j).slice(-3);
+//		var obj1 = document.getElementById(v1);
+//		obj1.checked = (p1 == 1);
+//	}
+	$('#popDiv input[type="checkbox"]').prop('checked', p1 == 1).change();
+}
+
+//add 2.00: くすりのしおり マウスオーバーで全文表示対応
+//ツールチップ表示
+function tooltip(event, str) {
+
+	if (!str) {
+		return false;
+	}
+
+	popOldVersionClose();
+
+	var userAgent = window.navigator.userAgent.toLowerCase();
+	var uag = "0";
+	if (userAgent.indexOf('opera') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('msie') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('chrome') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('safari') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('firefox') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('gecko') != -1) {
+		uag = "1";
+	} else {
+		alert("other");
+	}
+
+	// 過去版ポップアップの領域を流用
+	var popTarget = document.getElementById("popDiv2").style;
+	var o1 = getMousePosition(event);
+
+	if(uag == "1") {
+		o1.sy = event.clientY;
+	}
+
+	popDiv2.innerHTML = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n" +
+			str + "</div>";
+	popTarget.left = (o1.x - popDiv2.clientWidth - 5) + "px";
+	popTarget.top = (o1.y - popDiv2.clientHeight - 5) + "px";
+}
+
+//ツールチップのクローズ
+function tooltipClose() {
+	// 過去版ポップアップの領域を流用しているため、過去版ポップアップのクローズ処理を実行
+	popOldVersionClose();
+}
+
+//表示項目選択ポップアップのクローズ(選択項目で再表示を行う)
+function popClose() {
+
+	// チェックされた値で配列を書き換え、パラメータを作成
+	var clmAry = [];
+	for(var j = 0; j<resultTableColArr.length; j++) {
+		var v1 = "dispCtrl" + ("000" + j).slice(-3);
+		var obj1 = document.getElementById(v1);
+		resultTableColArr[j][0] = (obj1.checked) ? "1" : "0";
+		if (obj1.checked) {
+			clmAry.push(j);
+		}
+	}
+	popDiv.innerHTML = "";
+
+	if(clmAry == null || clmAry.length == 0){
+		clmAry.push(-1);
+	}
+
+	colDisp(clmAry);
+}
+
+// 列の表示非表示を制御する
+function colDisp(cAry){
+	$.ajax({
+		url: '/PmdaSearch/iyakuSearch/CulumChangeRequest/'+cAry,
+		// mod 2.01: POSTに変更
+//		type: 'GET',
+		type: 'POST',
+		// add 2.01: Form情報を送信
+		data: $('form').serialize(),
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました");
+			// mod 2.00: ページリンクをページ上部だけでなくページ下部にも追加
+// 			$("#PageNavi").html(json.PageNavi).html()
+			$(".PageNavi").each(function(i) {
+				$(this).html(json.PageNavi).html();
+			});
+			$("#ResultList").html(json.ResultList).html();
+
+			// add 2.01: 表示する文書を更新
+			document.getElementById("changeColumnsList").value = cAry;
+			for (var j = 0; j < resultTableColArr.length; j++) {
+				document.getElementById("dispColumns" + j).value = "";
+			}
+			for (var k = 0; k < cAry.length; k++) {
+				document.getElementById("dispColumns" + cAry[k]).value = cAry[k];
+			}
+		}
+	  });
+
+}
+
+// add 2.00: 検索結果画面で表示件数変更対応
+// 表示件数を変更する
+function listRowsChange(listRows){
+	$.ajax({
+		url: '/PmdaSearch/iyakuSearch/listRowsChangeRequest/' + listRows,
+		// mod 2.01: POSTに変更
+//		type: 'GET',
+		type: 'POST',
+		// add 2.01: Form情報を送信
+		data: $('form').serialize(),
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました");
+			// mod 2.00: ページリンクをページ上部だけでなくページ下部にも追加
+// 			$("#PageNavi").html(json.PageNavi).html()
+			$(".PageNavi").each(function(i) {
+				$(this).html(json.PageNavi).html();
+			});
+			$("#ResultList").html(json.ResultList).html();
+
+			// add 2.01: ページ情報の初期化及び表示件数の更新
+			document.getElementById("pages").value = 1;
+			document.getElementById("listRows").value = listRows;
+		}
+	  });
+
+}
+
+var dWin = null;
+
+//詳細(HTML)ページを別ウィンドウで表示する
+function detailDisp(service, fname){
+
+
+	var url = "/" + service + "/iyakuDetail/" + fname;
+
+	popOldVersionClose();
+
+//	if(dWin != null)	dWin.close();
+
+	dWin = window.open(url, "");
+//	dWin = window.open(url, "_blank");
+	dWin.active();
+
+
+}
+
+//添付文書(PDF)ページを別ウィンドウで表示する
+function detailDispPDF(linkStr){
+
+
+	var url = linkStr;
+
+	popOldVersionClose();
+
+//	if(dWin != null)	dWin.close();
+
+	dWin = window.open(url, "");
+//	dWin = window.open(url, "_blank");
+	dWin.active();
+
+}
+
+// 検索種別を Action より取得
+var listCategory = 'BOOK';
+
+// add 2.00: 検索結果出力処理追加
+/**
+ * 出力項目選択ポップアップの表示
+ *
+ * @param exportType 出力形式
+ */
+function exportSelect(event, exportType) {
+
+	if (!exportType) {
+		alert('出力形式が指定されていません。');
+		return false;
+	}
+
+	popOldVersionClose();
+
+	// ポップアップ生成
+	var msg = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+	msg += "<p class=\"mb_10\">" + "PDF出力する項目を選択してください。" + "</p>\n";
+	msg += "<p class=\"mb_10\" id=\"exportWarning\" style=\"color: #FF0000; font-weight: bold; text-decoration: underline; height: 1em;\">WARNING</p>"
+	msg += "<div class=\"popScrollInr\"><table>\n";
+
+	var wkResultTableColArr = (listCategory === 'BOOK') ?
+			resultTableDefaultDispColArr[listCategory].concat(resultTableColArr) :
+			resultTableDefaultDispColArr[listCategory];
+	var checkCnt = 0;
+	for(var j = 0; j < wkResultTableColArr.length; j++) {
+		var checkStr = "";
+		if (wkResultTableColArr[j][0] == "1") {
+			checkStr = " checked=\"checked\"";
+			checkCnt++;
+		}
+		msg += "<tr><td><input type=\"checkbox\" name=\"exportCtrl[" + j + "]\"" + checkStr + ">" + wkResultTableColArr[j][1] + "</td></tr>\n";
+	}
+	var exportWarning = document.getElementById('exportWarning');
+	var disabledStr = "";
+	if (checkCnt > 6) {
+		msg = msg.replace("WARNING", "※選択項目は6項目以内としてください。");
+		disabledStr = " disabled=\"disabled\"";
+	}
+	msg = msg.replace("WARNING", "");
+
+	msg += "</table></div>";
+	msg += "<input onclick=\"JavaScript:document.getElementById('popDiv').innerHTML='';\" type=\"button\" value=\"閉じる\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input onclick=\"JavaScript:dispCtrlCheck(0);\" type=\"button\" value=\"全クリア\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input name=\"export\" type=\"button\" value=\"出力する\" " + disabledStr + ">";
+	msg += "</div >";
+
+	var o1 = getMousePosition(event);
+	chnBtnObj_y = o1.y;
+
+	// ポップアップ
+	var popObj =  document.getElementById('popDiv');
+	var popTarget = popObj.style;
+	popObj.innerHTML = msg;
+	// 画面中央に出す
+	// innerWidth(Heigth)は IE 8 非対応
+	var pageWidth = window.innerWidth ? window.innerWidth : $(window).width();
+	var pageHeight = window.innerHeight ? window.innerHeight : $(window).height();
+	popTarget.left = (pageWidth / 2 - popObj.offsetWidth / 2) + 'px';
+	popTarget.top = (pageHeight / 2 - popObj.offsetHeight / 2) + 'px';
+
+	// チェックボックスのイベント
+	$('input[name^="exportCtrl"]').on('change', function() {
+		var checkCnt = $('input[name^="exportCtrl"]:checked').length;
+		// 7項目以上、1項目未満のチェックで出力させない
+		var exportInvalidFlg = checkCnt > 6 || checkCnt < 1;
+		// エラー文言の表示制御
+		var $exportWarning = $('#exportWarning');
+		$exportWarning.text(exportInvalidFlg ?
+				checkCnt > 6 ? '※選択項目は6項目以内としてください。' :
+					'※項目が選択されていません。' : '');
+		// 出力ボタンの実行制御
+		$('input[name="export"]').prop('disabled', exportInvalidFlg);
+	});
+
+	// 出力ボタンのイベント
+	$('input[name="export"]').on('click', function() {
+		exportSearchResult(exportType);
+	});
+
+	return false;
+}
+
+/**
+ * 検索結果出力
+ *
+ * @param exportType 出力形式
+ */
+function exportSearchResult(exportType) {
+
+	var exportCols = [];
+	if (exportType === 'csv') {
+		// CSV は表示されている項目を全件出力
+		// (関連文書検索時はすべて出力するため、検索結果出力列は空のまま)
+		var wkResultTableColArr = (listCategory === 'BOOK') ?
+				resultTableDefaultDispColArr[listCategory].concat(resultTableColArr) :
+				resultTableDefaultDispColArr[listCategory];
+		$.each(wkResultTableColArr, function(i, v) {
+			if (v[0] == '1') {
+				exportCols.push(i);
+			}
+		});
+	} else {
+		// PDF はポップアップで選択されている項目を表示件数分出力
+		$('input[name^="exportCtrl"]').each(function(i, v) {
+			if ($(this).prop('checked')) {
+				exportCols.push(i);
+			}
+		});
+		// 選択ポップアップを閉じる
+		document.getElementById('popDiv').innerHTML='';
+	}
+
+ 	// XXX: $.ajax 等ではブラウザによってバイナリファイルを扱う仕組みがない場合があるため、仮想の form にて POST する
+ 	// mod 2.01: 仮想の form にForm情報を追加
+//  	var $tmpForm = $('<form></form>', {
+//  			action: '/PmdaSearch/iyakuSearch/exportSearchResult/' + exportType,
+//  			method: 'POST',
+//  			target:  (exportType === 'csv') ? '_self' : '_blank',
+//  			style: 'display: none;'})
+//  		.append($('<input>', {type: 'text', name: 'searchNameTitle', value: $('#SearchHd strong').text()}))
+//  		.append($('<input>', {type: 'text', name: 'leftSearchName', value: $('#bookSearchTitle').text()}))
+//  		.append($('<input>', {type: 'text', name: 'leftSearchCondition', value: $('#bookSearchCond').text().replace(/\s*\n\s*/g, '')}))
+//  		.append($('<input>', {type: 'text', name: 'rightSearchName', value: $('#rdSearchTitle').text()}))
+//  		.append($('<input>', {type: 'text', name: 'logicalOperators', value: $('#howtoRdSearchSel').text()}))
+//  		.append($('<input>', {type: 'text', name: 'rightSearchCondition', value: $('#rdSearchCond').text().replace(/\s*\n\s*/g, '')}))
+//  		.append($('<input>', {type: 'text', name: 'exportCols', value: exportCols.join(',')}))
+//  		.appendTo('body').submit().remove();
+//  		;
+	var $tmpForm = $('<form></form>', {action: '/PmdaSearch/iyakuSearch/exportSearchResult/' + exportType, method: 'POST', target:  (exportType === 'csv') ? '_self' : '_blank', style: 'display: none;'});
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'searchNameTitle', value: $('#SearchHd strong').text()}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'leftSearchName', value: $('#bookSearchTitle').text()}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'leftSearchCondition', value: $('#bookSearchCond').text().replace(/\s*\n\s*/g, '')}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'rightSearchName', value: $('#rdSearchTitle').text()}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'logicalOperators', value: $('#howtoRdSearchSel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'rightSearchCondition', value: $('#rdSearchCond').text().replace(/\s*\n\s*/g, '')}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'exportCols', value: exportCols.join(',')}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'nameWord', value: $('#nameWord')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'iyakuHowtoNameSearchRadioValue', value: $('#iyakuHowtoNameSearchRadioValue')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'howtoMatchRadioValue', value: $('#howtoMatchRadioValue')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'effectValue', value: $('#effectValue')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'infoindicationsorefficacy', value: $('#infoindicationsorefficacy')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'infoindicationsorefficacyHowtoSearch', value: $('#infoindicationsorefficacyHowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'warnings', value: $('#warnings')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'warningsHowtoSearch', value: $('#warningsHowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicationsAvoidedadministration', value: $('#contraindicationsAvoidedadministration')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicationsAvoidedadministrationHowtoSearch', value: $('#contraindicationsAvoidedadministrationHowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicatedcombinationPrecautionsforcombination', value: $('#contraindicatedcombinationPrecautionsforcombination')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicatedcombinationPrecautionsforcombinationHowtoSearch', value: $('#contraindicatedcombinationPrecautionsforcombinationHowtoSearch')[0].value}));
+ 	for(var j = 0; j<resultTableColArr.length; j++){
+ 		$tmpForm.append($('<input>', {type: 'hidden', name: 'dispColumnsList[' + j + ']', value: $('#dispColumns' + j)[0].value}));
+ 	}
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'changeColumnsList', value: $('#changeColumnsList')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'updateDocFrDt', value: $('#updateDocFrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'updateDocToDt', value: $('#updateDocToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'tglOpFlg', value: $('#tglOpFlg')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'compNameWord', value: $('#compNameWord')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku1Value', value: $('#koumoku1Value')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku2Value', value: $('#koumoku2Value')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku3Value', value: $('#koumoku3Value')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku1Word', value: $('#koumoku1Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku2Word', value: $('#koumoku2Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku3Word', value: $('#koumoku3Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku1HowtoSearch', value: $('#koumoku1HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku2HowtoSearch', value: $('#koumoku2HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku3HowtoSearch', value: $('#koumoku3HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'howtoRdSearchSel', value: $('#howtoRdSearchSel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1Sel', value: $('#relationDoc1Sel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2Sel', value: $('#relationDoc2Sel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3Sel', value: $('#relationDoc3Sel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1check1', value: $('#relationDoc1check1')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1check2', value: $('#relationDoc1check2')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2check1', value: $('#relationDoc2check1')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2check2', value: $('#relationDoc2check2')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3check1', value: $('#relationDoc3check1')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3check2', value: $('#relationDoc3check2')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1Word', value: $('#relationDoc1Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2Word', value: $('#relationDoc2Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3Word', value: $('#relationDoc3Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1HowtoSearch', value: $('#relationDoc1HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2HowtoSearch', value: $('#relationDoc2HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3HowtoSearch', value: $('#relationDoc3HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1FrDt', value: $('#relationDoc1FrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1ToDt', value: $('#relationDoc1ToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2FrDt', value: $('#relationDoc2FrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2ToDt', value: $('#relationDoc2ToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3FrDt', value: $('#relationDoc3FrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3ToDt', value: $('#relationDoc3ToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDocHowtoSearchBetween12', value: $('#relationDocHowtoSearchBetween12')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDocHowtoSearchBetween23', value: $('#relationDocHowtoSearchBetween23')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'ListRows', value: $('#listRows')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'searchCnt', value: $('#searchCnt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'totalPages', value: $('#totalPages')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'pages', value: $('#pages')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'listCategory', value: $('#listCategory')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'iyakuKoumokuSelectSwitchRadio', value: $('#iyakuKoumokuSelectSwitchRadio')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'gs1code', value: $('#gs1code')[0].value}));
+ 	$tmpForm.appendTo('body').submit().remove();
+
+	return false;
+}
+
+</script>
+<!-- ++++ /local-js ++++ -->
+
+
+<div id="ContentWrap" class="SearchResult">
+<noscript><p id="NoScriptWarning">当ウェブサイトを快適にご覧いただくには、ブラウザのJavaScript設定を有効（オン）にしていただく必要がございます。</p></noscript>
+
+
+<div id="HeaderPopArea" class="HTML5_header">
+<div id="HeaderPopAreaInner">
+<a href="/" id="LogoArea" target="_blank">
+<span>Pmda 独立行政法人 医薬品医療機器総合機構</span>
+</a><!--/LogoArea-->
+
+<div id="LinkArea01" class="clearfix">
+<ul>
+<li class="mr_00"><a href="javascript:window.close()"><img class="imglink" src="/PmdaSearch/files/common/img/ComHeaderAreaBtnClose.png" alt="画面を閉じる" width="118" height="24"></a></li>
+</ul>
+</div><!--/LinkArea01-->
+
+<div id="LinkArea02">
+<img class="float_l mr_10" src="/PmdaSearch/files/common/img/ComHeaderAreaTxtSizettl.png" alt="文字サイズの変更" width="29" height="22">
+<span id="FontSizeSelect"><a href="javascript:void(0);" id="TextBtnNormal" class="mr_05 "><span>標準</span></a>
+<a href="javascript:void(0);" id="TextBtnL" class="mr_05"><span>大</span></a>
+<a href="javascript:void(0);" id="TextBtnLl"><span>特大</span></a></span>
+</div><!--/LinkArea02-->
+</div><!--/HeaderAreaInner-->
+</div><!--/HeaderArea-->
+
+<div id="ContentArea" class="HTML5_section">
+<div id="MainContents" class="clearfix">
+<div id="ContentMainArea" class="ComOneCulumn">
+<div class="PopupArea">
+<div class="PopupInner">
+
+<h1 id="SearchHd">
+<strong>医療用医薬品 情報検索</strong>
+<span><a target="searchhelp_iyaku" href="/searchhelp_009.pdf"><img class="imglink" src="/PmdaSearch/files/img/search/SearchBtn10.gif" alt="情報検索機能の使い方" height="36"></a></span>
+
+<span class="ExportBtnArea">
+<p>検索結果の出力</p>
+<a href="javascript:void(0);" onclick="return exportSearchResult('csv');"><img class="imglink" src="/PmdaSearch/files/img/search/ExportBtn01.gif" alt="CSV出力" height="35"></a>
+<a href="javascript:void(0);" onclick="return exportSelect(event, 'pdf');" target="_blank"><img class="imglink" src="/PmdaSearch/files/img/search/ExportBtn02.gif" alt="PDF出力" height="35"></a>
+</span>
+
+</h1>
+
+<form name="iyakuSearchActionForm" method="POST" action="/PmdaSearch/iyakuSearch/">
+
+
+<!-- add 2.00: 検索条件を表示 -->
+<div class="dispSearchCondArea">
+<h2>検索条件</h2>
+
+<h3 id="bookSearchTitle">医薬品の添付文書等を調べる</h3>
+<span id="bookSearchCond">
+
+
+
+
+
+
+
+  更新年月日: 20200908&nbsp;～&nbsp;20200908
+  &nbsp;/&nbsp;
+
+
+
+
+
+
+
+
+</span>
+
+
+</div><!-- /dispSearchCondArea -->
+
+
+<div onscroll='javascript:elmScrool(this); return false;'>
+<div id='SearchWrap02' class='clearfix'>
+<h2 class='SearchTit01'>検索結果</h2>
+<div class='SearchResultMenu mb_15 first'>
+<p class='col23 PageNavi'><strong>検索結果136件／全1ページ</strong><BR><BR>
+<span>1</span></p>
+<p class='col1'><input value='表示する文書を変更' type='image' src='/PmdaSearch/iyakuSearch/../files/img/search/SearchBtn08.gif' onClick='JavaScript:displaySelect(event); return false;'></p>
+<p>
+<strong>表示件数を選ぶ</strong><BR>
+<select name='ListRows' onchange='javascript:listRowsChange($(this).val());' class='SearchSlct'>
+<option value='10'>10件</option><option value='20'>20件</option><option value='30'>30件</option><option value='50'>50件</option><option value='100'>100件</option></select>
+</p>
+</div><!-- / #SearchResultMenu -->
+<!-- 検索結果表示領域  -->
+<table class='SearchResultTable' id='ResultList'>
+<tr>
+	<th scope='col' style='width:15em' nowrap>一般名</th>
+	<th scope='col' style='width:15em' nowrap>販売名</th>
+	<th scope='col' style='width:15em' nowrap>製造販売業者等</th>
+	<th scope='col' style='width:13em' nowrap>添付文書</th>
+	<th scope='col' style='width:12em' nowrap>患者向医薬品ガイド／<BR>ワクチン接種を受ける人<BR>へのガイド</th>
+	<th scope='col' style='width:12em' nowrap>インタビュー<BR>フォーム</th>
+</tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149004'>アジスロマイシン水和物</a></div></td><td><div>アジスロマイシン細粒小児用10％「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_6149004C1099_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_6149004C1099_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_6149004C1099_1_09'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400278_6149004C1099_1_01G.pdf'>G_アジスロマイシン細粒小児用10％「ＴＣＫ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_6149004C1099_1_007_1F.pdf'>アジスロマイシン細粒小児用10％「ＴＣＫ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149004'>アジスロマイシン水和物</a></div></td><td><div>アジスロマイシンカプセル小児用100mg「YD」／アジスロマイシン細粒小児用10％「YD」</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_6149004C1064_1_08'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_6149004C1064_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_6149004C1064_1_08'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/830001_6149004C1064_1_00G.pdf'>G_アジスロマイシンカプセル小児用100mg「YD」／アジスロマイシン細粒小児用10％「YD」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_6149004C1064_1_006_1F.pdf'>アジスロマイシンカプセル小児用100mg「YD」／アジスロマイシン細粒小児用10％「YD」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149004'>アジスロマイシン水和物</a></div></td><td><div>アジスロマイシンカプセル小児用100ｍｇ「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_6149004M1060_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_6149004M1060_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_6149004M1060_1_09'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400278_6149004M1060_1_01G.pdf'>G_アジスロマイシンカプセル小児用100ｍｇ「ＴＣＫ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_6149004M1060_1_007_1F.pdf'>アジスロマイシンカプセル小児用100ｍｇ「ＴＣＫ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6131001'>アモキシシリン水和物</a></div></td><td><div>アモキシシリンカプセル125ｍｇ「ＴＣＫ」／アモキシシリンカプセル250ｍｇ「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_6131001M1142_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_6131001M1142_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_6131001M1142_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_6131001M1142_1_016_1F.pdf'>アモキシシリンカプセル125mg「TCK」／**アモキシシリンカプセル250mg「TCK」_IF</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6131001'>アモキシシリン水和物</a></div></td><td><div>アモキシシリン細粒10％「ＴＣＫ」／アモキシシリン細粒20％「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_6131001C1260_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_6131001C1260_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_6131001C1260_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_6131001C1260_1_015_1F.pdf'>アモキシシリン細粒10％「TCK」／アモキシシリン細粒20％「TCK」_IF</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6131001'>アモキシシリン水和物</a></div></td><td><div>ワイドシリン細粒10％</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6131001C1252_1_07'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6131001C1252_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6131001C1252_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6131001C1252_1_1F.pdf'>F1_ワイドシリン細粒10％</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6131001'>アモキシシリン水和物</a></div></td><td><div>ワイドシリン細粒20％</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6131001C2100_1_06'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6131001C2100_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6131001C2100_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6131001C2100_1_1F.pdf'>F1_ワイドシリン細粒20％</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6131002'>アンピシリン水和物</a></div></td><td><div>ビクシリンカプセル250mg</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6131002M1147_1_06'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6131002M1147_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6131002M1147_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6131002M1147_1_1F.pdf'>F1_ビクシリンカプセル250mg</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6131002'>アンピシリン水和物</a></div></td><td><div>ビクシリンドライシロップ10％</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6131002R1110_1_07'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6131002R1110_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6131002R1110_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6131002R1110_1_1F.pdf'>F1_ビクシリンドライシロップ10％</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6131400'>アンピシリンナトリウム</a></div></td><td><div>ビクシリン注射用0.25g／ビクシリン注射用0.5g／ビクシリン注射用1g／ビクシリン注射用2g</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6131400D1078_1_07'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6131400D1078_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6131400D1078_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6131400D1078_1_1F.pdf'>F1_ビクシリン注射用0.25g／ビクシリン注射用0.5g／ビクシリン注射用1g／ビクシリン注射用2g</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2499403'>オクトレオチド酢酸塩</a></div></td><td><div>オクトレオチド皮下注50μg「あすか」／オクトレオチド皮下注100μg「あすか」</div></td><td><div>製造販売元／あすか製薬株式会社</div><div>販売／武田薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470007_2499403A1053_1_04'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470007_2499403A1053_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470007_2499403A1053_1_04'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/470007_2499403A1053_1_00G.pdf'>G_オクトレオチド皮下注50μg「あすか」／オクトレオチド皮下注100μg「あすか」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470007_2499403A1053_1_V04_1F.pdf'>F1_オクトレオチド皮下注50μg「あすか」／オクトレオチド皮下注100μg「あすか」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6169400'>カナマイシン硫酸塩</a></div></td><td><div>硫酸カナマイシン注射液1000mg「明治」</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6169400A1036_1_05'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6169400A1036_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6169400A1036_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6169400A1036_1_1F.pdf'>F1_硫酸カナマイシン注射液1000mg「明治」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1179042'>クエチアピンフマル酸塩</a></div></td><td><div>ビプレッソ徐放錠50mg／ビプレッソ徐放錠150mg</div></td><td><div>製造販売／アステラス製薬株式会社</div><div>販売／共和薬品工業株式会社</div><div>プロモーション提携／吉富薬品株式会社</div><div>提携／AstraZeneca UK Ltd</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/800126_1179042G1025_1_10'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "800126_1179042G1025_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetXML/800126_1179042G1025_1_10'>XML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/800126_1179042G1025_1_00G.pdf'>G_ビプレッソ徐放錠50mg／ビプレッソ徐放錠150mg</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/800126_1179042G1025_1_009_1F.pdf'>F1_ビプレッソ徐放錠50mg／ビプレッソ徐放錠150mg</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠小児用50ｍｇ「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_6149003F1236_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_6149003F1236_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_6149003F1236_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_6149003F1236_1_016_1F.pdf'>クラリスロマイシン錠小児用50mg「TCK」_IF</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠50小児用「MEEK」／クラリスロマイシンDS10％「MEEK」</div></td><td><div>製造販売元／小林化工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270161_6149003F1171_1_15'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270161_6149003F1171_1_15"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270161_6149003F1171_1_15'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270161_6149003F1171_1_020_1F.pdf'>F1_クラリスロマイシン錠５０小児用 「ＭＥＥＫ」／クラリスロマイシンＤＳ １０％ 「ＭＥＥＫ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠50小児用「MEEK」／クラリスロマイシンDS10％「MEEK」</div></td><td><div>販売元／Meiji Seika ファルマ株式会社</div><div>製造販売元／小林化工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270161_6149003F1171_2_16'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270161_6149003F1171_2_16"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270161_6149003F1171_2_16'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/270161_6149003F1171_2_018_1F.pdf'>F1_クラリスロマイシン錠５０小児用 「ＭＥＥＫ」／クラリスロマイシンＤＳ１０％ 「ＭＥＥＫ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠50小児用「MEEK」／クラリスロマイシンDS10％小児用「MEEK」</div></td><td><div>販売元／Meiji Seika ファルマ株式会社</div><div>製造販売元／小林化工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270161_6149003R1232_2_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270161_6149003R1232_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270161_6149003R1232_2_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/270161_6149003R1232_2_019_1F.pdf'>F1_クラリスロマイシン錠50小児用「MEEK」／クラリスロマイシンDS10％小児用「MEEK」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠50小児用「MEEK」／クラリスロマイシンDS10％小児用「MEEK」</div></td><td><div>製造販売元／小林化工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270161_6149003R1232_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270161_6149003R1232_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270161_6149003R1232_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270161_6149003R1232_1_021_1F.pdf'>F1_クラリスロマイシン錠50小児用「MEEK」／クラリスロマイシンDS10％小児用「MEEK」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠５０ｍｇ小児用「ＮＰＩ」</div></td><td><div>販売元／日本ケミファ株式会社</div><div>製造販売元／日本薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530372_6149003F1066_2_18'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530372_6149003F1066_2_18"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530372_6149003F1066_2_18'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/530372_6149003F1066_2_008_1F.pdf'>F1_クラリスロマイシン錠５０ｍｇ小児用「ＮＰＩ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠５０ｍｇ小児用「ＮＰＩ」</div></td><td><div>製造販売元／日本薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530372_6149003F1066_1_16'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530372_6149003F1066_1_16"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530372_6149003F1066_1_16'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530372_6149003F1066_1_007_1F.pdf'>F1_クラリスロマイシン錠５０ｍｇ小児用「ＮＰＩ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠200mg「サンド」</div></td><td><div>製造販売／サンド株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270428_6149003F2119_1_22'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270428_6149003F2119_1_22"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270428_6149003F2119_1_22'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270428_6149003F2119_1_C10_1F.pdf'>F1_クラリスロマイシン錠200mg「サンド」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠200mg「タナベ」</div></td><td><div>製造販売／ニプロESファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/430920_6149003F2208_2_06'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "430920_6149003F2208_2_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/430920_6149003F2208_2_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/430920_6149003F2208_2_160_1F.pdf'>F1_クラリスロマイシン錠200mg「タナベ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠200mg「フェルゼン」</div></td><td><div>製造販売元／株式会社フェルゼンファーマ</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/671940_6149003F2259_1_03'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "671940_6149003F2259_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/671940_6149003F2259_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/671940_6149003F2259_1_1F.pdf'>F1_クラリスロマイシン錠200mg「フェルゼン」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠200「MEEK」</div></td><td><div>販売元／Meiji Seika ファルマ株式会社</div><div>製造販売元／小林化工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270161_6149003F2062_2_19'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270161_6149003F2062_2_19"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270161_6149003F2062_2_19'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/270161_6149003F2062_2_019_1F.pdf'>F1_クラリスロマイシン錠２００ 「ＭＥＥＫ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠200「MEEK」</div></td><td><div>製造販売元／小林化工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270161_6149003F2062_1_19'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270161_6149003F2062_1_19"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270161_6149003F2062_1_19'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270161_6149003F2062_1_021_1F.pdf'>F1_クラリスロマイシン錠２００ 「ＭＥＥＫ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠２００ｍｇ「ＮＰＩ」</div></td><td><div>販売元／日本ケミファ株式会社</div><div>製造販売元／日本薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530372_6149003F2070_2_19'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530372_6149003F2070_2_19"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530372_6149003F2070_2_19'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/530372_6149003F2070_2_008_1F.pdf'>F1_クラリスロマイシン錠２００ｍｇ「ＮＰＩ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠２００ｍｇ「ＮＰＩ」</div></td><td><div>製造販売元／日本薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530372_6149003F2070_1_19'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530372_6149003F2070_1_19"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530372_6149003F2070_1_19'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530372_6149003F2070_1_007_1F.pdf'>F1_クラリスロマイシン錠２００ｍｇ「ＮＰＩ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149003'>クラリスロマイシン</a></div></td><td><div>クラリスロマイシン錠200ｍｇ「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_6149003F2267_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_6149003F2267_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_6149003F2267_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_6149003F2267_1_018_1F.pdf'>クラリスロマイシン錠200mg「TCK」_IF</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/26467A1'>クロベタゾールプロピオン酸エステル</a></div></td><td><div>クロベタゾールプロピオン酸エステルクリーム0.05%「日医工」／クロベタゾールプロピオン酸エステル軟膏0.05%「日医工」</div></td><td><div>販売元／日医工株式会社</div><div>製造販売元／池田薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/130036_26467A1N1051_1_01'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "130036_26467A1N1051_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/130036_26467A1N1051_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3399002'>シロスタゾール</a></div></td><td><div>シロスタゾールOD錠50mg「トーワ」／シロスタゾールOD錠100mg「トーワ」</div></td><td><div>製造販売元／東和薬品株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480235_3399002F3098_1_05'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480235_3399002F3098_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480235_3399002F3098_1_05'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/480235_3399002F3098_1_01G.pdf'>G_シロスタゾールOD錠50mg「トーワ」／シロスタゾールOD錠100mg「トーワ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/480235_3399002F3098_1_231_1F.pdf'>F1_シロスタゾールOD錠50mg「トーワ」／シロスタゾールOD錠100mg「トーワ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6134400'>ジベカシン硫酸塩</a></div></td><td><div>パニマイシン注射液50mg／パニマイシン注射液100mg</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6134400A1057_1_05'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6134400A1057_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6134400A1057_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6134400A1057_1_1F.pdf'>F1_パニマイシン注射液50mg／パニマイシン注射液100mg</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6134400'>ジベカシン硫酸塩</a></div></td><td><div>注射用パニマイシン100mg</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6134400D2033_1_03'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6134400D2033_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6134400D2033_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6134400D2033_1_1F.pdf'>F1_注射用パニマイシン100mg</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132425'>セフェピム塩酸塩水和物</a></div></td><td><div>セフェピム塩酸塩静注用0.5g「サンド」／セフェピム塩酸塩静注用1g「サンド」</div></td><td><div>製造販売／サンド株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270428_6132425D1032_1_06'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270428_6132425D1032_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270428_6132425D1032_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270428_6132425D1032_1_C06_1F.pdf'>F1_セフェピム塩酸塩静注用0.5g「サンド」／セフェピム塩酸塩静注用1g「サンド」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132016'>セフカペン　ピボキシル塩酸塩水和物</a></div></td><td><div>セフカペンピボキシル塩酸塩細粒小児用10％「YD」</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_6132016C1051_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_6132016C1051_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_6132016C1051_1_09'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_6132016C1051_1_010_1F.pdf'>F1_セフカペンピボキシル塩酸塩細粒小児用10％「YD」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132016'>セフカペン　ピボキシル塩酸塩水和物</a></div></td><td><div>セフカペンピボキシル塩酸塩細粒小児用100ｍｇ「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_6132016C1086_1_08'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_6132016C1086_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_6132016C1086_1_08'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_6132016C1086_1_007_1F.pdf'>セフカペンピボキシル塩酸塩細粒小児用100mg「TCK」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132016'>セフカペン　ピボキシル塩酸塩水和物</a></div></td><td><div>セフカペンピボキシル塩酸塩錠75ｍｇ「ＴＣＫ」／セフカペンピボキシル塩酸塩錠100ｍｇ「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_6132016F1058_1_07'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_6132016F1058_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_6132016F1058_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_6132016F1058_1_006_1F.pdf'>セフカペンピボキシル塩酸塩錠75mg「TCK」、100mg「TCK」_IF</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132016'>セフカペン　ピボキシル塩酸塩水和物</a></div></td><td><div>セフカペンピボキシル塩酸塩錠75mg「ＹＤ」／セフカペンピボキシル塩酸塩錠100mg「ＹＤ」</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_6132016F1066_1_08'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_6132016F1066_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_6132016F1066_1_08'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_6132016F1066_1_012_1F.pdf'>F1_セフカペンピボキシル塩酸塩錠75mg「ＹＤ」／セフカペンピボキシル塩酸塩錠100mg「ＹＤ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132015'>セフジトレン　ピボキシル</a></div></td><td><div>セフジトレンピボキシル錠100mg「OK」</div></td><td><div>販売元／Meiji Seika ファルマ株式会社</div><div>製造販売元／大蔵製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180024_6132015F1088_1_04'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180024_6132015F1088_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180024_6132015F1088_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180024_6132015F1088_1_008_1F.pdf'>F1_セフジトレンピボキシル錠100mg「OK」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132015'>セフジトレン　ピボキシル</a></div></td><td><div>セフジトレンピボキシル小児用細粒10％「OK」</div></td><td><div>販売元／Meiji Seika ファルマ株式会社</div><div>製造販売元／大蔵製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180024_6132015C1111_1_03'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180024_6132015C1111_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180024_6132015C1111_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180024_6132015C1111_1_005_1F.pdf'>F1_セフジトレンピボキシル小児用細粒10％「OK」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132015'>セフジトレン　ピボキシル</a></div></td><td><div>メイアクトMS小児用細粒10％</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6132015C1103_1_10'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6132015C1103_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6132015C1103_1_10'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6132015C1103_1_01A_1F.pdf'>F1_メイアクトMS小児用細粒10％</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132015'>セフジトレン　ピボキシル</a></div></td><td><div>メイアクトMS錠100mg</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6132015F1037_1_10'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6132015F1037_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6132015F1037_1_10'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6132015F1037_1_01A_1F.pdf'>F1_メイアクトMS錠100mg</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132013'>セフジニル</a></div></td><td><div>セフジニルカプセル50mg「YD」／セフジニルカプセル100mg「YD」</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_6132013M1088_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_6132013M1088_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_6132013M1088_1_09'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_6132013M1088_1_006_1F.pdf'>F1_セフジニルカプセル50mg「YD」／セフジニルカプセル100mg「YD」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132013'>セフジニル</a></div></td><td><div>セフジニル細粒小児用10％「ＹＤ」</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_6132013C1066_1_08'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_6132013C1066_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_6132013C1066_1_08'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_6132013C1066_1_006_1F.pdf'>F1_セフジニル細粒小児用10％「ＹＤ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6132419'>セフトリアキソンナトリウム水和物</a></div></td><td><div>ロセフィン静注用0.5g／ロセフィン静注用1g／ロセフィン点滴静注用1gバッグ</div></td><td><div>製造販売元／太陽ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/431010_6132419F1020_3_05'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "431010_6132419F1020_3_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/431010_6132419F1020_3_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/431010_6132419F1020_3_001_1F.pdf'>F1_ロセフィン静注用0.5g／ロセフィン静注用1g／ロセフィン点滴静注用1gバッグ</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコックス錠100mg／セレコックス錠200mg</div></td><td><div>製造販売／アステラス製薬株式会社</div><div>販売提携／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/800126_1149037F1020_1_17'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "800126_1149037F1020_1_17"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/800126_1149037F1020_1_17'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/800126_1149037F1020_1_00G.pdf'>G_セレコックス錠100mg／セレコックス錠200mg</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/800126_1149037F1020_1_014_1F.pdf'>F1_セレコックス錠100mg／セレコックス錠200mg</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「アメル」／セレコキシブ錠200mg「アメル」</div></td><td><div>販売元／　共和薬品工業株式会社</div><div>製造販売元／　ダイト株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400073_1149037F1070_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400073_1149037F1070_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400073_1149037F1070_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400073_1149037F1070_1_01G.pdf'>セレコキシブ錠100mg「アメル」／セレコキシブ錠200mg「アメル」_G</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400073_1149037F1070_1_002_1F.pdf'>F1_セレコキシブ錠100mg「アメル」／セレコキシブ錠200mg「アメル」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「オーハラ」／セレコキシブ錠200mg「オーハラ」</div></td><td><div>製造販売元／大原薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180095_1149037F1089_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180095_1149037F1089_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180095_1149037F1089_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/180095_1149037F1089_1_00G.pdf'>セレコキシブ錠「オーハラ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180095_1149037F1089_1_003_1F.pdf'>F1_セレコキシブ錠100mg「オーハラ」／セレコキシブ錠200mg「オーハラ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「オーハラ」／セレコキシブ錠200mg「オーハラ」</div></td><td><div>販売元／アルフレッサ ファーマ株式会社</div><div>製造販売元／大原薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180095_1149037F1089_2_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180095_1149037F1089_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180095_1149037F1089_2_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/180095_1149037F1089_2_00G.pdf'>セレコキシブ錠「オーハラ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/180095_1149037F1089_2_003_1F.pdf'>F1_セレコキシブ錠100mg「オーハラ」／セレコキシブ錠200mg「オーハラ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「杏林」／セレコキシブ錠200mg「杏林」</div></td><td><div>販売元／杏林製薬株式会社</div><div>製造販売元／キョーリンリメディオ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480209_1149037F1097_1_03'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480209_1149037F1097_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480209_1149037F1097_1_03'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/480209_1149037F1097_1_00G.pdf'>G_セレコキシブ錠100mg「杏林」／セレコキシブ錠200mg「杏林」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/480209_1149037F1097_1_002_1F.pdf'>F1_セレコキシブ錠100mg「杏林」／セレコキシブ錠200mg「杏林」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「杏林」／セレコキシブ錠200mg「杏林」</div></td><td><div>販売元／辰巳化学株式会社</div><div>製造販売元／キョーリンリメディオ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480209_1149037F1097_2_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480209_1149037F1097_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480209_1149037F1097_2_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/480209_1149037F1097_2_00G.pdf'>G_セレコキシブ錠100mg「杏林」／セレコキシブ錠200mg「杏林」</a></div></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「ケミファ」／セレコキシブ錠200mg「ケミファ」</div></td><td><div>販売元／日本薬品工業株式会社</div><div>製造販売元／日本ケミファ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530213_1149037F1100_2_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530213_1149037F1100_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530213_1149037F1100_2_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530213_1149037F1100_2_01G.pdf'>セレコキシブ錠100mg「ケミファ」／セレコキシブ錠200mg「ケミファ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/530213_1149037F1100_2_1F.pdf'>F1_セレコキシブ錠100mg「ケミファ」／セレコキシブ錠200mg「ケミファ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「サワイ」／セレコキシブ錠200mg「サワイ」</div></td><td><div>製造販売元／沢井製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300119_1149037F1119_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300119_1149037F1119_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300119_1149037F1119_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/300119_1149037F1119_1_01G.pdf'>セレコキシブ錠100mg「サワイ」／セレコキシブ錠200mg「サワイ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/300119_1149037F1119_1_031_1F.pdf'>F1_セレコキシブ錠100mg「サワイ」／セレコキシブ錠200mg「サワイ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「サンド」／セレコキシブ錠200mg「サンド」</div></td><td><div>製造販売／サンド株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270428_1149037F1127_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270428_1149037F1127_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270428_1149037F1127_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270428_1149037F1127_1_C01_1F.pdf'>セレコキシブ錠100mg「サンド」‗1_1</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「武田テバ」／セレコキシブ錠200mg「武田テバ」</div></td><td><div>販売／武田薬品工業株式会社</div><div>製造販売元／武田テバファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400813_1149037F1135_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400813_1149037F1135_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400813_1149037F1135_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400813_1149037F1135_1_00G.pdf'>G_セレコキシブ錠100mg「武田テバ」／セレコキシブ錠200mg「武田テバ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400813_1149037F1135_1_002_1F.pdf'>セレコキシブ錠100mg・200mg｢武田テバ｣</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「トーワ」／セレコキシブ錠200mg「トーワ」</div></td><td><div>製造販売元／東和薬品株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480235_1149037F1143_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480235_1149037F1143_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480235_1149037F1143_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/480235_1149037F1143_1_00G.pdf'>セレコキシブ錠100mg「トーワ」／セレコキシブ錠200mg「トーワ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/480235_1149037F1143_1_031_1F.pdf'>セレコキシブ錠100mg「トーワ」／セレコキシブ錠200mg「トーワ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「日医工」／セレコキシブ錠200mg「日医工」</div></td><td><div>製造販売元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530169_1149037F1151_1_03'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530169_1149037F1151_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530169_1149037F1151_1_03'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530169_1149037F1151_1_01G.pdf'>G_セレコキシブ錠100mg「日医工」／セレコキシブ錠200mg「日医工」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530169_1149037F1151_1_003_1F.pdf'>F1_セレコキシブ錠100mg「日医工」／セレコキシブ錠200mg「日医工」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「日新」／セレコキシブ錠200mg「日新」</div></td><td><div>製造販売元／日新製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530113_1149037F1160_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530113_1149037F1160_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530113_1149037F1160_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530113_1149037F1160_1_00G.pdf'>セレコキシブ錠100mg「日新」／セレコキシブ錠200mg「日新」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530113_1149037F1160_1_002_1F.pdf'>セレコキシブ錠100mg「日新」／セレコキシブ錠200mg「日新」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「ニプロ」／セレコキシブ錠200mg「ニプロ」</div></td><td><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_1149037F1178_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_1149037F1178_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_1149037F1178_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530100_1149037F1178_1_03C_1F.pdf'>セレコキシブ錠100mg「ニプロ」／セレコキシブ錠200mg「ニプロ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「ファイザー」／セレコキシブ錠200mg「ファイザー」</div></td><td><div>製造販売／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/672212_1149037F1186_2_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "672212_1149037F1186_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/672212_1149037F1186_2_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/672212_1149037F1186_2_00G.pdf'>G_セレコキシブ錠100mg「ファイザー」／セレコキシブ錠200mg「ファイザー」_2020年7月作成</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/672212_1149037F1186_2_1F.pdf'>F1_セレコキシブ錠100mg「ファイザー」／セレコキシブ錠200mg「ファイザー」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「フェルゼン」／セレコキシブ錠200mg「フェルゼン」</div></td><td><div>製造販売元／株式会社フェルゼンファーマ</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/671940_1149037F1194_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "671940_1149037F1194_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/671940_1149037F1194_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/671940_1149037F1194_1_01G.pdf'>G_セレコキシブ錠100mg「フェルゼン」／セレコキシブ錠200mg「フェルゼン」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/671940_1149037F1194_1_1F.pdf'>F1_セレコキシブ錠100mg「フェルゼン」／セレコキシブ錠200mg「フェルゼン</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「三笠」／セレコキシブ錠200mg「三笠」</div></td><td><div>製造販売元／三笠製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/750007_1149037F1208_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "750007_1149037F1208_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/750007_1149037F1208_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/750007_1149037F1208_1_01G.pdf'>G_セレコキシブ錠100mg「三笠」／セレコキシブ錠200mg「三笠」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/750007_1149037F1208_1_1F.pdf'>セレコキシブ錠100mg「三笠」／セレコキシブ錠200mg「三笠」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「明治」／セレコキシブ錠200mg「明治」</div></td><td><div>販売元／Meiji Seika ファルマ株式会社</div><div>製造販売元／Meファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171950_1149037F1216_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171950_1149037F1216_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171950_1149037F1216_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/171950_1149037F1216_1_01G.pdf'>セレコキシブ錠100mg「明治」／セレコキシブ錠200mg「明治」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/171950_1149037F1216_1_1F.pdf'>セレコキシブ錠100mg「明治」／セレコキシブ錠200mg「明治」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「DSEP」／セレコキシブ錠200mg「DSEP」</div></td><td><div>製造販売元／第一三共エスファ株式会社</div><div>販売提携／第一三共株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/430773_1149037F1038_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "430773_1149037F1038_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/430773_1149037F1038_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/430773_1149037F1038_1_00G.pdf'>G_セレコキシブ錠100mg「DSEP」／セレコキシブ錠200mg「DSEP」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/430773_1149037F1038_1_1F.pdf'>F1_セレコキシブ錠100mg「DSEP」／セレコキシブ錠200mg「DSEP」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「JG」／セレコキシブ錠200mg「JG」</div></td><td><div>製造販売元／日本ジェネリック株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/580591_1149037F1046_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "580591_1149037F1046_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/580591_1149037F1046_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/580591_1149037F1046_1_01G.pdf'>セレコキシブ錠100mg「JG」／セレコキシブ錠200mg「JG」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/580591_1149037F1046_1_002_1F.pdf'>セレコキシブ錠100mg「JG」／セレコキシブ錠200mg「JG」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「KN」／セレコキシブ錠200mg「KN」</div></td><td><div>製造販売元／小林化工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270161_1149037F1054_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270161_1149037F1054_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270161_1149037F1054_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/270161_1149037F1054_1_00G.pdf'>G_セレコキシブ錠100mg「KN」／セレコキシブ錠200mg「KN」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270161_1149037F1054_1_003_1F.pdf'>F1_セレコキシブ錠100mg「KN」／セレコキシブ錠200mg「KN」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1149037'>セレコキシブ</a></div></td><td><div>セレコキシブ錠100mg「YD」／セレコキシブ錠200mg「YD」</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_1149037F1062_1_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_1149037F1062_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_1149037F1062_1_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/830001_1149037F1062_1_01G.pdf'>セレコキシブ錠100mg「YD」／錠200mg「YD」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_1149037F1062_1_003_1F.pdf'>セレコキシブ錠100mg「YD」／セレコキシブ錠200mg「YD」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6139002'>テビペネム　ピボキシル</a></div></td><td><div>オラペネム小児用細粒10％</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6139002C1026_1_10'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6139002C1026_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6139002C1026_1_10'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6139002C1026_1_04A_1F.pdf'>F1_オラペネム小児用細粒10％</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2454405'>デキサメタゾンリン酸エステルナトリウム</a></div></td><td><div>デキサート注射液１．６５ｍｇ／デキサート注射液３．３ｍｇ／デキサート注射液６．６ｍｇ</div></td><td><div>製造販売元／富士製薬工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670109_2454405H1032_1_05'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670109_2454405H1032_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670109_2454405H1032_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670109_2454405H1032_1_023_1F.pdf'>F1_デキサート注射液１．６５ｍｇ／デキサート注射液３．３ｍｇ／デキサート注射液６．６ｍｇ</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6241010'>トスフロキサシントシル酸塩水和物</a></div></td><td><div>トスフロキサシントシル酸塩小児用細粒15%「明治」</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6241010C1059_1_07'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6241010C1059_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6241010C1059_1_07'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/780009_6241010C1059_1_00G.pdf'>G_トスフロキサシントシル酸塩小児用細粒15%「明治」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6241010C1059_1_1F.pdf'>F1_トスフロキサシントシル酸塩小児用細粒15%「明治」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6241010'>トスフロキサシントシル酸塩水和物</a></div></td><td><div>トスフロキサシントシル酸塩細粒小児用15％「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_6241010C1067_1_08'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_6241010C1067_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_6241010C1067_1_08'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400278_6241010C1067_1_02G.pdf'>G_トスフロキサシントシル酸塩細粒小児用15％「ＴＣＫ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_6241010C1067_1_007_1F.pdf'>トスフロキサシントシル酸塩細粒小児用15%「TCK」_IF</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6241010'>トスフロキサシントシル酸塩水和物</a></div></td><td><div>トスフロキサシントシル酸塩錠75mg「タナベ」／トスフロキサシントシル酸塩錠150mg「タナベ」</div></td><td><div>製造販売／ニプロESファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/430920_6241010F1110_2_05'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "430920_6241010F1110_2_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/430920_6241010F1110_2_05'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/430920_6241010F1110_2_04G.pdf'>G_トスフロキサシントシル酸塩錠75mg「タナベ」／トスフロキサシントシル酸塩錠150mg「タナベ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/430920_6241010F1110_2_100_1F.pdf'>F1_トスフロキサシントシル酸塩錠75mg「タナベ」／トスフロキサシントシル酸塩錠150mg「タナベ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6241010'>トスフロキサシントシル酸塩水和物</a></div></td><td><div>トスフロキサシントシル酸塩錠75ｍｇ「ＴＣＫ」／トスフロキサシントシル酸塩錠150ｍｇ「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_6241010F1055_1_12'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_6241010F1055_1_12"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_6241010F1055_1_12'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400278_6241010F1055_1_02G.pdf'>G_トスフロキサシントシル酸塩錠75ｍｇ「ＴＣＫ」／トスフロキサシントシル酸塩錠150ｍｇ「ＴＣＫ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_6241010F1055_1_109_1F.pdf'>トスフロキサシントシル酸塩錠75mg「TCK」／150mg「TCK」_IF</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6241010'>トスフロキサシントシル酸塩水和物</a></div></td><td><div>トスフロキサシントシル酸塩錠75mg「ＹＤ」／トスフロキサシントシル酸塩錠150mg「ＹＤ」</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_6241010F1071_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_6241010F1071_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_6241010F1071_1_09'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/830001_6241010F1071_1_08G.pdf'>患者向医薬品ガイド(トスフロキサシン)</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_6241010F1071_1_007_1F.pdf'>トスフロキサシントシル酸塩錠75mg「ＹＤ」／トスフロキサシントシル酸塩錠150mg「ＹＤ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6241005'>ノルフロキサシン</a></div></td><td><div>ノルフロキサシン錠100mg「ＹＤ」／ノルフロキサシン錠200mg「ＹＤ」</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_6241005F1232_1_08'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_6241005F1232_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_6241005F1232_1_08'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/830001_6241005F1232_1_07G.pdf'>患者向け医薬品ガイド　ノルフロキサシン錠「YD」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_6241005F1232_1_006_1F.pdf'>ノルフロキサシン錠100mg「ＹＤ」／ノルフロキサシン錠200mg「ＹＤ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3999038'>ヒドロキシクロロキン硫酸塩</a></div></td><td><div>プラケニル錠200mg</div></td><td><div>製造販売／サノフィ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780069_3999038F1029_1_04'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780069_3999038F1029_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780069_3999038F1029_1_04'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/780069_3999038F1029_1_00G.pdf'>G_プラケニル錠200mg</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780069_3999038F1029_1_005_1F.pdf'>F1_プラケニル錠200mg</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>リバロOD錠1mg／リバロOD錠2mg／リバロOD錠4mg</div></td><td><div>製造販売元／興和株式会社</div><div>提携／日産化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270072_2189016F4027_1_19'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270072_2189016F4027_1_19"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetXML/270072_2189016F4027_1_19'>XML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/270072_2189016F4027_1_00G.pdf'>G_リバロOD錠1mg／リバロOD錠2mg／リバロOD錠4mg</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270072_2189016F4027_1_016_1F.pdf'>リバロOD錠1mg／リバロOD錠2mg／リバロOD錠4mg_IF</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンカルシウムOD錠1mg「日医工」／ピタバスタチンカルシウムOD錠2mg「日医工」／ピタバスタチンカルシウムOD錠4mg「日医工」</div></td><td><div>製造販売元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530169_2189016F4108_1_08'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530169_2189016F4108_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530169_2189016F4108_1_08'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530169_2189016F4108_1_01G.pdf'>G_ピタバスタチンカルシウムOD錠1mg「日医工」／ピタバスタチンカルシウムOD錠2mg「日医工」／*ピタバスタチンカルシウムOD錠4mg「日医工」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530169_2189016F4108_1_010_1F.pdf'>F1_ピタバスタチンカルシウムOD錠1mg「日医工」／ピタバスタチンカルシウムOD錠2mg「日医工」／*ピタバスタチンカルシウムOD錠4mg「日医工」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンカルシウムOD錠1mg「KOG」／ピタバスタチンカルシウムOD錠2mg「KOG」／ピタバスタチンカルシウムOD錠4mg「KOG」</div></td><td><div>製造販売元／テイカ製薬株式会社</div><div>販売提携／興和株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470004_2189016F4116_1_07'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470004_2189016F4116_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetXML/470004_2189016F4116_1_07'>XML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/470004_2189016F4116_1_00G.pdf'>G_ピタバスタチンカルシウムOD錠1mg「KOG」／ピタバスタチンカルシウムOD錠2mg「KOG」／ピタバスタチンカルシウムOD錠4mg「KOG」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470004_2189016F4116_1_008_1F.pdf'>ピタバスタチンカルシウムOD錠1mg「KOG」／ピタバスタチンカルシウムOD錠2mg「KOG」／ピタバスタチンカルシウムOD錠4mg「KOG」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa・OD錠1mg「サワイ」／ピタバスタチンCa・OD錠2mg「サワイ」／ピタバスタチンCa・OD錠4mg「サワイ」</div></td><td><div>製造販売元／沢井製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300119_2189016F4060_1_10'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300119_2189016F4060_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300119_2189016F4060_1_10'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/300119_2189016F4060_1_01G.pdf'>ピタバスタチンCa・OD錠1mg「サワイ」／ピタバスタチンCa・OD錠2mg「サワイ」／ピタバスタチンCa・OD錠4mg「サワイ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/300119_2189016F4060_1_101_1F.pdf'>F1_ピタバスタチンCa・OD錠1mg「サワイ」／ピタバスタチンCa・OD錠2mg「サワイ」／ピタバスタチンCa・OD錠4mg「サワイ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa・OD錠１mg「トーワ」／ピタバスタチンCa・OD錠２mg「トーワ」／ピタバスタチンCa・OD錠４mg「トーワ」</div></td><td><div>製造販売元／東和薬品株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480235_2189016F4035_1_19'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480235_2189016F4035_1_19"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480235_2189016F4035_1_19'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/480235_2189016F4035_1_03G.pdf'>G_ピタバスタチンCa・OD錠１mg「トーワ」／ピタバスタチンCa・OD錠２mg「トーワ」／ピタバスタチンCa・OD錠４mg「トーワ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/480235_2189016F4035_1_142_1F.pdf'>F1_ピタバスタチンCa・OD錠１mg「トーワ」／ピタバスタチンCa・OD錠２mg「トーワ」／ピタバスタチンCa・OD錠４mg「トーワ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa・OD錠1mg「ファイザー」／ピタバスタチンCa・OD錠2mg「ファイザー」／ピタバスタチンCa・OD錠4mg「ファイザー」</div></td><td><div>製造販売元／マイラン製薬株式会社</div><div>販売／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_2189016F4094_1_06'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_2189016F4094_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_2189016F4094_1_06'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/730612_2189016F4094_1_00G.pdf'>G_ピタバスタチンCa・OD錠1mg「ファイザー」／ピタバスタチンCa・OD錠2mg「ファイザー」／ピタバスタチンCa・OD錠4mg「ファイザー」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/730612_2189016F4094_1_005_1F.pdf'>F1_ピタバスタチンCa・OD錠1mg「ファイザー」／ピタバスタチンCa・OD錠2mg「ファイザー」／ピタバスタチンCa・OD錠4mg「ファイザー」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa・OD錠1mg「明治」／ピタバスタチンCa・OD錠2mg「明治」／ピタバスタチンCa・OD錠4mg「明治」</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_2189016F4051_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_2189016F4051_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_2189016F4051_1_09'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/780009_2189016F4051_1_00G.pdf'>G_ピタバスタチンCa・OD錠1mg「明治」／ピタバスタチンCa・OD錠2mg「明治」／ピタバスタチンCa・OD錠4mg「明治」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_2189016F4051_1_1F.pdf'>F1_ピタバスタチンCa・OD錠1mg「明治」／ピタバスタチンCa・OD錠2mg「明治」／ピタバスタチンCa・OD錠4mg「明治」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa・OD錠1mg「JG」／ピタバスタチンCa・OD錠2mg「JG」／ピタバスタチンCa・OD錠4mg「JG」</div></td><td><div>販売元／　日本ジェネリック株式会社</div><div>製造販売元／　ダイト株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400073_2189016F4078_1_07'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400073_2189016F4078_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400073_2189016F4078_1_07'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400073_2189016F4078_1_06G.pdf'>G_ピタバスタチンCa・OD錠1mg「JG」／ピタバスタチンCa・OD錠2mg「JG」／ピタバスタチンCa・OD錠4mg「JG」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400073_2189016F4078_1_R05_1F.pdf'>F1_ピタバスタチンCa・OD錠1㎎「JG」/ピタバスタチンCa・OD錠2㎎「JG」/ピタバスタチンCa・OD錠4㎎「JG」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa・OD錠1mg「杏林」／ピタバスタチンCa・OD錠2mg「杏林」／ピタバスタチンCa・OD錠4mg「杏林」</div></td><td><div>販売元／杏林製薬株式会社</div><div>製造販売元／キョーリンリメディオ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480209_2189016F4086_1_07'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480209_2189016F4086_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480209_2189016F4086_1_07'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/480209_2189016F4086_1_00G.pdf'>G_ピタバスタチンCa・OD錠1mg「杏林」／ピタバスタチンCa・OD錠2mg「杏林」／ピタバスタチンCa・OD錠4mg「杏林」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/480209_2189016F4086_1_006_1F.pdf'>F1_ピタバスタチンCa・OD錠1mg「杏林」／ピタバスタチンCa・OD錠2mg「杏林」／ピタバスタチンCa・OD錠4mg「杏林」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>リバロ錠1mg／リバロ錠2mg／リバロ錠4mg</div></td><td><div>製造販売元／興和株式会社</div><div>提携／日産化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270072_2189016F1028_1_36'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270072_2189016F1028_1_36"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetXML/270072_2189016F1028_1_36'>XML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/270072_2189016F1028_1_00G.pdf'>G_リバロ錠1mg／リバロ錠2mg／リバロ錠4mg</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270072_2189016F1028_1_024_1F.pdf'>リバロ錠1mg／リバロ錠2mg／リバロ錠4mg_IF</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンカルシウム錠1mg「テバ」／ピタバスタチンカルシウム錠2mg「テバ」／ピタバスタチンカルシウム錠4mg「テバ」</div></td><td><div>販売／武田薬品工業株式会社</div><div>製造販売元／武田テバファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400813_2189016F1249_1_13'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400813_2189016F1249_1_13"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400813_2189016F1249_1_13'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400813_2189016F1249_1_00G.pdf'>G_ピタバスタチンカルシウム錠1mg「テバ」／ピタバスタチンカルシウム錠2mg「テバ」／ピタバスタチンカルシウム錠4mg「テバ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400813_2189016F1249_1_010_1F.pdf'>F1_ピタバスタチンカルシウム錠1mg「テバ」／ピタバスタチンカルシウム錠2mg「テバ」／ピタバスタチンカルシウム錠4mg「テバ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンカルシウム錠1mg「モチダ」／ピタバスタチンカルシウム錠2mg「モチダ」／ピタバスタチンカルシウム錠4mg「モチダ」</div></td><td><div>販売／持田製薬株式会社</div><div>製造販売元／持田製薬販売株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/790250_2189016F1265_2_11'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "790250_2189016F1265_2_11"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/790250_2189016F1265_2_11'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/790250_2189016F1265_2_10G.pdf'>G_ピタバスタチンカルシウム錠1mg「モチダ」／ピタバスタチンカルシウム錠2mg「モチダ」／ピタバスタチンカルシウム錠4mg「モチダ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/790250_2189016F1265_2_M06_1F.pdf'>IF_ピタバスタチンカルシウム錠1mg「モチダ」／ピタバスタチンカルシウム錠2mg「モチダ」／ピタバスタチンカルシウム錠4mg「モチダ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンカルシウム錠1mg「KOG」／ピタバスタチンカルシウム錠2mg「KOG」／ピタバスタチンカルシウム錠4mg「KOG」</div></td><td><div>製造販売元／テイカ製薬株式会社</div><div>販売提携／興和株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470004_2189016F1290_1_10'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470004_2189016F1290_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetXML/470004_2189016F1290_1_10'>XML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/470004_2189016F1290_1_00G.pdf'>G_ピタバスタチンカルシウム錠1mg「KOG」／ピタバスタチンカルシウム錠2mg「KOG」／ピタバスタチンカルシウム錠4mg「KOG」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470004_2189016F1290_1_008_1F.pdf'>ピタバスタチンカルシウム錠1mg「KOG」／ピタバスタチンカルシウム錠2mg「KOG」／ピタバスタチンカルシウム錠4mg「KOG」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンカルシウム錠1mg「ZE」／ピタバスタチンカルシウム錠2mg「ZE」／ピタバスタチンカルシウム錠4mg「ZE」</div></td><td><div>発売元／全星薬品株式会社</div><div>製造販売元／全星薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/380087_2189016F1230_1_12'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "380087_2189016F1230_1_12"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/380087_2189016F1230_1_12'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/380087_2189016F1230_1_01G.pdf'>G_ピタバスタチンカルシウム錠1mg「ZE」／ピタバスタチンカルシウム錠2mg「ZE」／ピタバスタチンカルシウム錠4mg「ZE」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/380087_2189016F1230_1_009_1F.pdf'>F1_ピタバスタチンカルシウム錠1mg「ZE」／ピタバスタチンカルシウム錠2mg「ZE」／ピタバスタチンカルシウム錠4mg「ZE」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンカルシウム錠1mg「日医工」／ピタバスタチンカルシウム錠2mg「日医工」／ピタバスタチンカルシウム錠4mg「日医工」</div></td><td><div>製造販売元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530169_2189016F1257_1_10'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530169_2189016F1257_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530169_2189016F1257_1_10'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530169_2189016F1257_1_01G.pdf'>G_ピタバスタチンカルシウム錠1mg「日医工」／ピタバスタチンカルシウム錠2mg「日医工」／ピタバスタチンカルシウム錠4mg「日医工」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530169_2189016F1257_1_010_1F.pdf'>F1_ピタバスタチンカルシウム錠1mg「日医工」／ピタバスタチンカルシウム錠2mg「日医工」／ピタバスタチンカルシウム錠4mg「日医工」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「科研」／ピタバスタチンCa錠2mg「科研」／ピタバスタチンCa錠４mg「科研」</div></td><td><div>発売元／　科研製薬株式会社</div><div>製造販売元／　ダイト株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400073_2189016F1109_1_12'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400073_2189016F1109_1_12"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400073_2189016F1109_1_12'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400073_2189016F1109_1_11G.pdf'>G_ピタバスタチンCa錠1mg「科研」／ピタバスタチンCa錠2mg「科研」／ピタバスタチンCa錠４mg「科研」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400073_2189016F1109_1_008_1F.pdf'>F1_ピタバスタチンCa錠1mg「科研」／ピタバスタチンCa錠2mg「科研」／ピタバスタチンCa錠４mg「科研」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「ケミファ」／ピタバスタチンCa錠2mg「ケミファ」</div></td><td><div>販売元／日本薬品工業株式会社</div><div>製造販売元／日本ケミファ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530213_2189016F1125_2_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530213_2189016F1125_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530213_2189016F1125_2_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530213_2189016F1125_2_00G.pdf'>ピタバスタチンCa錠1mg「ケミファ」／ピタバスタチンCa錠2mg「ケミファ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/530213_2189016F1125_2_1F.pdf'>F1_ピタバスタチンCa錠1mg「ケミファ」／ピタバスタチンCa錠2mg「ケミファ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「ケミファ」／ピタバスタチンCa錠2mg「ケミファ」／ピタバスタチンCa錠4mg「ケミファ」</div></td><td><div>製造販売元／日本ケミファ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530213_2189016F1125_1_13'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530213_2189016F1125_1_13"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530213_2189016F1125_1_13'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530213_2189016F1125_1_01G.pdf'>G_ピタバスタチンCa錠1mg「ケミファ」／ピタバスタチンCa錠2mg「ケミファ」／ピタバスタチンCa錠4mg「ケミファ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530213_2189016F1125_1_1F.pdf'>F1_ピタバスタチンCa錠1mg「ケミファ」／ピタバスタチンCa錠2mg「ケミファ」／ピタバスタチンCa錠4mg「ケミファ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「サワイ」／ピタバスタチンCa錠2mg「サワイ」／ピタバスタチンCa錠4mg「サワイ」</div></td><td><div>製造販売元／沢井製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300119_2189016F1133_1_13'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300119_2189016F1133_1_13"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300119_2189016F1133_1_13'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/300119_2189016F1133_1_01G.pdf'>ピタバスタチンCa錠1mg「サワイ」／ピタバスタチンCa錠2mg「サワイ」／ピタバスタチンCa錠4mg「サワイ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/300119_2189016F1133_1_101_1F.pdf'>F1_ピタバスタチンCa錠1mg「サワイ」／ピタバスタチンCa錠2mg「サワイ」／ピタバスタチンCa錠4mg「サワイ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「サンド」／ピタバスタチンCa錠2mg「サンド」／ピタバスタチンCa錠4mg「サンド」</div></td><td><div>製造販売／サンド株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270428_2189016F1141_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270428_2189016F1141_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270428_2189016F1141_1_09'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/270428_2189016F1141_1_00G.pdf'>G:\BusUnits\GX-Marketing-BusinessDevelopment\MKT_SHARED\☆製品情報\☆製品情報\ピタバスタチンCa錠　(患者向け医薬品ガイド)</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270428_2189016F1141_1_P06_1F.pdf'>ピタバスタチンCa錠1mg・2mg・4mg第6版_IF_2019.11</a></div><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270428_2189016F1141_1_P05_1F.pdf'>F1_ピタバスタチンCa錠1mg「サンド」／ピタバスタチンCa錠2mg「サンド」／ピタバスタチンCa錠4mg「サンド」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「三和」／ピタバスタチンCa錠2mg「三和」／ピタバスタチンCa錠4mg「三和」</div></td><td><div>製造販売元／株式会社三和化学研究所</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300297_2189016F1150_1_14'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300297_2189016F1150_1_14"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300297_2189016F1150_1_14'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/300297_2189016F1150_1_00G.pdf'>G_ピタバスタチンCa錠1mg「三和」／ピタバスタチンCa錠2mg「三和」／ピタバスタチンCa錠4mg「三和」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/300297_2189016F1150_1_007_1F.pdf'>F1_ピタバスタチンCa錠1mg「三和」／ピタバスタチンCa錠2mg「三和」／ピタバスタチンCa錠4mg「三和」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠１mg「トーワ」／ピタバスタチンCa錠２mg「トーワ」／ピタバスタチンCa錠４mg「トーワ」</div></td><td><div>製造販売元／東和薬品株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480235_2189016F1184_1_12'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480235_2189016F1184_1_12"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480235_2189016F1184_1_12'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/480235_2189016F1184_1_01G.pdf'>G_ピタバスタチンCa錠１mg「トーワ」／ピタバスタチンCa錠２mg「トーワ」／ピタバスタチンCa錠４mg「トーワ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/480235_2189016F1184_1_142_1F.pdf'>F1_ピタバスタチンCa錠１mg「トーワ」／ピタバスタチンCa錠２mg「トーワ」／ピタバスタチンCa錠４mg「トーワ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「日新」／ピタバスタチンCa錠2mg「日新」／ピタバスタチンCa錠4mg「日新」</div></td><td><div>製造販売元／日新製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530113_2189016F1192_1_16'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530113_2189016F1192_1_16"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530113_2189016F1192_1_16'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530113_2189016F1192_1_01G.pdf'>G_ピタバスタチンＣａ錠1mg「日新」／ピタバスタチンＣａ錠2mg「日新」／ピタバスタチンＣａ錠4mg「日新」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530113_2189016F1192_1_008_1F.pdf'>F1_ピタバスタチンＣａ錠1mg「日新」／ピタバスタチンＣａ錠2mg「日新」／ピタバスタチンＣａ錠4mg「日新」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「ファイザー」／ピタバスタチンCa錠2mg「ファイザー」／ピタバスタチンCa錠4mg「ファイザー」</div></td><td><div>製造販売／ファイザー株式会社</div><div>提携／マイラン製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/672212_2189016F1206_2_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "672212_2189016F1206_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/672212_2189016F1206_2_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/672212_2189016F1206_2_01G.pdf'>G_ピタバスタチンCa錠1mg「ファイザー」／ピタバスタチンCa錠2mg「ファイザー」／ピタバスタチンCa錠4mg「ファイザー」_2018 年12 月</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/672212_2189016F1206_2_1F.pdf'>F1_ピタバスタチンCa錠1mg「ファイザー」／ピタバスタチンCa錠2mg「ファイザー」／ピタバスタチンCa錠4mg「ファイザー」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「明治」／ピタバスタチンCa錠2mg「明治」／ピタバスタチンCa錠4mg「明治」</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_2189016F1214_1_10'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_2189016F1214_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_2189016F1214_1_10'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/780009_2189016F1214_1_00G.pdf'>G_ピタバスタチンCa錠1mg「明治」／ピタバスタチンCa錠2mg「明治」／ピタバスタチンCa錠4mg「明治」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_2189016F1214_1_1F.pdf'>F1_ピタバスタチンCa錠1mg「明治」／ピタバスタチンCa錠2mg「明治」／ピタバスタチンCa錠4mg「明治」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「DK」／ピタバスタチンCa錠2mg「DK」／ピタバスタチンCa錠4mg「DK」</div></td><td><div>販売元／江州製薬株式会社</div><div>製造販売元／大興製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400042_2189016F1281_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400042_2189016F1281_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400042_2189016F1281_1_09'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400042_2189016F1281_1_00G.pdf'>G_ピタバスタチンCa錠1mg「DK」／ピタバスタチンCa錠2mg「DK」／ピタバスタチンCa錠4mg「DK」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400042_2189016F1281_1_008_1F.pdf'>	 ピタバスタチンCa錠1mg「DK」／ピタバスタチンCa錠2mg「DK」／ピタバスタチンCa錠4mg「DK」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「EE」／ピタバスタチンCa錠2mg「EE」／ピタバスタチンCa錠4mg「EE」</div></td><td><div>製造販売元／エルメッド株式会社</div><div>販売元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/170329_2189016F1036_1_12'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "170329_2189016F1036_1_12"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/170329_2189016F1036_1_12'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/170329_2189016F1036_1_11G.pdf'>G_ピタバスタチンCa錠1mg「EE」／ピタバスタチンCa錠2mg「EE」／ピタバスタチンCa錠4mg「EE」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/170329_2189016F1036_1_013_1F.pdf'>IF_ピタバスタチンCa錠1mg「EE」／ピタバスタチンCa錠2mg「EE」／ピタバスタチンCa錠4mg「EE」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「FFP」／ピタバスタチンCa錠2mg「FFP」／ピタバスタチンCa錠4mg「FFP」</div></td><td><div>製造販売元／共創未来ファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300166_2189016F1044_2_03'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300166_2189016F1044_2_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300166_2189016F1044_2_03'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/300166_2189016F1044_2_00G.pdf'>G_ピタバスタチンCa錠1mg「FFP」／ピタバスタチンCa錠2mg「FFP」／ピタバスタチンCa錠4mg「FFP」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/300166_2189016F1044_2_003_1F.pdf'>ピタバスタチンCa錠1mg「FFP」／ピタバスタチンCa錠2mg「FFP」／ピタバスタチンCa錠4mg「FFP」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「JG」／ピタバスタチンCa錠2mg「JG」／ピタバスタチンCa錠4mg「JG」</div></td><td><div>製造販売元／日本ジェネリック株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/580591_2189016F1273_1_11'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "580591_2189016F1273_1_11"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/580591_2189016F1273_1_11'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/580591_2189016F1273_1_01G.pdf'>G_ピタバスタチンCa錠1mg「JG」／ピタバスタチンCa錠2mg「JG」／ピタバスタチンCa錠4mg「JG」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/580591_2189016F1273_1_008_1F.pdf'>F1_ピタバスタチンCa錠1mg「JG」／ピタバスタチンCa錠2mg「JG」／ピタバスタチンCa錠4mg「JG」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンＣａ錠1ｍｇ「ＴＣＫ」／ピタバスタチンＣａ錠2ｍｇ「ＴＣＫ」／ピタバスタチンＣａ錠4ｍｇ「ＴＣＫ」</div></td><td><div>製造販売元／辰巳化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400278_2189016F1079_1_11'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400278_2189016F1079_1_11"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400278_2189016F1079_1_11'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400278_2189016F1079_1_01G.pdf'>G_ピタバスタチンＣａ錠1ｍｇ「ＴＣＫ」／ピタバスタチンＣａ錠2ｍｇ「ＴＣＫ」／ピタバスタチンＣａ錠4ｍｇ「ＴＣＫ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400278_2189016F1079_1_008_1F.pdf'>F1_ピタバスタチンＣａ錠1ｍｇ「ＴＣＫ」／ピタバスタチンＣａ錠2ｍｇ「ＴＣＫ」／ピタバスタチンＣａ錠4ｍｇ「ＴＣＫ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠１mg「YD」／ピタバスタチンCa錠２mg「YD」／ピタバスタチンCa錠４mg「YD」</div></td><td><div>製造販売元／株式会社　陽進堂</div><div>販売元／共創未来ファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_2189016F1087_2_04'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_2189016F1087_2_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_2189016F1087_2_04'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/830001_2189016F1087_2_03G.pdf'>G_ピタバスタチンCa錠１mg「YD」／ピタバスタチンCa錠２mg「YD」／ピタバスタチンCa錠４mg「YD」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/830001_2189016F1087_2_005_1F.pdf'>ピタバスタチンCa錠１mg「YD」／ピタバスタチンCa錠２mg「YD」／ピタバスタチンCa錠４mg「YD」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠１mg「YD」／ピタバスタチンCa錠２mg「YD」／ピタバスタチンCa錠４mg「YD」</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_2189016F1087_1_12'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_2189016F1087_1_12"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_2189016F1087_1_12'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/830001_2189016F1087_1_11G.pdf'>G_ピタバスタチンCa錠１mg「YD」／ピタバスタチンCa錠２mg「YD」／ピタバスタチンCa錠４mg「YD」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_2189016F1087_1_012_1F.pdf'>ピタバスタチンCa錠１mg「YD」／ピタバスタチンCa錠２mg「YD」／ピタバスタチンCa錠４mg「YD」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠１ｍｇ「アメル」／ピタバスタチンCa錠２ｍｇ「アメル」／ピタバスタチンCa錠４ｍｇ「アメル」</div></td><td><div>製造販売元／共和薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/672173_2189016F1095_2_02'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "672173_2189016F1095_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/672173_2189016F1095_2_02'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/672173_2189016F1095_2_01G.pdf'>ピタバスタチンCa錠１ｍｇ「アメル」／ピタバスタチンCa錠２ｍｇ「アメル」／ピタバスタチンCa錠４ｍｇ「アメル」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/672173_2189016F1095_2_002_1F.pdf'>ピタバスタチンCa錠１ｍｇ「アメル」／ピタバスタチンCa錠２ｍｇ「アメル」／ピタバスタチンCa錠４ｍｇ「アメル」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「杏林」／ピタバスタチンCa錠2mg「杏林」／ピタバスタチンCa錠4mg「杏林」</div></td><td><div>販売元／杏林製薬株式会社</div><div>製造販売元／キョーリンリメディオ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480209_2189016F1117_1_11'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480209_2189016F1117_1_11"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480209_2189016F1117_1_11'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/480209_2189016F1117_1_00G.pdf'>G_ピタバスタチンCa錠1mg「杏林」／ピタバスタチンCa錠2mg「杏林」／ピタバスタチンCa錠4mg「杏林」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/480209_2189016F1117_1_011_1F.pdf'>F1_ピタバスタチンCa錠1mg「杏林」／ピタバスタチンCa錠2mg「杏林」／ピタバスタチンCa錠4mg「杏林」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠１mg「タカタ」／ピタバスタチンCa錠２mg「タカタ」／ピタバスタチンCa錠４mg「タカタ」</div></td><td><div>製造販売／高田製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400186_2189016F1168_1_13'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400186_2189016F1168_1_13"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400186_2189016F1168_1_13'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400186_2189016F1168_1_00G.pdf'>G_ピタバスタチンCa錠１mg「タカタ」／ピタバスタチンCa錠２mg「タカタ」／ピタバスタチンCa錠４mg「タカタ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400186_2189016F1168_1_007_1F.pdf'>F1_ピタバスタチンCa錠１mg「タカタ」／ピタバスタチンCa錠２mg「タカタ」／ピタバスタチンCa錠４mg「タカタ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠1mg「MEEK」／ピタバスタチンCa錠2mg「MEEK」／ピタバスタチンCa錠4mg「MEEK」</div></td><td><div>製造販売元／小林化工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270161_2189016F1052_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270161_2189016F1052_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270161_2189016F1052_1_09'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/270161_2189016F1052_1_00G.pdf'>G_ピタバスタチンCa錠1mg「MEEK」／ピタバスタチンCa錠2mg「MEEK」／ピタバスタチンCa錠4mg「MEEK」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270161_2189016F1052_1_012_1F.pdf'>F1_ピタバスタチンCa錠1mg「MEEK」／ピタバスタチンCa錠2mg「MEEK」／ピタバスタチンCa錠4mg「MEEK」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa錠１mg「NP」／ピタバスタチンCa錠２mg「NP」／ピタバスタチンCa錠４mg「NP」</div></td><td><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_2189016F1060_1_12'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_2189016F1060_1_12"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_2189016F1060_1_12'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530100_2189016F1060_1_00G.pdf'>G_ピタバスタチンCa錠１mg「NP」／ピタバスタチンCa錠２mg「NP」／ピタバスタチンCa錠４mg「NP」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530100_2189016F1060_1_10J_1F.pdf'>ピタバスタチンCa錠１mg「NP」／ピタバスタチンCa錠２mg「NP」／ピタバスタチンCa錠４mg「NP」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2189016'>ピタバスタチンカルシウム</a></div></td><td><div>ピタバスタチンCa・OD錠1mg「MEEK」／ピタバスタチンCa・OD錠2mg「MEEK」</div></td><td><div>製造販売元／小林化工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270161_2189016F4043_1_08'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270161_2189016F4043_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270161_2189016F4043_1_08'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/270161_2189016F4043_1_00G.pdf'>G_ピタバスタチンCa・OD錠1mg「MEEK」／ピタバスタチンCa・OD錠2mg「MEEK」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270161_2189016F4043_1_012_1F.pdf'>F1_ピタバスタチンCa・OD錠1mg「MEEK」／ピタバスタチンCa・OD錠2mg「MEEK」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6290401'>フルコナゾール</a></div></td><td><div>フルコナゾール静注液０．１％「Ｆ」／フルコナゾール静注液０．２％「Ｆ」（５０ｍＬ）／フルコナゾール静注液０．２％「Ｆ」（１００ｍＬ）</div></td><td><div>製造販売元／富士製薬工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670109_6290401A4055_1_25'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670109_6290401A4055_1_25"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670109_6290401A4055_1_25'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/670109_6290401A4055_1_00G.pdf'>G_フルコナゾール静注液０．１％「Ｆ」／フルコナゾール静注液０．２％「Ｆ」（５０ｍＬ）／フルコナゾール静注液０．２％「Ｆ」（１００ｍＬ）</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670109_6290401A4055_1_018_1F.pdf'>F1_フルコナゾール静注液０．１％「Ｆ」／フルコナゾール静注液０．２％「Ｆ」（５０ｍＬ）／フルコナゾール静注液０．２％「Ｆ」（１００ｍＬ）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6290401'>フルコナゾール</a></div></td><td><div>フルコナゾール静注液50mg「日医工」</div></td><td><div>製造販売元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530169_6290401A1137_2_10'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530169_6290401A1137_2_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530169_6290401A1137_2_10'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530169_6290401A1137_2_00G.pdf'>G_フルコナゾール静注液50mg「日医工」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/530169_6290401A1137_2_015_1F.pdf'>F1_フルコナゾール静注液50mg「日医工」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6290401'>フルコナゾール</a></div></td><td><div>フルコナゾール静注液100mg「日医工」／フルコナゾール静注液200mg「日医工」</div></td><td><div>製造販売（輸入）元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530169_6290401A2222_1_10'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530169_6290401A2222_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530169_6290401A2222_1_10'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530169_6290401A2222_1_00G.pdf'>G_フルコナゾール静注液100mg「日医工」／フルコナゾール静注液200mg「日医工」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530169_6290401A2222_1_015_1F.pdf'>F1_フルコナゾール静注液100mg「日医工」／フルコナゾール静注液200mg「日医工」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6290002'>フルコナゾール</a></div></td><td><div>フルコナゾールカプセル50mg「日医工」／フルコナゾールカプセル100mg「日医工」</div></td><td><div>製造販売（輸入）元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530169_6290002M1160_1_08'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530169_6290002M1160_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530169_6290002M1160_1_08'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/530169_6290002M1160_1_00G.pdf'>G_フルコナゾールカプセル50mg「日医工」／フルコナゾールカプセル100mg「日医工」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530169_6290002M1160_1_013_1F.pdf'>F1_フルコナゾールカプセル50mg「日医工」／フルコナゾールカプセル100mg「日医工」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6290002'>フルコナゾール</a></div></td><td><div>フルコナゾールカプセル50mg「JG」／フルコナゾールカプセル100mg「JG」</div></td><td><div>製造販売元／日本ジェネリック株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/580591_6290002M1143_1_16'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "580591_6290002M1143_1_16"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/580591_6290002M1143_1_16'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/580591_6290002M1143_1_01G.pdf'>G_フルコナゾールカプセル50mg「JG」／フルコナゾールカプセル100mg「JG」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/580591_6290002M1143_1_014_1F.pdf'>F1_フルコナゾールカプセル50mg「JG」／フルコナゾールカプセル100mg「JG」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6290002'>フルコナゾール</a></div></td><td><div>フルコナゾールカプセル５０ｍｇ「Ｆ」／フルコナゾールカプセル１００ｍｇ「Ｆ」</div></td><td><div>製造販売元／富士製薬工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670109_6290002M1062_1_25'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670109_6290002M1062_1_25"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670109_6290002M1062_1_25'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/670109_6290002M1062_1_00G.pdf'>フルコナゾールカプセル５０ｍｇ「Ｆ」／フルコナゾールカプセル１００ｍｇ「Ｆ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670109_6290002M1062_1_020_1F.pdf'>F1_フルコナゾールカプセル５０ｍｇ「Ｆ」／フルコナゾールカプセル１００ｍｇ「Ｆ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6111400'>ベンジルペニシリンカリウム</a></div></td><td><div>注射用ペニシリンGカリウム20万単位／注射用ペニシリンGカリウム100万単位</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6111400D2039_1_12'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6111400D2039_1_12"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6111400D2039_1_12'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6111400D2039_1_1F.pdf'>F1_注射用ペニシリンGカリウム20万単位／注射用ペニシリンGカリウム100万単位</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6135001'>ホスホマイシンカルシウム水和物</a></div></td><td><div>ホスミシン錠250／ホスミシン錠500</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6135001F1029_1_13'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6135001F1029_1_13"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6135001F1029_1_13'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6135001F1029_1_1F.pdf'>F1_ホスミシン錠250／ホスミシン錠500</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6135001'>ホスホマイシンカルシウム水和物</a></div></td><td><div>ホスミシンドライシロップ200／ホスミシンドライシロップ400</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6135001R1025_1_12'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6135001R1025_1_12"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6135001R1025_1_12'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6135001R1025_1_1F.pdf'>F1_ホスミシンドライシロップ200／ホスミシンドライシロップ400</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1325703'>ホスホマイシンナトリウム</a></div></td><td><div>ホスミシンS耳科用3％</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_1325703Q1036_1_03'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_1325703Q1036_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_1325703Q1036_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_1325703Q1036_1_1F.pdf'>F1_ホスミシンS耳科用3％</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2531002'>メチルエルゴメトリンマレイン酸塩</a></div></td><td><div>パルタンM錠0.125mg</div></td><td><div>製造販売元／持田製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/790005_2531002F1214_1_08'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "790005_2531002F1214_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetXML/790005_2531002F1214_1_08'>XML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/790005_2531002F1214_1_M03_1F.pdf'>F1_パルタンＭ錠0.125mg</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2531002'>メチルエルゴメトリンマレイン酸塩</a></div></td><td><div>メチルエルゴメトリンマレイン酸塩錠０．１２５ｍｇ「Ｆ」</div></td><td><div>製造販売元／富士製薬工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670109_2531002F1222_1_07'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670109_2531002F1222_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670109_2531002F1222_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670109_2531002F1222_1_014_1F.pdf'>F1_メチルエルゴメトリンマレイン酸塩錠０．１２５ｍｇ「Ｆ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2531002'>メチルエルゴメトリンマレイン酸塩</a></div></td><td><div>メチルエルゴメトリン錠0.125mg「あすか」</div></td><td><div>製造販売元／あすか製薬株式会社</div><div>販売元／武田薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470007_2531002F1249_1_06'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470007_2531002F1249_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetXML/470007_2531002F1249_1_06'>XML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470007_2531002F1249_1_V10_1F.pdf'>F1_メチルエルゴメトリン錠0.125mg「あすか」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2531401'>メチルエルゴメトリンマレイン酸塩</a></div></td><td><div>パルタンM注0.2mg</div></td><td><div>製造販売元／持田製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/790005_2531401A1118_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "790005_2531401A1118_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetXML/790005_2531401A1118_1_09'>XML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/790005_2531401A1118_1_M02_1F.pdf'>F1_パルタンＭ注0.2mg</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2531401'>メチルエルゴメトリンマレイン酸塩</a></div></td><td><div>メチルエルゴメトリンマレイン酸塩注０．２ｍｇ「Ｆ」</div></td><td><div>製造販売元／富士製薬工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670109_2531401A1126_1_06'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670109_2531401A1126_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670109_2531401A1126_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670109_2531401A1126_1_014_1F.pdf'>F1_メチルエルゴメトリンマレイン酸塩注０．２ｍｇ「Ｆ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2531401'>メチルエルゴメトリンマレイン酸塩</a></div></td><td><div>メチルエルゴメトリン注0.2mg「あすか」</div></td><td><div>製造販売元／あすか製薬株式会社</div><div>販売元／武田薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470007_2531401A1142_1_06'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470007_2531401A1142_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetXML/470007_2531401A1142_1_06'>XML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470007_2531401A1142_1_V10_1F.pdf'>F1_メチルエルゴメトリン注0.2mg「あすか」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/1239101'>メペンゾラート臭化物・フェノバルビタール</a></div></td><td><div>トランコロンP配合錠</div></td><td><div>製造販売／アステラス製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/800126_1239101F1037_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "800126_1239101F1037_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/800126_1239101F1037_1_09'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/800126_1239101F1037_1_016_1F.pdf'>F1_トランコロンP配合錠</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6139400'>メロペネム水和物</a></div></td><td><div>メロペネム点滴静注用0.25g「ケミファ」／メロペネム点滴静注用0.5g「ケミファ」</div></td><td><div>製造販売元／日本ケミファ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530213_6139400D1076_1_19'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530213_6139400D1076_1_19"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530213_6139400D1076_1_19'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530213_6139400D1076_1_1F.pdf'>F1_メロペネム点滴静注用0.25g「ケミファ」／メロペネム点滴静注用0.5g「ケミファ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6139400'>メロペネム水和物</a></div></td><td><div>メロペネム点滴静注用0.25g「タナベ」／メロペネム点滴静注用0.5g「タナベ」</div></td><td><div>製造販売／ニプロESファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/430920_6139400D1092_2_05'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "430920_6139400D1092_2_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/430920_6139400D1092_2_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/430920_6139400D1092_2_110_1F.pdf'>F1_メロペネム点滴静注用0.25g「タナベ」／メロペネム点滴静注用0.5g「タナベ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6139400'>メロペネム水和物</a></div></td><td><div>メロペネム点滴静注用0.25g「明治」／メロペネム点滴静注用0.5g「明治」／メロペネム点滴静注用1g「明治」／メロペネム点滴静注用バッグ0.5g「明治」／メロペネム点滴静注用バッグ１g「明治」</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_6139400D1114_1_16'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_6139400D1114_1_16"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_6139400D1114_1_16'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_6139400D1114_1_01A_1F.pdf'>F1_メロペネム点滴静注用0.25g「明治」／メロペネム点滴静注用0.5g「明治」／メロペネム点滴静注用1g「明治」／メロペネム点滴静注用バッグ0.5g「明治」／メロペネム点滴静注用バッグ１g「明治」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6241013'>レボフロキサシン水和物</a></div></td><td><div>レボフロキサシン錠250mg「ケミファ」／レボフロキサシン錠500mg「ケミファ」</div></td><td><div>販売元／日本ケミファ株式会社</div><div>製造販売元／大興製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400042_6241013F2179_1_09'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400042_6241013F2179_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400042_6241013F2179_1_09'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/400042_6241013F2179_1_00G.pdf'>G_レボフロキサシン錠250mg「ケミファ」／レボフロキサシン錠500mg「ケミファ」</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400042_6241013F2179_1_006_1F.pdf'>F1 レボフロキサシン錠250㎎「ケミファ」／レボフロキサシン錠500㎎「ケミファ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2499013'>レルゴリクス</a></div></td><td><div>レルミナ錠40mg</div></td><td><div>製造販売元／あすか製薬株式会社</div><div>販売／武田薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470007_2499013F1027_2_03'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470007_2499013F1027_2_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470007_2499013F1027_2_03'>SGML</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/downfiles/ph/GUI/470007_2499013F1027_2_00G.pdf'>G_レルミナ錠40mg</a></div></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/470007_2499013F1027_2_V03_1F.pdf'>F1_レルミナ錠40mg</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/6149002'>ロキシスロマイシン</a></div></td><td><div>ロキシスロマイシン錠150mg「サンド」</div></td><td><div>製造販売／サンド株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270428_6149002F1100_1_11'>PDF(2020年09月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270428_6149002F1100_1_11"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270428_6149002F1100_1_11'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270428_6149002F1100_1_R05_1F.pdf'>F1_ロキシスロマイシン錠150mg「サンド」</a></div></td></tr>
+</table>
+<div class='SearchResultMenu mt_15'>
+<p class='col23 PageNavi'><strong>検索結果136件／全1ページ</strong><BR><BR>
+<span>1</span></p>
+</div><!-- / #SearchResultMenu -->
+</div><!-- / #SearchWrap02 -->
+</div><!--- / .SearchScrollInr -->
+
+
+
+<!-- add 2.01: Form情報を画面に保持する -->
+<input type="hidden" name="nameWord" value="" id="nameWord">
+<input type="hidden" name="iyakuHowtoNameSearchRadioValue" value="1" id="iyakuHowtoNameSearchRadioValue">
+<input type="hidden" name="howtoMatchRadioValue" value="1" id="howtoMatchRadioValue">
+<input type="hidden" name="effectValue" value="" id="effectValue">
+<input type="hidden" name="infoindicationsorefficacy" value="" id="infoindicationsorefficacy">
+<input type="hidden" name="infoindicationsorefficacyHowtoSearch" value="and" id="infoindicationsorefficacyHowtoSearch">
+<input type="hidden" name="warnings" value="" id="warnings">
+<input type="hidden" name="warningsHowtoSearch" value="and" id="warningsHowtoSearch">
+<input type="hidden" name="contraindicationsAvoidedadministration" value="" id="contraindicationsAvoidedadministration">
+<input type="hidden" name="contraindicationsAvoidedadministrationHowtoSearch" value="and" id="contraindicationsAvoidedadministrationHowtoSearch">
+<input type="hidden" name="contraindicatedcombinationPrecautionsforcombination" value="" id="contraindicatedcombinationPrecautionsforcombination">
+<input type="hidden" name="contraindicatedcombinationPrecautionsforcombinationHowtoSearch" value="and" id="contraindicatedcombinationPrecautionsforcombinationHowtoSearch">
+
+	<input type="hidden" name="dispColumnsList[0]" value="1" id="dispColumns0">
+
+	<input type="hidden" name="dispColumnsList[1]" value="2" id="dispColumns1">
+
+	<input type="hidden" name="dispColumnsList[2]" value="3" id="dispColumns2">
+
+	<input type="hidden" name="dispColumnsList[3]" value="" id="dispColumns3">
+
+	<input type="hidden" name="dispColumnsList[4]" value="" id="dispColumns4">
+
+	<input type="hidden" name="dispColumnsList[5]" value="" id="dispColumns5">
+
+	<input type="hidden" name="dispColumnsList[6]" value="" id="dispColumns6">
+
+	<input type="hidden" name="dispColumnsList[7]" value="" id="dispColumns7">
+
+	<input type="hidden" name="dispColumnsList[8]" value="" id="dispColumns8">
+
+	<input type="hidden" name="dispColumnsList[9]" value="" id="dispColumns9">
+
+	<input type="hidden" name="dispColumnsList[10]" value="" id="dispColumns10">
+
+	<input type="hidden" name="dispColumnsList[11]" value="" id="dispColumns11">
+
+	<input type="hidden" name="dispColumnsList[12]" value="" id="dispColumns12">
+
+	<input type="hidden" name="dispColumnsList[13]" value="" id="dispColumns13">
+
+	<input type="hidden" name="dispColumnsList[14]" value="" id="dispColumns14">
+
+	<input type="hidden" name="dispColumnsList[15]" value="" id="dispColumns15">
+
+<input type="hidden" name="changeColumnsList" value="" id="changeColumnsList">
+<input type="hidden" name="updateDocFrDt" value="20200908" id="updateDocFrDt">
+<input type="hidden" name="updateDocToDt" value="20200908" id="updateDocToDt">
+<input type="hidden" name="tglOpFlg" value="" id="tglOpFlg">
+<input type="hidden" name="compNameWord" value="" id="compNameWord">
+<input type="hidden" name="koumoku1Value" value="" id="koumoku1Value">
+<input type="hidden" name="koumoku2Value" value="" id="koumoku2Value">
+<input type="hidden" name="koumoku3Value" value="" id="koumoku3Value">
+<input type="hidden" name="koumoku1Word" value="" id="koumoku1Word">
+<input type="hidden" name="koumoku2Word" value="" id="koumoku2Word">
+<input type="hidden" name="koumoku3Word" value="" id="koumoku3Word">
+<input type="hidden" name="koumoku1HowtoSearch" value="and" id="koumoku1HowtoSearch">
+<input type="hidden" name="koumoku2HowtoSearch" value="and" id="koumoku2HowtoSearch">
+<input type="hidden" name="koumoku3HowtoSearch" value="and" id="koumoku3HowtoSearch">
+<input type="hidden" name="howtoRdSearchSel" value="or" id="howtoRdSearchSel">
+<input type="hidden" name="relationDoc1Sel" value="" id="relationDoc1Sel">
+<input type="hidden" name="relationDoc2Sel" value="" id="relationDoc2Sel">
+<input type="hidden" name="relationDoc3Sel" value="" id="relationDoc3Sel">
+<input type="hidden" name="relationDoc1check1" value="on" id="relationDoc1check1">
+<input type="hidden" name="relationDoc1check2" value="on" id="relationDoc1check2">
+<input type="hidden" name="relationDoc2check1" value="on" id="relationDoc2check1">
+<input type="hidden" name="relationDoc2check2" value="on" id="relationDoc2check2">
+<input type="hidden" name="relationDoc3check1" value="on" id="relationDoc3check1">
+<input type="hidden" name="relationDoc3check2" value="on" id="relationDoc3check2">
+<input type="hidden" name="relationDoc1Word" value="検索語を入力" id="relationDoc1Word">
+<input type="hidden" name="relationDoc2Word" value="検索語を入力" id="relationDoc2Word">
+<input type="hidden" name="relationDoc3Word" value="検索語を入力" id="relationDoc3Word">
+<input type="hidden" name="relationDoc1HowtoSearch" value="and" id="relationDoc1HowtoSearch">
+<input type="hidden" name="relationDoc2HowtoSearch" value="and" id="relationDoc2HowtoSearch">
+<input type="hidden" name="relationDoc3HowtoSearch" value="and" id="relationDoc3HowtoSearch">
+<input type="hidden" name="relationDoc1FrDt" value="年月 [YYYYMM]" id="relationDoc1FrDt">
+<input type="hidden" name="relationDoc1ToDt" value="年月 [YYYYMM]" id="relationDoc1ToDt">
+<input type="hidden" name="relationDoc2FrDt" value="年月 [YYYYMM]" id="relationDoc2FrDt">
+<input type="hidden" name="relationDoc2ToDt" value="年月 [YYYYMM]" id="relationDoc2ToDt">
+<input type="hidden" name="relationDoc3FrDt" value="年月 [YYYYMM]" id="relationDoc3FrDt">
+<input type="hidden" name="relationDoc3ToDt" value="年月 [YYYYMM]" id="relationDoc3ToDt">
+<input type="hidden" name="relationDocHowtoSearchBetween12" value="and" id="relationDocHowtoSearchBetween12">
+<input type="hidden" name="relationDocHowtoSearchBetween23" value="and" id="relationDocHowtoSearchBetween23">
+<input type="hidden" name="ListRows" value="1000" id="listRows">
+<input type="hidden" name="searchCnt" value="136" id="searchCnt">
+<input type="hidden" name="totalPages" value="1" id="totalPages">
+<input type="hidden" name="pages" value="1" id="pages">
+<input type="hidden" name="listCategory" value="BOOK" id="listCategory">
+<!-- add 2.01: 職員識別フラグを追加 -->
+<input type="hidden" name="personFlg" value="false" id="personFlg">
+<input type="hidden" name="gs1code" value="" id="gs1code">
+<input type="hidden" name="iyakuKoumokuSelectSwitchRadio" value="2" id="iyakuKoumokuSelectSwitchRadio">
+
+</form>
+</div><!-- / .PopupInner-->
+</div><!-- / .PopupArea-->
+</div><!-- / #ContentMainArea-->
+</div><!-- / #MainContents -->
+</div><!-- / #ContentArea .HTML5_section -->
+</div><!--/ContentWrap-->
+
+<div id="popDiv" style="position: fixed; visibility: show; left: 10px; top:10px; z-index: 5;"></div >
+<div id="popDiv2" style="position: fixed; visibility:show; z-index: 5;"></div >
+</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-Proxy = ""
+Proxy = "http://192.168.2.1:3128"
 SaveDir = "save"
 
 [Y]
