@@ -8,6 +8,9 @@ services:
     env_file: .env
     ports:
       - "8082:80"
+    #volumes:
+    #  - ./yj:/asset/bin/yj
+    #  - ./searchresult:/asset/data/searchresult
 
   medmst:
     image: kokardy/medmst-sv:latest
@@ -26,7 +29,7 @@ services:
       - "ADMIN_USER=di"
       - "ADMIN_PASSWORD=diwindow1235"
       #必要に応じて.envで上書きする 
-      - "YJ_REDIRECT_URL=http://localhost:8082/redirect/%s"
+      #- "YJ_REDIRECT_URL=http://localhost:8082/redirect/%s"
     links:
       - postgres
     env_file: .env
@@ -68,3 +71,4 @@ services:
 
     volumes:
       - ./pg/initdb:/docker-entrypoint-initdb.d
+      - /tmp:/tmp
