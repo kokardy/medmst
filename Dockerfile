@@ -9,5 +9,4 @@ COPY daily /asset/
 RUN cd /http && go build -o server .
 RUN cat /asset/daily >> /var/spool/cron/crontabs/root
 COPY supervisord.conf /etc/supervisord.conf
-RUN cd /asset/bin && ./Init.sh /asset/data
 CMD supervisord -c /etc/supervisord.conf
