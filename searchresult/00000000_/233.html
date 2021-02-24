@@ -1,0 +1,1859 @@
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<html>
+<head>
+<title>医療用医薬品 検索結果 | 独立行政法人　医薬品医療機器総合機構</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="PMDA,pmda,医薬品,副作用,被害救済,薬,医療,機器,医薬">
+<meta name="description" content="独立行政法人　医薬品医療機器総合機構：医薬品副作用被害救済や稀少病認定薬の研究振興調査などの業務案内。">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-TextLayoutMetrics" content="gdi">
+<meta name="robots" content="none">
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/common/css/import.css" />
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/common/css/print.css" />
+<script type="text/javascript" src="/PmdaSearch/files/common/js/jquery_1.7.1.min.js"></script>
+<script type="text/javascript" src="/PmdaSearch/files/common/js/jquery_cookie.js"></script>
+<script type="text/javascript" src="/PmdaSearch/files/common/js/main.js"></script>
+<script type="text/javascript" src="/PmdaSearch/js/pmdaCommon.js"></script>
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/css/search.css" />
+</head>
+<body onload="FontSizeInit();">
+<!-- Google Tag Manager -->
+<noscript><iframe title="GoogleTagManager" src="//www.googletagmanager.com/ns.html?id=GTM-MHGKV3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHGKV3');</script>
+<!-- End Google Tag Manager -->
+<div id="layoutBody">
+
+
+
+<!-- 2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start -->
+<style type="text/css">
+hr{
+	border-width: 1px 0px 0px 0px;
+	border-style: 1px;
+	border-color: black;
+	height: 1px;
+	width: 90%;
+}
+.doubles {
+	margin-top: 1em;
+}
+.divCol{
+  display: table-cell ;
+}
+</style>
+<!-- 2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End -->
+<!-- ++++ local-js ++++ -->
+<script>
+var userAgent = window.navigator.userAgent.toLowerCase();
+var uag = "0";
+if (userAgent.indexOf('opera') != -1) {
+	uag = "1";
+} else if (userAgent.indexOf('msie') != -1) {
+	uag = "1";
+} else if (userAgent.indexOf('chrome') != -1) {
+	uag = "2";
+} else if (userAgent.indexOf('safari') != -1) {
+	uag = "2";
+} else if (userAgent.indexOf('firefox') != -1) {
+	uag = "2";
+} else {
+	uag = "1";
+}
+
+function FontSizeInit() {
+	// 20140509 Font Size Default Set
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	if(!fs){
+		window.localStorage.setItem("iyakufsizeValue", 100);
+		fs = window.localStorage.getItem("iyakufsizeValue");
+	}
+
+	document.body.style.fontSize = Math.floor(fs) + '%';
+}
+
+function bigger() {
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	fs *= 1.2;
+
+//	if(fs <= (100 * 1.2) * 1.2){
+	if(fs <= (93 * 1.2) * 1.2){
+		window.localStorage.setItem("iyakufsizeValue", fs);
+		document.body.style.fontSize = Math.floor(fs) + '%';
+	}
+}
+
+function smaller() {
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	fs /= 1.2;
+
+//	if(fs >= (100 / 1.2) / 1.2){
+	if(fs >= (93 / 1.2) / 1.2){
+		window.localStorage.setItem("iyakufsizeValue", fs);
+		document.body.style.fontSize = Math.floor(fs) + '%';
+	}
+}
+
+// 項目の表示/非表示
+var resultTableColArr = [
+
+  ["0","添付文書"],
+
+  ["0","患者向医薬品ガイド／ワクチン接種を受ける人へのガイド"],
+
+  ["0","インタビューフォーム"],
+
+  ["0","医薬品リスク管理計画（RMP）"],
+
+  ["0","改訂指示反映履歴および根拠症例"],
+
+  ["0","審査報告書／再審査報告書／最適使用推進ガイドライン等"],
+
+  ["0","重篤副作用疾患別対応マニュアル"],
+
+  ["0","くすりのしおり"],
+
+  ["0","緊急安全性情報／安全性速報"],
+
+  ["0","医薬品の適正使用等に関するお知らせ"],
+
+  ["0","厚生労働省発表資料（医薬品関連）"],
+
+  ["0","医薬品に関する評価中のリスク等の情報"],
+
+  ["0","医薬品添付文書改訂相談に基づく添付文書改訂"],
+
+  ["0","DSU（医薬品安全対策情報）"],
+
+  ["0","PMDA医療安全情報"],
+
+  ["0","医療用医薬品問合せ先"]
+
+];
+// add 2.00: 検索結果出力機能追加
+// 常に表示する項目(検索結果出力項目選択用)
+var resultTableDefaultDispColArr = {
+
+  "BOOK" : [
+  
+    ["1", "一般名"], 
+  
+    ["1", "販売名"], 
+  
+    ["1", "製造販売業者等"]
+  
+  ], 
+
+  "RD" : [
+  
+    ["1", "種類"], 
+  
+    ["1", "文書の名称"], 
+  
+    ["1", "日付"], 
+  
+    ["1", "一般名"], 
+  
+    ["1", "販売名"], 
+  
+    ["1", "製造販売業者等"]
+  
+  ]
+
+};
+
+//表示している項目にフラグをつける
+$(function () {
+	var dispColumnsList = [
+		
+			"1", 
+		
+			"2", 
+		
+			"3", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			""
+		
+	];
+	$(dispColumnsList).each(function(i, v){
+		resultTableColArr[i][0] = (v) ? '1': '0';
+	});
+
+	// トグル
+	$(document).on('click', '.toggles', function(){
+		 $(this).next().toggle();
+		 $(this).toggle();
+	});
+	$(document).on('click', '.togglec', function(){
+		  $(this).parent().prev().toggle();
+		  $(this).parent().toggle();
+	});
+});
+
+// ページング処理
+function changePg(pages) {
+
+	popOldVersionClose();
+
+	$.ajax({
+		url: '/PmdaSearch/iyakuSearch/PageChangeRequest/' + pages,
+		// mod 2.01: POSTに変更
+//		type: 'GET',
+		type: 'POST',
+		// add 2.01: Form情報を送信
+		data: $('form').serialize(),
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました");
+			// mod 2.00: ページリンクをページ上部だけでなくページ下部にも追加
+// 			$("#PageNavi").html(json.PageNavi).html()
+			$(".PageNavi").each(function(i) {
+				$(this).html(json.PageNavi).html();
+			});
+			$("#ResultList").html(json.ResultList).html();
+
+			// add 2.01: ページ情報を更新
+			document.getElementById("pages").value = pages;
+		}
+	  });
+}
+
+var chnBtnObj_y;
+var tblLnkObj_y;
+var svScrollTop = 0;
+var svTblSclTop = 0;
+
+//WINDOWスクロール発生時の処理
+window.onscroll = function()
+{
+
+	if(uag == "1"){
+		scrollTop = document.documentElement.scrollTop;  // IE、Opera
+	} else {
+		scrollTop = document.body.scrollTop;  // Chrome、Safari、Firefox
+	}
+	var calcTop = scrollTop - svScrollTop;
+
+	svScrollTop = scrollTop;
+
+//	pageScroll(calcTop);	// 表示項目選択ポップアップのスクロール移動制御をコール
+	divScroll(calcTop);	// 過去版ポップアップのスクロール移動制御
+
+
+}
+
+//WINDOW内要素(DIV)スクロール発生時の処理
+function elmScrool(scElm) {
+
+	var scrollTop  = scElm.scrollTop;
+	var calcTop = scrollTop - svTblSclTop;
+
+	svTblSclTop = scrollTop;
+
+//	pageScroll(calcTop);	// 表示項目選択ポップアップのスクロール移動制御をコール
+	divScroll(calcTop);	// 過去版ポップアップのスクロール移動制御
+}
+
+//表示項目選択ポップアップのスクロール移動制御
+function pageScroll(scVal) {
+
+	var popObj  =  document.getElementById("popDiv");
+	var popTarget  = popObj.style;
+
+	if(popObj.innerHTML.length != 0){
+
+		var targTopVal = popTarget.top.replace("px", "");
+		targTopVal = targTopVal - scVal;
+
+		popTarget.top = targTopVal + "px";
+
+	}
+
+}
+
+
+// 過去版ポップアップのスクロール移動制御
+function divScroll(scVal) {
+
+	var popObj =  document.getElementById("popDiv2");
+	var popTarget = popObj.style;
+
+	if(popObj.innerHTML.length != 0){
+
+		var targTopVal = popTarget.top.replace("px", "");
+
+		targTopVal = targTopVal - scVal;
+
+		popTarget.top = targTopVal + "px";
+
+	}
+
+}
+
+var chk_pdf = "0";
+var chk_xml = "0";
+//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+var chk_yoshiki = "";
+//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+
+//過去版ポップアップの表示
+function popOldVersion(event, service, p1, p2, p3, minVer) {
+
+	var lnkStrPDF  = "";
+	var lnkStrHTML = p2 + "_" + p3 + '_';
+	var temp_msg = "";
+	var oldCnt = 0;
+	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+	var tableOLD = "";
+	var OLDVer = "";
+	var tableNew = "";
+	var NewVer = "";
+	var tableHdr = "";
+	var genyoshiki = "SGML";
+	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+//	var msg = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+//	msg += "<table>\n";
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+
+	for(var j = p1; j >= minVer; j--) {
+		var v1 = ("000" + j).slice(-2);
+		var v2 = v1;
+
+		if(j == p1){
+			v2 = v1 + "*";
+			checkOldVer(p2, p3, v1, service, "CUR");
+			lnkStrPDF  = "/" + service + "/iyakuDetail/ResultDataSetPDF/" + p2 + "_" + p3 + "_";
+		}
+		if(j != p1){
+			v2 = v1 + " ";
+			checkOldVer(p2, p3, v1, service, "OLD");
+			lnkStrPDF  = "/" + service + "/iyakuDetail/ResultDataSetOldPDF/" + p2 + "_" + p3 + "_";
+		}
+		//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+//		if(chk_pdf == "1" && chk_xml == "1"){
+////			temp_msg += "<tr><td>Ver." + j + "&nbsp;&nbsp;<a href=\"" + lnkStrPDF + v1 + "\" target='_blank'>PDF</a> / <a href='javascript:void(0)' onclick='detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + " target='_blank'>HTML</a></td></tr>\n";
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\"); return false;'" + ">PDF</a> / <a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\"); return false;' " + ">HTML</a></td></tr>\n";
+//			oldCnt++;
+//		} else if(chk_pdf == "1" && chk_xml == "0"){
+////			temp_msg += "<tr><td>Ver." + j + "&nbsp;&nbsp;<a href=\"" + lnkStrPDF + v1 + "\" target='_blank'>PDF</a> / HTML</td></tr>\n";
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\");'" + ">PDF</a> / HTML</td></tr>\n";
+//			oldCnt++;
+//		} else if(chk_pdf == "0" && chk_xml == "1") {
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + ">HTML</a></td></tr>\n";
+//			oldCnt++;
+//		} else {
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;HTML</td></tr>\n";
+//			oldCnt++;
+//		}
+		if(chk_yoshiki != "noTbook") {
+			genyoshiki = chk_yoshiki;
+		}
+		if(genyoshiki == "SGML"){
+			if( chk_pdf == "1" && chk_xml == "1" ){
+				OLDVer +="<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\"); return false;'" + ">PDF</a> / <a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\"); return false;' " + ">HTML</a></td></tr>\n";
+
+			} else if( chk_pdf == "1" && chk_xml == "0" ){
+				OLDVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\");'" + ">PDF</a> / HTML</td></tr>\n";
+				oldCnt++;
+			} else if( chk_pdf == "0" && chk_xml == "1" ) {
+				OLDVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + ">HTML</a></td></tr>\n";
+			} else {
+				OLDVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;HTML</td></tr>\n";
+			}
+			oldCnt++;
+		}
+		if(genyoshiki == "XML"){
+			if( chk_pdf == "1" && chk_xml == "1" ){
+				NewVer +="<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\"); return false;'" + ">PDF</a> / <a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\"); return false;' " + ">HTML</a></td></tr>\n";
+			} else if( chk_pdf == "1" && chk_xml == "0" ){
+				NewVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\");'" + ">PDF</a> / HTML</td></tr>\n";
+
+			} else if( chk_pdf == "0" && chk_xml == "1" ) {
+				NewVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + ">HTML</a></td></tr>\n";
+			} else {
+				NewVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;HTML</td></tr>\n";
+			}
+			oldCnt++;
+		}
+		//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+		chk_pdf = "0";
+		chk_xml = "0";
+		//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+		chk_yoshiki = "";
+		//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	}
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+	var msg = "<div style=\"background-color: #d0f0f0; padding: 0px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+
+	tableHdr +="<div>\n";
+	tableHdr +="<div class=\"divCol\" style=\"width: 12em;  padding-top: 1em;\">\n";
+	tableHdr +="<table style=\"width: 100%;\">\n";
+	tableHdr +="<thead>\n";
+	tableHdr +="<tr><th style=\"border: 0;\">旧様式</th></tr>\n";
+	tableHdr +="</thead>\n";
+	tableHdr +="</table>\n";
+	tableHdr +="</div>\n";
+	tableHdr +="<div class=\"divCol\" style=\"width: 12em;\">\n";
+	tableHdr +="<table style=\"width: 100%;\">\n";
+	tableHdr +="<thead>\n";
+	tableHdr +="<tr><th style=\"border: 0;\">新様式</th></tr>\n";
+	tableHdr +="</thead>\n";
+	tableHdr +="</table>\n";
+	tableHdr +="</div>\n";
+	tableHdr +="</div>\n";
+
+	tableOLD +="<div style=\"height: 183px;overflow-y:  scroll;border-top: 1px solid black;border-bottom:  1px solid black;\">\n";
+ 	tableOLD +="<div class=\"divCol\" style=\"height: 11.44em;border-right: 1px solid black; width: 12em;\">\n";
+ 	tableOLD +="<table>\n";
+ 	tableOLD +="<tbody>\n";
+
+ 	tableOLD += OLDVer;
+
+ 	tableOLD +="</tbody>\n";
+ 	tableOLD +="</table>\n";
+ 	tableOLD +="</div>\n";
+
+ 	tableNew +="<div class=\"divCol\" style=\"height: 11.44em; width: 12em;\">\n";
+ 	tableNew +="<table>\n";
+ 	tableNew +="<tbody>\n";
+
+ 	tableNew += NewVer;
+
+ 	tableNew +="</tbody>\n";
+ 	tableNew +="</table>\n";
+ 	tableNew +="</div>\n";
+ 	tableNew +="</div>\n";
+
+ 	temp_msg = tableHdr + tableOLD + tableNew ;
+
+ 	temp_msg +="<div style=\"padding: 8px;\">\n";
+ 	temp_msg +="<input type=\"button\" onclick=\"popOldVersionClose();\" value=\"閉じる\">\n";
+ 	temp_msg +="</div>\n";
+	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	if(temp_msg != ""){
+		msg += temp_msg;
+	}
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+//	msg += "<tr><td align=\"center\"><input type=\"button\" onclick=\"popOldVersionClose();\" value=\"閉じる\"></td></tr>\n";
+//	msg += "</table>";
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	msg += "</div >";
+
+	var userAgent = window.navigator.userAgent.toLowerCase();
+	var uag = "0";
+	if (userAgent.indexOf('opera') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('msie') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('chrome') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('safari') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('firefox') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('gecko') != -1) {
+		uag = "1";
+	} else {
+		alert("other");
+	}
+
+	var popTarget = document.getElementById("popDiv2").style;
+	var o1 = getMousePosition(event);
+	tblLnkObj_y = o1.sy;
+
+	if(uag == "1"){
+		o1.sy = event.clientY;
+	}
+
+	if(popDiv2.innerHTML != ""){
+		popOldVersionClose();
+	}
+
+	if(temp_msg != ""){
+		popTarget.left = (o1.sx) + "px";
+//2018-11-08 mod 改修No3 バージョン比較ダイアログの上部表示位置 Start
+//		if((oldCnt - 1) == 0){
+//			popTarget.top = (o1.sy - 30) + "px";
+//		} else {
+			popTarget.top = (o1.sy - 27 - (18 * 10)) + "px";
+//		}
+//2018-11-08 mod 改修No3 バージョン比較ダイアログの上部表示位置 End
+		popDiv2.innerHTML = msg;
+	}
+
+}
+
+//過去版ポップアップのクローズ
+function popOldVersionClose() {
+	popDiv2.innerHTML = "";
+}
+
+//過去版ファイルの存在を確認する
+function checkOldVer(code, bkno, ver, service, cflg){
+	var url = "/" + service + "/iyakuDetail/FileExsist/" + code + "_" + bkno + "_" + ver + "_" + cflg;
+
+	$.ajax({
+		url: url,
+		type: 'GET',
+		async:false,
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました ");
+			chk_pdf = json.pdfExsist;
+			chk_xml = json.xmlExsist;
+			//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+		 	chk_yoshiki = json.yoshikiKbn;
+        	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+		}
+	  });
+
+}
+
+
+//表示項目選択ポップアップの表示
+function displaySelect(event) {
+
+	popOldVersionClose();
+
+	var msg = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+	msg += "<div class=\"popScrollInr\"><table>\n";
+	for(var j = 0; j < resultTableColArr.length; j++) {
+		var v1 = ("000" + j).slice(-3);
+		var checkStr = (resultTableColArr[j][0] == "1") ? " checked=\"checked\"" : "";
+		msg += "<tr><td><input type=\"checkbox\" id=\"dispCtrl" + v1 + "\"" + checkStr + ">" + resultTableColArr[j][1] + "</td></tr>\n";
+	}
+
+	msg += "</table></div>";
+	msg += "<input onclick=\"JavaScript:popClose();\" type=\"button\" value=\"閉じる\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input onclick=\"JavaScript:dispCtrlCheck(1);\" type=\"button\" value=\"全チェック\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input onclick=\"JavaScript:dispCtrlCheck(0);\" type=\"button\" value=\"全クリア\">";
+	msg += "</div >";
+
+	var o1 = getMousePosition(event);
+	chnBtnObj_y = o1.y;
+
+	var popObj =  document.getElementById("popDiv");
+	var popTarget = popObj.style;
+
+	popTarget.left = "5px";
+	popTarget.top = "5px";
+
+	popObj.innerHTML = msg;
+
+}
+
+//表示項目選択ポップアップの全選択・全解除の制御
+function dispCtrlCheck(p1) {
+
+	// mod 2.00: 検索結果出力対応により、チェックボックスの指定方法を変更
+//	for(var j = 0; j<resultTableColArr.length; j++) {
+//		var v1 = "dispCtrl" + ("000" + j).slice(-3);
+//		var obj1 = document.getElementById(v1);
+//		obj1.checked = (p1 == 1);
+//	}
+	$('#popDiv input[type="checkbox"]').prop('checked', p1 == 1).change();
+}
+
+//add 2.00: くすりのしおり マウスオーバーで全文表示対応
+//ツールチップ表示
+function tooltip(event, str) {
+
+	if (!str) {
+		return false;
+	}
+
+	popOldVersionClose();
+
+	var userAgent = window.navigator.userAgent.toLowerCase();
+	var uag = "0";
+	if (userAgent.indexOf('opera') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('msie') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('chrome') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('safari') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('firefox') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('gecko') != -1) {
+		uag = "1";
+	} else {
+		alert("other");
+	}
+
+	// 過去版ポップアップの領域を流用
+	var popTarget = document.getElementById("popDiv2").style;
+	var o1 = getMousePosition(event);
+
+	if(uag == "1") {
+		o1.sy = event.clientY;
+	}
+
+	popDiv2.innerHTML = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n" +
+			str + "</div>";
+	popTarget.left = (o1.x - popDiv2.clientWidth - 5) + "px";
+	popTarget.top = (o1.y - popDiv2.clientHeight - 5) + "px";
+}
+
+//ツールチップのクローズ
+function tooltipClose() {
+	// 過去版ポップアップの領域を流用しているため、過去版ポップアップのクローズ処理を実行
+	popOldVersionClose();
+}
+
+//表示項目選択ポップアップのクローズ(選択項目で再表示を行う)
+function popClose() {
+
+	// チェックされた値で配列を書き換え、パラメータを作成
+	var clmAry = [];
+	for(var j = 0; j<resultTableColArr.length; j++) {
+		var v1 = "dispCtrl" + ("000" + j).slice(-3);
+		var obj1 = document.getElementById(v1);
+		resultTableColArr[j][0] = (obj1.checked) ? "1" : "0";
+		if (obj1.checked) {
+			clmAry.push(j);
+		}
+	}
+	popDiv.innerHTML = "";
+
+	if(clmAry == null || clmAry.length == 0){
+		clmAry.push(-1);
+	}
+
+	colDisp(clmAry);
+}
+
+// 列の表示非表示を制御する
+function colDisp(cAry){
+	$.ajax({
+		url: '/PmdaSearch/iyakuSearch/CulumChangeRequest/'+cAry,
+		// mod 2.01: POSTに変更
+//		type: 'GET',
+		type: 'POST',
+		// add 2.01: Form情報を送信
+		data: $('form').serialize(),
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました");
+			// mod 2.00: ページリンクをページ上部だけでなくページ下部にも追加
+// 			$("#PageNavi").html(json.PageNavi).html()
+			$(".PageNavi").each(function(i) {
+				$(this).html(json.PageNavi).html();
+			});
+			$("#ResultList").html(json.ResultList).html();
+
+			// add 2.01: 表示する文書を更新
+			document.getElementById("changeColumnsList").value = cAry;
+			for (var j = 0; j < resultTableColArr.length; j++) {
+				document.getElementById("dispColumns" + j).value = "";
+			}
+			for (var k = 0; k < cAry.length; k++) {
+				document.getElementById("dispColumns" + cAry[k]).value = cAry[k];
+			}
+		}
+	  });
+
+}
+
+// add 2.00: 検索結果画面で表示件数変更対応
+// 表示件数を変更する
+function listRowsChange(listRows){
+	$.ajax({
+		url: '/PmdaSearch/iyakuSearch/listRowsChangeRequest/' + listRows,
+		// mod 2.01: POSTに変更
+//		type: 'GET',
+		type: 'POST',
+		// add 2.01: Form情報を送信
+		data: $('form').serialize(),
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました");
+			// mod 2.00: ページリンクをページ上部だけでなくページ下部にも追加
+// 			$("#PageNavi").html(json.PageNavi).html()
+			$(".PageNavi").each(function(i) {
+				$(this).html(json.PageNavi).html();
+			});
+			$("#ResultList").html(json.ResultList).html();
+
+			// add 2.01: ページ情報の初期化及び表示件数の更新
+			document.getElementById("pages").value = 1;
+			document.getElementById("listRows").value = listRows;
+		}
+	  });
+
+}
+
+var dWin = null;
+
+//詳細(HTML)ページを別ウィンドウで表示する
+function detailDisp(service, fname){
+
+
+	var url = "/" + service + "/iyakuDetail/" + fname;
+
+	popOldVersionClose();
+
+//	if(dWin != null)	dWin.close();
+
+	dWin = window.open(url, "");
+//	dWin = window.open(url, "_blank");
+	dWin.active();
+
+
+}
+
+//添付文書(PDF)ページを別ウィンドウで表示する
+function detailDispPDF(linkStr){
+
+
+	var url = linkStr;
+
+	popOldVersionClose();
+
+//	if(dWin != null)	dWin.close();
+
+	dWin = window.open(url, "");
+//	dWin = window.open(url, "_blank");
+	dWin.active();
+
+}
+
+// 検索種別を Action より取得
+var listCategory = 'BOOK';
+
+// add 2.00: 検索結果出力処理追加
+/**
+ * 出力項目選択ポップアップの表示
+ *
+ * @param exportType 出力形式
+ */
+function exportSelect(event, exportType) {
+
+	if (!exportType) {
+		alert('出力形式が指定されていません。');
+		return false;
+	}
+
+	popOldVersionClose();
+
+	// ポップアップ生成
+	var msg = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+	msg += "<p class=\"mb_10\">" + "PDF出力する項目を選択してください。" + "</p>\n";
+	msg += "<p class=\"mb_10\" id=\"exportWarning\" style=\"color: #FF0000; font-weight: bold; text-decoration: underline; height: 1em;\">WARNING</p>"
+	msg += "<div class=\"popScrollInr\"><table>\n";
+
+	var wkResultTableColArr = (listCategory === 'BOOK') ?
+			resultTableDefaultDispColArr[listCategory].concat(resultTableColArr) :
+			resultTableDefaultDispColArr[listCategory];
+	var checkCnt = 0;
+	for(var j = 0; j < wkResultTableColArr.length; j++) {
+		var checkStr = "";
+		if (wkResultTableColArr[j][0] == "1") {
+			checkStr = " checked=\"checked\"";
+			checkCnt++;
+		}
+		msg += "<tr><td><input type=\"checkbox\" name=\"exportCtrl[" + j + "]\"" + checkStr + ">" + wkResultTableColArr[j][1] + "</td></tr>\n";
+	}
+	var exportWarning = document.getElementById('exportWarning');
+	var disabledStr = "";
+	if (checkCnt > 6) {
+		msg = msg.replace("WARNING", "※選択項目は6項目以内としてください。");
+		disabledStr = " disabled=\"disabled\"";
+	}
+	msg = msg.replace("WARNING", "");
+
+	msg += "</table></div>";
+	msg += "<input onclick=\"JavaScript:document.getElementById('popDiv').innerHTML='';\" type=\"button\" value=\"閉じる\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input onclick=\"JavaScript:dispCtrlCheck(0);\" type=\"button\" value=\"全クリア\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input name=\"export\" type=\"button\" value=\"出力する\" " + disabledStr + ">";
+	msg += "</div >";
+
+	var o1 = getMousePosition(event);
+	chnBtnObj_y = o1.y;
+
+	// ポップアップ
+	var popObj =  document.getElementById('popDiv');
+	var popTarget = popObj.style;
+	popObj.innerHTML = msg;
+	// 画面中央に出す
+	// innerWidth(Heigth)は IE 8 非対応
+	var pageWidth = window.innerWidth ? window.innerWidth : $(window).width();
+	var pageHeight = window.innerHeight ? window.innerHeight : $(window).height();
+	popTarget.left = (pageWidth / 2 - popObj.offsetWidth / 2) + 'px';
+	popTarget.top = (pageHeight / 2 - popObj.offsetHeight / 2) + 'px';
+
+	// チェックボックスのイベント
+	$('input[name^="exportCtrl"]').on('change', function() {
+		var checkCnt = $('input[name^="exportCtrl"]:checked').length;
+		// 7項目以上、1項目未満のチェックで出力させない
+		var exportInvalidFlg = checkCnt > 6 || checkCnt < 1;
+		// エラー文言の表示制御
+		var $exportWarning = $('#exportWarning');
+		$exportWarning.text(exportInvalidFlg ?
+				checkCnt > 6 ? '※選択項目は6項目以内としてください。' :
+					'※項目が選択されていません。' : '');
+		// 出力ボタンの実行制御
+		$('input[name="export"]').prop('disabled', exportInvalidFlg);
+	});
+
+	// 出力ボタンのイベント
+	$('input[name="export"]').on('click', function() {
+		exportSearchResult(exportType);
+	});
+
+	return false;
+}
+
+/**
+ * 検索結果出力
+ *
+ * @param exportType 出力形式
+ */
+function exportSearchResult(exportType) {
+
+	var exportCols = [];
+	if (exportType === 'csv') {
+		// CSV は表示されている項目を全件出力
+		// (関連文書検索時はすべて出力するため、検索結果出力列は空のまま)
+		var wkResultTableColArr = (listCategory === 'BOOK') ?
+				resultTableDefaultDispColArr[listCategory].concat(resultTableColArr) :
+				resultTableDefaultDispColArr[listCategory];
+		$.each(wkResultTableColArr, function(i, v) {
+			if (v[0] == '1') {
+				exportCols.push(i);
+			}
+		});
+	} else {
+		// PDF はポップアップで選択されている項目を表示件数分出力
+		$('input[name^="exportCtrl"]').each(function(i, v) {
+			if ($(this).prop('checked')) {
+				exportCols.push(i);
+			}
+		});
+		// 選択ポップアップを閉じる
+		document.getElementById('popDiv').innerHTML='';
+	}
+
+ 	// XXX: $.ajax 等ではブラウザによってバイナリファイルを扱う仕組みがない場合があるため、仮想の form にて POST する
+ 	// mod 2.01: 仮想の form にForm情報を追加
+//  	var $tmpForm = $('<form></form>', {
+//  			action: '/PmdaSearch/iyakuSearch/exportSearchResult/' + exportType,
+//  			method: 'POST',
+//  			target:  (exportType === 'csv') ? '_self' : '_blank',
+//  			style: 'display: none;'})
+//  		.append($('<input>', {type: 'text', name: 'searchNameTitle', value: $('#SearchHd strong').text()}))
+//  		.append($('<input>', {type: 'text', name: 'leftSearchName', value: $('#bookSearchTitle').text()}))
+//  		.append($('<input>', {type: 'text', name: 'leftSearchCondition', value: $('#bookSearchCond').text().replace(/\s*\n\s*/g, '')}))
+//  		.append($('<input>', {type: 'text', name: 'rightSearchName', value: $('#rdSearchTitle').text()}))
+//  		.append($('<input>', {type: 'text', name: 'logicalOperators', value: $('#howtoRdSearchSel').text()}))
+//  		.append($('<input>', {type: 'text', name: 'rightSearchCondition', value: $('#rdSearchCond').text().replace(/\s*\n\s*/g, '')}))
+//  		.append($('<input>', {type: 'text', name: 'exportCols', value: exportCols.join(',')}))
+//  		.appendTo('body').submit().remove();
+//  		;
+	var $tmpForm = $('<form></form>', {action: '/PmdaSearch/iyakuSearch/exportSearchResult/' + exportType, method: 'POST', target:  (exportType === 'csv') ? '_self' : '_blank', style: 'display: none;'});
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'searchNameTitle', value: $('#SearchHd strong').text()}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'leftSearchName', value: $('#bookSearchTitle').text()}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'leftSearchCondition', value: $('#bookSearchCond').text().replace(/\s*\n\s*/g, '')}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'rightSearchName', value: $('#rdSearchTitle').text()}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'logicalOperators', value: $('#howtoRdSearchSel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'rightSearchCondition', value: $('#rdSearchCond').text().replace(/\s*\n\s*/g, '')}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'exportCols', value: exportCols.join(',')}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'nameWord', value: $('#nameWord')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'iyakuHowtoNameSearchRadioValue', value: $('#iyakuHowtoNameSearchRadioValue')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'howtoMatchRadioValue', value: $('#howtoMatchRadioValue')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'effectValue', value: $('#effectValue')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'infoindicationsorefficacy', value: $('#infoindicationsorefficacy')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'infoindicationsorefficacyHowtoSearch', value: $('#infoindicationsorefficacyHowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'warnings', value: $('#warnings')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'warningsHowtoSearch', value: $('#warningsHowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicationsAvoidedadministration', value: $('#contraindicationsAvoidedadministration')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicationsAvoidedadministrationHowtoSearch', value: $('#contraindicationsAvoidedadministrationHowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicatedcombinationPrecautionsforcombination', value: $('#contraindicatedcombinationPrecautionsforcombination')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicatedcombinationPrecautionsforcombinationHowtoSearch', value: $('#contraindicatedcombinationPrecautionsforcombinationHowtoSearch')[0].value}));
+ 	for(var j = 0; j<resultTableColArr.length; j++){
+ 		$tmpForm.append($('<input>', {type: 'hidden', name: 'dispColumnsList[' + j + ']', value: $('#dispColumns' + j)[0].value}));
+ 	}
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'changeColumnsList', value: $('#changeColumnsList')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'updateDocFrDt', value: $('#updateDocFrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'updateDocToDt', value: $('#updateDocToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'tglOpFlg', value: $('#tglOpFlg')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'compNameWord', value: $('#compNameWord')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku1Value', value: $('#koumoku1Value')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku2Value', value: $('#koumoku2Value')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku3Value', value: $('#koumoku3Value')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku1Word', value: $('#koumoku1Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku2Word', value: $('#koumoku2Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku3Word', value: $('#koumoku3Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku1HowtoSearch', value: $('#koumoku1HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku2HowtoSearch', value: $('#koumoku2HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku3HowtoSearch', value: $('#koumoku3HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'howtoRdSearchSel', value: $('#howtoRdSearchSel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1Sel', value: $('#relationDoc1Sel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2Sel', value: $('#relationDoc2Sel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3Sel', value: $('#relationDoc3Sel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1check1', value: $('#relationDoc1check1')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1check2', value: $('#relationDoc1check2')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2check1', value: $('#relationDoc2check1')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2check2', value: $('#relationDoc2check2')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3check1', value: $('#relationDoc3check1')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3check2', value: $('#relationDoc3check2')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1Word', value: $('#relationDoc1Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2Word', value: $('#relationDoc2Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3Word', value: $('#relationDoc3Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1HowtoSearch', value: $('#relationDoc1HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2HowtoSearch', value: $('#relationDoc2HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3HowtoSearch', value: $('#relationDoc3HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1FrDt', value: $('#relationDoc1FrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1ToDt', value: $('#relationDoc1ToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2FrDt', value: $('#relationDoc2FrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2ToDt', value: $('#relationDoc2ToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3FrDt', value: $('#relationDoc3FrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3ToDt', value: $('#relationDoc3ToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDocHowtoSearchBetween12', value: $('#relationDocHowtoSearchBetween12')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDocHowtoSearchBetween23', value: $('#relationDocHowtoSearchBetween23')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'ListRows', value: $('#listRows')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'searchCnt', value: $('#searchCnt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'totalPages', value: $('#totalPages')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'pages', value: $('#pages')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'listCategory', value: $('#listCategory')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'iyakuKoumokuSelectSwitchRadio', value: $('#iyakuKoumokuSelectSwitchRadio')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'gs1code', value: $('#gs1code')[0].value}));
+ 	$tmpForm.appendTo('body').submit().remove();
+
+	return false;
+}
+
+</script>
+<!-- ++++ /local-js ++++ -->
+
+
+<div id="ContentWrap" class="SearchResult">
+<noscript><p id="NoScriptWarning">当ウェブサイトを快適にご覧いただくには、ブラウザのJavaScript設定を有効（オン）にしていただく必要がございます。</p></noscript>
+
+
+<div id="HeaderPopArea" class="HTML5_header">
+<div id="HeaderPopAreaInner">
+<a href="/" id="LogoArea" target="_blank">
+<span>Pmda 独立行政法人 医薬品医療機器総合機構</span>
+</a><!--/LogoArea-->
+
+<div id="LinkArea01" class="clearfix">
+<ul>
+<li class="mr_00"><a href="javascript:window.close()"><img class="imglink" src="/PmdaSearch/files/common/img/ComHeaderAreaBtnClose.png" alt="画面を閉じる" width="118" height="24"></a></li>
+</ul>
+</div><!--/LinkArea01-->
+
+<div id="LinkArea02">
+<img class="float_l mr_10" src="/PmdaSearch/files/common/img/ComHeaderAreaTxtSizettl.png" alt="文字サイズの変更" width="29" height="22">
+<span id="FontSizeSelect"><a href="javascript:void(0);" id="TextBtnNormal" class="mr_05 "><span>標準</span></a>
+<a href="javascript:void(0);" id="TextBtnL" class="mr_05"><span>大</span></a>
+<a href="javascript:void(0);" id="TextBtnLl"><span>特大</span></a></span>
+</div><!--/LinkArea02-->
+</div><!--/HeaderAreaInner-->
+</div><!--/HeaderArea-->
+
+<div id="ContentArea" class="HTML5_section">
+<div id="MainContents" class="clearfix">
+<div id="ContentMainArea" class="ComOneCulumn">
+<div class="PopupArea">
+<div class="PopupInner">
+
+<h1 id="SearchHd">
+<strong>医療用医薬品 情報検索</strong>
+<span><a target="searchhelp_iyaku" href="/searchhelp_009.pdf"><img class="imglink" src="/PmdaSearch/files/img/search/SearchBtn10.gif" alt="情報検索機能の使い方" height="36"></a></span>
+
+<span class="ExportBtnArea">
+<p>検索結果の出力</p>
+<a href="javascript:void(0);" onclick="return exportSearchResult('csv');"><img class="imglink" src="/PmdaSearch/files/img/search/ExportBtn01.gif" alt="CSV出力" height="35"></a>
+<a href="javascript:void(0);" onclick="return exportSelect(event, 'pdf');" target="_blank"><img class="imglink" src="/PmdaSearch/files/img/search/ExportBtn02.gif" alt="PDF出力" height="35"></a>
+</span>
+
+</h1>
+
+<form name="iyakuSearchActionForm" method="POST" action="/PmdaSearch/iyakuSearch/">
+
+
+<!-- add 2.00: 検索条件を表示 -->
+<div class="dispSearchCondArea">
+<h2>検索条件</h2>
+
+<h3 id="bookSearchTitle">医薬品の添付文書等を調べる</h3>
+<span id="bookSearchCond">
+
+
+  薬効分類（医薬品の種類）:
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    健胃消化剤
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  &nbsp;/&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+</span>
+
+
+</div><!-- /dispSearchCondArea -->
+
+
+<div onscroll='javascript:elmScrool(this); return false;'>
+<div id='SearchWrap02' class='clearfix'>
+<h2 class='SearchTit01'>検索結果</h2>
+<div class='SearchResultMenu mb_15 first'>
+<p class='col23 PageNavi'><strong>検索結果120件／全1ページ</strong><BR><BR>
+<span>1</span></p>
+<p class='col1'><input value='表示する文書を変更' type='image' src='/PmdaSearch/iyakuSearch/../files/img/search/SearchBtn08.gif' onClick='JavaScript:displaySelect(event); return false;'></p>
+<p>
+<strong>表示件数を選ぶ</strong><BR>
+<select name='ListRows' onchange='javascript:listRowsChange($(this).val());' class='SearchSlct'>
+<option value='10'>10件</option><option value='20'>20件</option><option value='30'>30件</option><option value='50'>50件</option><option value='100'>100件</option></select>
+</p>
+</div><!-- / #SearchResultMenu -->
+<!-- 検索結果表示領域  -->
+<table class='SearchResultTable' id='ResultList'>
+<tr>
+	<th scope='col' style='width:15em' nowrap>一般名</th>
+	<th scope='col' style='width:15em' nowrap>販売名</th>
+	<th scope='col' style='width:15em' nowrap>製造販売業者等</th>
+	<th scope='col' style='width:13em' nowrap>添付文書</th>
+	<th scope='col' style='width:12em' nowrap>患者向医薬品ガイド／<BR>ワクチン接種を受ける人<BR>へのガイド</th>
+	<th scope='col' style='width:12em' nowrap>インタビュー<BR>フォーム</th>
+</tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331005'>アスペルギルス属菌由来消化酵素</a></div></td><td><div>タカヂアスターゼ原末</div></td><td><div>製造販売元／第一三共株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/430574_2331005A1031_1_05'>PDF(2016年08月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "430574_2331005A1031_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/430574_2331005A1031_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/430574_2331005A1031_1_TK6_1F.pdf'>F1_タカヂアスターゼ原末</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2336400'>カルニチン塩化物</a></div></td><td><div>エントミン注200mg</div></td><td><div>製造販売元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530169_2336400A1038_2_03'>PDF(2019年03月19日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530169_2336400A1038_2_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530169_2336400A1038_2_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/530169_2336400A1038_2_010_1F.pdf'>F1_エントミン注200mg</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2332001'>乾燥酵母</a></div></td><td><div>乾燥酵母エビオス</div></td><td><div>製造販売元／アサヒグループ食品株式会社</div><div>販売元／田辺三菱製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/112638_2332001X1084_3_01'>PDF(2017年07月15日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "112638_2332001X1084_3_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/112638_2332001X1084_3_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2332001'>乾燥酵母</a></div></td><td><div>乾燥酵母</div></td><td><div>製造販売元／株式会社　三恵薬品</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300185_2332001X1033_1_01'>PDF(2007年03月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300185_2332001X1033_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300185_2332001X1033_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2332001'>乾燥酵母</a></div></td><td><div>乾燥酵母「ファイザー」原末</div></td><td><div>製造販売元／マイラン製薬株式会社</div><div>販売／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_2332001X1122_1_01'>PDF(2019年06月14日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_2332001X1122_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_2332001X1122_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/730612_2332001X1122_1_001_1F.pdf'>F1_乾燥酵母「ファイザー」原末</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2332001'>乾燥酵母</a></div></td><td><div>乾燥酵母「ヤマゼン」Ｍ</div></td><td><div>製造販売元／山善製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/800084_2332001X1076_1_01'>PDF(2014年07月28日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "800084_2332001X1076_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/800084_2332001X1076_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339266'>カンゾウ末配合剤</a></div></td><td><div>つくしA・M 配合散</div></td><td><div>製造販売元／富士フイルム富山化学株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400022_2339266B1020_2_02'>PDF(2019年04月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400022_2339266B1020_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400022_2339266B1020_2_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/400022_2339266B1020_2_003_1F.pdf'>F1_つくしA・M 配合散</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2335001'>希塩酸</a></div></td><td><div>希塩酸「ヤマゼン」</div></td><td><div>製造販売元／山善製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/800084_2335001X1167_1_01'>PDF(2014年07月14日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "800084_2335001X1167_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/800084_2335001X1167_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2335001'>希塩酸</a></div></td><td><div>希塩酸「コザカイ・Ｍ」</div></td><td><div>製造販売元／小堺製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270108_2335001X1060_1_06'>PDF(2014年11月18日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270108_2335001X1060_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270108_2335001X1060_1_06'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2335001'>希塩酸</a></div></td><td><div>希塩酸「コザカイ・Ｍ」</div></td><td><div>発売元／中北薬品株式会社</div><div>製造販売元／小堺製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270108_2335001X1060_6_04'>PDF(2015年05月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270108_2335001X1060_6_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270108_2335001X1060_6_04'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2335001'>希塩酸</a></div></td><td><div>希塩酸「コザカイ・Ｍ」</div></td><td><div>発売元／吉田製薬株式会社</div><div>製造販売元／小堺製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270108_2335001X1060_4_03'>PDF(2015年05月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270108_2335001X1060_4_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270108_2335001X1060_4_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2335001'>希塩酸</a></div></td><td><div>希塩酸</div></td><td><div>製造販売元／健栄製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/260024_2335001X1051_1_02'>PDF(2018年09月25日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "260024_2335001X1051_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/260024_2335001X1051_1_02'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2335001'>希塩酸</a></div></td><td><div>希塩酸「司生堂」</div></td><td><div>司生堂製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340053_2335001X1078_1_01'>PDF(2014年11月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340053_2335001X1078_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340053_2335001X1078_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2335001'>希塩酸</a></div></td><td><div>希塩酸「タイセイ」</div></td><td><div>製造販売元／大成薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400069_2335001X1108_1_03'>PDF(2020年04月30日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400069_2335001X1108_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400069_2335001X1108_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2335001'>希塩酸</a></div></td><td><div>希塩酸「東海」</div></td><td><div>製造販売元／東海製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480034_2335001X1116_1_05'>PDF(2014年11月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480034_2335001X1116_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480034_2335001X1116_1_05'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2335001'>希塩酸</a></div></td><td><div>希塩酸「ニッコー」</div></td><td><div>製造販売元／日興製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530090_2335001X1213_1_04'>PDF(2013年02月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530090_2335001X1213_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530090_2335001X1213_1_04'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2335001'>希塩酸</a></div></td><td><div>希塩酸「マルイシ」</div></td><td><div>製造販売元／丸石製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730119_2335001X1140_1_06'>PDF(2015年09月15日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730119_2335001X1140_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730119_2335001X1140_1_06'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333001'>苦味チンキ</a></div></td><td><div>苦味チンキ「コザカイ・Ｍ」</div></td><td><div>製造販売元／小堺製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270108_2333001X1057_1_03'>PDF(2015年05月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270108_2333001X1057_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270108_2333001X1057_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333001'>苦味チンキ</a></div></td><td><div>苦味チンキ「司生堂」</div></td><td><div>司生堂製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340053_2333001X1065_1_01'>PDF(2014年11月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340053_2333001X1065_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340053_2333001X1065_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333001'>苦味チンキ</a></div></td><td><div>苦味チンキ「東海」</div></td><td><div>製造販売元／東海製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480034_2333001X1120_1_05'>PDF(2014年11月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480034_2333001X1120_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480034_2333001X1120_1_05'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333001'>苦味チンキ</a></div></td><td><div>苦味チンキ「東豊」</div></td><td><div>製造販売元／東豊薬品株式会社</div></td><td><div>PDF&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480162_2333001X1286_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480162_2333001X1286_1_06'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333001'>苦味チンキ</a></div></td><td><div>苦味チンキ「東豊」</div></td><td><div>発売元／吉田製薬株式会社</div><div>製造発売元／東豊薬品株式会社</div></td><td><div>PDF&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480162_2333001X1286_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480162_2333001X1286_2_02'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333001'>苦味チンキ</a></div></td><td><div>苦味チンキ</div></td><td><div>製造販売元／日興製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530090_2333001X1227_1_03'>PDF(2014年07月10日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530090_2333001X1227_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530090_2333001X1227_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333001'>苦味チンキ</a></div></td><td><div>苦味チンキ「ニッコー」</div></td><td><div>発売元／健栄製薬株式会社</div><div>製造販売元／日興製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530090_2333001X1227_2_01'>PDF(2015年09月25日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530090_2333001X1227_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530090_2333001X1227_2_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333001'>苦味チンキ</a></div></td><td><div>苦味チンキ「マルイシ」</div></td><td><div>製造販売元／丸石製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730119_2333001X1162_1_08'>PDF(2016年04月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730119_2333001X1162_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730119_2333001X1162_1_08'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333002'>コンズランゴ流エキス</a></div></td><td><div>コンズランゴ流エキス「司生堂」</div></td><td><div>司生堂製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340053_2333002X1027_1_01'>PDF(2014年11月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340053_2333002X1027_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340053_2333002X1027_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339113'>サナクターゼ配合剤</a></div></td><td><div>エクセラーゼ配合顆粒</div></td><td><div>製造販売元／MeijiSeikaファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_2339113D1039_1_02'>PDF(2011年04月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_2339113D1039_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_2339113D1039_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_2339113D1039_1_1F.pdf'>F1_エクセラーゼ配合顆粒</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339114'>サナクターゼ配合剤</a></div></td><td><div>エクセラーゼ配合錠</div></td><td><div>製造販売元／Meiji Seika ファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_2339114F1034_1_03'>PDF(2019年01月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_2339114F1034_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_2339114F1034_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_2339114F1034_1_1F.pdf'>F1_エクセラーゼ配合錠</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339114'>サナクターゼ配合剤</a></div></td><td><div>エクセラーゼ配合カプセル</div></td><td><div>製造販売元／MeijiSeikaファルマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/780009_2339114M1033_1_02'>PDF(2011年04月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "780009_2339114M1033_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/780009_2339114M1033_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/780009_2339114M1033_1_1F.pdf'>F1_エクセラーゼ配合カプセル</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ「ケンエー」</div></td><td><div>製造販売元／健栄製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/260024_2331003X1051_1_03'>PDF(2016年12月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "260024_2331003X1051_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/260024_2331003X1051_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ「コザカイ・Ｍ」</div></td><td><div>製造販売元／小堺製薬株式会社</div></td><td><div>PDF&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270108_2331003X1060_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270108_2331003X1060_1_05'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ「三恵」</div></td><td><div>製造販売元／株式会社三恵薬品</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300185_2331003X1078_1_01'>PDF(2014年02月19日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300185_2331003X1078_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300185_2331003X1078_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ シオエ</div></td><td><div>製造販売元／シオエ製薬株式会社</div><div>販売／日本新薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340013_2331003X1094_1_05'>PDF(2015年10月10日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340013_2331003X1094_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340013_2331003X1094_1_05'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ「日医工」</div></td><td><div>製造販売元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530169_2331003X1299_1_02'>PDF(2014年10月14日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530169_2331003X1299_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530169_2331003X1299_1_02'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ「ニッコー」</div></td><td><div>製造販売元／日興製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530090_2331003X1230_1_03'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530090_2331003X1230_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530090_2331003X1230_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ＜ハチ＞</div></td><td><div>販売／小野薬品工業株式会社</div><div>製造販売／東洋製薬化成株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480199_2331003X1132_1_07'>PDF(2019年11月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480199_2331003X1132_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480199_2331003X1132_1_07'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ「ホエイ」</div></td><td><div>製造販売元／マイラン製薬株式会社</div><div>販売／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_2331003X1140_2_02'>PDF(2013年05月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_2331003X1140_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_2331003X1140_2_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/730612_2331003X1140_2_002_1F.pdf'>F1_ジアスターゼ「ホエイ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ「ヤマゼン」Ｍ</div></td><td><div>製造販売元／山善製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/800084_2331003X1191_1_01'>PDF(2011年08月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "800084_2331003X1191_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/800084_2331003X1191_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ「ヨシダ」</div></td><td><div>製造販売元／吉田製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830039_2331003X1264_1_04'>PDF(2020年07月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830039_2331003X1264_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830039_2331003X1264_1_04'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ原末「マルイシ」</div></td><td><div>製造販売元／丸石製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730119_2331003X1280_1_05'>PDF(2018年11月02日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730119_2331003X1280_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730119_2331003X1280_1_05'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>ジアスターゼ原末「マルイシ」</div></td><td><div>販売／ニプロ株式会社</div><div>製造販売元／丸石製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730119_2331003X1280_2_02'>PDF(2017年02月02日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730119_2331003X1280_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730119_2331003X1280_2_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/730119_2331003X1280_2_001_1F.pdf'>F1_ジアスターゼ原末「マルイシ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331003'>ジアスターゼ</a></div></td><td><div>「純生」ジアス</div></td><td><div>製造販売元／純生薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340149_2331003X1108_1_06'>PDF(2007年06月30日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340149_2331003X1108_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340149_2331003X1108_1_06'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339149'>ジアスターゼ配合剤</a></div></td><td><div>タフマックE配合カプセル／タフマックE配合顆粒</div></td><td><div>製造販売／小野薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180188_2339149M1045_1_04'>PDF(2016年12月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180188_2339149M1045_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180188_2339149M1045_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180188_2339149M1045_1_001_1F.pdf'>F1_タフマックE配合カプセル／タフマックE配合顆粒</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339180'>ジアスターゼ・生薬配合剤</a></div></td><td><div>FK配合散</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_2339180B1030_1_05'>PDF(2019年01月18日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_2339180B1030_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_2339180B1030_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_2339180B1030_4_H21_1F.pdf'>F1_FK配合散</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339185'>ジアスターゼ・生薬配合剤</a></div></td><td><div>KM散</div></td><td><div>製造販売元／東和薬品株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480235_2339185B1024_1_12'>PDF(2019年05月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480235_2339185B1024_1_12"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480235_2339185B1024_1_12'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/480235_2339185B1024_1_102_1F.pdf'>F1_KM散</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339178'>ジアスターゼ・生薬配合剤</a></div></td><td><div>HM散</div></td><td><div>製造発売元／小西製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270147_2339178B1040_1_01'>PDF(2000年01月26日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270147_2339178B1040_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270147_2339178B1040_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339178'>ジアスターゼ・生薬配合剤</a></div></td><td><div>ＮＩＭ配合散</div></td><td><div>製造販売元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530169_2339178B1075_1_02'>PDF(2012年02月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530169_2339178B1075_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530169_2339178B1075_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530169_2339178B1075_1_005_1F.pdf'>F1_ＮＩＭ配合散</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339188'>ジアスターゼ・生薬配合剤</a></div></td><td><div>TM配合散</div></td><td><div>製造販売元／マイラン製薬株式会社</div><div>販売／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_2339188B1036_1_03'>PDF(2013年05月07日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_2339188B1036_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_2339188B1036_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/730612_2339188B1036_1_003_1F.pdf'>F1_TM配合散</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339189'>ジアスターゼ・生薬配合剤</a></div></td><td><div>ピーマーゲン配合散</div></td><td><div>製造販売元／あゆみ製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/172190_2339189B1065_4_01'>PDF(2019年11月15日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "172190_2339189B1065_4_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/172190_2339189B1065_4_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/4/172190_2339189B1065_4_19N_1F.pdf'>F1_*ピーマーゲン配合散</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339163'>膵臓性消化酵素配合剤</a></div></td><td><div>ベリチーム配合顆粒</div></td><td><div>製造販売元／共和薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/672173_2339163D1037_3_01'>PDF(2020年06月12日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "672173_2339163D1037_3_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/672173_2339163D1037_3_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/672173_2339163D1037_3_001_1F.pdf'>ベリチーム配合顆粒</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>「純生」センブリ・重曹散</div></td><td><div>製造販売元／純生薬品工業株式会社　</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340149_2339106B1046_1_05'>PDF(2007年06月30日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340149_2339106B1046_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340149_2339106B1046_1_05'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「ヤマゼン」Ｍ</div></td><td><div>製造販売元／山善製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/800084_2339106B1186_1_02'>PDF(2012年12月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "800084_2339106B1186_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/800084_2339106B1186_1_02'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「ケンエー」</div></td><td><div>製造販売元／健栄製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/260024_2339106B1089_1_04'>PDF(2018年02月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "260024_2339106B1089_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/260024_2339106B1089_1_04'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「コザカイ・Ｍ」</div></td><td><div>発売元／日興製薬販売株式会社</div><div>製造販売元／小堺製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270108_2339106B1097_3_01'>PDF(2018年04月02日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270108_2339106B1097_3_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270108_2339106B1097_3_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「コザカイ・Ｍ」</div></td><td><div>製造販売元／小堺製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270108_2339106B1097_1_09'>PDF(2018年02月26日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270108_2339106B1097_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270108_2339106B1097_1_09'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「コザカイ・Ｍ」</div></td><td><div>発売元／丸石製薬株式会社</div><div>製造販売元／小堺製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270108_2339106B1097_8_01'>PDF(2018年04月02日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270108_2339106B1097_8_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270108_2339106B1097_8_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散 シオエ</div></td><td><div>製造販売元／シオエ製薬株式会社</div><div>販売　／日本新薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340013_2339106B1100_1_05'>PDF(2018年02月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340013_2339106B1100_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340013_2339106B1100_1_05'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散　鈴</div></td><td><div>製造販売元／鈴粉末薬品株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/370042_2339106B1119_1_01'>PDF(2014年11月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "370042_2339106B1119_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/370042_2339106B1119_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「東海」</div></td><td><div>製造販売元／東海製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480034_2339106B1127_1_03'>PDF(2018年03月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480034_2339106B1127_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480034_2339106B1127_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「ニッコー」</div></td><td><div>製造販売元／日興製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530090_2339106B1135_1_05'>PDF(2012年12月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530090_2339106B1135_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530090_2339106B1135_1_05'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「マルイシ」</div></td><td><div>製造販売元／丸石製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730119_2339106B1143_1_11'>PDF(2018年02月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730119_2339106B1143_1_11"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730119_2339106B1143_1_11'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「メタル」</div></td><td><div>製造販売元／中北薬品株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/510022_2339106B1160_1_08'>PDF(2018年02月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "510022_2339106B1160_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/510022_2339106B1160_1_08'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「ヨシダ」</div></td><td><div>製造販売元／吉田製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830039_2339106B1194_1_04'>PDF(2018年02月27日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830039_2339106B1194_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830039_2339106B1194_1_04'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>センブリ・重曹散「JG」</div></td><td><div>製造販売元／日本ジェネリック株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/580591_2339106B1216_1_06'>PDF(2018年02月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "580591_2339106B1216_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/580591_2339106B1216_1_06'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339106'>センブリ・重曹</a></div></td><td><div>日粉センブリ・重曹散Ｎ</div></td><td><div>製造販売元／日本粉末薬品株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530348_2339106B1054_1_01'>PDF(2014年10月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530348_2339106B1054_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530348_2339106B1054_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339108'>センブリ・重曹</a></div></td><td><div>健胃配合錠「ＹＤ」</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_2339108F1101_1_04'>PDF(2018年02月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_2339108F1101_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_2339108F1101_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_2339108F1101_1_001_1F.pdf'>F1_健胃配合錠「ＹＤ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333003'>センブリ</a></div></td><td><div>センブリ散</div></td><td><div>製造販売元／純生薬品工業株式会社　</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340149_2333003B1032_1_02'>PDF(2007年07月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340149_2333003B1032_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340149_2333003B1032_1_02'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339177'>タカヂアスターゼ・生薬配合剤</a></div></td><td><div>S・M配合散</div></td><td><div>製造販売元／アルフレッサ ファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530258_2339177B1038_4_01'>PDF(2019年03月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530258_2339177B1038_4_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530258_2339177B1038_4_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/4/530258_2339177B1038_4_001_1F.pdf'>F1_S・M配合散</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339105'>炭酸水素ナトリウム・ゲンチアナ末配合剤</a></div></td><td><div>ビットサン</div></td><td><div>製造販売元／本草製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/710082_2339105X1030_1_06'>PDF(2020年03月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "710082_2339105X1030_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/710082_2339105X1030_1_06'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339105'>炭酸水素ナトリウム・ゲンチアナ末配合剤</a></div></td><td><div>重散</div></td><td><div>製造販売元／株式会社 三恵薬品</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300185_2339105X1022_1_03'>PDF(2018年03月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300185_2339105X1022_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300185_2339105X1022_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339107'>炭酸水素ナトリウム・ゲンチアナ末配合剤</a></div></td><td><div>ビアサン</div></td><td><div>製造販売元／本草製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/710082_2339107X1021_1_06'>PDF(2020年03月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "710082_2339107X1021_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/710082_2339107X1021_1_06'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339101'>炭酸水素ナトリウム・ニガキ</a></div></td><td><div>健胃散「スズ」</div></td><td><div>製造販売元／鈴粉末薬品株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/370042_2339101B1027_1_01'>PDF(2014年11月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "370042_2339101B1027_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/370042_2339101B1027_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339101'>炭酸水素ナトリウム・ニガキ</a></div></td><td><div>健栄の健胃散</div></td><td><div>製造販売元／健栄製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/260024_2339101B1035_1_04'>PDF(2018年02月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "260024_2339101B1035_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/260024_2339101B1035_1_04'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333004'>トウヒチンキ</a></div></td><td><div>トウヒチンキ「司生堂」</div></td><td><div>司生堂製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340053_2333004S1045_1_01'>PDF(2014年11月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340053_2333004S1045_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340053_2333004S1045_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333004'>トウヒ</a></div></td><td><div>トウヒシロップ「司生堂」</div></td><td><div>司生堂製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340053_2333004Q1056_1_01'>PDF(2014年11月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340053_2333004Q1056_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340053_2333004Q1056_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>「純生」パンク</div></td><td><div>製造販売元／純生薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340149_2331006X1080_1_06'>PDF(2007年06月30日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340149_2331006X1080_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340149_2331006X1080_1_06'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン「エビス」</div></td><td><div>製造販売元／日興製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530090_2331006X1039_3_03'>PDF(2014年10月07日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530090_2331006X1039_3_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530090_2331006X1039_3_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン「ケンエー」</div></td><td><div>製造販売元／健栄製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/260024_2331006X1055_1_03'>PDF(2018年05月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "260024_2331006X1055_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/260024_2331006X1055_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン「三恵」</div></td><td><div>製造販売元／株式会社　三恵薬品</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300185_2331006X1063_1_02'>PDF(2014年11月21日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300185_2331006X1063_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300185_2331006X1063_1_02'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン シオエ</div></td><td><div>製造販売元／シオエ製薬株式会社</div><div>販売／日本新薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340013_2331006X1071_1_07'>PDF(2020年08月10日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340013_2331006X1071_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340013_2331006X1071_1_07'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン「日医工」</div></td><td><div>製造販売元／日医工株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530169_2331006X1225_1_02'>PDF(2014年10月15日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530169_2331006X1225_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530169_2331006X1225_1_02'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン＜ハチ＞</div></td><td><div>発売元／丸石製薬株式会社</div><div>製造販売元／東洋製薬化成株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480199_2331006X1098_2_01'>PDF(2019年07月10日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480199_2331006X1098_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480199_2331006X1098_2_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン＜ハチ＞</div></td><td><div>販売／ニプロ株式会社</div><div>製造販売／東洋製薬化成株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480199_2331006X1098_3_01'>PDF(2019年01月25日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480199_2331006X1098_3_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480199_2331006X1098_3_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/480199_2331006X1098_3_001_1F.pdf'>F1_パンクレアチン＜ハチ＞</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン＜ハチ＞</div></td><td><div>販売／小野薬品工業株式会社</div><div>製造販売／東洋製薬化成株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480199_2331006X1098_1_07'>PDF(2015年09月14日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480199_2331006X1098_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480199_2331006X1098_1_07'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン「ファイザー」原末</div></td><td><div>製造販売元／マイラン製薬株式会社</div><div>販売／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_2331006X1233_1_01'>PDF(2019年06月14日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_2331006X1233_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_2331006X1233_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/730612_2331006X1233_1_001_1F.pdf'>F1_パンクレアチン「ファイザー」原末</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン「ヨシダ」</div></td><td><div>製造販売元／吉田製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830039_2331006X1195_1_04'>PDF(2015年12月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830039_2331006X1195_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830039_2331006X1195_1_04'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン原末「マルイシ」</div></td><td><div>製造販売元／丸石製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730119_2331006X1217_1_04'>PDF(2016年08月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730119_2331006X1217_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730119_2331006X1217_1_04'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331006'>パンクレアチン</a></div></td><td><div>パンクレアチン原末「マルイシ」</div></td><td><div>販売／ニプロ株式会社</div><div>製造販売元／丸石製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730119_2331006X1217_2_02'>PDF(2016年09月28日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730119_2331006X1217_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730119_2331006X1217_2_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/730119_2331006X1217_2_001_1F.pdf'>F1_パンクレアチン原末「マルイシ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2331007'>パンクレリパーゼ</a></div></td><td><div>リパクレオン顆粒300mg分包／リパクレオンカプセル150mg</div></td><td><div>製造販売元／マイランEPD合同会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730869_2331007D1029_2_06'>PDF(2019年10月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730869_2331007D1029_2_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730869_2331007D1029_2_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/730869_2331007D1029_2_006_1F.pdf'>F1_リパクレオン顆粒300mg分包／リパクレオンカプセル150mg</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339165'>ヒロダーゼ配合剤</a></div></td><td><div>ポリトーゼカプセル／ポリトーゼ顆粒</div></td><td><div>製造販売元／武田薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400256_2339165D1028_1_09'>PDF(2018年07月02日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400256_2339165D1028_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400256_2339165D1028_1_09'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339179'>ビオヂアスターゼ・生薬配合剤</a></div></td><td><div>マナミンＴＭ散</div></td><td><div>製造販売元／鶴原製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/460028_2339179B1037_1_07'>PDF(2018年01月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "460028_2339179B1037_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/460028_2339179B1037_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/460028_2339179B1037_1_007_1F.pdf'>F1_マナミンＴＭ散</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339181'>ビオヂアスターゼ・生薬配合剤</a></div></td><td><div>M・M配合散</div></td><td><div>製造販売元／日新製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530113_2339181B1034_1_04'>PDF(2019年09月09日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530113_2339181B1034_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530113_2339181B1034_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530113_2339181B1034_1_003_1F.pdf'>F1_*Ｍ・Ｍ配合散</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339193'>ビオヂアスターゼ・生薬配合剤</a></div></td><td><div>ＹＭ散「イセイ」</div></td><td><div>製造販売元／コーアイセイ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/130107_2339193B1029_1_07'>PDF(2016年10月04日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "130107_2339193B1029_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/130107_2339193B1029_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/130107_2339193B1029_1_I02_1F.pdf'>F1_ＹＭ散「イセイ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339263'>ビオヂアスターゼ・生薬配合剤</a></div></td><td><div>MMD配合散</div></td><td><div>製造販売元／吉田製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830039_2339263B1034_1_05'>PDF(2018年02月27日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830039_2339263B1034_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830039_2339263B1034_1_05'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339159'>ビオヂアスターゼ１０００配合剤</a></div></td><td><div>フェルターゼ配合カプセル</div></td><td><div>発売／ジェイドルフ製薬株式会社</div><div>製造販売元／佐藤薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300094_2339159M1030_1_02'>PDF(2020年04月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300094_2339159M1030_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300094_2339159M1030_1_02'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339161'>ビオヂアスターゼ１０００配合剤</a></div></td><td><div>フェンラーゼ配合カプセル</div></td><td><div>販売元／日医工株式会社</div><div>製造販売元／日医工ファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/580825_2339161P1042_2_01'>PDF(2017年04月03日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "580825_2339161P1042_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/580825_2339161P1042_2_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/580825_2339161P1042_2_006_1F.pdf'>F1_フェンラーゼ配合カプセル</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339244'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>オーネスSP配合カプセル</div></td><td><div>製造販売元／鶴原製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/460028_2339244M1032_1_03'>PDF(2020年02月07日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "460028_2339244M1032_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/460028_2339244M1032_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339262'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>オーネスＮ配合顆粒</div></td><td><div>製造販売元／鶴原製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/460028_2339262D1030_1_01'>PDF(2009年10月14日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "460028_2339262D1030_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/460028_2339262D1030_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339235'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>オーネスＳＴ配合錠</div></td><td><div>製造販売元／鶴原製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/460028_2339235F1034_1_04'>PDF(2020年09月03日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "460028_2339235F1034_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/460028_2339235F1034_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/460028_2339235F1034_1_003_1F.pdf'>※※　オーネスＳＴ配合錠</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339226'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>ケイラーゼS顆粒</div></td><td><div>発売元／中北薬品株式会社</div><div>製造販売元／株式会社　三恵薬品</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300185_2339226D1026_2_02'>PDF(2013年08月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300185_2339226D1026_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300185_2339226D1026_2_02'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339226'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>ケイラーゼS顆粒</div></td><td><div>製造販売元／株式会社　三恵薬品</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300185_2339226D1026_1_02'>PDF(2013年08月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300185_2339226D1026_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300185_2339226D1026_1_02'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339226'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>ケイラーゼ SA配合顆粒</div></td><td><div>製造販売元／株式会社　三恵薬品</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300185_2339226D1034_1_01'>PDF(2019年07月30日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300185_2339226D1034_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300185_2339226D1034_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339229'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>ハイフル配合顆粒</div></td><td><div>製造販売元／丸石製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730119_2339229D1038_1_03'>PDF(2015年06月12日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730119_2339229D1038_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730119_2339229D1038_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339225'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>ヨウラーゼＥ配合顆粒</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_2339225D1048_1_06'>PDF(2017年09月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_2339225D1048_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_2339225D1048_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_2339225D1048_1_002_1F.pdf'>F1_ヨウラーゼＥ配合顆粒</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339209'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>ケイラーゼＡカプセル</div></td><td><div>製造販売元／株式会社　三恵薬品</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300185_2339209M1022_1_03'>PDF(2007年02月21日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300185_2339209M1022_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300185_2339209M1022_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339209'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>ケイラーゼＡカプセル</div></td><td><div>発売元／中北薬品株式会社</div><div>製造販売元／株式会社　三恵薬品</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300185_2339209M1022_2_01'>PDF(2010年01月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300185_2339209M1022_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300185_2339209M1022_2_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339209'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>ケイラーゼＡＴ配合カプセル</div></td><td><div>製造販売元／株式会社　三恵薬品</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300185_2339209M1030_1_01'>PDF(2019年07月30日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300185_2339209M1030_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300185_2339209M1030_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339241'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>ボルトミー配合錠</div></td><td><div>発売元／全星薬品株式会社</div><div>製造販売元／全星薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/380087_2339241F1056_1_04'>PDF(2019年11月29日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "380087_2339241F1056_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/380087_2339241F1056_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/380087_2339241F1056_1_004_1F.pdf'>F1_ボルトミー配合錠</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339265'>ビオヂアスターゼ２０００配合剤</a></div></td><td><div>マックターゼ配合錠</div></td><td><div>製造販売元／沢井製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/300119_2339265F1027_1_02'>PDF(2015年05月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "300119_2339265F1027_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/300119_2339265F1027_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/300119_2339265F1027_1_011_1F.pdf'>F1_マックターゼ配合錠</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339003'>β－ガラクトシダーゼ（アスペルギルス）</a></div></td><td><div>ガランターゼ散50％</div></td><td><div>製造販売／ニプロESファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/430920_2339003B1192_2_01'>PDF(2017年10月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "430920_2339003B1192_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/430920_2339003B1192_2_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/430920_2339003B1192_2_080_1F.pdf'>F1_ガランターゼ散50％</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339003'>β－ガラクトシダーゼ（アスペルギルス）</a></div></td><td><div>オリザチーム顆粒</div></td><td><div>製造販売元／株式会社ヤクルト本社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/800015_2339003D1029_1_05'>PDF(2020年10月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "800015_2339003D1029_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/800015_2339003D1029_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/800015_2339003D1029_1_001_1F.pdf'>F1_オリザチーム顆粒</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339003'>β－ガラクトシダーゼ（アスペルギルス）</a></div></td><td><div>カラシミーゼ散50%</div></td><td><div>製造販売元／鶴原製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/460028_2339003B1206_1_05'>PDF(2019年06月26日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "460028_2339003B1206_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/460028_2339003B1206_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/460028_2339003B1206_1_005_1F.pdf'>カラシミーゼ散50%</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339004'>β－ガラクトシダーゼ（ペニシリウム）</a></div></td><td><div>ミルラクト細粒50％</div></td><td><div>製造販売／高田製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400186_2339004C1036_2_03'>PDF(2015年06月30日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400186_2339004C1036_2_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400186_2339004C1036_2_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/400186_2339004C1036_2_005_1F.pdf'>F1_ミルラクト細粒50％</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333005'>ホミカエキス</a></div></td><td><div>ホミカエキス「司生堂」</div></td><td><div>司生堂製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340053_2333005X1039_1_01'>PDF(2014年11月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340053_2333005X1039_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340053_2333005X1039_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333005'>ホミカエキス</a></div></td><td><div>ホミカエキス散「司生堂」</div></td><td><div>司生堂製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340053_2333005B1058_1_01'>PDF(2014年11月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340053_2333005B1058_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340053_2333005B1058_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333005'>ホミカエキス</a></div></td><td><div>ホミカエキス散「ニッコー」</div></td><td><div>製造販売元／日興製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530090_2333005B1139_1_03'>PDF(2013年09月21日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530090_2333005B1139_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530090_2333005B1139_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333005'>ホミカエキス</a></div></td><td><div>ホミカエキス散「ニッコー」</div></td><td><div>発売元／丸石製薬株式会社</div><div>製造販売元／日興製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530090_2333005B1139_2_04'>PDF(2015年04月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530090_2333005B1139_2_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530090_2333005B1139_2_04'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333005'>ホミカエキス</a></div></td><td><div>ホミカエキス散「ホエイ」</div></td><td><div>製造販売元／マイラン製薬株式会社</div><div>販売／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_2333005B1104_2_03'>PDF(2013年07月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_2333005B1104_2_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_2333005B1104_2_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/730612_2333005B1104_2_003_1F.pdf'>F1_ホミカエキス散「ホエイ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2333006'>ホミカチンキ</a></div></td><td><div>ホミカチンキ「司生堂」</div></td><td><div>司生堂製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340053_2333006X1025_1_01'>PDF(2014年11月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340053_2333006X1025_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340053_2333006X1025_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/2339195'>ロートエキス・ゲンチアナ末配合剤</a></div></td><td><div>ベルサン</div></td><td><div>製造販売元／本草製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/710082_2339195X1025_1_08'>PDF(2020年03月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "710082_2339195X1025_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/710082_2339195X1025_1_08'>SGML</a></div></td><td></td><td></td></tr>
+</table>
+<div class='SearchResultMenu mt_15'>
+<p class='col23 PageNavi'><strong>検索結果120件／全1ページ</strong><BR><BR>
+<span>1</span></p>
+</div><!-- / #SearchResultMenu -->
+</div><!-- / #SearchWrap02 -->
+</div><!--- / .SearchScrollInr -->
+
+
+
+<!-- add 2.01: Form情報を画面に保持する -->
+<input type="hidden" name="nameWord" value="" id="nameWord">
+<input type="hidden" name="iyakuHowtoNameSearchRadioValue" value="1" id="iyakuHowtoNameSearchRadioValue">
+<input type="hidden" name="howtoMatchRadioValue" value="1" id="howtoMatchRadioValue">
+<input type="hidden" name="effectValue" value="233" id="effectValue">
+<input type="hidden" name="infoindicationsorefficacy" value="" id="infoindicationsorefficacy">
+<input type="hidden" name="infoindicationsorefficacyHowtoSearch" value="and" id="infoindicationsorefficacyHowtoSearch">
+<input type="hidden" name="warnings" value="" id="warnings">
+<input type="hidden" name="warningsHowtoSearch" value="and" id="warningsHowtoSearch">
+<input type="hidden" name="contraindicationsAvoidedadministration" value="" id="contraindicationsAvoidedadministration">
+<input type="hidden" name="contraindicationsAvoidedadministrationHowtoSearch" value="and" id="contraindicationsAvoidedadministrationHowtoSearch">
+<input type="hidden" name="contraindicatedcombinationPrecautionsforcombination" value="" id="contraindicatedcombinationPrecautionsforcombination">
+<input type="hidden" name="contraindicatedcombinationPrecautionsforcombinationHowtoSearch" value="and" id="contraindicatedcombinationPrecautionsforcombinationHowtoSearch">
+
+	<input type="hidden" name="dispColumnsList[0]" value="1" id="dispColumns0">
+
+	<input type="hidden" name="dispColumnsList[1]" value="2" id="dispColumns1">
+
+	<input type="hidden" name="dispColumnsList[2]" value="3" id="dispColumns2">
+
+	<input type="hidden" name="dispColumnsList[3]" value="" id="dispColumns3">
+
+	<input type="hidden" name="dispColumnsList[4]" value="" id="dispColumns4">
+
+	<input type="hidden" name="dispColumnsList[5]" value="" id="dispColumns5">
+
+	<input type="hidden" name="dispColumnsList[6]" value="" id="dispColumns6">
+
+	<input type="hidden" name="dispColumnsList[7]" value="" id="dispColumns7">
+
+	<input type="hidden" name="dispColumnsList[8]" value="" id="dispColumns8">
+
+	<input type="hidden" name="dispColumnsList[9]" value="" id="dispColumns9">
+
+	<input type="hidden" name="dispColumnsList[10]" value="" id="dispColumns10">
+
+	<input type="hidden" name="dispColumnsList[11]" value="" id="dispColumns11">
+
+	<input type="hidden" name="dispColumnsList[12]" value="" id="dispColumns12">
+
+	<input type="hidden" name="dispColumnsList[13]" value="" id="dispColumns13">
+
+	<input type="hidden" name="dispColumnsList[14]" value="" id="dispColumns14">
+
+	<input type="hidden" name="dispColumnsList[15]" value="" id="dispColumns15">
+
+<input type="hidden" name="changeColumnsList" value="" id="changeColumnsList">
+<input type="hidden" name="updateDocFrDt" value="年月日 [YYYYMMDD]" id="updateDocFrDt">
+<input type="hidden" name="updateDocToDt" value="年月日 [YYYYMMDD]" id="updateDocToDt">
+<input type="hidden" name="tglOpFlg" value="" id="tglOpFlg">
+<input type="hidden" name="compNameWord" value="" id="compNameWord">
+<input type="hidden" name="koumoku1Value" value="" id="koumoku1Value">
+<input type="hidden" name="koumoku2Value" value="" id="koumoku2Value">
+<input type="hidden" name="koumoku3Value" value="" id="koumoku3Value">
+<input type="hidden" name="koumoku1Word" value="" id="koumoku1Word">
+<input type="hidden" name="koumoku2Word" value="" id="koumoku2Word">
+<input type="hidden" name="koumoku3Word" value="" id="koumoku3Word">
+<input type="hidden" name="koumoku1HowtoSearch" value="and" id="koumoku1HowtoSearch">
+<input type="hidden" name="koumoku2HowtoSearch" value="and" id="koumoku2HowtoSearch">
+<input type="hidden" name="koumoku3HowtoSearch" value="and" id="koumoku3HowtoSearch">
+<input type="hidden" name="howtoRdSearchSel" value="or" id="howtoRdSearchSel">
+<input type="hidden" name="relationDoc1Sel" value="" id="relationDoc1Sel">
+<input type="hidden" name="relationDoc2Sel" value="" id="relationDoc2Sel">
+<input type="hidden" name="relationDoc3Sel" value="" id="relationDoc3Sel">
+<input type="hidden" name="relationDoc1check1" value="on" id="relationDoc1check1">
+<input type="hidden" name="relationDoc1check2" value="on" id="relationDoc1check2">
+<input type="hidden" name="relationDoc2check1" value="on" id="relationDoc2check1">
+<input type="hidden" name="relationDoc2check2" value="on" id="relationDoc2check2">
+<input type="hidden" name="relationDoc3check1" value="on" id="relationDoc3check1">
+<input type="hidden" name="relationDoc3check2" value="on" id="relationDoc3check2">
+<input type="hidden" name="relationDoc1Word" value="検索語を入力" id="relationDoc1Word">
+<input type="hidden" name="relationDoc2Word" value="検索語を入力" id="relationDoc2Word">
+<input type="hidden" name="relationDoc3Word" value="検索語を入力" id="relationDoc3Word">
+<input type="hidden" name="relationDoc1HowtoSearch" value="and" id="relationDoc1HowtoSearch">
+<input type="hidden" name="relationDoc2HowtoSearch" value="and" id="relationDoc2HowtoSearch">
+<input type="hidden" name="relationDoc3HowtoSearch" value="and" id="relationDoc3HowtoSearch">
+<input type="hidden" name="relationDoc1FrDt" value="年月 [YYYYMM]" id="relationDoc1FrDt">
+<input type="hidden" name="relationDoc1ToDt" value="年月 [YYYYMM]" id="relationDoc1ToDt">
+<input type="hidden" name="relationDoc2FrDt" value="年月 [YYYYMM]" id="relationDoc2FrDt">
+<input type="hidden" name="relationDoc2ToDt" value="年月 [YYYYMM]" id="relationDoc2ToDt">
+<input type="hidden" name="relationDoc3FrDt" value="年月 [YYYYMM]" id="relationDoc3FrDt">
+<input type="hidden" name="relationDoc3ToDt" value="年月 [YYYYMM]" id="relationDoc3ToDt">
+<input type="hidden" name="relationDocHowtoSearchBetween12" value="and" id="relationDocHowtoSearchBetween12">
+<input type="hidden" name="relationDocHowtoSearchBetween23" value="and" id="relationDocHowtoSearchBetween23">
+<input type="hidden" name="ListRows" value="1000" id="listRows">
+<input type="hidden" name="searchCnt" value="120" id="searchCnt">
+<input type="hidden" name="totalPages" value="1" id="totalPages">
+<input type="hidden" name="pages" value="1" id="pages">
+<input type="hidden" name="listCategory" value="BOOK" id="listCategory">
+<!-- add 2.01: 職員識別フラグを追加 -->
+<input type="hidden" name="personFlg" value="false" id="personFlg">
+<input type="hidden" name="gs1code" value="" id="gs1code">
+<input type="hidden" name="iyakuKoumokuSelectSwitchRadio" value="2" id="iyakuKoumokuSelectSwitchRadio">
+
+</form>
+</div><!-- / .PopupInner-->
+</div><!-- / .PopupArea-->
+</div><!-- / #ContentMainArea-->
+</div><!-- / #MainContents -->
+</div><!-- / #ContentArea .HTML5_section -->
+</div><!--/ContentWrap-->
+
+<div id="popDiv" style="position: fixed; visibility: show; left: 10px; top:10px; z-index: 5;"></div >
+<div id="popDiv2" style="position: fixed; visibility:show; z-index: 5;"></div >
+</div>
+</body>
+</html>

@@ -1,0 +1,1941 @@
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<html>
+<head>
+<title>医療用医薬品 検索結果 | 独立行政法人　医薬品医療機器総合機構</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="PMDA,pmda,医薬品,副作用,被害救済,薬,医療,機器,医薬">
+<meta name="description" content="独立行政法人　医薬品医療機器総合機構：医薬品副作用被害救済や稀少病認定薬の研究振興調査などの業務案内。">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-TextLayoutMetrics" content="gdi">
+<meta name="robots" content="none">
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/common/css/import.css" />
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/common/css/print.css" />
+<script type="text/javascript" src="/PmdaSearch/files/common/js/jquery_1.7.1.min.js"></script>
+<script type="text/javascript" src="/PmdaSearch/files/common/js/jquery_cookie.js"></script>
+<script type="text/javascript" src="/PmdaSearch/files/common/js/main.js"></script>
+<script type="text/javascript" src="/PmdaSearch/js/pmdaCommon.js"></script>
+<link rel="stylesheet" type="text/css" href="/PmdaSearch/files/css/search.css" />
+</head>
+<body onload="FontSizeInit();">
+<!-- Google Tag Manager -->
+<noscript><iframe title="GoogleTagManager" src="//www.googletagmanager.com/ns.html?id=GTM-MHGKV3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHGKV3');</script>
+<!-- End Google Tag Manager -->
+<div id="layoutBody">
+
+
+
+<!-- 2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start -->
+<style type="text/css">
+hr{
+	border-width: 1px 0px 0px 0px;
+	border-style: 1px;
+	border-color: black;
+	height: 1px;
+	width: 90%;
+}
+.doubles {
+	margin-top: 1em;
+}
+.divCol{
+  display: table-cell ;
+}
+</style>
+<!-- 2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End -->
+<!-- ++++ local-js ++++ -->
+<script>
+var userAgent = window.navigator.userAgent.toLowerCase();
+var uag = "0";
+if (userAgent.indexOf('opera') != -1) {
+	uag = "1";
+} else if (userAgent.indexOf('msie') != -1) {
+	uag = "1";
+} else if (userAgent.indexOf('chrome') != -1) {
+	uag = "2";
+} else if (userAgent.indexOf('safari') != -1) {
+	uag = "2";
+} else if (userAgent.indexOf('firefox') != -1) {
+	uag = "2";
+} else {
+	uag = "1";
+}
+
+function FontSizeInit() {
+	// 20140509 Font Size Default Set
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	if(!fs){
+		window.localStorage.setItem("iyakufsizeValue", 100);
+		fs = window.localStorage.getItem("iyakufsizeValue");
+	}
+
+	document.body.style.fontSize = Math.floor(fs) + '%';
+}
+
+function bigger() {
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	fs *= 1.2;
+
+//	if(fs <= (100 * 1.2) * 1.2){
+	if(fs <= (93 * 1.2) * 1.2){
+		window.localStorage.setItem("iyakufsizeValue", fs);
+		document.body.style.fontSize = Math.floor(fs) + '%';
+	}
+}
+
+function smaller() {
+	var fs = window.localStorage.getItem("iyakufsizeValue");
+	fs /= 1.2;
+
+//	if(fs >= (100 / 1.2) / 1.2){
+	if(fs >= (93 / 1.2) / 1.2){
+		window.localStorage.setItem("iyakufsizeValue", fs);
+		document.body.style.fontSize = Math.floor(fs) + '%';
+	}
+}
+
+// 項目の表示/非表示
+var resultTableColArr = [
+
+  ["0","添付文書"],
+
+  ["0","患者向医薬品ガイド／ワクチン接種を受ける人へのガイド"],
+
+  ["0","インタビューフォーム"],
+
+  ["0","医薬品リスク管理計画（RMP）"],
+
+  ["0","改訂指示反映履歴および根拠症例"],
+
+  ["0","審査報告書／再審査報告書／最適使用推進ガイドライン等"],
+
+  ["0","重篤副作用疾患別対応マニュアル"],
+
+  ["0","くすりのしおり"],
+
+  ["0","緊急安全性情報／安全性速報"],
+
+  ["0","医薬品の適正使用等に関するお知らせ"],
+
+  ["0","厚生労働省発表資料（医薬品関連）"],
+
+  ["0","医薬品に関する評価中のリスク等の情報"],
+
+  ["0","医薬品添付文書改訂相談に基づく添付文書改訂"],
+
+  ["0","DSU（医薬品安全対策情報）"],
+
+  ["0","PMDA医療安全情報"],
+
+  ["0","医療用医薬品問合せ先"]
+
+];
+// add 2.00: 検索結果出力機能追加
+// 常に表示する項目(検索結果出力項目選択用)
+var resultTableDefaultDispColArr = {
+
+  "BOOK" : [
+  
+    ["1", "一般名"], 
+  
+    ["1", "販売名"], 
+  
+    ["1", "製造販売業者等"]
+  
+  ], 
+
+  "RD" : [
+  
+    ["1", "種類"], 
+  
+    ["1", "文書の名称"], 
+  
+    ["1", "日付"], 
+  
+    ["1", "一般名"], 
+  
+    ["1", "販売名"], 
+  
+    ["1", "製造販売業者等"]
+  
+  ]
+
+};
+
+//表示している項目にフラグをつける
+$(function () {
+	var dispColumnsList = [
+		
+			"1", 
+		
+			"2", 
+		
+			"3", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			"", 
+		
+			""
+		
+	];
+	$(dispColumnsList).each(function(i, v){
+		resultTableColArr[i][0] = (v) ? '1': '0';
+	});
+
+	// トグル
+	$(document).on('click', '.toggles', function(){
+		 $(this).next().toggle();
+		 $(this).toggle();
+	});
+	$(document).on('click', '.togglec', function(){
+		  $(this).parent().prev().toggle();
+		  $(this).parent().toggle();
+	});
+});
+
+// ページング処理
+function changePg(pages) {
+
+	popOldVersionClose();
+
+	$.ajax({
+		url: '/PmdaSearch/iyakuSearch/PageChangeRequest/' + pages,
+		// mod 2.01: POSTに変更
+//		type: 'GET',
+		type: 'POST',
+		// add 2.01: Form情報を送信
+		data: $('form').serialize(),
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました");
+			// mod 2.00: ページリンクをページ上部だけでなくページ下部にも追加
+// 			$("#PageNavi").html(json.PageNavi).html()
+			$(".PageNavi").each(function(i) {
+				$(this).html(json.PageNavi).html();
+			});
+			$("#ResultList").html(json.ResultList).html();
+
+			// add 2.01: ページ情報を更新
+			document.getElementById("pages").value = pages;
+		}
+	  });
+}
+
+var chnBtnObj_y;
+var tblLnkObj_y;
+var svScrollTop = 0;
+var svTblSclTop = 0;
+
+//WINDOWスクロール発生時の処理
+window.onscroll = function()
+{
+
+	if(uag == "1"){
+		scrollTop = document.documentElement.scrollTop;  // IE、Opera
+	} else {
+		scrollTop = document.body.scrollTop;  // Chrome、Safari、Firefox
+	}
+	var calcTop = scrollTop - svScrollTop;
+
+	svScrollTop = scrollTop;
+
+//	pageScroll(calcTop);	// 表示項目選択ポップアップのスクロール移動制御をコール
+	divScroll(calcTop);	// 過去版ポップアップのスクロール移動制御
+
+
+}
+
+//WINDOW内要素(DIV)スクロール発生時の処理
+function elmScrool(scElm) {
+
+	var scrollTop  = scElm.scrollTop;
+	var calcTop = scrollTop - svTblSclTop;
+
+	svTblSclTop = scrollTop;
+
+//	pageScroll(calcTop);	// 表示項目選択ポップアップのスクロール移動制御をコール
+	divScroll(calcTop);	// 過去版ポップアップのスクロール移動制御
+}
+
+//表示項目選択ポップアップのスクロール移動制御
+function pageScroll(scVal) {
+
+	var popObj  =  document.getElementById("popDiv");
+	var popTarget  = popObj.style;
+
+	if(popObj.innerHTML.length != 0){
+
+		var targTopVal = popTarget.top.replace("px", "");
+		targTopVal = targTopVal - scVal;
+
+		popTarget.top = targTopVal + "px";
+
+	}
+
+}
+
+
+// 過去版ポップアップのスクロール移動制御
+function divScroll(scVal) {
+
+	var popObj =  document.getElementById("popDiv2");
+	var popTarget = popObj.style;
+
+	if(popObj.innerHTML.length != 0){
+
+		var targTopVal = popTarget.top.replace("px", "");
+
+		targTopVal = targTopVal - scVal;
+
+		popTarget.top = targTopVal + "px";
+
+	}
+
+}
+
+var chk_pdf = "0";
+var chk_xml = "0";
+//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+var chk_yoshiki = "";
+//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+
+//過去版ポップアップの表示
+function popOldVersion(event, service, p1, p2, p3, minVer) {
+
+	var lnkStrPDF  = "";
+	var lnkStrHTML = p2 + "_" + p3 + '_';
+	var temp_msg = "";
+	var oldCnt = 0;
+	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+	var tableOLD = "";
+	var OLDVer = "";
+	var tableNew = "";
+	var NewVer = "";
+	var tableHdr = "";
+	var genyoshiki = "SGML";
+	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+//	var msg = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+//	msg += "<table>\n";
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+
+	for(var j = p1; j >= minVer; j--) {
+		var v1 = ("000" + j).slice(-2);
+		var v2 = v1;
+
+		if(j == p1){
+			v2 = v1 + "*";
+			checkOldVer(p2, p3, v1, service, "CUR");
+			lnkStrPDF  = "/" + service + "/iyakuDetail/ResultDataSetPDF/" + p2 + "_" + p3 + "_";
+		}
+		if(j != p1){
+			v2 = v1 + " ";
+			checkOldVer(p2, p3, v1, service, "OLD");
+			lnkStrPDF  = "/" + service + "/iyakuDetail/ResultDataSetOldPDF/" + p2 + "_" + p3 + "_";
+		}
+		//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+//		if(chk_pdf == "1" && chk_xml == "1"){
+////			temp_msg += "<tr><td>Ver." + j + "&nbsp;&nbsp;<a href=\"" + lnkStrPDF + v1 + "\" target='_blank'>PDF</a> / <a href='javascript:void(0)' onclick='detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + " target='_blank'>HTML</a></td></tr>\n";
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\"); return false;'" + ">PDF</a> / <a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\"); return false;' " + ">HTML</a></td></tr>\n";
+//			oldCnt++;
+//		} else if(chk_pdf == "1" && chk_xml == "0"){
+////			temp_msg += "<tr><td>Ver." + j + "&nbsp;&nbsp;<a href=\"" + lnkStrPDF + v1 + "\" target='_blank'>PDF</a> / HTML</td></tr>\n";
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\");'" + ">PDF</a> / HTML</td></tr>\n";
+//			oldCnt++;
+//		} else if(chk_pdf == "0" && chk_xml == "1") {
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + ">HTML</a></td></tr>\n";
+//			oldCnt++;
+//		} else {
+//			temp_msg += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;HTML</td></tr>\n";
+//			oldCnt++;
+//		}
+		if(chk_yoshiki != "noTbook") {
+			genyoshiki = chk_yoshiki;
+		}
+		if(genyoshiki == "SGML"){
+			if( chk_pdf == "1" && chk_xml == "1" ){
+				OLDVer +="<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\"); return false;'" + ">PDF</a> / <a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\"); return false;' " + ">HTML</a></td></tr>\n";
+
+			} else if( chk_pdf == "1" && chk_xml == "0" ){
+				OLDVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\");'" + ">PDF</a> / HTML</td></tr>\n";
+				oldCnt++;
+			} else if( chk_pdf == "0" && chk_xml == "1" ) {
+				OLDVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + ">HTML</a></td></tr>\n";
+			} else {
+				OLDVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;HTML</td></tr>\n";
+			}
+			oldCnt++;
+		}
+		if(genyoshiki == "XML"){
+			if( chk_pdf == "1" && chk_xml == "1" ){
+				NewVer +="<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\"); return false;'" + ">PDF</a> / <a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\"); return false;' " + ">HTML</a></td></tr>\n";
+			} else if( chk_pdf == "1" && chk_xml == "0" ){
+				NewVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDispPDF(\"" + lnkStrPDF + v1 + "\");'" + ">PDF</a> / HTML</td></tr>\n";
+
+			} else if( chk_pdf == "0" && chk_xml == "1" ) {
+				NewVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp(\"" + service + "\", \"" + lnkStrHTML + v1 + "\");' " + ">HTML</a></td></tr>\n";
+			} else {
+				NewVer += "<tr><td>Ver." + v2 + "&nbsp;&nbsp;PDF&nbsp;/&nbsp;HTML</td></tr>\n";
+			}
+			oldCnt++;
+		}
+		//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+		chk_pdf = "0";
+		chk_xml = "0";
+		//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+		chk_yoshiki = "";
+		//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	}
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+	var msg = "<div style=\"background-color: #d0f0f0; padding: 0px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+
+	tableHdr +="<div>\n";
+	tableHdr +="<div class=\"divCol\" style=\"width: 12em;  padding-top: 1em;\">\n";
+	tableHdr +="<table style=\"width: 100%;\">\n";
+	tableHdr +="<thead>\n";
+	tableHdr +="<tr><th style=\"border: 0;\">旧様式</th></tr>\n";
+	tableHdr +="</thead>\n";
+	tableHdr +="</table>\n";
+	tableHdr +="</div>\n";
+	tableHdr +="<div class=\"divCol\" style=\"width: 12em;\">\n";
+	tableHdr +="<table style=\"width: 100%;\">\n";
+	tableHdr +="<thead>\n";
+	tableHdr +="<tr><th style=\"border: 0;\">新様式</th></tr>\n";
+	tableHdr +="</thead>\n";
+	tableHdr +="</table>\n";
+	tableHdr +="</div>\n";
+	tableHdr +="</div>\n";
+
+	tableOLD +="<div style=\"height: 183px;overflow-y:  scroll;border-top: 1px solid black;border-bottom:  1px solid black;\">\n";
+ 	tableOLD +="<div class=\"divCol\" style=\"height: 11.44em;border-right: 1px solid black; width: 12em;\">\n";
+ 	tableOLD +="<table>\n";
+ 	tableOLD +="<tbody>\n";
+
+ 	tableOLD += OLDVer;
+
+ 	tableOLD +="</tbody>\n";
+ 	tableOLD +="</table>\n";
+ 	tableOLD +="</div>\n";
+
+ 	tableNew +="<div class=\"divCol\" style=\"height: 11.44em; width: 12em;\">\n";
+ 	tableNew +="<table>\n";
+ 	tableNew +="<tbody>\n";
+
+ 	tableNew += NewVer;
+
+ 	tableNew +="</tbody>\n";
+ 	tableNew +="</table>\n";
+ 	tableNew +="</div>\n";
+ 	tableNew +="</div>\n";
+
+ 	temp_msg = tableHdr + tableOLD + tableNew ;
+
+ 	temp_msg +="<div style=\"padding: 8px;\">\n";
+ 	temp_msg +="<input type=\"button\" onclick=\"popOldVersionClose();\" value=\"閉じる\">\n";
+ 	temp_msg +="</div>\n";
+	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	if(temp_msg != ""){
+		msg += temp_msg;
+	}
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+//	msg += "<tr><td align=\"center\"><input type=\"button\" onclick=\"popOldVersionClose();\" value=\"閉じる\"></td></tr>\n";
+//	msg += "</table>";
+	//2018-08-15 mod 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+	msg += "</div >";
+
+	var userAgent = window.navigator.userAgent.toLowerCase();
+	var uag = "0";
+	if (userAgent.indexOf('opera') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('msie') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('chrome') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('safari') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('firefox') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('gecko') != -1) {
+		uag = "1";
+	} else {
+		alert("other");
+	}
+
+	var popTarget = document.getElementById("popDiv2").style;
+	var o1 = getMousePosition(event);
+	tblLnkObj_y = o1.sy;
+
+	if(uag == "1"){
+		o1.sy = event.clientY;
+	}
+
+	if(popDiv2.innerHTML != ""){
+		popOldVersionClose();
+	}
+
+	if(temp_msg != ""){
+		popTarget.left = (o1.sx) + "px";
+//2018-11-08 mod 改修No3 バージョン比較ダイアログの上部表示位置 Start
+//		if((oldCnt - 1) == 0){
+//			popTarget.top = (o1.sy - 30) + "px";
+//		} else {
+			popTarget.top = (o1.sy - 27 - (18 * 10)) + "px";
+//		}
+//2018-11-08 mod 改修No3 バージョン比較ダイアログの上部表示位置 End
+		popDiv2.innerHTML = msg;
+	}
+
+}
+
+//過去版ポップアップのクローズ
+function popOldVersionClose() {
+	popDiv2.innerHTML = "";
+}
+
+//過去版ファイルの存在を確認する
+function checkOldVer(code, bkno, ver, service, cflg){
+	var url = "/" + service + "/iyakuDetail/FileExsist/" + code + "_" + bkno + "_" + ver + "_" + cflg;
+
+	$.ajax({
+		url: url,
+		type: 'GET',
+		async:false,
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました ");
+			chk_pdf = json.pdfExsist;
+			chk_xml = json.xmlExsist;
+			//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 Start
+		 	chk_yoshiki = json.yoshikiKbn;
+        	//2018-08-15 add 改修No3 新記載要領に対応した添付文書のバージョン比較機能 End
+		}
+	  });
+
+}
+
+
+//表示項目選択ポップアップの表示
+function displaySelect(event) {
+
+	popOldVersionClose();
+
+	var msg = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+	msg += "<div class=\"popScrollInr\"><table>\n";
+	for(var j = 0; j < resultTableColArr.length; j++) {
+		var v1 = ("000" + j).slice(-3);
+		var checkStr = (resultTableColArr[j][0] == "1") ? " checked=\"checked\"" : "";
+		msg += "<tr><td><input type=\"checkbox\" id=\"dispCtrl" + v1 + "\"" + checkStr + ">" + resultTableColArr[j][1] + "</td></tr>\n";
+	}
+
+	msg += "</table></div>";
+	msg += "<input onclick=\"JavaScript:popClose();\" type=\"button\" value=\"閉じる\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input onclick=\"JavaScript:dispCtrlCheck(1);\" type=\"button\" value=\"全チェック\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input onclick=\"JavaScript:dispCtrlCheck(0);\" type=\"button\" value=\"全クリア\">";
+	msg += "</div >";
+
+	var o1 = getMousePosition(event);
+	chnBtnObj_y = o1.y;
+
+	var popObj =  document.getElementById("popDiv");
+	var popTarget = popObj.style;
+
+	popTarget.left = "5px";
+	popTarget.top = "5px";
+
+	popObj.innerHTML = msg;
+
+}
+
+//表示項目選択ポップアップの全選択・全解除の制御
+function dispCtrlCheck(p1) {
+
+	// mod 2.00: 検索結果出力対応により、チェックボックスの指定方法を変更
+//	for(var j = 0; j<resultTableColArr.length; j++) {
+//		var v1 = "dispCtrl" + ("000" + j).slice(-3);
+//		var obj1 = document.getElementById(v1);
+//		obj1.checked = (p1 == 1);
+//	}
+	$('#popDiv input[type="checkbox"]').prop('checked', p1 == 1).change();
+}
+
+//add 2.00: くすりのしおり マウスオーバーで全文表示対応
+//ツールチップ表示
+function tooltip(event, str) {
+
+	if (!str) {
+		return false;
+	}
+
+	popOldVersionClose();
+
+	var userAgent = window.navigator.userAgent.toLowerCase();
+	var uag = "0";
+	if (userAgent.indexOf('opera') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('msie') != -1) {
+		uag = "1";
+	} else if (userAgent.indexOf('chrome') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('safari') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('firefox') != -1) {
+		uag = "2";
+	} else if (userAgent.indexOf('gecko') != -1) {
+		uag = "1";
+	} else {
+		alert("other");
+	}
+
+	// 過去版ポップアップの領域を流用
+	var popTarget = document.getElementById("popDiv2").style;
+	var o1 = getMousePosition(event);
+
+	if(uag == "1") {
+		o1.sy = event.clientY;
+	}
+
+	popDiv2.innerHTML = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n" +
+			str + "</div>";
+	popTarget.left = (o1.x - popDiv2.clientWidth - 5) + "px";
+	popTarget.top = (o1.y - popDiv2.clientHeight - 5) + "px";
+}
+
+//ツールチップのクローズ
+function tooltipClose() {
+	// 過去版ポップアップの領域を流用しているため、過去版ポップアップのクローズ処理を実行
+	popOldVersionClose();
+}
+
+//表示項目選択ポップアップのクローズ(選択項目で再表示を行う)
+function popClose() {
+
+	// チェックされた値で配列を書き換え、パラメータを作成
+	var clmAry = [];
+	for(var j = 0; j<resultTableColArr.length; j++) {
+		var v1 = "dispCtrl" + ("000" + j).slice(-3);
+		var obj1 = document.getElementById(v1);
+		resultTableColArr[j][0] = (obj1.checked) ? "1" : "0";
+		if (obj1.checked) {
+			clmAry.push(j);
+		}
+	}
+	popDiv.innerHTML = "";
+
+	if(clmAry == null || clmAry.length == 0){
+		clmAry.push(-1);
+	}
+
+	colDisp(clmAry);
+}
+
+// 列の表示非表示を制御する
+function colDisp(cAry){
+	$.ajax({
+		url: '/PmdaSearch/iyakuSearch/CulumChangeRequest/'+cAry,
+		// mod 2.01: POSTに変更
+//		type: 'GET',
+		type: 'POST',
+		// add 2.01: Form情報を送信
+		data: $('form').serialize(),
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました");
+			// mod 2.00: ページリンクをページ上部だけでなくページ下部にも追加
+// 			$("#PageNavi").html(json.PageNavi).html()
+			$(".PageNavi").each(function(i) {
+				$(this).html(json.PageNavi).html();
+			});
+			$("#ResultList").html(json.ResultList).html();
+
+			// add 2.01: 表示する文書を更新
+			document.getElementById("changeColumnsList").value = cAry;
+			for (var j = 0; j < resultTableColArr.length; j++) {
+				document.getElementById("dispColumns" + j).value = "";
+			}
+			for (var k = 0; k < cAry.length; k++) {
+				document.getElementById("dispColumns" + cAry[k]).value = cAry[k];
+			}
+		}
+	  });
+
+}
+
+// add 2.00: 検索結果画面で表示件数変更対応
+// 表示件数を変更する
+function listRowsChange(listRows){
+	$.ajax({
+		url: '/PmdaSearch/iyakuSearch/listRowsChangeRequest/' + listRows,
+		// mod 2.01: POSTに変更
+//		type: 'GET',
+		type: 'POST',
+		// add 2.01: Form情報を送信
+		data: $('form').serialize(),
+		dataType: 'json',
+		cache: false, //ブラウザにキャッシュさせません。
+		error: function(err){
+			alert("jsonの読み込みに失敗しました");
+		},
+		success: function(json){
+			//alert("jsonの読み込みが完了しました");
+			// mod 2.00: ページリンクをページ上部だけでなくページ下部にも追加
+// 			$("#PageNavi").html(json.PageNavi).html()
+			$(".PageNavi").each(function(i) {
+				$(this).html(json.PageNavi).html();
+			});
+			$("#ResultList").html(json.ResultList).html();
+
+			// add 2.01: ページ情報の初期化及び表示件数の更新
+			document.getElementById("pages").value = 1;
+			document.getElementById("listRows").value = listRows;
+		}
+	  });
+
+}
+
+var dWin = null;
+
+//詳細(HTML)ページを別ウィンドウで表示する
+function detailDisp(service, fname){
+
+
+	var url = "/" + service + "/iyakuDetail/" + fname;
+
+	popOldVersionClose();
+
+//	if(dWin != null)	dWin.close();
+
+	dWin = window.open(url, "");
+//	dWin = window.open(url, "_blank");
+	dWin.active();
+
+
+}
+
+//添付文書(PDF)ページを別ウィンドウで表示する
+function detailDispPDF(linkStr){
+
+
+	var url = linkStr;
+
+	popOldVersionClose();
+
+//	if(dWin != null)	dWin.close();
+
+	dWin = window.open(url, "");
+//	dWin = window.open(url, "_blank");
+	dWin.active();
+
+}
+
+// 検索種別を Action より取得
+var listCategory = 'BOOK';
+
+// add 2.00: 検索結果出力処理追加
+/**
+ * 出力項目選択ポップアップの表示
+ *
+ * @param exportType 出力形式
+ */
+function exportSelect(event, exportType) {
+
+	if (!exportType) {
+		alert('出力形式が指定されていません。');
+		return false;
+	}
+
+	popOldVersionClose();
+
+	// ポップアップ生成
+	var msg = "<div style=\"background-color: #d0f0f0; padding: 15px; border-style: solid; border-width: 1px; border-color: #404040;\">\n";
+	msg += "<p class=\"mb_10\">" + "PDF出力する項目を選択してください。" + "</p>\n";
+	msg += "<p class=\"mb_10\" id=\"exportWarning\" style=\"color: #FF0000; font-weight: bold; text-decoration: underline; height: 1em;\">WARNING</p>"
+	msg += "<div class=\"popScrollInr\"><table>\n";
+
+	var wkResultTableColArr = (listCategory === 'BOOK') ?
+			resultTableDefaultDispColArr[listCategory].concat(resultTableColArr) :
+			resultTableDefaultDispColArr[listCategory];
+	var checkCnt = 0;
+	for(var j = 0; j < wkResultTableColArr.length; j++) {
+		var checkStr = "";
+		if (wkResultTableColArr[j][0] == "1") {
+			checkStr = " checked=\"checked\"";
+			checkCnt++;
+		}
+		msg += "<tr><td><input type=\"checkbox\" name=\"exportCtrl[" + j + "]\"" + checkStr + ">" + wkResultTableColArr[j][1] + "</td></tr>\n";
+	}
+	var exportWarning = document.getElementById('exportWarning');
+	var disabledStr = "";
+	if (checkCnt > 6) {
+		msg = msg.replace("WARNING", "※選択項目は6項目以内としてください。");
+		disabledStr = " disabled=\"disabled\"";
+	}
+	msg = msg.replace("WARNING", "");
+
+	msg += "</table></div>";
+	msg += "<input onclick=\"JavaScript:document.getElementById('popDiv').innerHTML='';\" type=\"button\" value=\"閉じる\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input onclick=\"JavaScript:dispCtrlCheck(0);\" type=\"button\" value=\"全クリア\">&nbsp;&nbsp;&nbsp;";
+	msg += "<input name=\"export\" type=\"button\" value=\"出力する\" " + disabledStr + ">";
+	msg += "</div >";
+
+	var o1 = getMousePosition(event);
+	chnBtnObj_y = o1.y;
+
+	// ポップアップ
+	var popObj =  document.getElementById('popDiv');
+	var popTarget = popObj.style;
+	popObj.innerHTML = msg;
+	// 画面中央に出す
+	// innerWidth(Heigth)は IE 8 非対応
+	var pageWidth = window.innerWidth ? window.innerWidth : $(window).width();
+	var pageHeight = window.innerHeight ? window.innerHeight : $(window).height();
+	popTarget.left = (pageWidth / 2 - popObj.offsetWidth / 2) + 'px';
+	popTarget.top = (pageHeight / 2 - popObj.offsetHeight / 2) + 'px';
+
+	// チェックボックスのイベント
+	$('input[name^="exportCtrl"]').on('change', function() {
+		var checkCnt = $('input[name^="exportCtrl"]:checked').length;
+		// 7項目以上、1項目未満のチェックで出力させない
+		var exportInvalidFlg = checkCnt > 6 || checkCnt < 1;
+		// エラー文言の表示制御
+		var $exportWarning = $('#exportWarning');
+		$exportWarning.text(exportInvalidFlg ?
+				checkCnt > 6 ? '※選択項目は6項目以内としてください。' :
+					'※項目が選択されていません。' : '');
+		// 出力ボタンの実行制御
+		$('input[name="export"]').prop('disabled', exportInvalidFlg);
+	});
+
+	// 出力ボタンのイベント
+	$('input[name="export"]').on('click', function() {
+		exportSearchResult(exportType);
+	});
+
+	return false;
+}
+
+/**
+ * 検索結果出力
+ *
+ * @param exportType 出力形式
+ */
+function exportSearchResult(exportType) {
+
+	var exportCols = [];
+	if (exportType === 'csv') {
+		// CSV は表示されている項目を全件出力
+		// (関連文書検索時はすべて出力するため、検索結果出力列は空のまま)
+		var wkResultTableColArr = (listCategory === 'BOOK') ?
+				resultTableDefaultDispColArr[listCategory].concat(resultTableColArr) :
+				resultTableDefaultDispColArr[listCategory];
+		$.each(wkResultTableColArr, function(i, v) {
+			if (v[0] == '1') {
+				exportCols.push(i);
+			}
+		});
+	} else {
+		// PDF はポップアップで選択されている項目を表示件数分出力
+		$('input[name^="exportCtrl"]').each(function(i, v) {
+			if ($(this).prop('checked')) {
+				exportCols.push(i);
+			}
+		});
+		// 選択ポップアップを閉じる
+		document.getElementById('popDiv').innerHTML='';
+	}
+
+ 	// XXX: $.ajax 等ではブラウザによってバイナリファイルを扱う仕組みがない場合があるため、仮想の form にて POST する
+ 	// mod 2.01: 仮想の form にForm情報を追加
+//  	var $tmpForm = $('<form></form>', {
+//  			action: '/PmdaSearch/iyakuSearch/exportSearchResult/' + exportType,
+//  			method: 'POST',
+//  			target:  (exportType === 'csv') ? '_self' : '_blank',
+//  			style: 'display: none;'})
+//  		.append($('<input>', {type: 'text', name: 'searchNameTitle', value: $('#SearchHd strong').text()}))
+//  		.append($('<input>', {type: 'text', name: 'leftSearchName', value: $('#bookSearchTitle').text()}))
+//  		.append($('<input>', {type: 'text', name: 'leftSearchCondition', value: $('#bookSearchCond').text().replace(/\s*\n\s*/g, '')}))
+//  		.append($('<input>', {type: 'text', name: 'rightSearchName', value: $('#rdSearchTitle').text()}))
+//  		.append($('<input>', {type: 'text', name: 'logicalOperators', value: $('#howtoRdSearchSel').text()}))
+//  		.append($('<input>', {type: 'text', name: 'rightSearchCondition', value: $('#rdSearchCond').text().replace(/\s*\n\s*/g, '')}))
+//  		.append($('<input>', {type: 'text', name: 'exportCols', value: exportCols.join(',')}))
+//  		.appendTo('body').submit().remove();
+//  		;
+	var $tmpForm = $('<form></form>', {action: '/PmdaSearch/iyakuSearch/exportSearchResult/' + exportType, method: 'POST', target:  (exportType === 'csv') ? '_self' : '_blank', style: 'display: none;'});
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'searchNameTitle', value: $('#SearchHd strong').text()}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'leftSearchName', value: $('#bookSearchTitle').text()}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'leftSearchCondition', value: $('#bookSearchCond').text().replace(/\s*\n\s*/g, '')}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'rightSearchName', value: $('#rdSearchTitle').text()}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'logicalOperators', value: $('#howtoRdSearchSel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'rightSearchCondition', value: $('#rdSearchCond').text().replace(/\s*\n\s*/g, '')}));
+ 	$tmpForm.append($('<input>', {type: 'text', name: 'exportCols', value: exportCols.join(',')}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'nameWord', value: $('#nameWord')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'iyakuHowtoNameSearchRadioValue', value: $('#iyakuHowtoNameSearchRadioValue')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'howtoMatchRadioValue', value: $('#howtoMatchRadioValue')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'effectValue', value: $('#effectValue')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'infoindicationsorefficacy', value: $('#infoindicationsorefficacy')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'infoindicationsorefficacyHowtoSearch', value: $('#infoindicationsorefficacyHowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'warnings', value: $('#warnings')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'warningsHowtoSearch', value: $('#warningsHowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicationsAvoidedadministration', value: $('#contraindicationsAvoidedadministration')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicationsAvoidedadministrationHowtoSearch', value: $('#contraindicationsAvoidedadministrationHowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicatedcombinationPrecautionsforcombination', value: $('#contraindicatedcombinationPrecautionsforcombination')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'contraindicatedcombinationPrecautionsforcombinationHowtoSearch', value: $('#contraindicatedcombinationPrecautionsforcombinationHowtoSearch')[0].value}));
+ 	for(var j = 0; j<resultTableColArr.length; j++){
+ 		$tmpForm.append($('<input>', {type: 'hidden', name: 'dispColumnsList[' + j + ']', value: $('#dispColumns' + j)[0].value}));
+ 	}
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'changeColumnsList', value: $('#changeColumnsList')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'updateDocFrDt', value: $('#updateDocFrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'updateDocToDt', value: $('#updateDocToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'tglOpFlg', value: $('#tglOpFlg')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'compNameWord', value: $('#compNameWord')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku1Value', value: $('#koumoku1Value')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku2Value', value: $('#koumoku2Value')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku3Value', value: $('#koumoku3Value')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku1Word', value: $('#koumoku1Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku2Word', value: $('#koumoku2Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku3Word', value: $('#koumoku3Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku1HowtoSearch', value: $('#koumoku1HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku2HowtoSearch', value: $('#koumoku2HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'koumoku3HowtoSearch', value: $('#koumoku3HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'howtoRdSearchSel', value: $('#howtoRdSearchSel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1Sel', value: $('#relationDoc1Sel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2Sel', value: $('#relationDoc2Sel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3Sel', value: $('#relationDoc3Sel')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1check1', value: $('#relationDoc1check1')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1check2', value: $('#relationDoc1check2')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2check1', value: $('#relationDoc2check1')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2check2', value: $('#relationDoc2check2')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3check1', value: $('#relationDoc3check1')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3check2', value: $('#relationDoc3check2')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1Word', value: $('#relationDoc1Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2Word', value: $('#relationDoc2Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3Word', value: $('#relationDoc3Word')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1HowtoSearch', value: $('#relationDoc1HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2HowtoSearch', value: $('#relationDoc2HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3HowtoSearch', value: $('#relationDoc3HowtoSearch')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1FrDt', value: $('#relationDoc1FrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc1ToDt', value: $('#relationDoc1ToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2FrDt', value: $('#relationDoc2FrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc2ToDt', value: $('#relationDoc2ToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3FrDt', value: $('#relationDoc3FrDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDoc3ToDt', value: $('#relationDoc3ToDt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDocHowtoSearchBetween12', value: $('#relationDocHowtoSearchBetween12')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'relationDocHowtoSearchBetween23', value: $('#relationDocHowtoSearchBetween23')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'ListRows', value: $('#listRows')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'searchCnt', value: $('#searchCnt')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'totalPages', value: $('#totalPages')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'pages', value: $('#pages')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'listCategory', value: $('#listCategory')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'iyakuKoumokuSelectSwitchRadio', value: $('#iyakuKoumokuSelectSwitchRadio')[0].value}));
+ 	$tmpForm.append($('<input>', {type: 'hidden', name: 'gs1code', value: $('#gs1code')[0].value}));
+ 	$tmpForm.appendTo('body').submit().remove();
+
+	return false;
+}
+
+</script>
+<!-- ++++ /local-js ++++ -->
+
+
+<div id="ContentWrap" class="SearchResult">
+<noscript><p id="NoScriptWarning">当ウェブサイトを快適にご覧いただくには、ブラウザのJavaScript設定を有効（オン）にしていただく必要がございます。</p></noscript>
+
+
+<div id="HeaderPopArea" class="HTML5_header">
+<div id="HeaderPopAreaInner">
+<a href="/" id="LogoArea" target="_blank">
+<span>Pmda 独立行政法人 医薬品医療機器総合機構</span>
+</a><!--/LogoArea-->
+
+<div id="LinkArea01" class="clearfix">
+<ul>
+<li class="mr_00"><a href="javascript:window.close()"><img class="imglink" src="/PmdaSearch/files/common/img/ComHeaderAreaBtnClose.png" alt="画面を閉じる" width="118" height="24"></a></li>
+</ul>
+</div><!--/LinkArea01-->
+
+<div id="LinkArea02">
+<img class="float_l mr_10" src="/PmdaSearch/files/common/img/ComHeaderAreaTxtSizettl.png" alt="文字サイズの変更" width="29" height="22">
+<span id="FontSizeSelect"><a href="javascript:void(0);" id="TextBtnNormal" class="mr_05 "><span>標準</span></a>
+<a href="javascript:void(0);" id="TextBtnL" class="mr_05"><span>大</span></a>
+<a href="javascript:void(0);" id="TextBtnLl"><span>特大</span></a></span>
+</div><!--/LinkArea02-->
+</div><!--/HeaderAreaInner-->
+</div><!--/HeaderArea-->
+
+<div id="ContentArea" class="HTML5_section">
+<div id="MainContents" class="clearfix">
+<div id="ContentMainArea" class="ComOneCulumn">
+<div class="PopupArea">
+<div class="PopupInner">
+
+<h1 id="SearchHd">
+<strong>医療用医薬品 情報検索</strong>
+<span><a target="searchhelp_iyaku" href="/searchhelp_009.pdf"><img class="imglink" src="/PmdaSearch/files/img/search/SearchBtn10.gif" alt="情報検索機能の使い方" height="36"></a></span>
+
+<span class="ExportBtnArea">
+<p>検索結果の出力</p>
+<a href="javascript:void(0);" onclick="return exportSearchResult('csv');"><img class="imglink" src="/PmdaSearch/files/img/search/ExportBtn01.gif" alt="CSV出力" height="35"></a>
+<a href="javascript:void(0);" onclick="return exportSelect(event, 'pdf');" target="_blank"><img class="imglink" src="/PmdaSearch/files/img/search/ExportBtn02.gif" alt="PDF出力" height="35"></a>
+</span>
+
+</h1>
+
+<form name="iyakuSearchActionForm" method="POST" action="/PmdaSearch/iyakuSearch/">
+
+
+<!-- add 2.00: 検索条件を表示 -->
+<div class="dispSearchCondArea">
+<h2>検索条件</h2>
+
+<h3 id="bookSearchTitle">医薬品の添付文書等を調べる</h3>
+<span id="bookSearchCond">
+
+
+  薬効分類（医薬品の種類）:
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    血液代用剤
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  &nbsp;/&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+</span>
+
+
+</div><!-- /dispSearchCondArea -->
+
+
+<div onscroll='javascript:elmScrool(this); return false;'>
+<div id='SearchWrap02' class='clearfix'>
+<h2 class='SearchTit01'>検索結果</h2>
+<div class='SearchResultMenu mb_15 first'>
+<p class='col23 PageNavi'><strong>検索結果161件／全1ページ</strong><BR><BR>
+<span>1</span></p>
+<p class='col1'><input value='表示する文書を変更' type='image' src='/PmdaSearch/iyakuSearch/../files/img/search/SearchBtn08.gif' onClick='JavaScript:displaySelect(event); return false;'></p>
+<p>
+<strong>表示件数を選ぶ</strong><BR>
+<select name='ListRows' onchange='javascript:listRowsChange($(this).val());' class='SearchSlct'>
+<option value='10'>10件</option><option value='20'>20件</option><option value='30'>30件</option><option value='50'>50件</option><option value='100'>100件</option></select>
+</p>
+</div><!-- / #SearchResultMenu -->
+<!-- 検索結果表示領域  -->
+<table class='SearchResultTable' id='ResultList'>
+<tr>
+	<th scope='col' style='width:15em' nowrap>一般名</th>
+	<th scope='col' style='width:15em' nowrap>販売名</th>
+	<th scope='col' style='width:15em' nowrap>製造販売業者等</th>
+	<th scope='col' style='width:13em' nowrap>添付文書</th>
+	<th scope='col' style='width:12em' nowrap>患者向医薬品ガイド／<BR>ワクチン接種を受ける人<BR>へのガイド</th>
+	<th scope='col' style='width:12em' nowrap>インタビュー<BR>フォーム</th>
+</tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319542'>維持液（キシリトール加）</a></div></td><td><div>クリニザルツ輸液（500mL瓶）／クリニザルツ輸液（500mL袋）</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319542A2056_1_06'>PDF(2020年09月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319542A2056_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319542A2056_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3319542A2056_1_002_1F.pdf'>F1_*クリニザルツ輸液(200mL)／*クリニザルツ輸液(500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319542'>維持液（キシリトール加）</a></div></td><td><div>クリニザルツ輸液</div></td><td><div>販売／ニプロ株式会社</div><div>製造販売／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319542A2056_2_03'>PDF(2015年04月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319542A2056_2_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319542A2056_2_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/270173_3319542A2056_2_002_1F.pdf'>F1_クリニザルツ輸液</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319558'>維持液（複合糖加）</a></div></td><td><div>トリフリード輸液（500ｍＬ袋）／トリフリード輸液（1000ｍＬ袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319558A2030_1_02'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319558A2030_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319558A2030_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319558A2030_1_001_1F.pdf'>F1_トリフリード輸液（500ｍＬ袋）／トリフリード輸液（1000ｍＬ袋）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319556'>維持液（ブドウ糖加）</a></div></td><td><div>ソリタックス‐Ｈ輸液</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319556A2023_1_02'>PDF(2016年02月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319556A2023_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319556A2023_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/171575_3319556A2023_1_1F.pdf'>F1_ソリタックス‐Ｈ輸液</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319560'>維持液（ブドウ糖加）</a></div></td><td><div>グルアセト３５注(250mL袋)／グルアセト３５注(500mL瓶)／グルアセト３５注(500mL袋)</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319560A1031_1_10'>PDF(2020年09月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319560A1031_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319560A1031_1_10'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3319560A1031_1_003_1F.pdf'>F1_グルアセト３５注(250mL)／グルアセト３５注(500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319560'>維持液（ブドウ糖加）</a></div></td><td><div>グルアセト３５注(500mL瓶)／グルアセト３５注(500mL袋)</div></td><td><div>販売／ニプロ株式会社</div><div>製造販売／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319560A3026_1_07'>PDF(2020年09月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319560A3026_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319560A3026_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3319560A3026_1_004_1F.pdf'>F1_グルアセト３５注</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319560'>維持液（ブドウ糖加）</a></div></td><td><div>フィジオ３５輸液（２５０ｍL袋）／フィジオ３５輸液（５００ｍL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319560A1040_1_03'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319560A1040_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319560A1040_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319560A1040_1_001_1F.pdf'>F1_*フィジオ３５輸液（２５０ｍL袋）／*フィジオ３５輸液（５００ｍL袋）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319560'>維持液（ブドウ糖加）</a></div></td><td><div>グルアセト３５注(500mL)</div></td><td><div>発売元／光製薬株式会社</div><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319560A3026_2_03'>PDF(2018年09月28日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319560A3026_2_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319560A3026_2_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/270173_3319560A3026_2_004_1F.pdf'>F1_グルアセト３５注(500mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319510'>維持液</a></div></td><td><div>ソリタ−Ｔ３号輸液 (200mL)／ソリタ−Ｔ３号輸液 (500mL)</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319510A4105_1_02'>PDF(2016年02月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319510A4105_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319510A4105_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/171575_3319510A4105_1_1F.pdf'>F1_ソリタ−Ｔ３号輸液 (200mL)／ソリタ−Ｔ３号輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319510'>維持液</a></div></td><td><div>ソルデム３Ａ輸液 (200mL)／ソルデム３Ａ輸液 (500mL)／ソルデム３Ａ輸液 (1000mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319510A4083_1_04'>PDF(2014年09月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319510A4083_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319510A4083_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319510A4083_1_007_1F.pdf'>F1_ソルデム３Ａ輸液 (200mL)／ソルデム３Ａ輸液 (500mL)／ソルデム３Ａ輸液 (1000mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319510'>維持液</a></div></td><td><div>ハルトマン-Ｇ３号輸液(200mL袋)／ハルトマン-Ｇ３号輸液(500mL瓶)／ハルトマン-Ｇ３号輸液(500mL袋)</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319510A3087_1_06'>PDF(2020年09月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319510A3087_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319510A3087_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3319510A3087_1_002_1F.pdf'>F1_ハルトマン-Ｇ３号輸液(200mL)／ハルトマン-Ｇ３号輸液(500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319510'>維持液</a></div></td><td><div>ヒシナルク３号輸液（200mL）／ヒシナルク３号輸液（500mL）</div></td><td><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_3319510A4075_3_02'>PDF(2016年08月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_3319510A4075_3_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_3319510A4075_3_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/530100_3319510A4075_3_02B_1F.pdf'>F1_ヒシナルク３号輸液（200mL）／ヒシナルク３号輸液（500mL）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319510'>維持液</a></div></td><td><div>ユエキンキープ３号輸液（200mLソフトバッグ（プラスチック製））／ユエキンキープ３号輸液（500mLソフトバッグ（プラスチック製））</div></td><td><div>製造販売元／光製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/650014_3319510A4121_1_01'>PDF(2020年06月19日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "650014_3319510A4121_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/650014_3319510A4121_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/650014_3319510A4121_1_001_1F.pdf'>**ユエキンキープ３号輸液（200mLソフトバッグ（プラスチック製））／**ユエキンキープ３号輸液（500mLソフトバッグ（プラスチック製））</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319510'>維持液</a></div></td><td><div>ユエキンキープ輸液（200mLソフトバッグ（プラスチック製））／ユエキンキープ輸液（500mLソフトバッグ（プラスチック製））</div></td><td><div>製造販売元／光製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/650014_3319510A4091_1_03'>PDF(2014年11月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "650014_3319510A4091_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/650014_3319510A4091_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/650014_3319510A4091_1_007_1F.pdf'>F1_ユエキンキープ輸液（200mLソフトバッグ（プラスチック製））／ユエキンキープ輸液（500mLソフトバッグ（プラスチック製））</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319510'>維持液</a></div></td><td><div>ＹＤソリタ−Ｔ３号輸液 (200mL)／ＹＤソリタ−Ｔ３号輸液 (500mL)</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_3319510A4113_1_02'>PDF(2018年05月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_3319510A4113_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_3319510A4113_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_3319510A4113_1_001_1F.pdf'>F1_ＹＤソリタ−Ｔ３号輸液 (200mL)／ＹＤソリタ−Ｔ３号輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319511'>維持液</a></div></td><td><div>ソリタ−Ｔ３号Ｇ輸液(200mL)／ソリタ−Ｔ３号Ｇ輸液(500mL)</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319511A4045_1_02'>PDF(2016年02月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319511A4045_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319511A4045_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/171575_3319511A4045_1_1F.pdf'>F1_ソリタ−Ｔ３号Ｇ輸液(200mL)／ソリタ−Ｔ３号Ｇ輸液(500mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319511'>維持液</a></div></td><td><div>ソルデム３ＡＧ輸液 (200mL)／ソルデム３ＡＧ輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319511A4037_1_03'>PDF(2014年09月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319511A4037_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319511A4037_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319511A4037_1_007_1F.pdf'>F1_ソルデム３ＡＧ輸液 (200mL)／ソルデム３ＡＧ輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319511'>維持液</a></div></td><td><div>ＹＤソリタ−Ｔ３号Ｇ輸液 (200mL)／ＹＤソリタ−Ｔ３号Ｇ輸液 (500mL)</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_3319511A4053_1_02'>PDF(2018年05月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_3319511A4053_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_3319511A4053_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_3319511A4053_1_001_1F.pdf'>F1_ＹＤソリタ−Ｔ３号Ｇ輸液 (200mL)／ＹＤソリタ−Ｔ３号Ｇ輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319512'>維持液</a></div></td><td><div>リプラス3号輸液　（200mL　ポリアル）／リプラス3号輸液　（200mL　バッグ）／リプラス3号輸液　（500mL　ポリアル）／リプラス3号輸液　（500mL　バッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319512A1032_1_04'>PDF(2017年04月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319512A1032_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319512A1032_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3319512A1032_1_H21_1F.pdf'>F1_リプラス3号輸液　（200mL　ポリアル）／リプラス3号輸液　（200mL　バッグ）／リプラス3号輸液　（500mL　ポリアル）／リプラス3号輸液　（500mL　バッグ）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319513'>維持液</a></div></td><td><div>ＫＮ３号輸液（５００ｍL袋）／ＫＮ３号輸液（２００ｍL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319513A3064_1_04'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319513A3064_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319513A3064_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319513A3064_1_001_1F.pdf'>F1_ＫＮ３号輸液（５００ｍL袋）／ＫＮ３号輸液（２００ｍL袋）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319513'>維持液</a></div></td><td><div>ソルデム３輸液 (200mL)／ソルデム３輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319513A3072_1_04'>PDF(2014年09月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319513A3072_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319513A3072_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319513A3072_1_007_1F.pdf'>F1_ソルデム３輸液 (200mL)／ソルデム３輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319514'>維持液</a></div></td><td><div>フルクトラクト注(200mL袋）／フルクトラクト注(500mL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319514A4022_1_04'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319514A4022_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319514A4022_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319514A4022_1_001_1F.pdf'>F1_フルクトラクト注(200mL袋）／フルクトラクト注(500mL袋）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319516'>維持液</a></div></td><td><div>アステマリン3号ＭＧ輸液</div></td><td><div>製造販売元　／マイラン製薬株式会社</div><div>販売　／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_3319516A1049_2_02'>PDF(2013年07月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_3319516A1049_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_3319516A1049_2_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/730612_3319516A1049_2_002_1F.pdf'>F1_アステマリン3号ＭＧ輸液</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319516'>維持液</a></div></td><td><div>フィジオゾール３号輸液</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319516A3041_1_04'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319516A3041_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319516A3041_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319516A3041_1_001_1F.pdf'>F1_フィジオゾール３号輸液</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319518'>維持液</a></div></td><td><div>ＥＬ−３号輸液</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319518A2036_3_02'>PDF(2016年02月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319518A2036_3_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319518A2036_3_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/171575_3319518A2036_3_1F.pdf'>F1_ＥＬ−３号輸液</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319522'>維持液</a></div></td><td><div>ＫＮMG３号輸液</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319522A4035_1_04'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319522A4035_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319522A4035_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319522A4035_1_001_1F.pdf'>F1_ＫＮMG３号輸液</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319506'>維持液</a></div></td><td><div>１０％ＥＬ−３号輸液</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319506A2041_3_02'>PDF(2016年02月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319506A2041_3_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319506A2041_3_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/171575_3319506A2041_3_1F.pdf'>F1_１０％ＥＬ−３号輸液</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319506'>維持液</a></div></td><td><div>ソルデム３ＰＧ輸液 (200mL)／ソルデム３ＰＧ輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319506A2050_1_03'>PDF(2014年09月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319506A2050_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319506A2050_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319506A2050_1_007_1F.pdf'>F1_ソルデム３ＰＧ輸液 (200mL)／ソルデム３ＰＧ輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319401'>塩化アンモニウム</a></div></td><td><div>塩化アンモニウム補正液５ｍＥｑ/ｍＬ</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319401A1044_1_04'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319401A1044_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319401A1044_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319401A1044_1_001_1F.pdf'>F1_塩化アンモニウム補正液５ｍＥｑ/ｍＬ</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319402'>塩化カリウム</a></div></td><td><div>ＫＣＬ補正液１ｍＥｑ／ｍＬ</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319402A2070_1_04'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319402A2070_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319402A2070_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319402A2070_1_001_1F.pdf'>F1_ＫＣＬ補正液１ｍＥｑ／ｍＬ</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319402'>塩化カリウム</a></div></td><td><div>ＫＣＬ補正液キット２０ｍＥｑ</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319402G2030_1_03'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319402G2030_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319402G2030_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319402G2030_1_001_1F.pdf'>F1_*ＫＣＬ補正液キット２０ｍＥｑ</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319402'>塩化カリウム</a></div></td><td><div>ＫＣＬ注１０ｍＥｑキット「テルモ」(10mL)／ＫＣＬ注２０ｍＥｑキット「テルモ」(20mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319402G3028_1_04'>PDF(2008年11月04日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319402G3028_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319402G3028_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319402G3028_1_005_1F.pdf'>F1_ＫＣＬ注１０ｍＥｑキット「テルモ」(10mL)／ＫＣＬ注２０ｍＥｑキット「テルモ」(20mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319403'>塩化ナトリウム</a></div></td><td><div>塩化Ｎａ補正液１ｍＥｑ／ｍＬ</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319403A1035_1_05'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319403A1035_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319403A1035_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319403A1035_1_001_1F.pdf'>F1_塩化Ｎａ補正液１ｍＥｑ／ｍＬ</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319403'>塩化ナトリウム</a></div></td><td><div>塩化Ｎａ補正液２．５ｍＥｑ/ｍＬ</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319403A2040_1_04'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319403A2040_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319403A2040_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319403A2040_1_001_1F.pdf'>F1_塩化Ｎａ補正液２．５ｍＥｑ/ｍＬ</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319403'>塩化ナトリウム</a></div></td><td><div>塩化ナトリウム注１モル シリンジ「テルモ」(20mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319403G2034_1_04'>PDF(2014年12月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319403G2034_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319403G2034_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319403G2034_1_003_1F.pdf'>F1_塩化ナトリウム注１モル シリンジ「テルモ」(20mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319403'>塩化ナトリウム</a></div></td><td><div>塩化ナトリウム注１０％シリンジ「テルモ」(20mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319403G1038_1_05'>PDF(2017年03月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319403G1038_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319403G1038_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319403G1038_1_003_1F.pdf'>F1_塩化ナトリウム注１０％シリンジ「テルモ」(20mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319500'>開始液</a></div></td><td><div>ソリタ−Ｔ１号輸液(200mL)／ソリタ−Ｔ１号輸液(500mL)</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319500A3075_1_02'>PDF(2016年02月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319500A3075_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319500A3075_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/171575_3319500A3075_1_1F.pdf'>F1_ソリタ−Ｔ１号輸液(200mL)／ソリタ−Ｔ１号輸液(500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319500'>開始液</a></div></td><td><div>ソルデム１輸液 (200mL)／ソルデム１輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319500A3067_1_04'>PDF(2014年09月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319500A3067_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319500A3067_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319500A3067_1_007_1F.pdf'>F1_ソルデム１輸液 (200mL)／ソルデム１輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319500'>開始液</a></div></td><td><div>リプラス1号輸液　200mL（ポリアル）／リプラス1号輸液　200mL（バッグ）／リプラス1号輸液　500mL（ポリアル）／リプラス1号輸液　500mL（バッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319500A1099_1_06'>PDF(2017年06月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319500A1099_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319500A1099_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3319500A1099_1_H21_1F.pdf'>F1_リプラス1号輸液　200mL（ポリアル）／リプラス1号輸液　200mL（バッグ）／リプラス1号輸液　500mL（ポリアル）／リプラス1号輸液　500mL（バッグ）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319500'>開始液</a></div></td><td><div>ＹＤソリタ−Ｔ１号輸液 (200mL)／ＹＤソリタ−Ｔ１号輸液 (500mL)</div></td><td><div>製造販売元／株式会社　陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/830001_3319500A3083_1_02'>PDF(2018年05月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "830001_3319500A3083_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/830001_3319500A3083_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/830001_3319500A3083_1_001_1F.pdf'>F1_ＹＤソリタ−Ｔ１号輸液 (200mL)／ＹＤソリタ−Ｔ１号輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319501'>開始液</a></div></td><td><div>ＫＮ１号輸液（５００ｍL袋）／ＫＮ１号輸液（２００ｍL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319501A3045_1_03'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319501A3045_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319501A3045_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319501A3045_1_001_1F.pdf'>F1_ＫＮ１号輸液（５００ｍL袋）／ＫＮ１号輸液（２００ｍL袋）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319501'>開始液</a></div></td><td><div>デノサリン１輸液 (200mL)／デノサリン１輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319501A3053_1_03'>PDF(2014年09月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319501A3053_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319501A3053_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319501A3053_1_004_1F.pdf'>F1_デノサリン１輸液 (200mL)／デノサリン１輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319562'>酢酸維持液（ブドウ糖加）</a></div></td><td><div>ヴィーン３Ｇ輸液（200mLバッグ）／ヴィーン３Ｇ輸液（500mLバッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319562A1065_2_02'>PDF(2017年08月03日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319562A1065_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319562A1065_2_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/670156_3319562A1065_3_H21_1F.pdf'>F1_ヴィーン３Ｇ輸液（200mLバッグ）／ヴィーン３Ｇ輸液（500mLバッグ）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319562'>酢酸維持液（ブドウ糖加）</a></div></td><td><div>アセテート維持液3G「HK」（200mLソフトバッグ（プラスチック製））／アセテート維持液3G「HK」（500mLソフトバッグ（プラスチック製））</div></td><td><div>製造販売元／光製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/650014_3319562A1057_1_02'>PDF(2014年11月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "650014_3319562A1057_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/650014_3319562A1057_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/650014_3319562A1057_1_006_1F.pdf'>F1_*アセテート維持液3G「HK」（200mLソフトバッグ（プラスチック製））／*アセテート維持液3G「HK」（500mLソフトバッグ（プラスチック製））</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319562'>酢酸維持液（ブドウ糖加）</a></div></td><td><div>アセトキープ３Ｇ注（200mL）／アセトキープ ３Ｇ注（500mL瓶）／アセトキープ ３Ｇ注（500mL袋）</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319562A1049_1_08'>PDF(2020年06月23日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319562A1049_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319562A1049_1_08'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3319562A1049_1_004_1F.pdf'>F1_アセトキープ３Ｇ注（200mL）／アセトキープ ３Ｇ注（500mL）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319562'>酢酸維持液（ブドウ糖加）</a></div></td><td><div>アセトキープ ３Ｇ注（500mL瓶）／アセトキープ ３Ｇ注（500mL袋）</div></td><td><div>販売／ニプロ株式会社</div><div>製造販売／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319562A2037_1_07'>PDF(2020年06月23日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319562A2037_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319562A2037_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3319562A2037_1_04D_1F.pdf'>F1_アセトキープ3G注</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319550'>酢酸維持液</a></div></td><td><div>アクチット輸液（200mLバッグ）／アクチット輸液（500mLバッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319550A5092_2_01'>PDF(2017年08月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319550A5092_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319550A5092_2_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/670156_3319550A5092_2_H21_1F.pdf'>F1_アクチット輸液（200mLバッグ）／アクチット輸液（500mLバッグ）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319550'>酢酸維持液</a></div></td><td><div>アクマルト輸液（200mLソフトバッグ（プラスチック製））／アクマルト輸液（500mLソフトバッグ（プラスチック製））</div></td><td><div>製造販売元／光製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/650014_3319550A5084_1_03'>PDF(2014年11月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "650014_3319550A5084_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/650014_3319550A5084_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/650014_3319550A5084_1_009_1F.pdf'>F1_*アクマルト輸液（200mLソフトバッグ（プラスチック製））／アクマルト輸液（500mLソフトバッグ（プラスチック製））</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319550'>酢酸維持液</a></div></td><td><div>エスロンＢ注（500mL袋）／エスロンＢ注（500mL瓶）</div></td><td><div>販売／ニプロ株式会社</div><div>製造販売／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319550A3057_2_10'>PDF(2020年06月23日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319550A3057_2_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319550A3057_2_10'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/270173_3319550A3057_2_005_1F.pdf'>F1_エスロンB注</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319550'>酢酸維持液</a></div></td><td><div>エスロンＢ注（200mL）／エスロンＢ注（500mL袋）／エスロンＢ注（500mL）</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319550A3057_1_14'>PDF(2020年06月23日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319550A3057_1_14"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319550A3057_1_14'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3319550A3057_1_002_1F.pdf'>F1_エスロンＢ注（200mL）／エスロンＢ注（500mL）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319550'>酢酸維持液</a></div></td><td><div>ソルマルト輸液 (200mL)／ソルマルト輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319550A5076_1_03'>PDF(2014年10月03日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319550A5076_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319550A5076_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319550A5076_1_004_1F.pdf'>F1_ソルマルト輸液 (200mL)／ソルマルト輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319550'>酢酸維持液</a></div></td><td><div>ペンライブ注 (200mLボトル)／ペンライブ注 (200mLバッグ)／ペンライブ注 (300mLボトル)／ペンライブ注 (300mLバッグ)／ペンライブ注 (500mLボトル)／ペンライブ注 (500mLバッグ)</div></td><td><div>製造販売元　／マイラン製薬株式会社</div><div>販売　／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_3319550A1046_3_02'>PDF(2013年07月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_3319550A1046_3_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_3319550A1046_3_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/730612_3319550A1046_3_002_1F.pdf'>F1_ペンライブ注 (200mLボトル)／ペンライブ注 (200mLバッグ)／ペンライブ注 (300mLボトル)／ペンライブ注 (300mLバッグ)／ペンライブ注 (500mLボトル)／ペンライブ注 </a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319555'>酢酸維持液</a></div></td><td><div>アルトフェッド注射液　200mL　（ポリアル）／アルトフェッド注射液　200mL　（バッグ）／アルトフェッド注射液　500mL　（ポリアル）／アルトフェッド注射液　500mL　（バッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319555A1022_1_18'>PDF(2020年07月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319555A1022_1_18"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319555A1022_1_18'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3319555A1022_1_H21_1F.pdf'>F1_アルトフェッド注射液　（200mL　ポリアル）／アルトフェッド注射液　（500mL　ポリアル）／アルトフェッド注射液　（500mL　バッグ）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319557'>酢酸リンゲル液</a></div></td><td><div>ソリューゲンF注(500mL瓶)／ソリューゲンF注(500mL袋)</div></td><td><div>発売元／光製薬株式会社</div><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319557A1030_3_10'>PDF(2020年06月23日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319557A1030_3_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319557A1030_3_10'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/270173_3319557A1030_3_005_1F.pdf'>F1_ソリューゲンF注</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319557'>酢酸リンゲル液</a></div></td><td><div>ソリューゲンF注(500mL瓶)／ソリューゲンF注(500mL袋)</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319557A1030_1_13'>PDF(2020年06月23日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319557A1030_1_13"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319557A1030_1_13'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3319557A1030_1_006_1F.pdf'>F1_ソリューゲンF注</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319557'>酢酸リンゲル液</a></div></td><td><div>ソリューゲンF注(500mL瓶)／ソリューゲンF注(500mL袋)</div></td><td><div>販売／ニプロ株式会社</div><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319557A1030_2_09'>PDF(2020年06月23日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319557A1030_2_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319557A1030_2_09'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/270173_3319557A1030_2_004_1F.pdf'>F1_ソリューゲンＦ注</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319557'>酢酸リンゲル液</a></div></td><td><div>ソルアセトＦ輸液 (500mL)／ソルアセトＦ輸液 (1000mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319557A2036_1_03'>PDF(2014年09月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319557A2036_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319557A2036_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319557A2036_1_007_1F.pdf'>F1_ソルアセトＦ輸液 (500mL)／ソルアセトＦ輸液 (1000mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319557'>酢酸リンゲル液</a></div></td><td><div>リナセートF輸液</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319557A2052_1_01'>PDF(2017年12月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319557A2052_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319557A2052_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/171575_3319557A2052_1_1F.pdf'>F1_リナセートF輸液</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319557'>酢酸リンゲル液</a></div></td><td><div>ヴィーンＦ輸液（500mLバッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319557A2044_2_01'>PDF(2017年08月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319557A2044_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319557A2044_2_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/670156_3319557A2044_3_H21_1F.pdf'>F1_ヴィーンＦ輸液（500mLバッグ）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319551'>酢酸リンゲル液（ブドウ糖加）</a></div></td><td><div>ソリューゲンG注(500mL瓶)／ソリューゲンG注(500mL袋)</div></td><td><div>販売／ニプロ株式会社</div><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319551A2047_2_08'>PDF(2020年06月23日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319551A2047_2_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319551A2047_2_08'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/270173_3319551A2047_2_003_1F.pdf'>F1_ソリューゲンG注</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319551'>酢酸リンゲル液（ブドウ糖加）</a></div></td><td><div>ソリューゲンG注(200mL袋)／ソリューゲンG注(300mL袋)／ソリューゲンG注(500mL瓶)／ソリューゲンG注(500mL袋)</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319551A2047_1_13'>PDF(2020年06月23日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319551A2047_1_13"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319551A2047_1_13'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3319551A2047_1_003_1F.pdf'>F1_*ソリューゲンＧ注(200mL)／ソリューゲンＧ注(300mL)／ソリューゲンＧ注(500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319551'>酢酸リンゲル液（ブドウ糖加）</a></div></td><td><div>ペロール注 (300mLボトル)／ペロール注 (300mLバッグ)／ペロール注 (500mLボトル)／ペロール注 (500mLバッグ)</div></td><td><div>製造販売元　／マイラン製薬株式会社</div><div>販売　／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_3319551A1059_3_02'>PDF(2013年10月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_3319551A1059_3_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_3319551A1059_3_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/730612_3319551A1059_3_002_1F.pdf'>F1_ペロール注 (300mLボトル)／ペロール注 (300mLバッグ)／ペロール注 (500mLボトル)／ペロール注 (500mLバッグ)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319551'>酢酸リンゲル液（ブドウ糖加）</a></div></td><td><div>ヴィーンＤ輸液（200mLバッグ）／ヴィーンＤ輸液（500mLバッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319551A4090_2_01'>PDF(2017年08月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319551A4090_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319551A4090_2_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/670156_3319551A4090_2_H21_1F.pdf'>F1_ヴィーンＤ輸液（200mLバッグ）／ヴィーンＤ輸液（500mLバッグ）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319559'>酢酸リンゲル液（ブドウ糖加）</a></div></td><td><div>フィジオ７０輸液</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319559A2035_1_02'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319559A2035_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319559A2035_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319559A2035_1_001_1F.pdf'>F1_フィジオ７０輸液</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319561'>酢酸リンゲル液（ブドウ糖加）</a></div></td><td><div>フィジオ１４０輸液（２５０ｍL袋）／フィジオ１４０輸液（５００ｍL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319561A1036_1_03'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319561A1036_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319561A1036_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319561A1036_1_001_1F.pdf'>F1_*フィジオ１４０輸液（２５０ｍL袋）／*フィジオ１４０輸液（５００ｍL袋）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319563'>重炭酸リンゲル液</a></div></td><td><div>ビカーボン輸液</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319563A2031_3_04'>PDF(2017年04月28日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319563A2031_3_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319563A2031_3_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/171575_3319563A2031_3_1F.pdf'>F1_ビカーボン輸液</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319564'>重炭酸リンゲル液</a></div></td><td><div>ビカネイト輸液（５００ｍL袋）／ビカネイト輸液（１０００ｍL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319564A1021_1_04'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319564A1021_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319564A1021_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319564A1021_1_001_1F.pdf'>F1_ビカネイト輸液（５００ｍL袋）／ビカネイト輸液（１０００ｍL袋）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311400'>１０％塩化ナトリウム</a></div></td><td><div>塩化ナトリウム注10％「日新」</div></td><td><div>製造販売元／日新製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530113_3311400A1092_1_04'>PDF(2016年02月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530113_3311400A1092_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530113_3311400A1092_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530113_3311400A1092_1_003_1F.pdf'>F1_塩化ナトリウム注10％「日新」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311400'>１０％塩化ナトリウム</a></div></td><td><div>塩化ナトリウム注10％「日新」</div></td><td><div>販売元／日本ジェネリック株式会社</div><div>製造販売元／日新製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530113_3311400A1092_2_02'>PDF(2018年09月18日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530113_3311400A1092_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530113_3311400A1092_2_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/530113_3311400A1092_2_002_1F.pdf'>F1_塩化ナトリウム注10％「日新」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311400'>１０％塩化ナトリウム</a></div></td><td><div>塩化ナトリウム注10%「フソー」</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3311400A1106_1_02'>PDF(2017年10月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3311400A1106_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3311400A1106_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3311400A1106_1_H21_1F.pdf'>F1_**塩化ナトリウム注10%「フソー」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311400'>１０％塩化ナトリウム</a></div></td><td><div>塩化ナトリウム注10％「HK」</div></td><td><div>製造販売元／光製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/650014_3311400A1114_1_02'>PDF(2012年12月18日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "650014_3311400A1114_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/650014_3311400A1114_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/650014_3311400A1114_1_004_1F.pdf'>F1_塩化ナトリウム注10％「HK」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311400'>１０％塩化ナトリウム</a></div></td><td><div>大塚食塩注１０％</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3311400A1068_1_06'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3311400A1068_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3311400A1068_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3311400A1068_1_001_1F.pdf'>F1_大塚食塩注１０％</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311400'>１０％塩化ナトリウム</a></div></td><td><div>１０％食塩注「小林」</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3311400A1084_1_05'>PDF(2015年08月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3311400A1084_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3311400A1084_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3311400A1084_1_002_1F.pdf'>F1_１０％食塩注「小林」</a></div><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3311400A1084_1_001_1F.pdf'>F1_１０％食塩注「小林」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311403'>１０％塩化ナトリウム</a></div></td><td><div>10％食塩注シリンジ「タイヨー」</div></td><td><div>販売／武田薬品工業株式会社</div><div>製造販売元／武田テバファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400813_3311403G1030_1_08'>PDF(2017年06月15日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400813_3311403G1030_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400813_3311403G1030_1_08'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400813_3311403G1030_1_004_1F.pdf'>F1_10％食塩注シリンジ「タイヨー」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319523'>術後回復液</a></div></td><td><div>ＫＮ4号輸液</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319523A3041_1_04'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319523A3041_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319523A3041_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319523A3041_1_001_1F.pdf'>F1_ＫＮ4号輸液</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319523'>術後回復液</a></div></td><td><div>ソルデム６輸液 (200mL)／ソルデム６輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319523A3050_1_04'>PDF(2014年09月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319523A3050_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319523A3050_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319523A3050_1_007_1F.pdf'>F1_ソルデム６輸液 (200mL)／ソルデム６輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319524'>術後回復液</a></div></td><td><div>ソリタ−Ｔ４号輸液 (200mL)／ソリタ−Ｔ４号輸液 (500mL)</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319524A3020_1_02'>PDF(2016年02月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319524A3020_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319524A3020_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/171575_3319524A3020_1_1F.pdf'>F1_ソリタ−Ｔ４号輸液 (200mL)／ソリタ−Ｔ４号輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>エポプロステノール静注用0.5mg「ヤンセン」専用溶解用液（生理食塩液）／エポプロステノール静注用1.5mg「ヤンセン」専用溶解用液（生理食塩液）</div></td><td><div>製造販売元／ヤンセンファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/800155_3311401H2105_1_01'>PDF(2020年08月26日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "800155_3311401H2105_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/800155_3311401H2105_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>エポプロステノール静注用0.5mg「ACT」専用溶解用液（生理食塩液）／エポプロステノール静注用1.5mg「ACT」専用溶解用液（生理食塩液）</div></td><td><div>製造販売元／ヤンセンファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/800155_3311401H2091_2_01'>PDF(2020年07月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "800155_3311401H2091_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/800155_3311401H2091_2_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>大塚生食注（２０ｍL管）／大塚生食注（１００ｍL瓶）／大塚生食注（250ｍL瓶）／大塚生食注（500ｍL瓶・細口）／大塚生食注（500ｍL瓶・広口）／大塚生食注（1000mL瓶・細口）／大塚生食注（1000mL瓶・広口）／大塚生食注（500ｍL袋）／大塚生食注（1000mL袋）／大塚生食注（５０ｍL瓶）／大塚生食注（250ｍL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3311401A2026_1_10'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3311401A2026_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3311401A2026_1_10'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3311401A2026_1_003_1F.pdf'>F1_大塚生食注（２０ｍL管）／大塚生食注（１００ｍL瓶）／大塚生食注（250ｍL瓶）／大塚生食注（500ｍL瓶・細口）／大塚生食注（500ｍL瓶・広口）／大塚生食注（1000mL瓶・細口）／大塚生食</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>カーミパック 生理食塩液（500mL）／カーミパック 生理食塩液（1000mL）</div></td><td><div>製造販売元／川澄化学工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/200162_3311401A9039_2_01'>PDF(2011年06月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "200162_3311401A9039_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/200162_3311401A9039_2_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/200162_3311401A9039_2_1F.pdf'>F1_カーミパック 生理食塩液（500mL）／カーミパック 生理食塩液（1000mL）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>カーミパック 生理食塩液（500mL）／カーミパック 生理食塩液（1000mL）／カーミパック 生理食塩液L（1300mL）／カーミパック 生理食塩液L（1500mL）</div></td><td><div>製造販売元／川澄化学工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/200162_3311401A9039_1_05'>PDF(2011年03月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "200162_3311401A9039_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/200162_3311401A9039_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/200162_3311401A9039_1_1F.pdf'>F1_カーミパック 生理食塩液（500mL）／カーミパック 生理食塩液（1000mL）／カーミパック 生理食塩液L（1300mL）／カーミパック 生理食塩液L（1500mL）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>カーミパック 生理食塩液L</div></td><td><div>販売元／テルモ株式会社</div><div>製造販売元／川澄化学工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/200162_3311401H7026_1_03'>PDF(2011年03月31日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "200162_3311401H7026_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/200162_3311401H7026_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/200162_3311401H7026_1_1F.pdf'>F1_カーミパック 生理食塩液L</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食液バッグ100mL「CMX」</div></td><td><div>製造販売（輸入）元／　株式会社ケミックス</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/260054_3311401H4043_1_01'>PDF(2019年01月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "260054_3311401H4043_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/260054_3311401H4043_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/260054_3311401H4043_1_1F.pdf'>F1_生食液バッグ100mL「CMX」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食液「小林」（5ｍＬ：ガラスアンプル）／生食液「小林」（20ｍＬ：ガラスアンプル）</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3311401A1038_1_08'>PDF(2015年04月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3311401A1038_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3311401A1038_1_08'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3311401A1038_1_002_1F.pdf'>F1_生食液「小林」（5ｍＬ：ガラスアンプル）／生食液「小林」（20ｍＬ：ガラスアンプル）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食注「トーワ」</div></td><td><div>製造販売元／東和薬品株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/480235_3311401A2166_1_07'>PDF(2014年11月19日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "480235_3311401A2166_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/480235_3311401A2166_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/480235_3311401A2166_1_002_1F.pdf'>F1_生食注「トーワ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食液100mL「CHM」</div></td><td><div>製造販売（輸入）元／　株式会社ケミックス</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/260054_3311401A3170_1_01'>PDF(2014年11月19日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "260054_3311401A3170_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/260054_3311401A3170_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/260054_3311401A3170_1_1F.pdf'>F1_生食液100mL「CHM」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食注20mL「CMX」</div></td><td><div>販売元／　日医工株式会社</div><div>製造販売（輸入）元／　株式会社ケミックス</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/260054_3311401A2190_2_01'>PDF(2015年07月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "260054_3311401A2190_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/260054_3311401A2190_2_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/260054_3311401A2190_3_1F.pdf'>F1_生食注20mL「CMX」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食注20mL「CMX」</div></td><td><div>製造販売（輸入）元／株式会社ケミックス</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/260054_3311401A2190_1_04'>PDF(2014年10月29日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "260054_3311401A2190_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/260054_3311401A2190_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/260054_3311401A2190_1_1F.pdf'>F1_生食注20mL「CMX」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食注20mL「Hp」</div></td><td><div>製造販売元（輸入元）／原沢製薬工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/630111_3311401A2239_1_03'>PDF(2019年03月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "630111_3311401A2239_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/630111_3311401A2239_1_03'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食液500mL「CMX」</div></td><td><div>販売元／　日医工株式会社</div><div>製造販売（輸入）元／　株式会社ケミックス</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/260054_3311401A7150_1_03'>PDF(2014年11月28日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "260054_3311401A7150_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/260054_3311401A7150_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/260054_3311401A7150_1_1F.pdf'>F1_生食液500mL「CMX」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食液ＮＳ　（ツイストルアーポリエチレンボトル）</div></td><td><div>販売／共和クリティケア株式会社</div><div>製造販売／日新製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530113_3311401A2115_4_09'>PDF(2017年12月18日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530113_3311401A2115_4_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530113_3311401A2115_4_09'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/4/530113_3311401A2115_4_002_1F.pdf'>F1_生食液ＮＳ　（ツイストルアーポリエチレンボトル）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食液ＮＳ（広口ポリエチレン容器）</div></td><td><div>販売／共和クリティケア株式会社</div><div>製造販売／日新製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530113_3311401A2115_8_07'>PDF(2015年04月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530113_3311401A2115_8_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530113_3311401A2115_8_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/8/530113_3311401A2115_8_002_1F.pdf'>F1_生食液ＮＳ（広口ポリエチレン容器）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食液ＮＳ（5mL：ポリエチレン容器）／生食液ＮＳ（20mL：ポリエチレン容器）</div></td><td><div>製造販売元／日新製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530113_3311401A1097_1_02'>PDF(2016年02月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530113_3311401A1097_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530113_3311401A1097_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530113_3311401A1097_1_002_1F.pdf'>F1_*生食液ＮＳ（5mL：ポリエチレン容器）／生食液ＮＳ（20mL：ポリエチレン容器）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食液ＮＳ（５mL：ポリエチレンボトル）／生食液ＮＳ（20mL：ポリエチレンボトル）</div></td><td><div>販売元／日本ジェネリック株式会社</div><div>製造販売元／日新製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530113_3311401A1097_3_03'>PDF(2018年04月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530113_3311401A1097_3_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530113_3311401A1097_3_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/530113_3311401A1097_3_002_1F.pdf'>F1_生食液ＮＳ（５mL：ポリエチレンボトル）／生食液ＮＳ（20mL：ポリエチレンボトル）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生食液ＮＳ（ポリエチレン容器）</div></td><td><div>製造販売／日新製薬株式会社</div><div>販売／ファイザー株式会社</div><div>提携／マイラン製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530113_3311401A2115_3_10'>PDF(2018年09月03日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530113_3311401A2115_3_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530113_3311401A2115_3_10'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/530113_3311401A2115_3_002_1F.pdf'>F1_生食液ＮＳ（ポリエチレン容器）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液「ヒカリ」（20mLプラスチックアンプル）／生理食塩液「ヒカリ」（50mLプラスチックボトル）／生理食塩液「ヒカリ」（100mLプラスチックボトル）／生理食塩液「ヒカリ」（100mLプラスチックボトル細口開栓型）／生理食塩液「ヒカリ」（250mLソフトバッグ）／生理食塩液「ヒカリ」（500mLプラスチックボトル）／生理食塩液「ヒカリ」（500mLソフトバッグ）／生理食塩液「ヒカリ」（500mLプラスチックボトル広口開栓型）／生理食塩液「ヒカリ」（500mLプラスチックボトル細口開栓型）／生理食塩液「ヒカリ」（1000mLソフトバッグ）／生理食塩液「ヒカリ」（1000mLプラスチックボトル広口開栓型）／生理食塩液「ヒカリ」（1000mLプラスチックボトル細口開栓型）</div></td><td><div>製造販売元／光製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/650014_3311401A2212_1_06'>PDF(2019年02月14日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "650014_3311401A2212_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/650014_3311401A2212_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/650014_3311401A2212_1_011_1F.pdf'>F1_生理食塩液「ヒカリ」（20mLプラスチックアンプル）／生理食塩液「ヒカリ」（50mLプラスチックボトル）／生理食塩液「ヒカリ」（100mLプラスチックボトル）／**生理食塩液「ヒカリ」（100m</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液「ヒカリ」（50mLプラスチックボトル）／生理食塩液「ヒカリ」（100mLプラスチックボトル）／生理食塩液「ヒカリ」（500mLプラスチックボトル広口開栓型）／生理食塩液「ヒカリ」（500mLプラスチックボトル細口開栓型）</div></td><td><div>販売／共和クリティケア株式会社</div><div>製造販売元／光製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/650014_3311401A3065_1_06'>PDF(2015年04月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "650014_3311401A3065_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/650014_3311401A3065_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/650014_3311401A3065_1_005_1F.pdf'>F1_生理食塩液「ヒカリ」（50mLプラスチックボトル）／生理食塩液「ヒカリ」（100mLプラスチックボトル）／生理食塩液「ヒカリ」（500mLプラスチックボトル広口開栓型）／生理食塩液「ヒカリ」（5</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液「フソー」</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3311401A1089_1_03'>PDF(2017年09月14日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3311401A1089_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3311401A1089_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3311401A1089_1_H21_1F.pdf'>F1_*生理食塩液「フソー」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液「フソー」</div></td><td><div>販売元／アルフレッサ ファーマ株式会社</div><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3311401A1089_3_04'>PDF(2017年09月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3311401A1089_3_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3311401A1089_3_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/670156_3311401A1089_3_H21_1F.pdf'>F1_*生理食塩液「フソー」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液「マイラン」</div></td><td><div>発売元／沢井製薬株式会社</div><div>製造販売元（輸入元）／マイラン製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_3311401A2255_2_02'>PDF(2019年11月29日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_3311401A2255_2_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_3311401A2255_2_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/730612_3311401A2255_2_002_1F.pdf'>F1_**生理食塩液「マイラン」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液「マイラン」（20mL）／生理食塩液「マイラン」（100mL）／生理食塩液「マイラン」（250mL）／生理食塩液「マイラン」（500mL）</div></td><td><div>製造販売元（輸入元）／マイラン製薬株式会社</div><div>販売／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_3311401A2255_1_02'>PDF(2019年11月29日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_3311401A2255_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_3311401A2255_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/730612_3311401A2255_1_002_1F.pdf'>F1_※※生理食塩液「マイラン」（20mL）／※※生理食塩液「マイラン」（100mL）／※※生理食塩液「マイラン」（250mL）／※※生理食塩液「マイラン」（500mL）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液バッグ「フソー」　250mL／生理食塩液バッグ「フソー」　500mL／生理食塩液バッグ「フソー」　1000mL／生理食塩液バッグ「フソー」　1500mL</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3311401A9110_1_06'>PDF(2018年06月18日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3311401A9110_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3311401A9110_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3311401A9110_1_H21_1F.pdf'>F1_生理食塩液バッグ「フソー」　250mL／生理食塩液バッグ「フソー」　500mL／生理食塩液バッグ「フソー」　1000mL／生理食塩液バッグ「フソー」　1500mL</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液バッグ「フソー」　1000mL</div></td><td><div>発売元／光製薬株式会社</div><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3311401H1117_2_01'>PDF(2019年03月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3311401H1117_2_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3311401H1117_2_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/670156_3311401H1117_1_H21_1F.pdf'>F1_生理食塩液バッグ「フソー」　1000mL</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液「ＡＹ」</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3311401A9136_1_01'>PDF(2016年06月10日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3311401A9136_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3311401A9136_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/171575_3311401A9136_1_1F.pdf'>F1_生理食塩液「ＡＹ」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液「NP」（250mL）／生理食塩液「NP」（500mL）</div></td><td><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_3311401A9128_1_01'>PDF(2020年05月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_3311401A9128_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_3311401A9128_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530100_3311401A9128_1_02C_1F.pdf'>生理食塩液「NP」（250mL）／生理食塩液「NP」（500mL）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液「NP」(５mL：ガラスアンプル)／生理食塩液「NP」(20mL：プラスチックアンプル)</div></td><td><div>製造販売（輸入：５mL）／製造販売（20mL）／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_3311401A1100_1_04'>PDF(2020年05月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_3311401A1100_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_3311401A1100_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530100_3311401A1100_1_02C_1F.pdf'>F1_生理食塩液「NP」(５mL：ガラスアンプル)／生理食塩液「NP」(20mL：プラスチックアンプル)／生理食塩液「NP」(250mL：プラスチックバッグ)／生理食塩液「NP」(500mL：プラスチ</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液PL「フソー」 20mL（スノープル）／生理食塩液PL「フソー」 50mL（スタンダブル）／生理食塩液PL「フソー」 100mL（スタンダブル）／生理食塩液PL「フソー」 100mL（ダブル）／生理食塩液PL「フソー」 200mL（スタンダブル）／生理食塩液PL「フソー」 500mL（スタンダブル）／生理食塩液PL「フソー」 500mL（ダブル）／生理食塩液PL「フソー」 1000mL（ダブル）／生理食塩液PL「フソー」 2000mL（バッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3311401A2204_1_10'>PDF(2019年08月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3311401A2204_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3311401A2204_1_10'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3311401A2204_1_H21_1F.pdf'>F1_生理食塩液PL「フソー」 20mL（スノープル）／生理食塩液PL「フソー」 50mL（スタンダブル）／生理食塩液PL「フソー」 100mL（スタンダブル）／生理食塩液PL「フソー」 100mL（</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>生理食塩液SN</div></td><td><div>製造販売（輸入）元／シオノケミカル株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340409_3311401A2174_1_06'>PDF(2014年06月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340409_3311401A2174_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340409_3311401A2174_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/340409_3311401A2174_1_001_1F.pdf'>F1_生理食塩液SN</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311401'>生理食塩液</a></div></td><td><div>テルモ生食 (100mL)／テルモ生食 (250mL)／テルモ生食 (500mL)／テルモ生食 (1000mL)／テルモ生食 (1300mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3311401A9071_1_09'>PDF(2014年08月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3311401A9071_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3311401A9071_1_09'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3311401A9071_1_006_1F.pdf'>F1_テルモ生食 (100mL)／テルモ生食 (250mL)／テルモ生食 (500mL)／テルモ生食 (1000mL)／テルモ生食 (1300mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>大塚生食注ＴＮ（１００ｍＬキット）／大塚生食注ＴＮ（５０ｍＬキット）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3311402G1027_1_08'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3311402G1027_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3311402G1027_1_08'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3311402G1027_1_001_1F.pdf'>F1_大塚生食注ＴＮ（１００ｍＬキット）／大塚生食注ＴＮ（５０ｍＬキット）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>生食溶解液キットＨ(50mL)／生食溶解液キットＨ(100mL)</div></td><td><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_3311402G2023_7_03'>PDF(2018年06月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_3311402G2023_7_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_3311402G2023_7_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/7/530100_3311402G2023_7_04D_1F.pdf'>F1_生食溶解液キットＨ(50mL)／生食溶解液キットＨ(100mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>生食溶解液キットＨ(50mL)／生食溶解液キットＨ(100mL)</div></td><td><div>発売／光製薬株式会社</div><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_3311402G2023_8_03'>PDF(2018年06月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_3311402G2023_8_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_3311402G2023_8_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/8/530100_3311402G2023_3_005_1F.pdf'>F1_生食溶解液キットＨ(50mL)／生食溶解液キットＨ(100mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>生食注キット「フソー」（50mL）／生食注キット「フソー」（100mL）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3311402G5049_1_06'>PDF(2019年01月24日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3311402G5049_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3311402G5049_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3311402G5049_4_H21_1F.pdf'>F1_生食注キット「フソー」（50mL）／生食注キット「フソー」（100mL）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>テルモ生食ＴＫ (100mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3311402G6037_1_05'>PDF(2017年04月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3311402G6037_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3311402G6037_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3311402G6037_1_003_1F.pdf'>F1_テルモ生食ＴＫ (100mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>テルモ生食ＴＫ (50mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3311402P5022_1_01'>PDF(2017年04月24日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3311402P5022_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3311402P5022_1_01'>SGML</a></div></td><td></td><td></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>生食注シリンジ「オーツカ」１０ｍL／生食注シリンジ「オーツカ」２０ｍL／生食注シリンジ「オーツカ」５ｍL</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3311402G7050_1_06'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3311402G7050_1_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3311402G7050_1_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3311402G7050_1_001_1F.pdf'>F1_生食注シリンジ「オーツカ」１０ｍL／生食注シリンジ「オーツカ」２０ｍL／生食注シリンジ「オーツカ」５ｍL</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>生食注シリンジ「テバ」5mL／生食注シリンジ「テバ」10mL／生食注シリンジ「テバ」20mL</div></td><td><div>販売／武田薬品工業株式会社</div><div>製造販売元／武田テバファーマ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/400813_3311402G7092_1_03'>PDF(2017年05月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "400813_3311402G7092_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/400813_3311402G7092_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/400813_3311402G7092_1_003_1F.pdf'>F1_生食注シリンジ「テバ」5mL／生食注シリンジ「テバ」10mL／生食注シリンジ「テバ」20mL</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>生食注シリンジ「テルモ」5mL／生食注シリンジ「テルモ」10mL</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3311402G7084_1_02'>PDF(2017年04月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3311402G7084_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3311402G7084_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3311402G7084_1_001_1F.pdf'>F1_生食注シリンジ「テルモ」5mL／生食注シリンジ「テルモ」10mL</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>生食注シリンジ50mL「ニプロ」</div></td><td><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_3311402P6029_1_02'>PDF(2017年07月24日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_3311402P6029_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_3311402P6029_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530100_3311402P6029_1_03C_1F.pdf'>F1_生食注シリンジ50mL「ニプロ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>生食注シリンジ「NP」（５mL）／生食注シリンジ「NP」（10mL）／生食注シリンジ「NP」（20mL）</div></td><td><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_3311402G7025_3_06'>PDF(2019年10月28日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_3311402G7025_3_06"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_3311402G7025_3_06'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/530100_3311402G7025_3_06G_1F.pdf'>F1_生食注シリンジ「NP」（５mL）／生食注シリンジ「NP」（10mL）／生食注シリンジ「NP」（20mL）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>生食注シリンジ「ＳＮ」５ｍＬ／生食注シリンジ「ＳＮ」１０ｍＬ／生食注シリンジ「ＳＮ」２０ｍＬ</div></td><td><div>発売元／光製薬株式会社</div><div>製造販売元／シオノケミカル株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/340409_3311402G7068_2_04'>PDF(2018年01月10日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "340409_3311402G7068_2_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/340409_3311402G7068_2_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/340409_3311402G7068_2_003_1F.pdf'>F1_生食注シリンジ「ＳＮ」５ｍＬ／生食注シリンジ「ＳＮ」１０ｍＬ／生食注シリンジ「ＳＮ」２０ｍＬ</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>大塚生食注２ポート５０ｍＬ</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3311402P3020_1_05'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3311402P3020_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3311402P3020_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3311402P3020_1_001_1F.pdf'>F1_大塚生食注２ポート５０ｍＬ</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3311402'>生理食塩液</a></div></td><td><div>大塚生食注２ポート１００ｍＬ</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3311402G9036_1_04'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3311402G9036_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3311402G9036_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3311402G9036_1_001_1F.pdf'>F1_大塚生食注２ポート１００ｍＬ</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319529'>脱水補給液</a></div></td><td><div>ソルデム２輸液 (200mL)／ソルデム２輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319529A2042_1_04'>PDF(2014年09月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319529A2042_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319529A2042_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319529A2042_1_007_1F.pdf'>F1_ソルデム２輸液 (200mL)／ソルデム２輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319530'>脱水補給液</a></div></td><td><div>ＫＮ2号輸液</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319530A2037_1_05'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319530A2037_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319530A2037_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319530A2037_1_001_1F.pdf'>F1_ＫＮ2号輸液</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319531'>脱水補給液</a></div></td><td><div>ソリタ−Ｔ２号輸液 (200mL)／ソリタ−Ｔ２号輸液 (500mL)</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319531A3020_1_02'>PDF(2016年02月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319531A3020_1_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319531A3020_1_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/171575_3319531A3020_1_1F.pdf'>F1_ソリタ−Ｔ２号輸液 (200mL)／ソリタ−Ｔ２号輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319505'>デキストラン４０・ブドウ糖</a></div></td><td><div>低分子デキストラン糖注</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319505A2020_1_07'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319505A2020_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319505A2020_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319505A2020_1_001_1F.pdf'>F1_低分子デキストラン糖注</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319404'>乳酸ナトリウム</a></div></td><td><div>乳酸Ｎａ補正液１ｍＥｑ／ｍＬ</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319404A1064_1_05'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319404A1064_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319404A1064_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319404A1064_1_001_1F.pdf'>F1_乳酸Ｎａ補正液１ｍＥｑ／ｍＬ</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319534'>乳酸リンゲル液</a></div></td><td><div>ソルラクト輸液 (250mL)／ソルラクト輸液 (500mL)／ソルラクト輸液 (1000mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319534A4160_1_07'>PDF(2017年03月03日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319534A4160_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319534A4160_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319534A4160_1_007_1F.pdf'>F1_ソルラクト輸液 (250mL)／ソルラクト輸液 (500mL)／ソルラクト輸液 (1000mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319534'>乳酸リンゲル液</a></div></td><td><div>ニソリ輸液</div></td><td><div>製造販売元　／マイラン製薬株式会社</div><div>販売　／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_3319534A3147_2_04'>PDF(2014年06月10日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_3319534A3147_2_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_3319534A3147_2_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/730612_3319534A3147_2_004_1F.pdf'>F1_ニソリ輸液</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319534'>乳酸リンゲル液</a></div></td><td><div>ハルトマン液「コバヤシ」（500mL瓶）／ハルトマン液「コバヤシ」（500mL袋）</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319534A3066_1_10'>PDF(2020年09月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319534A3066_1_10"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319534A3066_1_10'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/270173_3319534A3066_1_002_1F.pdf'>F1_ハルトマン液「コバヤシ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319534'>乳酸リンゲル液</a></div></td><td><div>ハルトマン輸液「NP」</div></td><td><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_3319534A4178_1_01'>PDF(2014年01月15日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_3319534A4178_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_3319534A4178_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530100_3319534A4178_1_01A_1F.pdf'>F1_ハルトマン輸液「NP」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319534'>乳酸リンゲル液</a></div></td><td><div>ハルトマン輸液pH８「NP」（1000mL）</div></td><td><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_3319534A6138_1_01'>PDF(2020年05月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_3319534A6138_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_3319534A6138_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530100_3319534A6138_1_03C_1F.pdf'>ハルトマン輸液pH８「NP」（1000mL）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319534'>乳酸リンゲル液</a></div></td><td><div>ハルトマン輸液pH８「NP」（500mL）</div></td><td><div>製造販売／ニプロ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/530100_3319534A4186_1_07'>PDF(2020年05月20日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "530100_3319534A4186_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/530100_3319534A4186_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/530100_3319534A4186_1_03C_1F.pdf'>F1_**,*ハルトマン輸液pH８「NP」（500mL）／**,*ハルトマン輸液pH８「NP」（1,000mL）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319534'>乳酸リンゲル液</a></div></td><td><div>ラクテック注(500mL袋）／ラクテック注(1000mL袋）／ラクテック注(250mL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319534A4046_1_04'>PDF(2017年02月17日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319534A4046_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319534A4046_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319534A4046_1_001_1F.pdf'>F1_ラクテック注(500mL袋）／ラクテック注(1000mL袋）／ラクテック注(250mL袋）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319534'>乳酸リンゲル液</a></div></td><td><div>ラクトリンゲル液"フソー"200mL　（ポリアル）／ラクトリンゲル液"フソー"200mL　（バッグ）／ラクトリンゲル液"フソー"500mL　（ポリアル）／ラクトリンゲル液"フソー"500mL　（バッグ）／ラクトリンゲル液"フソー"1000mL　（バッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319534A3120_1_22'>PDF(2020年07月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319534A3120_1_22"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319534A3120_1_22'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3319534A3120_1_H21_1F.pdf'>F1_ラクトリンゲル液"フソー"（200mL　ポリアル）／ラクトリンゲル液"フソー"（500mL　ポリアル）／ラクトリンゲル液"フソー"（500mL　バッグ）／ラクトリンゲル液"フソー"（1000mL</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319535'>乳酸リンゲル液（ソルビトール加）</a></div></td><td><div>ソルラクトＳ輸液 (250mL)／ソルラクトＳ輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319535A5071_1_05'>PDF(2014年08月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319535A5071_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319535A5071_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319535A5071_1_007_1F.pdf'>F1_ソルラクトＳ輸液 (250mL)／ソルラクトＳ輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319535'>乳酸リンゲル液（ソルビトール加）</a></div></td><td><div>ニソリ・Ｓ注</div></td><td><div>製造販売元　／マイラン製薬株式会社</div><div>販売　／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_3319535A4075_3_03'>PDF(2013年08月30日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_3319535A4075_3_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_3319535A4075_3_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/730612_3319535A4075_3_003_1F.pdf'>F1_ニソリ・Ｓ注</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319535'>乳酸リンゲル液（ソルビトール加）</a></div></td><td><div>ラクテックG輸液(500mL袋）／ラクテックＧ輸液(250mL袋）／ラクテックG輸液(1000mL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319535A5080_1_05'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319535A5080_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319535A5080_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319535A5080_1_001_1F.pdf'>F1_ラクテックG輸液(500mL袋）／ラクテックＧ輸液(250mL袋）／ラクテックG輸液(1000mL袋）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319535'>乳酸リンゲル液（ソルビトール加）</a></div></td><td><div>ラクトリンゲルS注「フソー」　（200mL　ポリアル）／ラクトリンゲルS注「フソー」　（200mL　バッグ）／ラクトリンゲルS注「フソー」　（500mL　ポリアル）／ラクトリンゲルS注「フソー」　（500mL　バッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319535A1025_1_14'>PDF(2017年09月14日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319535A1025_1_14"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319535A1025_1_14'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3319535A1025_1_H21_1F.pdf'>F1_ラクトリンゲルS注「フソー」　（200mL　ポリアル）／ラクトリンゲルS注「フソー」　（200mL　バッグ）／ラクトリンゲルS注「フソー」　（500mL　ポリアル）／ラクトリンゲルS注「フソー」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319536'>乳酸リンゲル液（デキストラン４０加）</a></div></td><td><div>低分子デキストランＬ注（500mL袋）／低分子デキストランＬ注（250mL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319536A3022_1_09'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319536A3022_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319536A3022_1_09'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319536A3022_1_001_1F.pdf'>F1_低分子デキストランＬ注（500mL袋）／低分子デキストランＬ注（250mL袋）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319554'>乳酸リンゲル液（デキストラン４０加）</a></div></td><td><div>サヴィオゾール輸液</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319554A4043_1_04'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319554A4043_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319554A4043_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319554A4043_1_001_1F.pdf'>F1_サヴィオゾール輸液</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319537'>乳酸リンゲル液（ブドウ糖加）</a></div></td><td><div>ソルラクトＤ輸液 (250mL)／ソルラクトＤ輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319537A2047_1_05'>PDF(2014年08月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319537A2047_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319537A2047_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319537A2047_1_007_1F.pdf'>F1_ソルラクトＤ輸液 (250mL)／ソルラクトＤ輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319537'>乳酸リンゲル液（ブドウ糖加）</a></div></td><td><div>ハルトマンＤ液「小林」（500mL瓶）／ハルトマンＤ液「小林」（500mL袋）</div></td><td><div>製造販売元／共和クリティケア株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/270173_3319537A1075_2_09'>PDF(2020年09月01日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "270173_3319537A1075_2_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/270173_3319537A1075_2_09'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/2/270173_3319537A1075_2_001_1F.pdf'>F1_ハルトマンＤ液「小林」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319537'>乳酸リンゲル液（ブドウ糖加）</a></div></td><td><div>ラクテックＤ輸液</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319537A2055_1_05'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319537A2055_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319537A2055_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319537A2055_1_001_1F.pdf'>F1_ラクテックＤ輸液</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319538'>乳酸リンゲル液（マルトース加）</a></div></td><td><div>ソルラクトＴＭＲ輸液 (250mL)／ソルラクトＴＭＲ輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319538A4095_1_04'>PDF(2014年08月08日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319538A4095_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319538A4095_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319538A4095_1_007_1F.pdf'>F1_ソルラクトＴＭＲ輸液 (250mL)／ソルラクトＴＭＲ輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319538'>乳酸リンゲル液（マルトース加）</a></div></td><td><div>ニソリM注（250mLボトル）／ニソリM注（250mLバッグ）／ニソリM注（500mLボトル）／ニソリM注（500mLバッグ）</div></td><td><div>製造販売元　／マイラン製薬株式会社</div><div>販売　／ファイザー株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/730612_3319538A1037_3_02'>PDF(2013年08月30日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "730612_3319538A1037_3_02"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/730612_3319538A1037_3_02'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/3/730612_3319538A1037_3_002_1F.pdf'>F1_ニソリM注（250mLボトル）／ニソリM注（250mLバッグ）／ニソリM注（500mLボトル）／ニソリM注（500mLバッグ）</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319538'>乳酸リンゲル液（マルトース加）</a></div></td><td><div>ポタコールＲ輸液(500mL袋）／ポタコールＲ輸液(250mL袋）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319538A4109_1_05'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319538A4109_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319538A4109_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319538A4109_1_001_1F.pdf'>F1_ポタコールＲ輸液(500mL袋）／ポタコールＲ輸液(250mL袋）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319538'>乳酸リンゲル液（マルトース加）</a></div></td><td><div>ラクトリンゲルM注「フソー」　200mL（ポリアル）／ラクトリンゲルM注「フソー」　200mL（バッグ）／ラクトリンゲルM注「フソー」　500mL（ポリアル）／ラクトリンゲルM注「フソー」　500mL（バッグ）</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319538A2092_1_14'>PDF(2017年03月22日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319538A2092_1_14"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319538A2092_1_14'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3319538A2092_1_H21_1F.pdf'>F1_ラクトリンゲルM注「フソー」　200mL（ポリアル）／ラクトリンゲルM注「フソー」　200mL（バッグ）／ラクトリンゲルM注「フソー」　500mL（ポリアル）／ラクトリンゲルM注「フソー」　50</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319547'>ヒドロキシエチルデンプン７００００配合剤</a></div></td><td><div>ヘスパンダー輸液</div></td><td><div>販売提携／大塚製薬株式会社</div><div>販売提携／株式会社大塚製薬工場</div><div>製造販売元／フレゼニウス カービ ジャパン株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/671147_3319547A4035_1_09'>PDF(2020年05月18日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "671147_3319547A4035_1_09"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/671147_3319547A4035_1_09'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/671147_3319547A4035_1_003_1F.pdf'>F1_ヘスパンダー輸液</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319400'>ヒドロキシエチルデンプン７００００</a></div></td><td><div>サリンヘス輸液6％</div></td><td><div>販売提携／大塚製薬株式会社</div><div>販売提携／株式会社大塚製薬工場</div><div>製造販売元／フレゼニウス カービ ジャパン株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/671147_3319400A2046_1_07'>PDF(2020年05月18日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "671147_3319400A2046_1_07"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/671147_3319400A2046_1_07'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/671147_3319400A2046_1_005_1F.pdf'>F1_サリンヘス輸液6％</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319408'>ヒドロキシエチルデンプン１３００００</a></div></td><td><div>ボルベン輸液6％（シングルポート）</div></td><td><div>販売提携／大塚製薬株式会社</div><div>販売提携／株式会社大塚製薬工場</div><div>製造販売元／フレゼニウス カービ ジャパン株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/671147_3319408A1020_1_08'>PDF(2020年05月18日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "671147_3319408A1020_1_08"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/671147_3319408A1020_1_08'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/671147_3319408A1020_1_005_1F.pdf'>F1_ボルベン輸液6％（シングルポート）</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319551'>酢酸リンゲル液（ブドウ糖加）</a></div></td><td><div>アクメイン注（200mLソフトバッグ（プラスチック製））／アクメイン注（500mLプラスチックボトル）／アクメイン注（500mLソフトバッグ（プラスチック製））</div></td><td><div>製造販売元／光製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/650014_3319551A2020_1_04'>PDF(2014年11月13日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "650014_3319551A2020_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/650014_3319551A2020_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/650014_3319551A2020_1_009_1F.pdf'>F1_*アクメイン注（200mLソフトバッグ（プラスチック製））／アクメイン注（500mLプラスチックボトル）／アクメイン注（500mLソフトバッグ（プラスチック製））</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319551'>酢酸リンゲル液（ブドウ糖加）</a></div></td><td><div>アクメインD輸液（200mLソフトバッグ（プラスチック製））／アクメインD輸液（500mLプラスチックボトル）／アクメインD輸液（500mLソフトバッグ（プラスチック製））</div></td><td><div>製造販売元／光製薬株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/650014_3319551A2071_1_01'>PDF(2020年06月19日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "650014_3319551A2071_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/650014_3319551A2071_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/650014_3319551A2071_1_001_1F.pdf'>**アクメインD輸液（200mLソフトバッグ（プラスチック製））／**アクメインD輸液（500mLプラスチックボトル）／**アクメインD輸液（500mLソフトバッグ（プラスチック製））</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319551'>酢酸リンゲル液（ブドウ糖加）</a></div></td><td><div>リナセートD輸液</div></td><td><div>製造販売元／エイワイファーマ株式会社</div><div>販売元／株式会社陽進堂</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/171575_3319551A4104_1_01'>PDF(2017年12月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "171575_3319551A4104_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/171575_3319551A4104_1_01'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/171575_3319551A4104_1_1F.pdf'>F1_リナセートD輸液</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319551'>酢酸リンゲル液（ブドウ糖加）</a></div></td><td><div>ソルアセトＤ輸液 (250mL)／ソルアセトＤ輸液 (500mL)</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319551A4074_1_03'>PDF(2014年09月05日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319551A4074_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319551A4074_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/470034_3319551A4074_1_007_1F.pdf'>F1_ソルアセトＤ輸液 (250mL)／ソルアセトＤ輸液 (500mL)</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319539'>リンゲル液</a></div></td><td><div>リンゲル液「オーツカ」</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319539A2020_1_03'>PDF(2016年12月16日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319539A2020_1_03"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319539A2020_1_03'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319539A2020_1_001_1F.pdf'>F1_リンゲル液「オーツカ」</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319539'>リンゲル液</a></div></td><td><div>リンゲル液「フソー」</div></td><td><div>製造販売元／扶桑薬品工業株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/670156_3319539A1082_1_05'>PDF(2017年03月14日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "670156_3319539A1082_1_05"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/670156_3319539A1082_1_05'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/670156_3319539A1082_3_H21_1F.pdf'>F1_リンゲル液「フソー」</a></div></td></tr>
+<tr class='TrColor02'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319407'>リン酸水素ナトリウム水和物・リン酸二水素ナトリウム水和物</a></div></td><td><div>リン酸Ｎａ補正液０．５ｍｍoｌ／ｍＬ</div></td><td><div>販売提携／大塚製薬株式会社</div><div>製造販売元／株式会社大塚製薬工場</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/180079_3319407A1025_1_04'>PDF(2014年11月11日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "180079_3319407A1025_1_04"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/180079_3319407A1025_1_04'>SGML</a></div></td><td></td><td><div class='singles'><a target='_blank' href='https://www.info.pmda.go.jp/go/interview/1/180079_3319407A1025_1_001_1F.pdf'>F1_リン酸Ｎａ補正液０．５ｍｍoｌ／ｍＬ</a></div></td></tr>
+<tr class='TrColor01'>
+<td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/GeneralList/3319406'>リン酸二カリウム</a></div></td><td><div>リン酸２カリウム注２０ｍＥｑキット「テルモ」</div></td><td><div>製造販売元／テルモ株式会社</div></td><td><div><a target='_blank' href='/PmdaSearch/iyakuDetail/ResultDataSetPDF/470034_3319406G2020_1_01'>PDF(2007年12月29日)</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='javascript:void(0);' onclick='javascript:detailDisp("PmdaSearch", "470034_3319406G2020_1_01"); return false;'>HTML</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href='/PmdaSearch/iyakuDetail/ResultDataSetSGM/470034_3319406G2020_1_01'>SGML</a></div></td><td></td><td></td></tr>
+</table>
+<div class='SearchResultMenu mt_15'>
+<p class='col23 PageNavi'><strong>検索結果161件／全1ページ</strong><BR><BR>
+<span>1</span></p>
+</div><!-- / #SearchResultMenu -->
+</div><!-- / #SearchWrap02 -->
+</div><!--- / .SearchScrollInr -->
+
+
+
+<!-- add 2.01: Form情報を画面に保持する -->
+<input type="hidden" name="nameWord" value="" id="nameWord">
+<input type="hidden" name="iyakuHowtoNameSearchRadioValue" value="1" id="iyakuHowtoNameSearchRadioValue">
+<input type="hidden" name="howtoMatchRadioValue" value="1" id="howtoMatchRadioValue">
+<input type="hidden" name="effectValue" value="331" id="effectValue">
+<input type="hidden" name="infoindicationsorefficacy" value="" id="infoindicationsorefficacy">
+<input type="hidden" name="infoindicationsorefficacyHowtoSearch" value="and" id="infoindicationsorefficacyHowtoSearch">
+<input type="hidden" name="warnings" value="" id="warnings">
+<input type="hidden" name="warningsHowtoSearch" value="and" id="warningsHowtoSearch">
+<input type="hidden" name="contraindicationsAvoidedadministration" value="" id="contraindicationsAvoidedadministration">
+<input type="hidden" name="contraindicationsAvoidedadministrationHowtoSearch" value="and" id="contraindicationsAvoidedadministrationHowtoSearch">
+<input type="hidden" name="contraindicatedcombinationPrecautionsforcombination" value="" id="contraindicatedcombinationPrecautionsforcombination">
+<input type="hidden" name="contraindicatedcombinationPrecautionsforcombinationHowtoSearch" value="and" id="contraindicatedcombinationPrecautionsforcombinationHowtoSearch">
+
+	<input type="hidden" name="dispColumnsList[0]" value="1" id="dispColumns0">
+
+	<input type="hidden" name="dispColumnsList[1]" value="2" id="dispColumns1">
+
+	<input type="hidden" name="dispColumnsList[2]" value="3" id="dispColumns2">
+
+	<input type="hidden" name="dispColumnsList[3]" value="" id="dispColumns3">
+
+	<input type="hidden" name="dispColumnsList[4]" value="" id="dispColumns4">
+
+	<input type="hidden" name="dispColumnsList[5]" value="" id="dispColumns5">
+
+	<input type="hidden" name="dispColumnsList[6]" value="" id="dispColumns6">
+
+	<input type="hidden" name="dispColumnsList[7]" value="" id="dispColumns7">
+
+	<input type="hidden" name="dispColumnsList[8]" value="" id="dispColumns8">
+
+	<input type="hidden" name="dispColumnsList[9]" value="" id="dispColumns9">
+
+	<input type="hidden" name="dispColumnsList[10]" value="" id="dispColumns10">
+
+	<input type="hidden" name="dispColumnsList[11]" value="" id="dispColumns11">
+
+	<input type="hidden" name="dispColumnsList[12]" value="" id="dispColumns12">
+
+	<input type="hidden" name="dispColumnsList[13]" value="" id="dispColumns13">
+
+	<input type="hidden" name="dispColumnsList[14]" value="" id="dispColumns14">
+
+	<input type="hidden" name="dispColumnsList[15]" value="" id="dispColumns15">
+
+<input type="hidden" name="changeColumnsList" value="" id="changeColumnsList">
+<input type="hidden" name="updateDocFrDt" value="年月日 [YYYYMMDD]" id="updateDocFrDt">
+<input type="hidden" name="updateDocToDt" value="年月日 [YYYYMMDD]" id="updateDocToDt">
+<input type="hidden" name="tglOpFlg" value="" id="tglOpFlg">
+<input type="hidden" name="compNameWord" value="" id="compNameWord">
+<input type="hidden" name="koumoku1Value" value="" id="koumoku1Value">
+<input type="hidden" name="koumoku2Value" value="" id="koumoku2Value">
+<input type="hidden" name="koumoku3Value" value="" id="koumoku3Value">
+<input type="hidden" name="koumoku1Word" value="" id="koumoku1Word">
+<input type="hidden" name="koumoku2Word" value="" id="koumoku2Word">
+<input type="hidden" name="koumoku3Word" value="" id="koumoku3Word">
+<input type="hidden" name="koumoku1HowtoSearch" value="and" id="koumoku1HowtoSearch">
+<input type="hidden" name="koumoku2HowtoSearch" value="and" id="koumoku2HowtoSearch">
+<input type="hidden" name="koumoku3HowtoSearch" value="and" id="koumoku3HowtoSearch">
+<input type="hidden" name="howtoRdSearchSel" value="or" id="howtoRdSearchSel">
+<input type="hidden" name="relationDoc1Sel" value="" id="relationDoc1Sel">
+<input type="hidden" name="relationDoc2Sel" value="" id="relationDoc2Sel">
+<input type="hidden" name="relationDoc3Sel" value="" id="relationDoc3Sel">
+<input type="hidden" name="relationDoc1check1" value="on" id="relationDoc1check1">
+<input type="hidden" name="relationDoc1check2" value="on" id="relationDoc1check2">
+<input type="hidden" name="relationDoc2check1" value="on" id="relationDoc2check1">
+<input type="hidden" name="relationDoc2check2" value="on" id="relationDoc2check2">
+<input type="hidden" name="relationDoc3check1" value="on" id="relationDoc3check1">
+<input type="hidden" name="relationDoc3check2" value="on" id="relationDoc3check2">
+<input type="hidden" name="relationDoc1Word" value="検索語を入力" id="relationDoc1Word">
+<input type="hidden" name="relationDoc2Word" value="検索語を入力" id="relationDoc2Word">
+<input type="hidden" name="relationDoc3Word" value="検索語を入力" id="relationDoc3Word">
+<input type="hidden" name="relationDoc1HowtoSearch" value="and" id="relationDoc1HowtoSearch">
+<input type="hidden" name="relationDoc2HowtoSearch" value="and" id="relationDoc2HowtoSearch">
+<input type="hidden" name="relationDoc3HowtoSearch" value="and" id="relationDoc3HowtoSearch">
+<input type="hidden" name="relationDoc1FrDt" value="年月 [YYYYMM]" id="relationDoc1FrDt">
+<input type="hidden" name="relationDoc1ToDt" value="年月 [YYYYMM]" id="relationDoc1ToDt">
+<input type="hidden" name="relationDoc2FrDt" value="年月 [YYYYMM]" id="relationDoc2FrDt">
+<input type="hidden" name="relationDoc2ToDt" value="年月 [YYYYMM]" id="relationDoc2ToDt">
+<input type="hidden" name="relationDoc3FrDt" value="年月 [YYYYMM]" id="relationDoc3FrDt">
+<input type="hidden" name="relationDoc3ToDt" value="年月 [YYYYMM]" id="relationDoc3ToDt">
+<input type="hidden" name="relationDocHowtoSearchBetween12" value="and" id="relationDocHowtoSearchBetween12">
+<input type="hidden" name="relationDocHowtoSearchBetween23" value="and" id="relationDocHowtoSearchBetween23">
+<input type="hidden" name="ListRows" value="1000" id="listRows">
+<input type="hidden" name="searchCnt" value="161" id="searchCnt">
+<input type="hidden" name="totalPages" value="1" id="totalPages">
+<input type="hidden" name="pages" value="1" id="pages">
+<input type="hidden" name="listCategory" value="BOOK" id="listCategory">
+<!-- add 2.01: 職員識別フラグを追加 -->
+<input type="hidden" name="personFlg" value="false" id="personFlg">
+<input type="hidden" name="gs1code" value="" id="gs1code">
+<input type="hidden" name="iyakuKoumokuSelectSwitchRadio" value="2" id="iyakuKoumokuSelectSwitchRadio">
+
+</form>
+</div><!-- / .PopupInner-->
+</div><!-- / .PopupArea-->
+</div><!-- / #ContentMainArea-->
+</div><!-- / #MainContents -->
+</div><!-- / #ContentArea .HTML5_section -->
+</div><!--/ContentWrap-->
+
+<div id="popDiv" style="position: fixed; visibility: show; left: 10px; top:10px; z-index: 5;"></div >
+<div id="popDiv2" style="position: fixed; visibility:show; z-index: 5;"></div >
+</div>
+</body>
+</html>
