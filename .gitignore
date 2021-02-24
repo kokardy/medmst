@@ -38,3 +38,14 @@ medmst-sv
 
 # default setting
 .env
+bin/cookie.txt
+
+bin/searchresult/*
+bin/data/*
+bin/pdf/*
+bin/html/*
+bin/sgml/*
+bin/xml/*
+bin/yj/*
+
+~*
