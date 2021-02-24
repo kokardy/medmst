@@ -12,7 +12,14 @@ services:
   #      - ./nginx:/etc/nginx
 
   pmda:
-    image: kokardy/rproxy
+    #image: kokardy/rproxy
+    build:
+      context: ./rproxy
+      args:
+        - "http_proxy=${http_proxy}"
+        - "https_proxy=${https_proxy}"
+        - "HTTP_PROXY=${http_proxy}"
+        - "HTTPS_PROXY=${https_proxy}"
     restart: always
     ports:
       - "8081:80"
@@ -27,7 +34,14 @@ services:
       - "DEST2=//10.26.61.131:8081"
 
   pmda-info:
-    image: kokardy/rproxy
+    #image: kokardy/rproxy
+    build:
+      context: ./rproxy
+      args:
+        - "http_proxy=${http_proxy}"
+        - "https_proxy=${https_proxy}"
+        - "HTTP_PROXY=${http_proxy}"
+        - "HTTPS_PROXY=${https_proxy}"
     restart: always
     ports:
       - "9081:80"
