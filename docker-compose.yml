@@ -4,6 +4,13 @@ services:
 
   pmda-kv:
     image: kokardy/pmda-kv
+    #build:
+    #  context: ./pmda-kv
+    #  args:
+    #    - "http_proxy=${http_proxy}"
+    #    - "https_proxy=${https_proxy}"
+    #    - "HTTP_PROXY=${http_proxy}"
+    #    - "HTTPS_PROXY=${https_proxy}"
     restart: always
     env_file: .env
     ports:
